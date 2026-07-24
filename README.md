@@ -44,3 +44,6 @@ pdt-storytelling-cards-updated/
 
 Sostituire il contenuto del repository GitHub mantenendo la struttura,
 eseguire `Commit changes` e attendere il completamento di GitHub Pages.
+## Aggiornamento terminologia
+
+La sezione relativa ai destinatari è stata uniformata alla formulazione: "professionisti della relazione, della cura, dell’educazione e della promozione umana".
