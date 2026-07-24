@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
+  />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>Pagina non trovata | PdT Storytelling Cards</title>
+  <meta name="description" content="La pagina richiesta non è disponibile." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
+</head>
+
+<body data-page="404">
+
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Apri il menu"
+      data-label-open="Apri il menu"
+      data-label-close="Chiudi il menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="articoli-pubblicazioni.html">Articoli</a></li>
+        <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="index.html" class="lang active" aria-label="Italiano">🇮🇹</a>
+        <a href="home-en.html" class="lang" aria-label="English">🇬🇧</a>
+        <a href="home-es.html" class="lang" aria-label="Español">🇪🇸</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero error-page">
+    <div class="container center reveal">
+      <p class="eyebrow">404</p>
+      <h1>Pagina non trovata.</h1>
+      <p class="page-hero-text">Il collegamento potrebbe essere cambiato oppure l’indirizzo non è corretto.</p>
+      <a class="primary-button solid" href="index.html">Torna alla home</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="index.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Carte fotografiche per lo storytelling e la narrazione di sé.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      Tutti i diritti riservati.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

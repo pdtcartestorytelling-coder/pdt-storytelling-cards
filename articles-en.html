@@ -1,114 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Articles and Publications | PdT Storytelling Cards</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
+  />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>Articles and publications | PdT Storytelling Cards</title>
+  <meta name="description" content="Articles and publications about the PdT method, narrative phototherapy and the relational dimension of storytelling." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="home-en.html" class="logo">PdT Storytelling Cards</a>
+<body data-page="articles">
 
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="home-en.html">Home</a></li>
-          <li><a href="about-en.html">About Us</a></li>
-          <li><a href="articles-en.html" class="active">Articles</a></li>
-          <li><a href="contact-en.html">Contact & Buy</a></li>
-        </ul>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="home-en.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
 
-        <div class="language-switcher">
-          <a href="articoli-pubblicazioni.html" class="lang">🇮🇹</a>
-          <a href="articles-en.html" class="lang active">🇬🇧</a>
-          <a href="articles-es.html" class="lang">🇪🇸</a>
-        </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      data-label-open="Open menu"
+      data-label-close="Close menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-en.html">Home</a></li>
+        <li><a href="about-en.html">About us</a></li>
+        <li><a href="articles-en.html" class="active" aria-current="page">Articles</a></li>
+        <li><a href="contact-en.html">Contact & buy</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="articoli-pubblicazioni.html" class="lang" aria-label="Italiano">🇮🇹</a>
+        <a href="articles-en.html" class="lang active" aria-label="English">🇬🇧</a>
+        <a href="articles-es.html" class="lang" aria-label="Español">🇪🇸</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="section-content">
+
+<main>
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
         <p class="eyebrow">Articles and publications</p>
-        <h1>Research, storytelling and narrative phototherapy</h1>
-        <p class="hero-text">
-          A space for theoretical insights, clinical reflections, cultural
-          contributions and publications related to the PdT method and narrative
-          phototherapy.
-        </p>
+        <h1>Research, storytelling and narrative phototherapy.</h1>
+        <p class="page-hero-text">A space for theoretical insights, clinical reflections and cultural contributions related to the PdT method.</p>
       </div>
-    </section>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="section-content narrow-content">
+  <section class="section section-light">
+    <div class="container split-copy">
+      <div class="section-heading reveal">
         <p class="section-label">The PdT method</p>
-        <h2>A narrative and relational perspective on human experience</h2>
-
-        <p>
-          The PdT method arises from the encounter between clinical thought,
-          image, narration and listening.
-        </p>
-
-        <p>
-          Photography is understood not only as an image to observe, but as a
-          narrative device capable of activating emotions, memories,
-          representations and reflective processes.
-        </p>
+        <h2>A narrative and relational perspective on human experience.</h2>
       </div>
-    </section>
+      <div class="reading-copy reveal">
+        <p>The PdT method arises from the encounter between clinical thought, image, narration and listening. Through evocative photographs, the work is oriented toward building personal and shared meanings.</p>
+<p>Photography is understood not only as an image to observe, but as a narrative device capable of activating emotions, memories, representations and reflective processes.</p>
+<p>The approach considers self-narration as a process that takes shape through dialogue, listening and shared experience.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section dark-section">
-      <div class="section-content">
+  <section class="section section-blue">
+    <div class="container">
+      <div class="section-title reveal">
         <p class="section-label">Narrative phototherapy</p>
-        <h2>Image, memory and meaning</h2>
-
-        <div class="grid">
-          <article class="info-card">
-            <h3>Photography as an activator</h3>
-            <p>
-              Images can facilitate access to emotional content, experiences and
-              memories that are difficult to reach through verbal language alone.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>The narrative dimension</h3>
-            <p>
-              Telling stories means giving meaning to experience and building
-              new possibilities for self-understanding.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>The relationship</h3>
-            <p>
-              Meaning emerges within an authentic, protected relationship
-              oriented toward listening to subjectivity.
-            </p>
-          </article>
-        </div>
+        <h2>Image, memory and meaning.</h2>
       </div>
-    </section>
+      <div class="feature-grid"><article class="feature-card reveal">
+          <h3>Photography as an activator</h3>
+          <p>Images can facilitate access to emotional content, experiences and memories that may be difficult to reach through verbal language alone.</p>
+        </article>
+<article class="feature-card reveal">
+          <h3>The narrative dimension</h3>
+          <p>Telling stories means giving meaning to experience, integrating fragments of life and building new possibilities for self-understanding.</p>
+        </article>
+<article class="feature-card reveal">
+          <h3>The relationship</h3>
+          <p>Meaning emerges within an authentic, protected relationship oriented toward listening to subjectivity.</p>
+        </article></div>
+    </div>
+  </section>
 
-    <section class="contact-section">
-      <div class="section-content">
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-title reveal">
+        <p class="section-label">Publications</p>
+        <h2>Articles in preparation.</h2>
+      </div>
+      <div class="publication-grid"><article class="publication-card reveal">
+          <span>In development</span>
+          <h3>The PdT method and the narrative construction of self</h3>
+          <p>A theoretical exploration of the role of narrative and images in processes of personal awareness.</p>
+        </article>
+<article class="publication-card reveal">
+          <span>In development</span>
+          <h3>Narrative phototherapy in clinical and educational contexts</h3>
+          <p>Applied reflections on the use of images in individual, group and training pathways.</p>
+        </article>
+<article class="publication-card reveal">
+          <span>In development</span>
+          <h3>Emotion, image and relationship</h3>
+          <p>A contribution on the relationship between evocative photography, emotional representation and meaning-making.</p>
+        </article></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-grid reveal">
+      <div>
         <p class="section-label">Updates</p>
-        <h2>New articles and contributions will be published soon</h2>
-        <p>
-          This section will be progressively updated with articles, publications,
-          research materials and insights related to the PdT project.
-        </p>
-        <a href="contact-en.html" class="primary-button">Contact us</a>
+        <h2>New articles and contributions will be published progressively.</h2>
+        <p>This section will collect research materials, publications and insights related to the PdT project.</p>
       </div>
-    </section>
-  </main>
+      <a href="contact-en.html" class="primary-button solid">Contact us</a>
+    </div>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 PdT Storytelling Cards. All rights reserved.</p>
-  </footer>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-en.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Photographic cards for storytelling and self-narration.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      All rights reserved.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

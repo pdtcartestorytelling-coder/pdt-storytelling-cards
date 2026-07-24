@@ -1,198 +1,201 @@
-html
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>PdT Storytelling Cards | Home</title>
-
   <meta
-    name="description"
-    content="PdT Storytelling Cards: carte fotografiche per lo storytelling, l’esplorazione emotiva, la narrazione di sé e lo sviluppo delle risorse personali."
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>PdT Storytelling Cards | Home</title>
+  <meta name="description" content="PdT Storytelling Cards: carte fotografiche per lo storytelling, l’esplorazione emotiva, la narrazione di sé e l’attivazione delle risorse personali." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">PdT Storytelling Cards</a>
+<body data-page="home">
 
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="chi-siamo.html">Chi siamo</a></li>
-          <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
-        </ul>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
 
-        <div class="language-switcher">
-          <a href="index.html" class="lang active" aria-label="Italiano">🇮🇹</a>
-          <a href="home-en.html" class="lang" aria-label="English">🇬🇧</a>
-          <a href="home-es.html" class="lang" aria-label="Español">🇪🇸</a>
-        </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Apri il menu"
+      data-label-open="Apri il menu"
+      data-label-close="Chiudi il menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="articoli-pubblicazioni.html">Articoli</a></li>
+        <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="index.html" class="lang active" aria-label="Italiano">🇮🇹</a>
+        <a href="home-en.html" class="lang" aria-label="English">🇬🇧</a>
+        <a href="home-es.html" class="lang" aria-label="Español">🇪🇸</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero-section">
-      <div class="hero-content">
+
+<main>
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
         <p class="eyebrow">Carte fotografiche per lo storytelling</p>
-
-        <h1>PdT Storytelling Cards</h1>
-
-        <p class="hero-text">
-          PdT è una visione dell’essere umano capace, per tutto l’arco della sua
-          esistenza, di progettare, scoprire, conoscere, desiderare e cambiare.
-        </p>
-
-        <a href="#progetto" class="primary-button">Scopri il progetto</a>
+        <h1>Dare forma alle storie personali.</h1>
+        <p class="hero-text">PdT è una visione dell’essere umano capace, per tutto l’arco della sua esistenza, di progettare, scoprire, conoscere, desiderare e cambiare.</p>
+        <a href="#project" class="primary-button">Scopri il progetto</a>
       </div>
 
-      <div class="hero-card">
-        <div class="card-placeholder">
-          <span>PdT</span>
-          <p>Storytelling Cards</p>
-        </div>
+      <div class="official-logo-badge reveal">
+        <span class="badge-label">Official identity</span>
+        <img
+          src="images/pdt-logo.jpg?v=2"
+          alt="PdT Storytelling Cards"
+          class="official-logo"
+        />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="progetto" class="section">
-      <div class="section-content">
+  <section id="project" class="section section-light">
+    <div class="container split-copy">
+      <div class="section-heading reveal">
         <p class="section-label">Il progetto</p>
-
-        <h2>Uno strumento evocativo per dare forma alle storie personali</h2>
-
-        <p>
-          Il progetto nasce dalla volontà di fornire ai professionisti uno
-          strumento operativo di narrazione che consenta la conoscenza,
-          l’elaborazione e l’integrazione di emozioni, pensieri, vissuti e
-          rappresentazioni personali.
-        </p>
-
-        <p>
-          Lo scopo ultimo è quello di attivare nuove risorse intra e
-          interpersonali nella direzione del benessere psicofisico.
-        </p>
+        <h2>Uno strumento evocativo per conoscere, elaborare e integrare.</h2>
       </div>
-    </section>
+      <div class="reading-copy reveal">
+        <p class="lead">PdT nasce per offrire ai professionisti uno strumento operativo di narrazione capace di accompagnare emozioni, pensieri, vissuti e rappresentazioni personali.</p>
+        <p>Le immagini e le domande guida sostengono la costruzione di significati, favorendo l’attivazione di nuove risorse intra e interpersonali nella direzione del benessere psicofisico.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section dark-section">
-      <div class="section-content">
+  <section class="section section-blue">
+    <div class="container">
+      <div class="section-title reveal">
         <p class="section-label">Il prodotto</p>
-
-        <h2>Carte fotografiche per l’esplorazione emotiva e la narrazione di sé</h2>
-
-        <p>
-          PdT è pensato per favorire l’autoconsapevolezza e lo sviluppo delle
-          risorse personali attraverso immagini evocative e strumenti operativi
-          dedicati.
-        </p>
-
-        <p>
-          Il bundle PdT è composto da due mazzi da 51 carte ciascuno, un manuale
-          teorico-operativo e schede con domande guida divise per temi, come
-          identità ed emozioni, e per contesti individuali, gruppali e human
-          resources.
-        </p>
-
-        <div class="grid">
-          <article class="info-card">
-            <h3>Le carte</h3>
-            <p>
-              Le immagini sono state realizzate e scelte con cura. Sono
-              bilanciate rispetto ai temi evocati, che vanno da contenuti
-              perturbanti a contenuti più sicuri e protettivi.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>Il manuale</h3>
-            <p>
-              Il manuale teorico-operativo accompagna il professionista nella
-              comprensione del metodo PdT, rivelandone le connessioni
-              teorico-scientifiche.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>Le schede guida</h3>
-            <p>
-              Le schede offrono domande operative divise per temi e contesti,
-              facilitando l’utilizzo del prodotto in diversi ambiti professionali.
-            </p>
-          </article>
-        </div>
+        <h2>Due mazzi, un manuale e schede operative.</h2>
+        <p>Il bundle PdT comprende due mazzi da 51 carte fotografiche ciascuno, un manuale teorico-operativo di 47 pagine e schede con domande guida organizzate per temi e contesti professionali.</p>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-content">
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <span>01</span>
+          <h3>Le carte</h3>
+          <p>Immagini realizzate e selezionate con cura, bilanciate tra contenuti perturbanti e immagini più sicure e protettive.</p>
+        </article>
+        <article class="feature-card reveal">
+          <span>02</span>
+          <h3>Il manuale</h3>
+          <p>Un percorso teorico-operativo che accompagna il professionista nella comprensione del metodo e delle sue connessioni teorico-scientifiche.</p>
+        </article>
+        <article class="feature-card reveal">
+          <span>03</span>
+          <h3>Le schede guida</h3>
+          <p>Domande organizzate per temi, come identità ed emozioni, e per contesti individuali, gruppali e human resources.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-title reveal">
         <p class="section-label">Come funziona</p>
-
-        <h2>Uno strumento da utilizzare in un contesto professionale protetto</h2>
-
-        <p>
-          Le carte devono essere somministrate in un contesto professionale,
-          tutelato e protetto nei tempi e nei modi specifici del mandato
-          dichiarato e condiviso tra professionista o professionisti e cliente o
-          clienti.
-        </p>
-
-        <div class="grid light-grid">
-          <article class="info-card light-card">
-            <h3>Esplorazione emotiva</h3>
-            <p>
-              Per aiutare a percepire, riconoscere, nominare e condividere, con
-              uno o più ascoltatori attenti e interessati, quello che si sente
-              nella connessione con l’immagine.
-            </p>
-          </article>
-
-          <article class="info-card light-card">
-            <h3>Narrazione personale e di gruppo</h3>
-            <p>
-              Per costruire narrazioni, connettere esperienze e attribuire
-              significati al fine di accettare e integrare i passaggi di vita più
-              complessi.
-            </p>
-          </article>
-
-          <article class="info-card light-card">
-            <h3>Risorse e obiettivi</h3>
-            <p>
-              Per identificare nuove possibilità, desideri, direzioni e risorse
-              utili per la crescita e il cambiamento.
-            </p>
-          </article>
-        </div>
+        <h2>Un utilizzo professionale, tutelato e condiviso.</h2>
+        <p>Le carte sono pensate per essere utilizzate in un contesto professionale protetto nei tempi e nelle modalità del mandato dichiarato e condiviso.</p>
       </div>
-    </section>
 
-    <section class="contact-section">
-      <div class="section-content">
+      <div class="principles-grid">
+        <article class="principle-card reveal">
+          <span>01</span>
+          <h3>Esplorazione emotiva</h3>
+          <p>Per percepire, riconoscere, nominare e condividere ciò che emerge nella connessione con l’immagine.</p>
+        </article>
+        <article class="principle-card reveal">
+          <span>02</span>
+          <h3>Narrazione personale e di gruppo</h3>
+          <p>Per costruire narrazioni, connettere esperienze e attribuire significati ai passaggi di vita più complessi.</p>
+        </article>
+        <article class="principle-card reveal">
+          <span>03</span>
+          <h3>Risorse e obiettivi</h3>
+          <p>Per identificare nuove possibilità, desideri, direzioni e risorse utili alla crescita e al cambiamento.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-grid reveal">
+      <div>
         <p class="section-label">A chi è indirizzato</p>
-
-        <h2>Per professionisti della relazione, della cura e dello sviluppo umano</h2>
-
-        <p>
-          Il prodotto PdT è rivolto ai professionisti dell’area sanitaria, come
-          psicologi e psicoterapeuti, dell’area educativa, come pedagogisti ed
-          educatori professionali, oltre che a counselor aziendali e professionisti
-          HR.
-        </p>
-
-        <a href="contatti-acquista.html" class="primary-button">
-          Contatti e acquista
-        </a>
+        <h2>Per professionisti della relazione, della cura, dell’educazione e della promozione umana.</h2>
+        <p>PdT è rivolto a psicologi, psicoterapeuti, pedagogisti, educatori professionali, counselor aziendali e professionisti delle risorse umane.</p>
       </div>
-    </section>
-  </main>
+      <a href="contatti-acquista.html" class="primary-button solid">Contatti e acquista</a>
+    </div>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 PdT Storytelling Cards. Tutti i diritti riservati.</p>
-  </footer>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="index.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Carte fotografiche per lo storytelling e la narrazione di sé.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      Tutti i diritti riservati.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,165 +1,186 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Chi siamo | PdT Storytelling Cards</title>
-
   <meta
-    name="description"
-    content="Scopri la collaborazione tra Roberto Antoniello e Silvia Dierico, ideatori del progetto PdT - Parlami di Te."
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>Chi siamo | PdT Storytelling Cards</title>
+  <meta name="description" content="Scopri la collaborazione tra Roberto Antoniello e Silvia Dierico, ideatori e cofondatori del progetto PdT - Parlami di Te." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">PdT Storytelling Cards</a>
+<body data-page="about">
 
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chi-siamo.html" class="active">Chi siamo</a></li>
-          <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
-        </ul>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
 
-        <div class="language-switcher">
-          <a href="chi-siamo.html" class="lang active" aria-label="Italiano">🇮🇹</a>
-          <a href="about-en.html" class="lang" aria-label="English">🇬🇧</a>
-          <a href="about-es.html" class="lang" aria-label="Español">🇪🇸</a>
-        </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Apri il menu"
+      data-label-open="Apri il menu"
+      data-label-close="Chiudi il menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html" class="active" aria-current="page">Chi siamo</a></li>
+        <li><a href="articoli-pubblicazioni.html">Articoli</a></li>
+        <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="chi-siamo.html" class="lang active" aria-label="Italiano">🇮🇹</a>
+        <a href="about-en.html" class="lang" aria-label="English">🇬🇧</a>
+        <a href="about-es.html" class="lang" aria-label="Español">🇪🇸</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="section-content">
+
+<main>
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
         <p class="eyebrow">Chi siamo</p>
-
-        <h1>Un incontro umano e professionale</h1>
-
-        <p class="hero-text">
-          Il progetto PdT - Parlami di Te nasce dalla collaborazione tra Roberto
-          Antoniello e Silvia Dierico, da una visione condivisa dell’esperienza
-          umana come spazio di ascolto, narrazione e scoperta di sé.
-        </p>
+        <h1>Un incontro umano e professionale.</h1>
+        <p class="page-hero-text">PdT - Parlami di Te nasce dalla collaborazione tra Roberto Antoniello e Silvia Dierico e da una visione condivisa dell’esperienza umana come spazio di ascolto, narrazione e scoperta di sé.</p>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-content narrow-content">
-        <p class="section-label">La collaborazione</p>
-
-        <h2>Dodici anni di dialogo, ricerca e progettualità condivisa</h2>
-
-        <p>
-          La collaborazione tra Roberto Antoniello e Silvia Dierico nasce da un
-          incontro umano e professionale che dura da oltre dodici anni.
-        </p>
-
-        <p>
-          Nel tempo, un iniziale percorso di consulenza si è trasformato in un
-          dialogo continuo e autentico, alimentato da interessi condivisi nel
-          campo della psicoanalisi, del cinema e delle arti.
-        </p>
-
-        <p>
-          Attraverso uno scambio costante di idee, riflessioni ed esperienze, è
-          maturata una visione comune attenta alla dimensione emotiva, narrativa
-          e relazionale dell’esperienza umana.
-        </p>
-
-        <p>
-          Da questa sintonia prende forma il progetto PdT - Parlami di Te,
-          pensato come uno spazio di incontro, ascolto, narrazione e scoperta di
-          sé.
-        </p>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section dark-section">
-      <div class="section-content">
-        <p class="section-label">I fondatori</p>
+  <section class="section section-light">
+    <div class="container split-copy">
+      <div class="section-heading reveal">
+        <p class="section-label">La nostra storia</p>
+        <h2>Oltre dodici anni di dialogo e progettualità condivisa.</h2>
+      </div>
+      <div class="reading-copy reveal">
+        <p>La collaborazione tra Roberto Antoniello e Silvia Dierico nasce da un incontro umano e professionale che dura da oltre dodici anni.</p>
+<p>Nel tempo, un iniziale percorso di consulenza si è trasformato in un dialogo continuo e autentico, alimentato da interessi condivisi nel campo della psicoanalisi, del cinema e delle arti.</p>
+<p>Attraverso uno scambio costante di idee, riflessioni ed esperienze, è maturata una visione comune attenta alla dimensione emotiva, narrativa e relazionale dell’esperienza umana.</p>
+<p>Da questa sintonia prende forma PdT - Parlami di Te, pensato come uno spazio di incontro, ascolto, narrazione e scoperta di sé.</p>
+      </div>
+    </div>
+  </section>
 
-        <h2>Due percorsi distinti, una visione comune</h2>
+  <section class="section section-blue">
+    <div class="container">
+      <div class="section-title reveal">
+        <p class="section-label">I cofondatori</p>
+        <h2>Due percorsi distinti, una visione comune.</h2>
+      </div>
 
-        <div class="profile-grid">
-          <article class="profile-card">
-            <div class="profile-initials">RA</div>
-
+      <div class="founder-grid">
+        <article class="founder-card reveal">
+          <div class="founder-photo">
+            <img
+              src="images/roberto-antoniello.jpg?v=2"
+              alt="Roberto Antoniello"
+              loading="lazy"
+            />
+          </div>
+          <div class="founder-copy">
+            <span class="founder-role">Co-founder · Photography & philosophy</span>
             <h3>Roberto Antoniello</h3>
+            <p>Laureato magistrale in filosofia analitica e filosofia della mente, Roberto Antoniello affianca alla ricerca teorica un percorso artistico e culturale multidisciplinare.</p>
+<p>Fotografo con una spiccata sensibilità per l’astrattismo e le atmosfere perturbanti, esplora attraverso le immagini i confini tra percezione, emozione e interpretazione.</p>
+<p>Si occupa inoltre di scrittura editoriale e coltiva un interesse per la storia del cinema d’autore europeo, con attenzione alle sue dimensioni estetiche e filosofiche.</p>
+          </div>
+        </article>
 
-            <p>
-              Laureato magistrale in filosofia analitica e filosofia della mente,
-              Roberto Antoniello affianca alla ricerca teorica un percorso
-              artistico e culturale multidisciplinare.
-            </p>
-
-            <p>
-              Fotografo con una spiccata sensibilità per l’astrattismo e le
-              atmosfere perturbanti, esplora attraverso le immagini i confini tra
-              percezione, emozione e interpretazione.
-            </p>
-
-            <p>
-              Si occupa inoltre di scrittura editoriale, curando prefazioni per
-              opere narrative, e coltiva un interesse per la storia del cinema
-              d’autore europeo, ponendo attenzione alle sue dimensioni estetiche
-              e filosofiche.
-            </p>
-          </article>
-
-          <article class="profile-card">
-            <div class="profile-initials">SD</div>
-
+        <article class="founder-card reveal">
+          <div class="founder-photo silvia-photo">
+            <img
+              src="images/silvia-dierico.jpg?v=2"
+              alt="Silvia Dierico"
+              loading="lazy"
+            />
+          </div>
+          <div class="founder-copy">
+            <span class="founder-role">Co-founder · Clinical psychology</span>
             <h3>Silvia Dierico</h3>
-
-            <p>
-              Psicologa clinica e psicoterapeuta ad orientamento intersoggettivo,
-              Silvia Dierico lavora con adolescenti e adulti accompagnandoli in
-              percorsi di crescita, consapevolezza e cura.
-            </p>
-
-            <p>
-              Coordina un’équipe multidisciplinare che opera all’interno di un
-              Consultorio Familiare, integrando competenze cliniche, relazionali
-              e progettuali.
-            </p>
-
-            <p>
-              Sviluppa interventi di comunità finalizzati al benessere
-              psicologico. È specializzata nel counseling nel contesto scolastico
-              e nella progettazione di interventi di promozione alla salute.
-            </p>
-          </article>
-        </div>
+            <p>Psicologa clinica e psicoterapeuta ad orientamento intersoggettivo, Silvia Dierico lavora con adolescenti e adulti accompagnandoli in percorsi di crescita, consapevolezza e cura.</p>
+<p>Coordina un’équipe multidisciplinare all’interno di un Consultorio Familiare, integrando competenze cliniche, relazionali e progettuali.</p>
+<p>Sviluppa interventi di comunità finalizzati al benessere psicologico ed è specializzata nel counseling scolastico e nella progettazione di interventi di promozione alla salute.</p>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="contact-section">
-      <div class="section-content">
+  <section class="cta-section">
+    <div class="container cta-grid reveal">
+      <div>
         <p class="section-label">PdT - Parlami di Te</p>
-
-        <h2>Uno spazio di incontro, ascolto e narrazione</h2>
-
-        <p>
-          PdT Storytelling Cards nasce dall’integrazione tra immagine, pensiero
-          clinico, sensibilità artistica e attenzione alla relazione.
-        </p>
-
-        <a href="contatti-acquista.html" class="primary-button">
-          Contatti e acquista
-        </a>
+        <h2>Immagine, pensiero clinico e sensibilità artistica.</h2>
+        <p>Il progetto integra competenze differenti per creare uno strumento professionale attento alla soggettività, alla relazione e alla costruzione narrativa dell’esperienza.</p>
       </div>
-    </section>
-  </main>
+      <a href="contatti-acquista.html" class="primary-button solid">Contatti e acquista</a>
+    </div>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 PdT Storytelling Cards. Tutti i diritti riservati.</p>
-  </footer>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="index.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Carte fotografiche per lo storytelling e la narrazione di sé.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      Tutti i diritti riservati.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

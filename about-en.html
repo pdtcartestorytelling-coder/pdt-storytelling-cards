@@ -1,132 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>About Us | PdT Storytelling Cards</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
+  />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>About us | PdT Storytelling Cards</title>
+  <meta name="description" content="Discover the collaboration between Roberto Antoniello and Silvia Dierico, creators and co-founders of PdT - Parlami di Te." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="home-en.html" class="logo">PdT Storytelling Cards</a>
+<body data-page="about">
 
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="home-en.html">Home</a></li>
-          <li><a href="about-en.html" class="active">About Us</a></li>
-          <li><a href="articles-en.html">Articles</a></li>
-          <li><a href="contact-en.html">Contact & Buy</a></li>
-        </ul>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="home-en.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
 
-        <div class="language-switcher">
-          <a href="chi-siamo.html" class="lang">🇮🇹</a>
-          <a href="about-en.html" class="lang active">🇬🇧</a>
-          <a href="about-es.html" class="lang">🇪🇸</a>
-        </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      data-label-open="Open menu"
+      data-label-close="Close menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-en.html">Home</a></li>
+        <li><a href="about-en.html" class="active" aria-current="page">About us</a></li>
+        <li><a href="articles-en.html">Articles</a></li>
+        <li><a href="contact-en.html">Contact & buy</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="chi-siamo.html" class="lang" aria-label="Italiano">🇮🇹</a>
+        <a href="about-en.html" class="lang active" aria-label="English">🇬🇧</a>
+        <a href="about-es.html" class="lang" aria-label="Español">🇪🇸</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="section-content">
+
+<main>
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
         <p class="eyebrow">About us</p>
-        <h1>A human and professional encounter</h1>
-        <p class="hero-text">
-          PdT - Parlami di Te was born from the collaboration between Roberto
-          Antoniello and Silvia Dierico, and from a shared vision of human
-          experience as a space for listening, storytelling and self-discovery.
-        </p>
+        <h1>A human and professional encounter.</h1>
+        <p class="page-hero-text">PdT - Parlami di Te was born from the collaboration between Roberto Antoniello and Silvia Dierico and from a shared vision of human experience as a space for listening, storytelling and self-discovery.</p>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="section-content narrow-content">
-        <p class="section-label">The collaboration</p>
-        <h2>Twelve years of dialogue, research and shared vision</h2>
-
-        <p>
-          The collaboration between Roberto Antoniello and Silvia Dierico began
-          from a human and professional encounter that has lasted for more than
-          twelve years.
-        </p>
-
-        <p>
-          Over time, an initial consulting path became an ongoing and authentic
-          dialogue, nourished by shared interests in psychoanalysis, cinema and
-          the arts.
-        </p>
-
-        <p>
-          Through a constant exchange of ideas, reflections and experiences, a
-          common vision emerged, attentive to the emotional, narrative and
-          relational dimensions of human experience.
-        </p>
-
-        <p>
-          From this harmony, the PdT - Parlami di Te project took shape as a
-          space for encounter, listening, storytelling and self-discovery.
-        </p>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section dark-section">
-      <div class="section-content">
-        <p class="section-label">Founders</p>
-        <h2>Two distinct paths, one shared vision</h2>
+  <section class="section section-light">
+    <div class="container split-copy">
+      <div class="section-heading reveal">
+        <p class="section-label">Our story</p>
+        <h2>More than twelve years of dialogue and shared design.</h2>
+      </div>
+      <div class="reading-copy reveal">
+        <p>The collaboration between Roberto Antoniello and Silvia Dierico began with a human and professional encounter that has lasted for more than twelve years.</p>
+<p>Over time, an initial consulting path became an ongoing and authentic dialogue nourished by shared interests in psychoanalysis, cinema and the arts.</p>
+<p>Through a constant exchange of ideas, reflections and experiences, a common vision emerged, attentive to the emotional, narrative and relational dimensions of human experience.</p>
+<p>From this harmony, PdT - Parlami di Te took shape as a space for encounter, listening, storytelling and self-discovery.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="profile-grid">
-          <article class="profile-card">
-            <div class="profile-initials">RA</div>
+  <section class="section section-blue">
+    <div class="container">
+      <div class="section-title reveal">
+        <p class="section-label">The co-founders</p>
+        <h2>Two distinct paths, one shared vision.</h2>
+      </div>
+
+      <div class="founder-grid">
+        <article class="founder-card reveal">
+          <div class="founder-photo">
+            <img
+              src="images/roberto-antoniello.jpg?v=2"
+              alt="Roberto Antoniello"
+              loading="lazy"
+            />
+          </div>
+          <div class="founder-copy">
+            <span class="founder-role">Co-founder · Photography & philosophy</span>
             <h3>Roberto Antoniello</h3>
-            <p>
-              Roberto Antoniello holds a master’s degree in analytic philosophy
-              and philosophy of mind, combining theoretical research with a
-              multidisciplinary artistic and cultural path.
-            </p>
-            <p>
-              As a photographer with a strong sensitivity for abstraction and
-              uncanny atmospheres, he explores the boundaries between perception,
-              emotion and interpretation.
-            </p>
-          </article>
+            <p>Roberto Antoniello holds a master’s degree in analytic philosophy and philosophy of mind, combining theoretical research with a multidisciplinary artistic and cultural path.</p>
+<p>As a photographer with a strong sensitivity for abstraction and uncanny atmospheres, he explores the boundaries between perception, emotion and interpretation.</p>
+<p>He also works in editorial writing and cultivates an interest in the history of European auteur cinema, with attention to its aesthetic and philosophical dimensions.</p>
+          </div>
+        </article>
 
-          <article class="profile-card">
-            <div class="profile-initials">SD</div>
+        <article class="founder-card reveal">
+          <div class="founder-photo silvia-photo">
+            <img
+              src="images/silvia-dierico.jpg?v=2"
+              alt="Silvia Dierico"
+              loading="lazy"
+            />
+          </div>
+          <div class="founder-copy">
+            <span class="founder-role">Co-founder · Clinical psychology</span>
             <h3>Silvia Dierico</h3>
-            <p>
-              Silvia Dierico is a clinical psychologist and intersubjective
-              psychotherapist working with adolescents and adults in paths of
-              growth, awareness and care.
-            </p>
-            <p>
-              She coordinates a multidisciplinary team within a Family Counseling
-              Center and develops community interventions aimed at psychological
-              well-being.
-            </p>
-          </article>
-        </div>
+            <p>Silvia Dierico is a clinical psychologist and intersubjective psychotherapist working with adolescents and adults through paths of growth, awareness and care.</p>
+<p>She coordinates a multidisciplinary team within a Family Counselling Centre, integrating clinical, relational and design skills.</p>
+<p>She develops community interventions aimed at psychological well-being and specialises in school counselling and health-promotion projects.</p>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="contact-section">
-      <div class="section-content">
+  <section class="cta-section">
+    <div class="container cta-grid reveal">
+      <div>
         <p class="section-label">PdT - Parlami di Te</p>
-        <h2>A space for encounter, listening and narration</h2>
-        <p>
-          PdT Storytelling Cards comes from the integration of image, clinical
-          thought, artistic sensitivity and attention to relationship.
-        </p>
-        <a href="contact-en.html" class="primary-button">Contact & Buy</a>
+        <h2>Images, clinical thought and artistic sensitivity.</h2>
+        <p>The project integrates different skills to create a professional tool attentive to subjectivity, relationship and the narrative construction of experience.</p>
       </div>
-    </section>
-  </main>
+      <a href="contact-en.html" class="primary-button solid">Contact & buy</a>
+    </div>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 PdT Storytelling Cards. All rights reserved.</p>
-  </footer>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-en.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Photographic cards for storytelling and self-narration.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      All rights reserved.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

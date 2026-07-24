@@ -1,187 +1,184 @@
-html
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Articoli e Pubblicazioni | PdT Storytelling Cards</title>
-
   <meta
-    name="description"
-    content="Approfondimenti, articoli e pubblicazioni sul metodo PdT, la fototerapia narrativa e la dimensione relazionale della narrazione."
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
   />
 
-  <link rel="stylesheet" href="style.css" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>Articoli e pubblicazioni | PdT Storytelling Cards</title>
+  <meta name="description" content="Approfondimenti, articoli e pubblicazioni sul metodo PdT, la fototerapia narrativa e la dimensione relazionale della narrazione." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="index.html" class="logo">PdT Storytelling Cards</a>
+<body data-page="articles">
 
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="chi-siamo.html">Chi siamo</a></li>
-          <li><a href="articoli-pubblicazioni.html" class="active">Articoli</a></li>
-          <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
-        </ul>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
 
-        <div class="language-switcher">
-          <a href="articoli-pubblicazioni.html" class="lang active" aria-label="Italiano">🇮🇹</a>
-          <a href="articles-en.html" class="lang" aria-label="English">🇬🇧</a>
-          <a href="articles-es.html" class="lang" aria-label="Español">🇪🇸</a>
-        </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Apri il menu"
+      data-label-open="Apri il menu"
+      data-label-close="Chiudi il menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="articoli-pubblicazioni.html" class="active" aria-current="page">Articoli</a></li>
+        <li><a href="contatti-acquista.html">Contatti e acquista</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="articoli-pubblicazioni.html" class="lang active" aria-label="Italiano">🇮🇹</a>
+        <a href="articles-en.html" class="lang" aria-label="English">🇬🇧</a>
+        <a href="articles-es.html" class="lang" aria-label="Español">🇪🇸</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="section-content">
+
+<main>
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
         <p class="eyebrow">Articoli e pubblicazioni</p>
-
-        <h1>Ricerca, narrazione e fototerapia</h1>
-
-        <p class="hero-text">
-          Uno spazio dedicato ad approfondimenti teorici, riflessioni cliniche,
-          contributi culturali e pubblicazioni legate al metodo PdT e alla
-          fototerapia narrativa.
-        </p>
+        <h1>Ricerca, narrazione e fototerapia narrativa.</h1>
+        <p class="page-hero-text">Uno spazio dedicato ad approfondimenti teorici, riflessioni cliniche e contributi culturali legati al metodo PdT.</p>
       </div>
-    </section>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="section-content narrow-content">
+  <section class="section section-light">
+    <div class="container split-copy">
+      <div class="section-heading reveal">
         <p class="section-label">Il metodo PdT</p>
-
-        <h2>Una prospettiva narrativa e relazionale sull’esperienza umana</h2>
-
-        <p>
-          Il metodo PdT nasce dall’incontro tra pensiero clinico, immagine,
-          narrazione e ascolto. Attraverso l’utilizzo di fotografie evocative,
-          il lavoro si orienta verso la costruzione di significati personali e
-          condivisi.
-        </p>
-
-        <p>
-          La fotografia viene intesa non soltanto come immagine da osservare,
-          ma come dispositivo narrativo capace di attivare emozioni, ricordi,
-          rappresentazioni e processi riflessivi.
-        </p>
-
-        <p>
-          L’approccio si inserisce all’interno di una visione relazionale della
-          persona, in cui il racconto di sé prende forma attraverso il dialogo,
-          l’ascolto e l’esperienza condivisa.
-        </p>
+        <h2>Una prospettiva narrativa e relazionale sull’esperienza umana.</h2>
       </div>
-    </section>
+      <div class="reading-copy reveal">
+        <p>Il metodo PdT nasce dall’incontro tra pensiero clinico, immagine, narrazione e ascolto. Attraverso fotografie evocative, il lavoro si orienta verso la costruzione di significati personali e condivisi.</p>
+<p>La fotografia viene intesa non soltanto come immagine da osservare, ma come dispositivo narrativo capace di attivare emozioni, ricordi, rappresentazioni e processi riflessivi.</p>
+<p>L’approccio considera il racconto di sé come un processo che prende forma attraverso il dialogo, l’ascolto e l’esperienza condivisa.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section dark-section">
-      <div class="section-content">
+  <section class="section section-blue">
+    <div class="container">
+      <div class="section-title reveal">
         <p class="section-label">Fototerapia narrativa</p>
-
-        <h2>Immagine, memoria e significato</h2>
-
-        <div class="grid">
-          <article class="info-card">
-            <h3>La fotografia come attivatore</h3>
-
-            <p>
-              Le immagini possono facilitare l’accesso a contenuti emotivi,
-              vissuti e memorie difficilmente raggiungibili attraverso il solo
-              linguaggio verbale.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>La dimensione narrativa</h3>
-
-            <p>
-              Raccontare significa attribuire senso alla propria esperienza,
-              integrare frammenti di vita e costruire nuove possibilità di
-              comprensione di sé.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <h3>La relazione</h3>
-
-            <p>
-              Il significato emerge all’interno di una relazione autentica,
-              protetta e orientata all’ascolto della soggettività della persona.
-            </p>
-          </article>
-        </div>
+        <h2>Immagine, memoria e significato.</h2>
       </div>
-    </section>
+      <div class="feature-grid"><article class="feature-card reveal">
+          <h3>La fotografia come attivatore</h3>
+          <p>Le immagini possono facilitare l’accesso a contenuti emotivi, vissuti e memorie difficilmente raggiungibili attraverso il solo linguaggio verbale.</p>
+        </article>
+<article class="feature-card reveal">
+          <h3>La dimensione narrativa</h3>
+          <p>Raccontare significa attribuire senso alla propria esperienza, integrare frammenti di vita e costruire nuove possibilità di comprensione di sé.</p>
+        </article>
+<article class="feature-card reveal">
+          <h3>La relazione</h3>
+          <p>Il significato emerge all’interno di una relazione autentica, protetta e orientata all’ascolto della soggettività.</p>
+        </article></div>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="section-content">
+  <section class="section section-cream">
+    <div class="container">
+      <div class="section-title reveal">
         <p class="section-label">Pubblicazioni</p>
-
-        <h2>Articoli in preparazione</h2>
-
-        <div class="publication-placeholder">
-          <div class="publication-card">
-            <span class="publication-status">In sviluppo</span>
-
-            <h3>Metodo PdT e costruzione narrativa del sé</h3>
-
-            <p>
-              Approfondimento teorico sul ruolo della narrazione e
-              dell’immagine nei processi di consapevolezza personale.
-            </p>
-          </div>
-
-          <div class="publication-card">
-            <span class="publication-status">In sviluppo</span>
-
-            <h3>Fototerapia narrativa nei contesti clinici ed educativi</h3>
-
-            <p>
-              Riflessioni applicative sull’utilizzo delle immagini nei percorsi
-              individuali, gruppali e formativi.
-            </p>
-          </div>
-
-          <div class="publication-card">
-            <span class="publication-status">In sviluppo</span>
-
-            <h3>Emozione, immagine e relazione</h3>
-
-            <p>
-              Un contributo sul rapporto tra fotografia evocativa,
-              rappresentazione emotiva e costruzione di significato.
-            </p>
-          </div>
-        </div>
+        <h2>Articoli in preparazione.</h2>
       </div>
-    </section>
+      <div class="publication-grid"><article class="publication-card reveal">
+          <span>In sviluppo</span>
+          <h3>Metodo PdT e costruzione narrativa del sé</h3>
+          <p>Approfondimento teorico sul ruolo della narrazione e dell’immagine nei processi di consapevolezza personale.</p>
+        </article>
+<article class="publication-card reveal">
+          <span>In sviluppo</span>
+          <h3>Fototerapia narrativa nei contesti clinici ed educativi</h3>
+          <p>Riflessioni applicative sull’utilizzo delle immagini nei percorsi individuali, gruppali e formativi.</p>
+        </article>
+<article class="publication-card reveal">
+          <span>In sviluppo</span>
+          <h3>Emozione, immagine e relazione</h3>
+          <p>Un contributo sul rapporto tra fotografia evocativa, rappresentazione emotiva e costruzione di significato.</p>
+        </article></div>
+    </div>
+  </section>
 
-    <section class="contact-section">
-      <div class="section-content">
+  <section class="cta-section">
+    <div class="container cta-grid reveal">
+      <div>
         <p class="section-label">Aggiornamenti</p>
-
-        <h2>Nuovi articoli e contributi saranno pubblicati prossimamente</h2>
-
-        <p>
-          Questa sezione verrà progressivamente aggiornata con articoli,
-          pubblicazioni, materiali di ricerca e approfondimenti relativi al
-          progetto PdT.
-        </p>
-
-        <a href="contatti-acquista.html" class="primary-button">
-          Contattaci
-        </a>
+        <h2>Nuovi articoli e contributi saranno pubblicati progressivamente.</h2>
+        <p>Questa sezione raccoglierà materiali di ricerca, pubblicazioni e approfondimenti relativi al progetto PdT.</p>
       </div>
-    </section>
-  </main>
+      <a href="contatti-acquista.html" class="primary-button solid">Contattaci</a>
+    </div>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 PdT Storytelling Cards. Tutti i diritti riservati.</p>
-  </footer>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="index.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Carte fotografiche per lo storytelling e la narrazione di sé.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      Tutti i diritti riservati.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

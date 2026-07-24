@@ -1,109 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Contact & Buy | PdT Storytelling Cards</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="
+      default-src 'self';
+      img-src 'self' data:;
+      style-src 'self';
+      script-src 'self';
+      font-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      connect-src 'none';
+      upgrade-insecure-requests;
+    "
+  />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+
+  <title>Contact & buy | PdT Storytelling Cards</title>
+  <meta name="description" content="Contact PdT Storytelling Cards for information, collaborations, availability and purchase options." />
+
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <script src="script.js?v=2" defer></script>
 </head>
 
-<body>
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="home-en.html" class="logo">PdT Storytelling Cards</a>
+<body data-page="contact">
 
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="home-en.html">Home</a></li>
-          <li><a href="about-en.html">About Us</a></li>
-          <li><a href="articles-en.html">Articles</a></li>
-          <li><a href="contact-en.html" class="active">Contact & Buy</a></li>
-        </ul>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="home-en.html" aria-label="PdT Storytelling Cards">
+      <img
+        src="images/pdt-logo.jpg?v=2"
+        alt="PdT Storytelling Cards"
+        class="brand-logo"
+      />
+    </a>
 
-        <div class="language-switcher">
-          <a href="contatti-acquista.html" class="lang">🇮🇹</a>
-          <a href="contact-en.html" class="lang active">🇬🇧</a>
-          <a href="contact-es.html" class="lang">🇪🇸</a>
-        </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      data-label-open="Open menu"
+      data-label-close="Close menu"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-en.html">Home</a></li>
+        <li><a href="about-en.html">About us</a></li>
+        <li><a href="articles-en.html">Articles</a></li>
+        <li><a href="contact-en.html" class="active" aria-current="page">Contact & buy</a></li>
+      </ul>
+
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="contatti-acquista.html" class="lang" aria-label="Italiano">🇮🇹</a>
+        <a href="contact-en.html" class="lang active" aria-label="English">🇬🇧</a>
+        <a href="contact-es.html" class="lang" aria-label="Español">🇪🇸</a>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="section-content">
-        <p class="eyebrow">Contact & Buy</p>
-        <h1>Request information about the PdT project</h1>
-        <p class="hero-text">
-          For product information, availability, purchase options or professional
-          collaborations, contact us through the details below.
-        </p>
+
+<main>
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Contact & buy</p>
+        <h1>Request information about the PdT project.</h1>
+        <p class="page-hero-text">For product information, availability, purchase options or professional collaborations, contact us using the details below.</p>
       </div>
-    </section>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+      </div>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="section-content">
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-title reveal">
         <p class="section-label">Contact</p>
-        <h2>Let’s get in touch</h2>
-
-        <div class="contact-grid">
-          <article class="contact-card">
-            <h3>Email</h3>
-            <p>For information, collaborations or product details.</p>
-            <a href="mailto:pdtcartestorytelling@gmail.com" class="contact-link">
-              pdtcartestorytelling@gmail.com
-            </a>
-          </article>
-
-          <article class="contact-card">
-            <h3>Professionals and organizations</h3>
-            <p>
-              PdT Storytelling Cards is designed for clinical, educational,
-              relational and human resources professionals.
-            </p>
-          </article>
-        </div>
+        <h2>Let’s get in touch.</h2>
       </div>
-    </section>
 
-    <section class="section dark-section">
-      <div class="section-content narrow-content">
+      <div class="contact-grid">
+        <article class="contact-card reveal">
+          <span>01</span>
+          <h3>Email</h3>
+          <p>For information requests, collaborations or product details.</p>
+          <a href="mailto:pdtcartestorytelling@gmail.com?subject=PdT%20Storytelling%20Cards%20information%20request" class="contact-link">pdtcartestorytelling@gmail.com</a>
+        </article>
+
+        <article class="contact-card reveal">
+          <span>02</span>
+          <h3>Professionals and organisations</h3>
+          <p>PdT Storytelling Cards is designed for professionals in clinical, educational, relational and human-resources settings.</p>
+        </article>
+
+        <article class="contact-card reveal">
+          <span>03</span>
+          <h3>Purchase and availability</h3>
+          <p>Write to us for updates on availability, pre-orders, shipping and purchase options.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-blue">
+    <div class="container split-copy">
+      <div class="section-heading reveal">
         <p class="section-label">The product</p>
-        <h2>What the PdT bundle includes</h2>
-
-        <div class="bundle-list">
-          <div class="bundle-item">
-            <span class="bundle-number">01</span>
-            <p>Two decks of 51 photographic cards each</p>
-          </div>
-
-          <div class="bundle-item">
-            <span class="bundle-number">02</span>
-            <p>A 47-page theoretical and operational manual</p>
-          </div>
-
-          <div class="bundle-item">
-            <span class="bundle-number">03</span>
-            <p>Guide sheets divided by themes and professional contexts</p>
-          </div>
+        <h2>What the PdT bundle includes.</h2>
+      </div>
+      <div class="bundle-list"><div class="bundle-item reveal">
+          <span>01</span>
+          <p>Two decks of 51 photographic cards each</p>
         </div>
-      </div>
-    </section>
+<div class="bundle-item reveal">
+          <span>02</span>
+          <p>A 47-page theoretical-operational manual</p>
+        </div>
+<div class="bundle-item reveal">
+          <span>03</span>
+          <p>Guide sheets organised by themes and professional contexts</p>
+        </div></div>
+    </div>
+  </section>
 
-    <section class="contact-section">
-      <div class="section-content">
+  <section class="cta-section">
+    <div class="container cta-grid reveal">
+      <div>
         <p class="section-label">PdT Storytelling Cards</p>
-        <h2>A narrative tool for professionals working with people</h2>
-        <a href="mailto:pdtcartestorytelling@gmail.com" class="primary-button">
-          Write to us
-        </a>
+        <h2>A narrative tool for relationship professionals.</h2>
       </div>
-    </section>
-  </main>
+      <a href="mailto:pdtcartestorytelling@gmail.com?subject=PdT%20Storytelling%20Cards%20information%20request" class="primary-button solid">Write to us</a>
+    </div>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <p>© 2026 PdT Storytelling Cards. All rights reserved.</p>
-  </footer>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-en.html">
+      <img src="images/pdt-logo.jpg?v=2" alt="PdT Storytelling Cards" />
+    </a>
+
+    <div class="footer-copy">
+      <p>Photographic cards for storytelling and self-narration.</p>
+      <a href="mailto:pdtcartestorytelling@gmail.com">pdtcartestorytelling@gmail.com</a>
+    </div>
+
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards.
+      All rights reserved.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
