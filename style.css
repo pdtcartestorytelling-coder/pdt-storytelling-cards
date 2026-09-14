@@ -521,6 +521,84 @@ p {
   color: var(--gold-dark);
 }
 
+
+/* ARTICLES */
+
+.publication-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.publication-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.publication-card .article-link {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.article-link,
+.article-back {
+  color: var(--blue-800);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+  text-decoration: none;
+}
+
+.article-link:hover,
+.article-back:hover {
+  color: var(--gold-dark);
+}
+
+.article-page-hero {
+  min-height: 48vh;
+}
+
+.article-hero-inner {
+  max-width: 980px;
+}
+
+.article-page-hero h1 {
+  max-width: 980px;
+}
+
+.article-back {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--gold-soft);
+}
+
+.article-back:hover {
+  color: var(--gold);
+}
+
+.article-body {
+  max-width: 900px;
+}
+
+.article-body p {
+  margin-bottom: 28px;
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.article-body .article-lead {
+  margin-bottom: 42px;
+  color: var(--blue-900);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  line-height: 1.65;
+}
+
+.article-body h2 {
+  margin: 66px 0 24px;
+  font-size: clamp(30px, 3.6vw, 43px);
+  line-height: 1.15;
+}
+
 /* FOUNDERS */
 
 .founder-grid {
