@@ -213,7 +213,7 @@ p {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 2.5px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .section {
@@ -953,4 +953,83 @@ p {
     opacity: 1;
     transform: none;
   }
+}
+
+
+/* HOME LABEL SCALE — requested update */
+body[data-page="home"] .hero-content .eyebrow,
+body[data-page="home"] .section-label {
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.12;
+  letter-spacing: 1.2px;
+  text-transform: none;
+}
+
+body[data-page="home"] .feature-card > span,
+body[data-page="home"] .principle-card > span {
+  font-size: clamp(24px, 2.35vw, 30px);
+  line-height: 1;
+  letter-spacing: 0.8px;
+}
+
+body[data-page="home"] .primary-button {
+  min-height: 60px;
+  padding: 14px 28px;
+  font-size: clamp(18px, 1.65vw, 22px);
+  letter-spacing: 0.35px;
+}
+
+/* Article visibility: keep content visible on tablets/phones even if reveal animation is delayed/unsupported. */
+@media (max-width: 980px) {
+  body[data-page="articles"] .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  body[data-page="articles"] .publication-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  body[data-page="articles"] .publication-card {
+    display: flex;
+    min-height: auto;
+    visibility: visible;
+  }
+
+  body[data-page="articles"] .article-body {
+    display: block;
+    width: min(calc(100% - 28px), 900px);
+  }
+}
+
+@media (max-width: 620px) {
+  body[data-page="home"] .hero-content .eyebrow,
+  body[data-page="home"] .section-label {
+    font-size: 23px;
+  }
+
+  body[data-page="home"] .feature-card > span,
+  body[data-page="home"] .principle-card > span {
+    font-size: 25px;
+  }
+
+  body[data-page="home"] .primary-button {
+    font-size: 18px;
+  }
+
+  body[data-page="articles"] .article-body p {
+    font-size: 16px;
+    line-height: 1.82;
+    overflow-wrap: anywhere;
+  }
+
+  body[data-page="articles"] .article-body .article-lead {
+    font-size: 21px;
+  }
+}
+
+body[data-page="home"] .home-discover-button {
+  margin-top: 18px;
 }
