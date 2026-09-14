@@ -18,7 +18,10 @@
   --radius-medium: 26px;
   --radius-large: 42px;
   --container: 1180px;
+  --font-brand: "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  --font-ui: var(--font-brand);
 }
+
 
 * {
   margin: 0;
@@ -36,11 +39,7 @@ body {
   overflow-x: hidden;
   background: var(--cream-light);
   color: var(--text);
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+  font-family: var(--font-ui);
   font-size: 17px;
   line-height: 1.78;
 }
@@ -62,10 +61,7 @@ h1,
 h2,
 h3 {
   color: var(--blue-950);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-brand);
   font-weight: 500;
   text-wrap: balance;
 }
@@ -278,10 +274,7 @@ p {
 
 .reading-copy .lead {
   color: var(--blue-900);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-brand);
   font-size: 25px;
   line-height: 1.55;
 }
@@ -359,10 +352,7 @@ p {
   max-width: 700px;
   margin-bottom: 34px;
   color: rgba(255, 255, 255, 0.82);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-brand);
   font-size: clamp(22px, 2.2vw, 29px);
   line-height: 1.52;
 }
@@ -426,10 +416,7 @@ p {
 .page-hero-text {
   max-width: 790px;
   color: rgba(255, 255, 255, 0.79);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family: var(--font-brand);
   font-size: 23px;
   line-height: 1.55;
 }
@@ -588,7 +575,7 @@ p {
 .article-body .article-lead {
   margin-bottom: 42px;
   color: var(--blue-900);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-brand);
   font-size: 23px;
   line-height: 1.65;
 }
@@ -673,7 +660,7 @@ p {
 
 .bundle-item span {
   color: var(--gold);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-brand);
   font-size: 27px;
 }
 
@@ -742,6 +729,27 @@ p {
 
 .footer-copy a:hover {
   color: var(--gold-soft);
+}
+
+
+/* GLOBAL BRAND TYPOGRAPHY */
+.nav-links a,
+.language-switcher .lang,
+.eyebrow,
+.section-label,
+.feature-card > span,
+.principle-card > span,
+.contact-card > span,
+.publication-card > span,
+.badge-label,
+.founder-role,
+.primary-button,
+.article-link,
+.article-back,
+.footer-copy p,
+.footer-copy a,
+.footer-legal {
+  font-family: var(--font-brand);
 }
 
 /* REVEAL */
