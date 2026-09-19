@@ -551,6 +551,14 @@ p {
   max-width: 980px;
 }
 
+.article-author {
+  margin: -8px 0 12px;
+  color: var(--gold-soft);
+  font-family: var(--font-brand);
+  font-size: 18px;
+  font-style: italic;
+}
+
 .article-back {
   display: inline-block;
   margin-top: 10px;
@@ -1040,4 +1048,11 @@ body[data-page="home"] .primary-button {
 
 body[data-page="home"] .home-discover-button {
   margin-top: 18px;
+}
+
+/* MODIFICA 5 — paragraph justification across the site */
+p:not(.eyebrow):not(.section-label):not(.badge-label) {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
