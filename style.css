@@ -1062,3 +1062,57 @@ p:not(.eyebrow):not(.section-label):not(.badge-label) {
   text-justify: inter-word;
   hyphens: auto;
 }
+
+
+/* PRIVACY POLICY */
+.footer-privacy-link {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+
+.footer-privacy-link:hover {
+  color: var(--gold-soft);
+}
+
+.privacy-content {
+  max-width: 900px;
+}
+
+.privacy-content h2 {
+  margin: 46px 0 14px;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.18;
+}
+
+.privacy-content h2:first-child {
+  margin-top: 0;
+}
+
+.privacy-content p,
+.privacy-content li {
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.9;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.privacy-content p {
+  margin-bottom: 18px;
+}
+
+.privacy-content ul {
+  margin: 0 0 20px 24px;
+}
+
+.privacy-content a {
+  color: var(--blue-800);
+  font-weight: 700;
+}
+
+.privacy-note {
+  margin-bottom: 34px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--gold);
+  background: var(--cream);
+}
