@@ -5,21 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    http-equiv="Content-Security-Policy"
-    content="
-      default-src 'self';
-      img-src 'self' data:;
-      style-src 'self';
-      script-src 'self';
-      font-src 'self';
-      object-src 'none';
-      base-uri 'self';
-      form-action 'self';
-      connect-src 'none';
-      upgrade-insecure-requests;
-    "
-  />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
 
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#174b7f" />
@@ -38,8 +24,8 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=12" />
-  <script src="script.js?v=5" defer></script>
+  <link rel="stylesheet" href="style.css?v=13" />
+  <script src="script.js?v=6" defer></script>
 </head>
 
 <body data-page="contact">
@@ -126,6 +112,37 @@
           <h3>Compra y disponibilidad</h3>
           <p>Escríbenos para recibir novedades sobre disponibilidad, preventa, envíos y modalidades de compra.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section secure-contact-section" aria-labelledby="secure-contact-title">
+    <div class="container">
+      <div class="secure-form-shell reveal">
+        <div class="secure-form-intro">
+          <p class="section-label">Formulario de contacto</p>
+          <h2 id="secure-contact-title">Envía una solicitud desde el sitio</h2>
+          <p>Utiliza el formulario para solicitar información sobre PdT, disponibilidad, compra o colaboraciones profesionales. Antes del envío puede solicitarse una verificación anti-spam.</p>
+        </div>
+        <form class="secure-contact-form" action="https://formsubmit.co/pdtstorytellingcards@gmail.com" method="POST" accept-charset="UTF-8">
+          <input type="hidden" name="_subject" value="Nueva solicitud desde el sitio PdT Storytelling Cards" />
+          <input type="hidden" name="_next" value="https://pdtstorytellingcards.com/gracias.html" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="true" />
+          <div class="form-honeypot" aria-hidden="true">
+            <label>Leave this field empty <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <div class="form-grid">
+            <label class="form-field"><span>Nombre y apellidos</span><input type="text" name="name" maxlength="100" autocomplete="name" required /></label>
+            <label class="form-field"><span>Email</span><input type="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required /></label>
+            <label class="form-field form-field-wide"><span>Organización / función (opcional)</span><input type="text" name="organization" maxlength="120" autocomplete="organization" /></label>
+            <label class="form-field form-field-wide"><span>Mensaje</span><textarea name="message" rows="6" maxlength="2000" required></textarea></label>
+          </div>
+          <label class="form-privacy"><input type="checkbox" name="privacy_acknowledged" value="yes" required /><span>Declaro haber leído la <a href="privacy-policy-es.html">Política de privacidad</a>.</span></label>
+          <button class="primary-button solid secure-submit" type="submit">Enviar solicitud</button>
+          <p class="form-security-note">El formulario está protegido por verificación anti-spam y un campo honeypot. También puedes usar directamente el correo indicado arriba.</p>
+        </form>
       </div>
     </div>
   </section>

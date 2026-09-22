@@ -1,0 +1,28 @@
+SICUREZZA — PASSI ESTERNI AL SITO
+Aggiornato: 22/09/2026
+
+GIÀ INCLUSO NELLO ZIP
+- Content Security Policy restrittiva a livello HTML.
+- Referrer Policy.
+- form-action limitata a sito + FormSubmit.
+- Nessun iframe/plugin esterno caricato nelle pagine.
+- target=_blank protetti con noopener/noreferrer.
+- Modulo contatti con limiti ai campi, honeypot e CAPTCHA anti-spam gestito dal backend FormSubmit.
+- Pagina di ringraziamento noindex.
+- security.txt standard in /.well-known/security.txt.
+- Nessuna chiave API o password inserita nel repository.
+
+DOPO IL PRIMO UPLOAD
+1) Fai un invio di prova dal modulo. FormSubmit invierà una email di attivazione alla casella destinataria.
+2) Conferma quella email. Dal secondo invio il modulo sarà operativo normalmente.
+
+ACCOUNT / HOSTING (NON SI POSSONO IMPOSTARE CON UNO ZIP)
+- Attiva 2FA su GitHub, Cloudflare e Gmail.
+- Conserva recovery codes in un password manager.
+- GitHub: verifica collaboratori e proteggi il branch main da modifiche accidentali.
+- Cloudflare: per WAF, Bot Fight Mode, HSTS e security headers HTTP serve gestire il traffico tramite Cloudflare/proxy e configurare le regole dal dashboard.
+- Mantieni Enforce HTTPS attivo su GitHub Pages.
+- Esegui backup periodici del repository/ZIP.
+
+NOTA
+X-Frame-Options, X-Content-Type-Options, Permissions-Policy e HSTS sono header HTTP: GitHub Pages non permette di definirli dal semplice HTML. Vanno configurati sul livello hosting/CDN (ad esempio Cloudflare) e non vanno simulati con meta tag non efficaci.

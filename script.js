@@ -90,21 +90,21 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
   const copy = {
     it: {
       title: "Privacy e utilizzo del sito",
-      text: "Questo sito utilizza solo le tecnologie necessarie al funzionamento. Puoi consultare la nostra Privacy Policy.",
+      text: "Questo sito utilizza tecnologie necessarie al funzionamento. Il modulo contatti attiva una verifica anti-spam al momento dell’invio. Puoi consultare la nostra Privacy Policy.",
       link: "Privacy Policy",
       close: "Ho capito",
       href: "privacy-policy.html"
     },
     en: {
       title: "Privacy and site use",
-      text: "This site currently uses only technologies necessary for its operation. You can read our Privacy Policy.",
+      text: "This site uses technologies necessary for its operation. The contact form activates anti-spam verification when submitted. You can read our Privacy Policy.",
       link: "Privacy Policy",
       close: "Got it",
       href: "privacy-policy-en.html"
     },
     es: {
       title: "Privacidad y uso del sitio",
-      text: "Este sitio utiliza actualmente solo las tecnologías necesarias para su funcionamiento. Puedes consultar nuestra Política de privacidad.",
+      text: "Este sitio utiliza tecnologías necesarias para su funcionamiento. El formulario de contacto activa una verificación anti-spam al enviarse. Puedes consultar nuestra Política de privacidad.",
       link: "Política de privacidad",
       close: "Entendido",
       href: "privacy-policy-es.html"
