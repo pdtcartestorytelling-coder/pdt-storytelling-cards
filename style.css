@@ -675,6 +675,30 @@ p {
   font-size: 15px;
 }
 
+.founder-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(245, 179, 53, 0.28);
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+}
+
+.founder-links a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.founder-links a:hover,
+.founder-links a:focus-visible {
+  color: var(--cream-light);
+}
+
 /* BUNDLE */
 
 .bundle-list {
