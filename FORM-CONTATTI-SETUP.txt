@@ -1,0 +1,15 @@
+MODULO CONTATTI - ATTIVAZIONE FORMSUBMIT
+
+Destinatario: pdtstorytellingcards@gmail.com
+
+IMPORTANTE - PRIMA ATTIVAZIONE
+1. Dopo aver pubblicato il sito, aprire https://pdtstorytellingcards.com/contatti-acquista.html
+2. Compilare il modulo e inviarlo una volta.
+3. FormSubmit invierà una email di attivazione a pdtstorytellingcards@gmail.com.
+4. Aprire quella email e confermare/attivare il modulo.
+5. Controllare anche Spam/Posta indesiderata se non compare in Posta in arrivo.
+6. Dopo l'attivazione, ripetere un invio di prova.
+
+Fino alla conferma iniziale, le richieste non vengono consegnate normalmente. FormSubmit conserva temporaneamente le richieste effettuate prima dell'attivazione.
+
+Il sito mantiene anche un link mailto diretto come alternativa.

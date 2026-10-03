@@ -121,27 +121,31 @@
     <div class="container">
       <div class="secure-form-shell reveal">
         <div class="secure-form-intro">
-          <p class="section-label">Modulo contatti</p>
-          <h2 id="secure-contact-title">Invia una richiesta dal sito</h2>
-          <p>Usa il modulo per informazioni su PdT, disponibilità, acquisto o collaborazioni. Prima dell’invio può essere richiesta una verifica anti-spam.</p>
+          <p class="section-label">Contatti</p>
+          <h2 id="secure-contact-title">Scrivici dal sito</h2>
+          <p>Per informazioni su PdT, disponibilità, acquisto o collaborazioni, compila i campi qui sotto. Dopo l’invio potrà comparire una breve verifica anti-spam.</p>
         </div>
-        <form class="secure-contact-form" action="https://formsubmit.co/pdtstorytellingcards@gmail.com" method="POST" accept-charset="UTF-8">
+        <form class="secure-contact-form" action="https://formsubmit.co/pdtstorytellingcards@gmail.com" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
           <input type="hidden" name="_subject" value="Nuova richiesta dal sito PdT Storytelling Cards" />
           <input type="hidden" name="_next" value="https://pdtstorytellingcards.com/grazie.html" />
+          <input type="hidden" name="_url" value="https://pdtstorytellingcards.com/contatti-acquista.html" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="true" />
+          <input type="hidden" name="_autoresponse" value="Grazie per aver contattato PdT Storytelling Cards. Abbiamo ricevuto la tua richiesta e ti risponderemo appena possibile." />
           <div class="form-honeypot" aria-hidden="true">
             <label>Leave this field empty <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
           </div>
           <div class="form-grid">
             <label class="form-field"><span>Nome e cognome</span><input type="text" name="name" maxlength="100" autocomplete="name" required /></label>
             <label class="form-field"><span>Email</span><input type="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required /></label>
-            <label class="form-field form-field-wide"><span>Organizzazione / ruolo (facoltativo)</span><input type="text" name="organization" maxlength="120" autocomplete="organization" /></label>
             <label class="form-field form-field-wide"><span>Messaggio</span><textarea name="message" rows="6" maxlength="2000" required></textarea></label>
           </div>
           <label class="form-privacy"><input type="checkbox" name="privacy_acknowledged" value="yes" required /><span>Dichiaro di aver letto l’<a href="privacy-policy.html">Informativa Privacy</a>.</span></label>
-          <button class="primary-button solid secure-submit" type="submit">Invia richiesta</button>
-          <p class="form-security-note">Il modulo è protetto da verifica anti-spam e da un campo honeypot. In alternativa puoi usare direttamente l’email indicata sopra.</p>
+          <div class="form-actions">
+            <button class="primary-button solid secure-submit" type="submit">Invia richiesta</button>
+            <p class="form-direct-email">Preferisci scrivere direttamente? <a href="mailto:pdtstorytellingcards@gmail.com">Scrivi a pdtstorytellingcards@gmail.com</a></p>
+          </div>
+          <p class="form-security-note">Se l’invio va a buon fine verrai reindirizzato alla pagina di conferma. Il modulo utilizza una verifica anti-spam.</p>
         </form>
       </div>
     </div>
