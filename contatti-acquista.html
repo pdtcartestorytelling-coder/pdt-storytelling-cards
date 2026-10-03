@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
 
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#174b7f" />
@@ -123,18 +123,9 @@
         <div class="secure-form-intro">
           <p class="section-label">Contatti</p>
           <h2 id="secure-contact-title">Scrivici dal sito</h2>
-          <p>Per informazioni su PdT, disponibilità, acquisto o collaborazioni, compila i campi qui sotto. Dopo l’invio potrà comparire una breve verifica anti-spam.</p>
+          <p>Per informazioni su PdT Storytelling Cards, disponibilità, acquisto o collaborazioni, compila i campi qui sotto. Premendo il pulsante si aprirà la tua app email con il messaggio già pronto: dovrai solo premere Invia.</p>
         </div>
-        <form class="secure-contact-form" action="https://formsubmit.co/97b22989ee40091813983aa10e7d8426" method="POST" accept-charset="UTF-8">
-          <input type="hidden" name="_subject" value="Nuova richiesta dal sito PdT Storytelling Cards" />
-          <input type="hidden" name="_next" value="https://pdtstorytellingcards.com/grazie.html" />
-          <input type="hidden" name="_url" value="https://pdtstorytellingcards.com/contatti-acquista.html" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_autoresponse" value="Grazie per aver contattato PdT Storytelling Cards. Abbiamo ricevuto la tua richiesta e ti risponderemo appena possibile." />
-          <div class="form-honeypot" aria-hidden="true">
-            <label>Leave this field empty <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
-          </div>
+        <form class="secure-contact-form" data-mailto-form data-recipient="pdtstorytellingcards@gmail.com" data-subject="Richiesta dal sito PdT Storytelling Cards" novalidate>
           <div class="form-grid">
             <label class="form-field"><span>Nome e cognome</span><input type="text" name="name" maxlength="100" autocomplete="name" required /></label>
             <label class="form-field"><span>Email</span><input type="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required /></label>
@@ -142,10 +133,10 @@
           </div>
           <label class="form-privacy"><input type="checkbox" name="privacy_acknowledged" value="yes" required /><span>Dichiaro di aver letto l’<a href="privacy-policy.html">Informativa Privacy</a>.</span></label>
           <div class="form-actions">
-            <button class="primary-button solid secure-submit" type="submit">Invia richiesta</button>
+            <button class="primary-button solid secure-submit" type="submit">Prepara email</button>
             <p class="form-direct-email">Preferisci scrivere direttamente? <a href="mailto:pdtstorytellingcards@gmail.com">Scrivi a pdtstorytellingcards@gmail.com</a></p>
           </div>
-          <p class="form-security-note">Se l’invio va a buon fine verrai reindirizzato alla pagina di conferma. Il modulo utilizza una verifica anti-spam.</p>
+          <p class="form-security-note" data-mailto-status>L’invio avviene dalla tua app email. Il sito non utilizza servizi esterni per inoltrare il contenuto del messaggio.</p>
         </form>
       </div>
     </div>

@@ -90,21 +90,21 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
   const copy = {
     it: {
       title: "Privacy e utilizzo del sito",
-      text: "Questo sito utilizza tecnologie necessarie al funzionamento. Il modulo contatti attiva una verifica anti-spam al momento dell’invio. Puoi consultare la nostra Privacy Policy.",
+      text: "Questo sito utilizza tecnologie necessarie al funzionamento. Il modulo contatti apre la tua app email e non utilizza servizi esterni di inoltro. Puoi consultare la nostra Privacy Policy.",
       link: "Privacy Policy",
       close: "Ho capito",
       href: "privacy-policy.html"
     },
     en: {
       title: "Privacy and site use",
-      text: "This site uses technologies necessary for its operation. The contact form activates anti-spam verification when submitted. You can read our Privacy Policy.",
+      text: "This site uses technologies necessary for its operation. The contact form opens your email app and does not use an external delivery service. You can read our Privacy Policy.",
       link: "Privacy Policy",
       close: "Got it",
       href: "privacy-policy-en.html"
     },
     es: {
       title: "Privacidad y uso del sitio",
-      text: "Este sitio utiliza tecnologías necesarias para su funcionamiento. El formulario de contacto activa una verificación anti-spam al enviarse. Puedes consultar nuestra Política de privacidad.",
+      text: "Este sitio utiliza tecnologías necesarias para su funcionamiento. El formulario de contacto abre tu aplicación de correo y no utiliza un servicio externo de envío. Puedes consultar nuestra Política de privacidad.",
       link: "Política de privacidad",
       close: "Entendido",
       href: "privacy-policy-es.html"
@@ -135,5 +135,41 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
     try {
       window.localStorage.setItem(storageKey, "1");
     } catch (_) {}
+  });
+})();
+
+
+/* Contact form: reliable direct-email fallback for a static GitHub Pages site. */
+(function initMailtoContactForms() {
+  const forms = document.querySelectorAll(".secure-contact-form[data-mailto-form]");
+  if (!forms.length) return;
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const recipient = form.dataset.recipient || "pdtstorytellingcards@gmail.com";
+      const subject = form.dataset.subject || "PdT Storytelling Cards";
+      const name = (form.elements.name?.value || "").trim();
+      const email = (form.elements.email?.value || "").trim();
+      const message = (form.elements.message?.value || "").trim();
+      const lang = (document.documentElement.lang || "it").toLowerCase().slice(0, 2);
+
+      const labels = {
+        it: { name: "Nome e cognome", email: "Email", message: "Messaggio", status: "Si sta aprendo la tua app email. Controlla il messaggio e premi Invia per completare la richiesta." },
+        en: { name: "Full name", email: "Email", message: "Message", status: "Your email app is opening. Review the message and press Send to complete your request." },
+        es: { name: "Nombre y apellidos", email: "Email", message: "Mensaje", status: "Se está abriendo tu aplicación de correo. Revisa el mensaje y pulsa Enviar para completar la solicitud." }
+      };
+      const c = labels[lang] || labels.it;
+      const body = `${c.name}: ${name}\n${c.email}: ${email}\n\n${c.message}:\n${message}`;
+      const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const status = form.querySelector("[data-mailto-status]");
+      if (status) status.textContent = c.status;
+
+      window.location.href = mailto;
+    });
   });
 })();
