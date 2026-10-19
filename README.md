@@ -18,7 +18,7 @@ Il sito è realizzato in HTML, CSS e JavaScript e include:
 - sitemap.xml e robots.txt;
 - favicon e web manifest;
 - pagina 404;
-- modulo contatti protetto da controlli anti-spam;
+- modulo contatti con validazione client-side e invio tramite app email dell’utente;
 - pagine di conferma invio;
 - configurazione per dominio custom tramite `CNAME`.
 
@@ -32,11 +32,11 @@ Il file `CNAME` deve rimanere nel repository per mantenere il collegamento con G
 
 ## Modulo contatti
 
-Il modulo usa FormSubmit e invia a:
+Il modulo non usa servizi esterni di inoltro. Al submit prepara un'email tramite `mailto:` indirizzata a:
 
 `pdtstorytellingcards@gmail.com`
 
-Dopo una nuova configurazione o modifica dell'indirizzo destinatario può essere richiesta una conferma via email da FormSubmit.
+L'utente deve confermare l'invio dalla propria applicazione email.
 
 ## Sicurezza
 
