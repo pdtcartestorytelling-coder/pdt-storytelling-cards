@@ -1,0 +1,4 @@
+Contact: mailto:pdtstorytellingcards@gmail.com
+Expires: 2027-10-19T23:59:59.000Z
+Preferred-Languages: it, en, es
+Canonical: https://pdtstorytellingcards.com/.well-known/security.txt
