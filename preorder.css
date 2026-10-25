@@ -33,3 +33,6 @@
 @media(max-width:980px){.preorder-hero-grid{grid-template-columns:1fr;gap:24px}.preorder-feature{max-width:720px}.preorder-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.preorder-hero{padding:44px 0 60px}.preorder-hero h1{font-size:clamp(36px,10vw,50px)}.preorder-cards,.preorder-details{grid-template-columns:1fr}.preorder-card,.preorder-details article{padding:18px}.preorder-cta{padding:54px 0}.preorder-feature{padding:10px}}
 @media(prefers-reduced-motion:reduce){.preorder-hero *, .preorder-card *{transition:none!important;animation:none!important}}
+
+/* Respect the existing strict Content Security Policy: no inline style attributes. */
+.preorder-actions{display:flex;flex-wrap:wrap;gap:12px}
