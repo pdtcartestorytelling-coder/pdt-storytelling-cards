@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-label="Concept del cofanetto PdT quadrato blu pavone con dettagli oro">
+<defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#185b76"/><stop offset="1" stop-color="#072c42"/></linearGradient><filter id="s"><feGaussianBlur stdDeviation="9"/></filter></defs>
+<rect width="760" height="560" rx="26" fill="#f2e5d4"/><ellipse cx="393" cy="485" rx="290" ry="28" fill="#64534a" opacity=".24" filter="url(#s)"/>
+<g transform="translate(150 50)"><rect x="0" y="0" width="465" height="440" rx="13" fill="#051d2b"/><rect x="17" y="5" width="449" height="435" rx="8" fill="url(#b)"/><rect x="37" y="26" width="408" height="389" rx="1" fill="none" stroke="#f0b74c" stroke-width="3"/>
+<image href="pdt-logo-registered-v2.png" x="135" y="45" width="190" height="87" preserveAspectRatio="xMidYMid meet"/>
+<rect x="87" y="150" width="305" height="192" rx="6" fill="#081928" stroke="#f0b74c" stroke-width="3"/>
+<path d="M108 316 V168 H161 V316 M179 316 V168 H232 V316 M250 316 V168 H303 V316 M321 316 V168 H374 V316" fill="none" stroke="#aa9477" stroke-width="14"/>
+<rect x="123" y="186" width="24" height="125" fill="#bfd0d4"/><rect x="196" y="186" width="24" height="125" fill="#9dc0b3"/><rect x="268" y="186" width="24" height="125" fill="#cee2dc"/><rect x="337" y="186" width="24" height="125" fill="#bdd4c8"/>
+<text x="235" y="376" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#f8d386">PdT Storytelling Cards</text>
+</g></svg>
