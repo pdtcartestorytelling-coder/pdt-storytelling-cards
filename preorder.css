@@ -95,3 +95,15 @@ body[data-page="preorder"] .preorder-bundle-visual img{background:transparent}
 /* Product imagery: full-bleed photos, no white passepartout on any breakpoint. */
 @media(max-width:600px){.preorder-gallery-image{border-radius:14px}.preorder-gallery-caption{padding:17px 3px 22px}.preorder-bundle-visual img{border-radius:14px}}
 @media(hover:hover){.preorder-gallery-image:hover{box-shadow:0 12px 32px rgba(11,47,88,.12)}}
+
+/* Six approved product views: two balanced gallery columns on desktop,
+   one column on mobile, preserving the originals without aggressive crops. */
+@media (min-width:791px) {
+ .preorder-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+}
+.preorder-gallery-image{background:var(--cream)}
+.preorder-gallery-image img{aspect-ratio:5/4;object-fit:contain;object-position:center}
+@media (max-width:600px){
+ .preorder-gallery-grid{grid-template-columns:1fr}
+ .preorder-gallery-image img{aspect-ratio:auto;height:auto}
+}
