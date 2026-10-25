@@ -17,7 +17,7 @@
       unknown: "Posso aiutarti con contenuto del kit, metodo, applicazioni professionali e informazioni sull'acquisto. Prova una delle domande qui sopra.",
       special: "PdT è uno strumento narrativo professionale, non un test diagnostico e non offre consulenza clinica individuale.",
       specialLink: "Scopri il metodo", price: "Per prezzi, disponibilità e condizioni di acquisto aggiornate, contatta direttamente il progetto PdT. Il sito non riporta qui un prezzo verificato.",
-      priceLink: "Contatti e acquista", fallbackLink: "Vai ai contatti", contact: "contatti-acquista.html",
+      priceLink: "Contatti e acquista", fallbackLink: "Vai ai contatti", contact: "contatti.html",
       topics: [
         { label: "Cosa contiene il kit?", keys: ["kit","contien","mazz","quante carte","quantita","manual","schede","prodott","bundle"], answer: "Il kit PdT comprende due mazzi da 51 carte fotografiche (102 in totale), un manuale teorico-operativo di 60 pagine e 22 schede operative con domande guida: 8 per il lavoro individuale, 6 per il gruppo e 8 per le Risorse Umane.", link: "Scopri il prodotto", href: "prodotto.html" },
         { label: "Come funziona il metodo?", keys: ["metod","come funziona","storytelling","narrativ","immagin","fotograf","domand","esploraz"], answer: "Le fotografie sono stimoli aperti che favoriscono narrazione, ascolto e costruzione di significati. Le domande guida sostengono il processo senza attribuire significati prefissati alle immagini.", link: "Approfondisci il metodo", href: "metodo-pdt.html" },
@@ -25,7 +25,7 @@
         { label: "Si può usare con i gruppi?", keys: ["grupp","team","equipe","équipe","collettiv","workshop"], answer: "PdT prevede 6 schede operative per il setting di gruppo, orientate a narrazione, ascolto e confronto tra punti di vista all'interno di un contesto professionale condiviso.", link: "Setting di gruppo", href: "setting-gruppo.html" },
         { label: "È utile per psicologi e psicoterapeuti?", keys: ["psicolog","psicoterap","terapeut","clinico","clinica"], answer: "PdT è rivolto anche a psicologi e psicoterapeuti come supporto narrativo e relazionale da integrare nel proprio setting. Non sostituisce test o strumenti diagnostici.", link: "Per psicologi e psicoterapeuti", href: "psicologi-psicoterapeuti.html" },
         { label: "Come si usa nelle Risorse Umane?", keys: ["risors","uman","lavoro","organizz","hr","selezion","aziend"], answer: "Sono previste 8 schede per i contesti Risorse Umane. Le carte possono sostenere la narrazione e il confronto in attività coerenti con il ruolo e il mandato del professionista.", link: "Per le Risorse Umane", href: "risorse-umane.html" },
-        { label: "Come posso acquistarlo?", keys: ["acquist","ordin","compr","spediz","consegn","disponib","contatt","email","informaz"], answer: "Per informazioni aggiornate su disponibilità, acquisto e modalità di consegna, usa la pagina Contatti e acquista o scrivi a pdtstorytellingcards@gmail.com.", link: "Contatti e acquista", href: "contatti-acquista.html" }
+        { label: "Come posso acquistarlo?", keys: ["acquist","ordin","compr","spediz","consegn","disponib","contatt","email","informaz"], answer: "Per informazioni aggiornate su disponibilità, acquisto e modalità di consegna, usa la pagina Contatti e acquista o scrivi a pdtstorytellingcards@gmail.com.", link: "Contatti e acquista", href: "contatti.html" }
       ]
     },
     en: {
