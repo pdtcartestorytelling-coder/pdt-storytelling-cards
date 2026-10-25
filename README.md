@@ -13,7 +13,8 @@ Il sito è realizzato in HTML, CSS e JavaScript e include:
 - Home IT / EN / ES;
 - Chi siamo IT / EN / ES;
 - Articoli e pubblicazioni IT / EN / ES;
-- Contatti IT / EN / ES;
+- Contatti IT / EN / ES, separati dalla pagina Pre Order;
+- Pre Order IT / EN / ES, con anteprima del bundle e informazioni sul lancio (nessun pagamento attivo);
 - Privacy Policy IT / EN / ES;
 - sitemap.xml e robots.txt;
 - favicon e web manifest;
