@@ -145,3 +145,53 @@ body[data-page="preorder"] .preorder-bundle-visual img{background:transparent}
  .preorder-method h2{font-size:clamp(33px,8vw,43px)}
  .preorder-method-item h3{font-size:24px}
 }
+
+
+/* Proposed launch pricing and planned payment/shipping workflow — no active checkout. */
+.preorder-price-jump{display:inline-flex;align-items:center;gap:8px;margin-top:15px;color:var(--gold-soft);font-size:14px;font-weight:700;text-underline-offset:5px}
+.preorder-price-jump:hover{color:#fff}
+.preorder-pricing{background:var(--cream)}
+.preorder-pricing-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,62px);align-items:start}
+.preorder-price-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.preorder-price-option{padding:clamp(20px,3vw,32px);border-radius:18px;border:1px solid var(--border);min-width:0}
+.preorder-price-featured{background:linear-gradient(138deg,var(--blue-800),var(--blue-950));border-color:rgba(245,179,53,.5);box-shadow:0 16px 32px rgba(11,47,88,.1);color:#fff}
+.preorder-price-regular{background:var(--cream-light);color:var(--blue-950)}
+.preorder-price-label{font:700 13px/1.45 sans-serif;letter-spacing:.025em;margin:0 0 16px}
+.preorder-price-featured .preorder-price-label{color:var(--gold-soft)}
+.preorder-price-amount{font-size:clamp(40px,4.6vw,63px);font-weight:600;letter-spacing:-.045em;line-height:1.05;margin:0;white-space:nowrap}
+.preorder-price-featured .preorder-price-amount{color:#fff}
+.preorder-price-regular .preorder-price-amount{color:var(--blue-950)}
+.preorder-price-fineprint{font-size:14px;line-height:1.65;color:var(--muted);margin-top:19px}
+.preorder-cost-breakdown{border:1px solid var(--border);border-radius:19px;padding:clamp(22px,3vw,34px);background:var(--cream-light)}
+.preorder-cost-breakdown h3{font-size:25px;line-height:1.25;color:var(--blue-950);margin:0 0 22px}
+.preorder-cost-line{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 0;border-bottom:1px solid var(--border);color:var(--blue-950);font-size:15px;line-height:1.5}
+.preorder-cost-line strong{flex-shrink:0;white-space:nowrap}
+.preorder-cost-total{font-size:18px;border-bottom:0;padding-top:19px;font-weight:700}
+.preorder-cost-total strong{font-size:27px}
+.preorder-cost-note{font-size:13px;line-height:1.65;color:var(--muted);margin:17px 0 0}
+.preorder-fulfilment{background:var(--cream-light)}
+.preorder-fulfilment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.preorder-fulfilment-item{padding:26px 2px 8px;border-top:2px solid var(--gold)}
+.preorder-fulfilment-step{font:700 13px/1 sans-serif;color:var(--blue-700);letter-spacing:.14em}
+.preorder-fulfilment-label{font:700 12px/1.4 sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--blue-700);margin:18px 0 5px}
+.preorder-fulfilment-item h3{font-size:clamp(24px,2.2vw,31px);line-height:1.2;color:var(--blue-950);margin:0 0 12px}
+.preorder-fulfilment-item>p:last-child{font-size:15px;line-height:1.7;color:var(--muted)}
+.preorder-availability{background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:27px 0}
+.preorder-availability-inner{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.preorder-availability h2{font-size:clamp(20px,2.4vw,28px);line-height:1.25;margin:0 0 6px;color:var(--blue-950)}
+.preorder-availability p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.preorder-availability-link{color:var(--blue-800);font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+@media(max-width:900px){
+ .preorder-pricing-layout{grid-template-columns:1fr;gap:22px}
+ .preorder-fulfilment-grid{grid-template-columns:1fr;gap:4px}
+ .preorder-fulfilment-item{padding-top:20px;padding-bottom:17px}
+ .preorder-availability-inner{flex-direction:column;align-items:flex-start;gap:13px}
+}
+@media(max-width:600px){
+ .preorder-price-options{gap:9px}
+ .preorder-price-option{padding:18px 14px;border-radius:13px}
+ .preorder-price-label{font-size:11px;min-height:36px;margin-bottom:11px}
+ .preorder-price-amount{font-size:clamp(35px,9vw,47px)}
+ .preorder-cost-breakdown h3{font-size:23px}
+ .preorder-availability-link{white-space:normal}
+}
