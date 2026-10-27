@@ -1,0 +1,57 @@
+{
+  "version": "0.1-prelaunch",
+  "status": "NOT_CONNECTED",
+  "site": "pdtstorytellingcards.com",
+  "workbook": "PdT_Registro_Operativo_Excel_Online.xlsx",
+  "workbook_location": "PRIVATE_MICROSOFT_365_REQUIRED",
+  "write_rule": "make_only_after_verified_payment",
+  "mapping": {
+    "stripe.checkout.session.id": "PdTOrders.Order_ID / Stripe_Session_ID",
+    "stripe.checkout.session.payment_intent": "PdTOrders.PaymentIntent_ID",
+    "stripe.checkout.session.payment_status paid": "PdTOrders.Stato_pagamento=Pagato",
+    "stripe.checkout.session.amount_total": "PdTOrders.Totale_incassato_EUR [divide minor units by 100]",
+    "stripe.checkout.session.currency": "PdTOrders.Valuta",
+    "stripe.customer.id": "PdTClients.Cliente_ID",
+    "stripe.event.id": "PdTEvents.Chiave_idempotenza",
+    "sendcloud.parcel.id": "PdTShipments.Sendcloud_Parcel_ID",
+    "sendcloud.tracking": "PdTShipments.Tracking",
+    "fattureincloud.issued_document.id": "PdTInvoices.FIC_Document_ID"
+  },
+  "status_values": {
+    "payment": [
+      "In attesa",
+      "Pagato",
+      "Rimborsato",
+      "Fallito"
+    ],
+    "order": [
+      "Pre Order",
+      "Da preparare",
+      "In lavorazione",
+      "Pronto",
+      "Spedito",
+      "Consegnato",
+      "Annullato"
+    ],
+    "shipment": [
+      "In attesa",
+      "Da etichettare",
+      "Etichetta pronta",
+      "Spedito",
+      "Consegnato",
+      "Reso"
+    ]
+  },
+  "security": {
+    "store_personal_data_on_github": false,
+    "store_api_keys_on_github": false,
+    "label_generation_before_stock": false,
+    "auto_issue_invoice_without_tax_review": false
+  },
+  "source_docs": [
+    "https://apps.make.com/microsoft-excel",
+    "https://www.sendcloud.com/api/",
+    "https://docs.stripe.com/api/checkout/sessions",
+    "https://apps.make.com/fatture-in-cloud"
+  ]
+}
