@@ -90,21 +90,21 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
   const copy = {
     it: {
       title: "Privacy e utilizzo del sito",
-      text: "Questo sito utilizza tecnologie necessarie al funzionamento. Il modulo contatti apre la tua app email e non utilizza servizi esterni di inoltro. Puoi consultare la nostra Privacy Policy.",
+      text: "Questo sito utilizza tecnologie necessarie al funzionamento. I moduli Contatti e Manifestazione di interesse preparano un'email nella tua app di posta; il sito non registra automaticamente le richieste. Puoi consultare la nostra Privacy Policy.",
       link: "Privacy Policy",
       close: "Ho capito",
       href: "privacy-policy.html"
     },
     en: {
       title: "Privacy and site use",
-      text: "This site uses technologies necessary for its operation. The contact form opens your email app and does not use an external delivery service. You can read our Privacy Policy.",
+      text: "This site uses technologies necessary for its operation. The Contact and Expression of Interest forms prepare an email in your email app; the website does not automatically store submissions. You can read our Privacy Policy.",
       link: "Privacy Policy",
       close: "Got it",
       href: "privacy-policy-en.html"
     },
     es: {
       title: "Privacidad y uso del sitio",
-      text: "Este sitio utiliza tecnologías necesarias para su funcionamiento. El formulario de contacto abre tu aplicación de correo y no utiliza un servicio externo de envío. Puedes consultar nuestra Política de privacidad.",
+      text: "Este sitio utiliza tecnologías necesarias para su funcionamiento. Los formularios de contacto y manifestación de interés preparan un correo en tu aplicación; el sitio no registra automáticamente las consultas. Puedes consultar nuestra Política de privacidad.",
       link: "Política de privacidad",
       close: "Entendido",
       href: "privacy-policy-es.html"
