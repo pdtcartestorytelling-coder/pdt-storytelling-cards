@@ -80,3 +80,7 @@ La Privacy Policy deve essere aggiornata se vengono aggiunti nuovi servizi ester
 ## Fase attuale — raccolta d'interesse
 
 Da ottobre 2026 PdT è nella fase di finalizzazione e prime prove; nessun ordine, prenotazione o pagamento è attivo. Il modulo della pagina Pre Order prepara una email strutturata che il visitatore deve inviare manualmente. Non esiste ancora un database pubblico/automatico dei lead. Prima di attivarlo serve scegliere un provider, configurare un modulo sicuro e verificare informativa privacy e consenso comunicazioni. Vedere `docs/PDT_PIANO_VALIDAZIONE_MARKETING_2026.md`.
+
+## Low / Mid / Top (in studio)
+
+Tre proposte di pack e accesso a documenti mediante futura licenza digitale. Nessuna autenticazione o licenza attiva. Dettagli in `docs/PDT_TRE_VERSIONI_LICENZE.md`.
