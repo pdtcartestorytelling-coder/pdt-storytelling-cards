@@ -275,3 +275,9 @@ body[data-page="preorder"] .preorder-bundle-visual img{background:transparent}
 .pdt-tier-note,.pdt-digital-warning{display:none}
 @media(max-width:1060px){.pdt-tier-copy>p{min-height:0}}
 @media(max-width:600px){.pdt-tier-head{min-height:0}.preorder-hero-product img{max-height:520px}}
+
+/* Actual generated artwork for the three PdT editions, stored as one optimised image atlas. */
+.pdt-edition-atlas{aspect-ratio:1/1;position:relative;isolation:isolate}
+.pdt-edition-atlas img{position:absolute;top:0;left:0;width:300%;height:100%;max-width:none;object-fit:fill;display:block;transform:none;transition:none}
+.pdt-tier-card:nth-child(2) .pdt-edition-atlas img{left:-100%}
+.pdt-tier-card:nth-child(3) .pdt-edition-atlas img{left:-200%}
