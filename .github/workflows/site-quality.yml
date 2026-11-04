@@ -25,7 +25,7 @@ jobs:
       - name: Install browser smoke dependencies
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
       - name: Browser smoke test (IT EN ES / mobile desktop)
-        run: node scripts/browser_smoke.cjs
+        run: timeout 150s node scripts/browser_smoke.cjs
       - name: Save responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4

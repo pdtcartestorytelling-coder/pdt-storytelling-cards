@@ -32,7 +32,7 @@ async function run() {
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   const chrome=process.env.CHROME_BIN || execSync("which google-chrome || which chromium || which chromium-browser").toString().trim();
   console.log("Using browser",chrome);
-  const browser=await puppeteer.launch({executablePath:chrome,headless:true,args:["--no-sandbox","--disable-dev-shm-usage"]});
+  const browser=await puppeteer.launch({executablePath:chrome,headless:true,timeout:20000,args:["--no-sandbox","--disable-dev-shm-usage"]});
   try {
     for(const [lang,filename] of [["it","pre-order.html"],["en","pre-order-en.html"],["es","pre-order-es.html"]]) {
       for(const [label,width,height] of [["mobile",390,844],["desktop",1365,900]]) {
@@ -41,7 +41,7 @@ async function run() {
         const errors=[];
         page.on("pageerror",error=>errors.push(error.message));
         const url="http://127.0.0.1:"+server.address().port+"/"+filename;
-        const response=await page.goto(url,{waitUntil:"networkidle0",timeout:25000});
+        const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:15000});
         const facts=await page.evaluate(async()=>{
           const imgs=[...document.querySelectorAll(".pdt-edition-atlas img")];
           await Promise.all(imgs.map(img=>img.decode().catch(()=>{})));
@@ -64,8 +64,8 @@ async function run() {
         assert(facts.hasForm&&facts.footer,lang+" "+label+": missing form/footer");
         assert(facts.language===lang,lang+" "+label+": incorrect lang attribute");
         assert(!errors.length,lang+" "+label+": JavaScript error "+errors.join("; "));
-        const section=await page.$("#editions");
-        await section.screenshot({path:path.join(screenshots,lang+"-"+label+".png")});
+        await page.$eval("#editions",el=>el.scrollIntoView({block:"start"}));
+        await page.screenshot({path:path.join(screenshots,lang+"-"+label+".png"),fullPage:false,timeout:12000});
         await page.click('a[data-edition-choice="mid"]');
         const edition=await page.$eval('select[name="edition"]',node=>node.value);
         assert(edition==="mid",lang+" "+label+": edition CTA did not update enquiry form");
