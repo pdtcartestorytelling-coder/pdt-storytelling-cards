@@ -81,6 +81,12 @@ La Privacy Policy deve essere aggiornata se vengono aggiunti nuovi servizi ester
 
 Da ottobre 2026 PdT è nella fase di finalizzazione e prime prove; nessun ordine, prenotazione o pagamento è attivo. Il modulo della pagina Pre Order prepara una email strutturata che il visitatore deve inviare manualmente. Non esiste ancora un database pubblico/automatico dei lead. Prima di attivarlo serve scegliere un provider, configurare un modulo sicuro e verificare informativa privacy e consenso comunicazioni. Vedere `docs/PDT_PIANO_VALIDAZIONE_MARKETING_2026.md`.
 
-## Low / Mid / Top (in studio)
+## Essential / Studio / Signature
 
-Tre proposte di pack e accesso a documenti mediante futura licenza digitale. Nessuna autenticazione o licenza attiva. Dettagli in `docs/PDT_TRE_VERSIONI_LICENZE.md`.
+Tre edizioni di PdT: Essential (carte e risorse digitali), Studio (manuale stampato e schede digitali), Signature (kit cartaceo completo e confezione premium). Accesso digitale con licenza personale previsto. Nessuna autenticazione o licenza attiva. Dettagli in `docs/PDT_TRE_VERSIONI_LICENZE.md`.
+
+## Controlli qualità (novembre 2026)
+
+`python3 scripts/check_site.py` controlla gli HTML, i collegamenti locali, le ancore, le risorse, la sitemap e le tre edizioni Pre Order. `node --check script.js && node --check interest.js && node --check guida-informativa.js` valida la sintassi JavaScript. La verifica viene eseguita anche dalla GitHub Action `Site Quality`.
+
+I tre rendering delle edizioni sono inclusi in `images/pdt-editions-hq.avif` (atlante 2880 × 720, 960 × 720 per edizione), con selezione tramite CSS responsive. L'immagine precedente da 2,9 KB è deprecata.
