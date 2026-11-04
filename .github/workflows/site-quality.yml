@@ -21,3 +21,18 @@ jobs:
           node --check script.js
           node --check interest.js
           node --check guida-informativa.js
+
+      - name: Install browser smoke dependencies
+        run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
+      - name: Verify AVIF image container and dimensions
+        run: |
+          file images/pdt-editions-hq.avif
+      - name: Browser smoke test (IT EN ES / mobile desktop)
+        run: timeout 150s node scripts/browser_smoke.cjs
+      - name: Save responsive screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdt-browser-screenshots
+          path: browser-test-screenshots/*.png
+          if-no-files-found: ignore
