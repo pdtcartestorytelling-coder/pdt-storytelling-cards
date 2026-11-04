@@ -87,7 +87,11 @@ async function run() {
         assert(!errors.length,lang+" "+label+": JavaScript error "+errors.join("; "));
         const noOverlay=await page.$(".privacy-notice");
         assert(!noOverlay,lang+" "+label+": old privacy overlay covers product");
-        await page.$eval("#editions",el=>el.scrollIntoView({block:"start"}));
+        await page.evaluate(()=>{
+          document.documentElement.style.scrollBehavior="auto";
+          const section=document.querySelector("#editions");
+          window.scrollTo({top:Math.max(0,section.getBoundingClientRect().top+window.scrollY-115),behavior:"instant"});
+        });
         await page.screenshot({path:path.join(screenshots,lang+"-"+label+".png"),fullPage:false,timeout:12000});
         await page.click('a[data-edition-choice="mid"]');
         const edition=await page.$eval('select[name="edition"]',node=>node.value);
