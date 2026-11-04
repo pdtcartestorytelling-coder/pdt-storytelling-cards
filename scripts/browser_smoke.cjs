@@ -93,6 +93,18 @@ async function run() {
           window.scrollTo({top:Math.max(0,section.getBoundingClientRect().top+window.scrollY-115),behavior:"instant"});
         });
         await page.screenshot({path:path.join(screenshots,lang+"-"+label+".png"),fullPage:false,timeout:12000});
+        // Mobile menu should toggle reliably and remain keyboard accessible.
+        if(width<=980){
+          await page.click(".menu-toggle");
+          const expanded=await page.$eval(".menu-toggle",el=>el.getAttribute("aria-expanded"));
+          assert(expanded==="true",lang+" "+label+": mobile menu does not open");
+          await page.click(".menu-toggle");
+          await page.evaluate(()=>{
+            document.documentElement.style.scrollBehavior="auto";
+            document.querySelector("#interest").scrollIntoView({behavior:"instant",block:"center"});
+          });
+          await page.waitForFunction(()=>document.querySelector(".preorder-mobile-action")?.classList.contains("is-hidden"),{timeout:5000});
+        }
         await page.click('a[data-edition-choice="mid"]');
         const edition=await page.$eval('select[name="edition"]',node=>node.value);
         assert(edition==="mid",lang+" "+label+": edition CTA did not update enquiry form");

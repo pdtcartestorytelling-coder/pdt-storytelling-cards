@@ -285,3 +285,10 @@ body[data-page="preorder"] .preorder-bundle-visual img{background:transparent}
 .pdt-edition-preview:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.pdt-edition-preview:hover img{transform:scale(1.035)}}
 @media(prefers-reduced-motion:reduce){.pdt-edition-preview img{transition:none}}
+
+/* Hide sticky mobile request CTA while the request form itself is visible. */
+@media(max-width:790px){
+  .preorder-mobile-action{transition:opacity .2s ease,transform .2s ease,visibility .2s}
+  .preorder-mobile-action.is-hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(110%)}
+}
+@media(prefers-reduced-motion:reduce){.preorder-mobile-action{transition:none!important}}
