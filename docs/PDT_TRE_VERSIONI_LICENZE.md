@@ -1,10 +1,10 @@
-# PdT — versioni Low / Mid / Top e licenze digitali
+# PdT — versioni Essential / Studio / Signature e licenze digitali
 Stato: progettazione, **non operativo**. 1 novembre 2026.
 
 ## Pack in studio (tutti con 102 carte = 2 mazzi da 51)
-- LOW: custodia semplice, manuale digitale (60 pagine), 22 schede digitali.
-- MID: cofanetto semplificato, manuale stampato (60 pagine), 22 schede digitali.
-- TOP: cofanetto premium, manuale e 22 schede stampati; accesso digitale previsto.
+- ESSENTIAL: custodia semplice, manuale digitale (60 pagine), 22 schede digitali.
+- STUDIO: cofanetto funzionale, manuale stampato (60 pagine), 22 schede stampate.
+- SIGNATURE: manuale e 22 schede stampati, cofanetto premium, finiture e materiali di qualità superiore; accesso digitale previsto.
 Qualità delle carte invariata. Mix per circa 50 kit iniziali da decidere dopo preventivi e campioni; nessun prodotto ancora ordinabile.
 
 ## Licenze per documenti — architettura futura
@@ -16,4 +16,4 @@ Qualità delle carte invariata. Mix per circa 50 kit iniziali da decidere dopo p
 **Non sono stati creati account, codici, licenze o aree documentali. Non caricare segreti nel client.**
 
 ## Costi (solo pianificazione interna)
-Obiettivi da chiedere alla stamperia, IVA inclusa: Low 28–30 €, Mid 45–50 €; Top da quotare. Non sono prezzi di vendita pubblici.
+Obiettivi da chiedere alla stamperia, IVA inclusa: Essential 28–30 €, Studio 45–50 €; Signature da quotare; stime da ricalcolare per le schede stampate Studio. Non sono prezzi di vendita pubblici.

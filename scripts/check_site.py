@@ -133,6 +133,14 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     for edition in ("Essential", "Studio", "Signature"):
         if f"PdT {edition}" not in text:
             ERRORS.append(f"{name}: missing edition {edition}")
+    studio_section = text.split("02 / PdT Studio", 1)[-1].split("03 / PdT Signature", 1)[0]
+    required = {
+        "pre-order.html": "22 schede operative stampate",
+        "pre-order-en.html": "22 printed activity sheets",
+        "pre-order-es.html": "22 fichas operativas impresas",
+    }
+    if required[name] not in studio_section:
+        ERRORS.append(f"{name}: Studio must include printed activity sheets")
 if (ROOT / "images/pdt-editions-hq.avif").stat().st_size < 20000:
     ERRORS.append("HQ edition image too small (possible blurry placeholder)")
 css = (ROOT / "preorder.css").read_text(encoding="utf-8")

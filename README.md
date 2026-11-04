@@ -83,7 +83,7 @@ Da ottobre 2026 PdT è nella fase di finalizzazione e prime prove; nessun ordine
 
 ## Essential / Studio / Signature
 
-Tre edizioni di PdT: Essential (carte e risorse digitali), Studio (manuale stampato e schede digitali), Signature (kit cartaceo completo e confezione premium). Accesso digitale con licenza personale previsto. Nessuna autenticazione o licenza attiva. Dettagli in `docs/PDT_TRE_VERSIONI_LICENZE.md`.
+Tre edizioni di PdT: Essential (carte e risorse digitali), Studio (manuale e 22 schede stampate), Signature (lo stesso kit cartaceo con finiture e cofanetto premium). Accesso digitale con licenza personale previsto. Nessuna autenticazione o licenza attiva. Dettagli in `docs/PDT_TRE_VERSIONI_LICENZE.md`.
 
 ## Controlli qualità (novembre 2026)
 
