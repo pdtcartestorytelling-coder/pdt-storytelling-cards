@@ -42,9 +42,9 @@ async function run() {
         page.on("pageerror",error=>errors.push(error.message));
         const url="http://127.0.0.1:"+server.address().port+"/"+filename;
         const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:15000});
-        const facts=await page.evaluate(async()=>{
+        await new Promise(resolve=>setTimeout(resolve,1100));
+        const facts=await page.evaluate(()=>{
           const imgs=[...document.querySelectorAll(".pdt-edition-atlas img")];
-          await Promise.all(imgs.map(img=>img.decode().catch(()=>{})));
           const footer=document.querySelector("footer");
           return {
             title:document.title,
