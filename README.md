@@ -89,4 +89,6 @@ Tre edizioni di PdT: Essential (carte e risorse digitali), Studio (manuale e 22 
 
 `python3 scripts/check_site.py` controlla gli HTML, i collegamenti locali, le ancore, le risorse, la sitemap e le tre edizioni Pre Order. `node --check script.js && node --check interest.js && node --check guida-informativa.js` valida la sintassi JavaScript. La verifica viene eseguita anche dalla GitHub Action `Site Quality`.
 
-I tre rendering delle edizioni sono inclusi in `images/pdt-editions-hq.avif` (atlante 2880 × 720, 960 × 720 per edizione), con selezione tramite CSS responsive. L'immagine precedente da 2,9 KB è deprecata.
+I rendering approvati sono pubblicati come **tre immagini distinte**, ciascuna in formato AVIF e WebP con risoluzione 960 × 720: `images/pdt-essential-hq.*`, `images/pdt-studio-hq.*` e `images/pdt-signature-hq.*`. Le schede hanno un link all'immagine in grande e fallback WebP per la compatibilità. L'atlante originale `images/pdt-editions-hq.avif` rimane come sorgente; per generare di nuovo le immagini: `npm install --no-save sharp@0.34.4 && node scripts/export-edition-images.cjs`.
+
+L'avviso privacy intrusivo è stato rimosso: la policy resta disponibile nel footer e nei moduli, senza introdurre tracciamento o cookie non essenziali.

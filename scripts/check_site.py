@@ -128,8 +128,11 @@ except (ET.ParseError, OSError) as exc:
 
 for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
-    if text.count("images/pdt-editions-hq.avif") != 3:
-        ERRORS.append(f"{name}: expected three HQ edition references")
+    for edition in ("essential", "studio", "signature"):
+        for fmt in ("webp", "avif"):
+            asset = f"images/pdt-{edition}-hq.{fmt}"
+            if asset not in text:
+                ERRORS.append(f"{name}: missing {edition} {fmt} edition image")
     for edition in ("Essential", "Studio", "Signature"):
         if f"PdT {edition}" not in text:
             ERRORS.append(f"{name}: missing edition {edition}")
@@ -141,11 +144,14 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     }
     if required[name] not in studio_section:
         ERRORS.append(f"{name}: Studio must include printed activity sheets")
-if (ROOT / "images/pdt-editions-hq.avif").stat().st_size < 20000:
-    ERRORS.append("HQ edition image too small (possible blurry placeholder)")
+for edition in ("essential", "studio", "signature"):
+    for fmt in ("webp", "avif"):
+        file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
+        if not file.exists() or file.stat().st_size < 20000:
+            ERRORS.append(f"{file.name}: missing or too small to be a full-size render")
 css = (ROOT / "preorder.css").read_text(encoding="utf-8")
-if ".pdt-edition-atlas{aspect-ratio:4/3;height:auto;" not in css:
-    ERRORS.append("preorder.css: edition image aspect ratio missing")
+if ".pdt-tier-visual.pdt-edition-image{height:auto;aspect-ratio:4/3;" not in css:
+    ERRORS.append("preorder.css: dedicated image card style missing")
 
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 3 edition panels.")
 if ERRORS:

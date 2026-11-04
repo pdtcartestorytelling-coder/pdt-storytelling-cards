@@ -17,8 +17,7 @@ const editions = ["essential","studio","signature"];
       fs.writeFileSync(path.resolve(__dirname,"../images/"+filename),buf);
       const checksum=crypto.createHash("sha256").update(buf).digest("hex");
       console.log("PDT_ASSET_BEGIN "+filename+" "+buf.length+" "+checksum);
-      console.log(buf.toString("base64"));
-      console.log("PDT_ASSET_END "+filename);
+      // Binary previews are retained as local files; avoid emitting large base64 logs.
     }
   }
   console.log("PDT_ASSETS_COMPLETE six image crops");

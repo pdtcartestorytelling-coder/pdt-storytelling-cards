@@ -276,8 +276,12 @@ body[data-page="preorder"] .preorder-bundle-visual img{background:transparent}
 @media(max-width:1060px){.pdt-tier-copy>p{min-height:0}}
 @media(max-width:600px){.pdt-tier-head{min-height:0}.preorder-hero-product img{max-height:520px}}
 
-/* Actual generated artwork for the three PdT editions, stored as one optimised image atlas. */
-.pdt-edition-atlas{aspect-ratio:4/3;height:auto;position:relative;isolation:isolate}
-.pdt-edition-atlas img{position:absolute;top:0;left:0;width:300%;height:100%;max-width:none;object-fit:fill;display:block;transform:none;transition:none}
-.pdt-tier-card:nth-child(2) .pdt-edition-atlas img{left:-100%}
-.pdt-tier-card:nth-child(3) .pdt-edition-atlas img{left:-200%}
+/* Distinct, optimized edition artwork. Each card links to its full-size image. */
+.pdt-tier-visual.pdt-edition-image{height:auto;aspect-ratio:4/3;position:relative;background:#f4ecdf;overflow:hidden}
+.pdt-edition-preview{position:relative;display:block;width:100%;height:100%;overflow:hidden;outline-offset:-4px}
+.pdt-edition-preview picture{display:block;width:100%;height:100%}
+.pdt-edition-preview img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .3s ease}
+.pdt-edition-open{position:absolute;right:14px;bottom:14px;display:grid;place-items:center;width:36px;height:36px;border:1px solid rgba(255,255,255,.8);border-radius:50%;background:rgba(11,47,88,.8);color:#fff;font-size:21px;line-height:1;pointer-events:none}
+.pdt-edition-preview:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.pdt-edition-preview:hover img{transform:scale(1.035)}}
+@media(prefers-reduced-motion:reduce){.pdt-edition-preview img{transition:none}}
