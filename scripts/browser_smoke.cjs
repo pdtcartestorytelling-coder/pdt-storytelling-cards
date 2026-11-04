@@ -35,7 +35,7 @@ async function run() {
   const browser=await puppeteer.launch({executablePath:chrome,headless:true,timeout:20000,args:["--no-sandbox","--disable-dev-shm-usage"]});
   try {
     for(const [lang,filename] of [["it","pre-order.html"],["en","pre-order-en.html"],["es","pre-order-es.html"]]) {
-      for(const [label,width,height] of [["mobile",390,844],["desktop",1365,900]]) {
+      for(const [label,width,height] of [["small",320,720],["mobile",390,844],["desktop",1365,900]]) {
         const page=await browser.newPage();
         await page.setViewport({width,height,deviceScaleFactor:1});
         const errors=[];
@@ -46,15 +46,15 @@ async function run() {
         // Scroll each card individually, including those below the fold on mobile.
         for(let i=0;i<3;i++){
           await page.evaluate(index=>{
-            document.querySelectorAll(".pdt-edition-atlas img")[index].scrollIntoView({block:"center"});
+            document.querySelectorAll(".pdt-edition-image img")[index].scrollIntoView({block:"center"});
           },i);
           await page.waitForFunction(index=>{
-            const img=document.querySelectorAll(".pdt-edition-atlas img")[index];
+            const img=document.querySelectorAll(".pdt-edition-image img")[index];
             return img && img.complete && img.naturalWidth>0;
           },{timeout:12000},i);
         }
         const facts=await page.evaluate(()=>{
-          const imgs=[...document.querySelectorAll(".pdt-edition-atlas img")];
+          const imgs=[...document.querySelectorAll(".pdt-edition-image img")];
           const footer=document.querySelector("footer");
           return {
             title:document.title,
@@ -69,13 +69,42 @@ async function run() {
         console.log(lang,label,JSON.stringify(facts));
         assert(response.status()===200,lang+" "+label+": HTTP "+response.status());
         assert(facts.cardCount===3,lang+" "+label+": missing edition cards");
-        assert(facts.images.length===3&&facts.images.every(x=>x.loaded&&x.width===2880&&x.height===720),lang+" "+label+": images failed to decode at 2880x720");
+        const variants=await page.evaluate(()=>[...document.querySelectorAll(".pdt-edition-image")].map(x=>({
+          webp:x.querySelector("img")?.getAttribute("src"),
+          avif:x.querySelector("source")?.getAttribute("srcset"),
+          href:x.querySelector("a")?.getAttribute("href")
+        })));
+        for(let i=0;i<3;i++){
+          let tier=["essential","studio","signature"][i];
+          assert(variants[i].webp==="images/pdt-"+tier+"-hq.webp",lang+" "+label+": wrong WebP for "+tier);
+          assert(variants[i].avif==="images/pdt-"+tier+"-hq.avif",lang+" "+label+": wrong AVIF for "+tier);
+          assert(variants[i].href===variants[i].webp,lang+" "+label+": full resolution preview broken for "+tier);
+        }
+        assert(facts.images.length===3&&facts.images.every(x=>x.loaded&&x.width===960&&x.height===720),lang+" "+label+": images failed to decode at 960x720");
         assert(facts.overflow<=5,lang+" "+label+": horizontal overflow "+facts.overflow+"px");
         assert(facts.hasForm&&facts.footer,lang+" "+label+": missing form/footer");
         assert(facts.language===lang,lang+" "+label+": incorrect lang attribute");
         assert(!errors.length,lang+" "+label+": JavaScript error "+errors.join("; "));
-        await page.$eval("#editions",el=>el.scrollIntoView({block:"start"}));
+        const noOverlay=await page.$(".privacy-notice");
+        assert(!noOverlay,lang+" "+label+": old privacy overlay covers product");
+        await page.evaluate(()=>{
+          document.documentElement.style.scrollBehavior="auto";
+          const section=document.querySelector("#editions");
+          window.scrollTo({top:Math.max(0,section.getBoundingClientRect().top+window.scrollY-115),behavior:"instant"});
+        });
         await page.screenshot({path:path.join(screenshots,lang+"-"+label+".png"),fullPage:false,timeout:12000});
+        // Mobile menu should toggle reliably and remain keyboard accessible.
+        if(width<=980){
+          await page.click(".menu-toggle");
+          const expanded=await page.$eval(".menu-toggle",el=>el.getAttribute("aria-expanded"));
+          assert(expanded==="true",lang+" "+label+": mobile menu does not open");
+          await page.click(".menu-toggle");
+          await page.evaluate(()=>{
+            document.documentElement.style.scrollBehavior="auto";
+            document.querySelector("#interest").scrollIntoView({behavior:"instant",block:"center"});
+          });
+          await page.waitForFunction(()=>document.querySelector(".preorder-mobile-action")?.classList.contains("is-hidden"),{timeout:5000});
+        }
         await page.click('a[data-edition-choice="mid"]');
         const edition=await page.$eval('select[name="edition"]',node=>node.value);
         assert(edition==="mid",lang+" "+label+": edition CTA did not update enquiry form");
@@ -86,6 +115,6 @@ async function run() {
     await browser.close();
     await new Promise(resolve=>server.close(resolve));
   }
-  console.log("PASS: 6 browser renders, image decoding, responsive overflow, JS, edition form selection");
+  console.log("PASS: 9 browser renders, 3 distinct product assets, responsive overflow, JS, edition form selection");
 }
 run().catch(error=>{console.error(error.stack||error);server.close();process.exitCode=1;});
