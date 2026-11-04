@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ERRORS = []
 IGNORE = {"", "#"}
 IGNORE_SCHEMES = ("mailto:", "tel:", "data:", "javascript:", "https:", "http:", "//")
-EXCEPTIONS = {"grazie.html", "thank-you.html", "gracias.html", "contatti-acquista.html"}
+EXCEPTIONS = {"grazie.html", "thank-you.html", "gracias.html", "contatti-acquista.html", "404.html"}
 
 class Page(HTMLParser):
     def __init__(self):
