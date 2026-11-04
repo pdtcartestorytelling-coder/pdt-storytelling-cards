@@ -42,7 +42,17 @@ async function run() {
         page.on("pageerror",error=>errors.push(error.message));
         const url="http://127.0.0.1:"+server.address().port+"/"+filename;
         const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:15000});
-        await new Promise(resolve=>setTimeout(resolve,1100));
+        // Lazy images must enter the viewport before Chrome begins downloading.
+        // Scroll each card individually, including those below the fold on mobile.
+        for(let i=0;i<3;i++){
+          await page.evaluate(index=>{
+            document.querySelectorAll(".pdt-edition-atlas img")[index].scrollIntoView({block:"center"});
+          },i);
+          await page.waitForFunction(index=>{
+            const img=document.querySelectorAll(".pdt-edition-atlas img")[index];
+            return img && img.complete && img.naturalWidth>0;
+          },{timeout:12000},i);
+        }
         const facts=await page.evaluate(()=>{
           const imgs=[...document.querySelectorAll(".pdt-edition-atlas img")];
           const footer=document.querySelector("footer");
