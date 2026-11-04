@@ -69,7 +69,7 @@ async function run() {
         console.log(lang,label,JSON.stringify(facts));
         assert(response.status()===200,lang+" "+label+": HTTP "+response.status());
         assert(facts.cardCount===3,lang+" "+label+": missing edition cards");
-        const variants=await page.$eval(".pdt-edition-image", items=>items.map(x=>({
+        const variants=await page.evaluate(()=>[...document.querySelectorAll(".pdt-edition-image")].map(x=>({
           webp:x.querySelector("img")?.getAttribute("src"),
           avif:x.querySelector("source")?.getAttribute("srcset"),
           href:x.querySelector("a")?.getAttribute("href")
