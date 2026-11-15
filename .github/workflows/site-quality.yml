@@ -21,6 +21,7 @@ jobs:
           node --check script.js
           node --check interest.js
           node --check guida-informativa.js
+          node --check pdt-motion.js
 
       - name: Install browser smoke dependencies
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
