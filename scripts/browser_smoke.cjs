@@ -139,7 +139,7 @@ async function run() {
         assert(facts.heroImage>0&&facts.title,lang+" home "+label+": hero missing");
         assert(facts.editionCount===3,lang+" home "+label+": missing product editions");
         // First-screen discovery must be keyboard/click accessible and reveal useful content.
-        const firstActions=await page.$eval(".pdt-first-action-option",nodes=>nodes.length);
+        const firstActions=await page.$$eval(".pdt-first-action-option",nodes=>nodes.length);
         assert(firstActions===3,lang+" home "+label+": missing first-click choices");
         await page.click(".pdt-first-action-option:nth-child(1) summary");
         const firstOpened=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>el.open);
