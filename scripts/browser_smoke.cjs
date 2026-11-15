@@ -111,10 +111,49 @@ async function run() {
         await page.close();
       }
     }
+    // Home product-first motion smoke: check all languages and responsive widths.
+    for (const [lang,filename] of [["it","index.html"],["en","home-en.html"],["es","home-es.html"]]) {
+      for (const [label,width,height] of [["small",320,720],["mobile",390,844],["desktop",1365,900]]) {
+        const page=await browser.newPage();
+        await page.setViewport({width,height,deviceScaleFactor:1});
+        const errors=[];
+        page.on("pageerror",error=>errors.push(error.message));
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+filename,{waitUntil:"domcontentloaded",timeout:15000});
+        await page.waitForFunction(()=>{
+          const image=document.querySelector(".pdt-h-hero-figure img");
+          return image && image.complete && image.naturalWidth>0;
+        },{timeout:12000});
+        const facts=await page.evaluate(()=>({
+          language:document.documentElement.lang,
+          title:document.querySelector(".pdt-h-hero h1")?.textContent,
+          heroImage:document.querySelector(".pdt-h-hero-figure img")?.naturalWidth,
+          editionCount:document.querySelectorAll(".pdt-h-edition").length,
+          progress:!!document.querySelector(".pdt-reading-progress"),
+          overflow:document.documentElement.scrollWidth-window.innerWidth,
+          preOrderLink:!!document.querySelector(".pdt-h-cta-actions a[href*='pre-order']"),
+          logo:!!document.querySelector(".brand-logo")
+        }));
+        console.log("home",lang,label,JSON.stringify(facts));
+        assert(response.status()===200,lang+" home "+label+": HTTP "+response.status());
+        assert(facts.language===lang,lang+" home "+label+": wrong language");
+        assert(facts.heroImage>0&&facts.title,lang+" home "+label+": hero missing");
+        assert(facts.editionCount===3,lang+" home "+label+": missing product editions");
+        assert(facts.progress&&facts.logo&&facts.preOrderLink,lang+" home "+label+": missing motion/brand/CTA");
+        assert(facts.overflow<=5,lang+" home "+label+": horizontal overflow "+facts.overflow+"px");
+        assert(!errors.length,lang+" home "+label+": JavaScript error "+errors.join("; "));
+        await page.evaluate(()=>{
+          document.documentElement.style.scrollBehavior="auto";
+          document.querySelector(".pdt-h-edition").scrollIntoView({block:"center",behavior:"instant"});
+        });
+        await page.waitForFunction(()=>document.querySelector(".pdt-h-edition").classList.contains("pdt-is-visible"),{timeout:5000});
+        await page.screenshot({path:path.join(screenshots,"home-"+lang+"-"+label+".png"),fullPage:false,timeout:12000});
+        await page.close();
+      }
+    }
   } finally {
     await browser.close();
     await new Promise(resolve=>server.close(resolve));
   }
-  console.log("PASS: 9 browser renders, 3 distinct product assets, responsive overflow, JS, edition form selection");
+  console.log("PASS: 18 browser renders across home and pre-order, product assets, motion, responsive overflow, JS and edition form selection");
 }
 run().catch(error=>{console.error(error.stack||error);server.close();process.exitCode=1;});
