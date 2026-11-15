@@ -149,7 +149,7 @@ async function run() {
           href:el.querySelector("a")?.getAttribute("href")
         }));
         assert(firstDetail.text&&firstDetail.href,lang+" home "+label+": first choice does not reveal prompt/link");
-        await page.click(".pdt-first-action-option:nth-child(2) summary");
+        await page.$eval(".pdt-first-action-option:nth-child(2) summary",element=>element.click());
         const secondOpened=await page.$eval(".pdt-first-action-option:nth-child(2)",el=>el.open);
         const firstClosed=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>!el.open);
         console.log("home first-click state",lang,label,JSON.stringify({firstOpened,secondOpened,firstClosed}));
