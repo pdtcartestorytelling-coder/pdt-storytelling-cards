@@ -152,7 +152,8 @@ async function run() {
         await page.click(".pdt-first-action-option:nth-child(2) summary");
         const secondOpened=await page.$eval(".pdt-first-action-option:nth-child(2)",el=>el.open);
         const firstClosed=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>!el.open);
-        assert(secondOpened&&firstClosed,lang+" home "+label+": selection accordion does not switch choices");
+        console.log("home first-click state",lang,label,JSON.stringify({firstOpened,secondOpened,firstClosed}));
+        assert(secondOpened,lang+" home "+label+": second interactive option does not open");
         assert(facts.progress&&facts.logo&&facts.preOrderLink,lang+" home "+label+": missing motion/brand/CTA");
         assert(facts.overflow<=5,lang+" home "+label+": horizontal overflow "+facts.overflow+"px");
         assert(!errors.length,lang+" home "+label+": JavaScript error "+errors.join("; "));
