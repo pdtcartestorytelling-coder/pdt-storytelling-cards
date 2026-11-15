@@ -127,6 +127,13 @@ async function run() {
           language:document.documentElement.lang,
           title:document.querySelector(".pdt-h-hero h1")?.textContent,
           heroImage:document.querySelector(".pdt-h-hero-figure img")?.naturalWidth,
+          heroImageHeight:document.querySelector(".pdt-h-hero-figure img")?.naturalHeight,
+          heroImageSrc:document.querySelector(".pdt-h-hero-figure img")?.getAttribute("src"),
+          heroImageFit:getComputedStyle(document.querySelector(".pdt-h-hero-figure img")).objectFit,
+          heroImageRenderedRatio:(()=>{
+            const rect=document.querySelector(".pdt-h-hero-figure img").getBoundingClientRect();
+            return rect.width/rect.height;
+          })(),
           editionCount:document.querySelectorAll(".pdt-h-edition").length,
           progress:!!document.querySelector(".pdt-reading-progress"),
           overflow:document.documentElement.scrollWidth-window.innerWidth,
@@ -137,6 +144,10 @@ async function run() {
         assert(response.status()===200,lang+" home "+label+": HTTP "+response.status());
         assert(facts.language===lang,lang+" home "+label+": wrong language");
         assert(facts.heroImage>0&&facts.title,lang+" home "+label+": hero missing");
+        assert(facts.heroImageSrc==="images/pdt-cofanetto-chiuso-hero.webp",lang+" home "+label+": wrong closed-box image");
+        assert(facts.heroImage===1024&&facts.heroImageHeight===768,lang+" home "+label+": closed-box asset dimensions invalid");
+        assert(facts.heroImageFit==="contain",lang+" home "+label+": hero image may be cropped");
+        assert(Math.abs(facts.heroImageRenderedRatio-4/3)<0.02,lang+" home "+label+": distorted image aspect ratio");
         assert(facts.editionCount===3,lang+" home "+label+": missing product editions");
         // First-screen discovery must be keyboard/click accessible and reveal useful content.
         const firstActions=await page.$$eval(".pdt-first-action-option",nodes=>nodes.length);
