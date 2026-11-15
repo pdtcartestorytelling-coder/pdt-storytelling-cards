@@ -1,9 +1,9 @@
 /* PdT first-click discovery: accessible, native HTML accordion. */
 body[data-page="home"] .pdt-first-action{
   margin:24px 0 24px;max-width:630px;padding:20px 22px 17px;
-  border:1px solid rgba(23,75,127,.17);border-radius:20px;
-  background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,252,245,.87));
-  box-shadow:0 15px 34px rgba(11,47,88,.075);
+  border:1px solid rgba(245,179,53,.5);border-radius:20px;
+  background:linear-gradient(145deg,var(--cream-light),var(--cream));
+  box-shadow:0 15px 34px rgba(0,0,0,.13);
 }
 body[data-page="home"] .pdt-first-action-label{
   margin:0 0 5px;color:#76623d;font:800 10px/1.4 var(--font-brand);
