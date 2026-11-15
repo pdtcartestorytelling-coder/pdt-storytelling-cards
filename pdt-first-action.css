@@ -1,0 +1,92 @@
+/* PdT first-click discovery: accessible, native HTML accordion. */
+body[data-page="home"] .pdt-first-action{
+  margin:24px 0 24px;max-width:630px;padding:20px 22px 17px;
+  border:1px solid rgba(23,75,127,.17);border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,252,245,.87));
+  box-shadow:0 15px 34px rgba(11,47,88,.075);
+}
+body[data-page="home"] .pdt-first-action-label{
+  margin:0 0 5px;color:#76623d;font:800 10px/1.4 var(--font-brand);
+  letter-spacing:.15em;text-transform:uppercase;
+}
+body[data-page="home"] .pdt-first-action h2{
+  margin:0 0 3px;color:var(--blue-950);font-size:clamp(22px,2vw,27px);
+  line-height:1.2;letter-spacing:-.02em;
+}
+body[data-page="home"] .pdt-first-action-intro{
+  margin:0 0 8px;color:#536273;font-size:14px;line-height:1.5;
+}
+body[data-page="home"] .pdt-first-action-choices{border-top:1px solid rgba(23,75,127,.13)}
+body[data-page="home"] .pdt-first-action-option{
+  border-bottom:1px solid rgba(23,75,127,.13);
+  overflow:hidden;
+}
+body[data-page="home"] .pdt-first-action-option summary{
+  display:flex;align-items:center;gap:12px;min-height:43px;padding:9px 2px;
+  list-style:none;cursor:pointer;color:var(--blue-950);
+  font-size:15px;font-weight:700;line-height:1.35;
+  transition:color .2s ease,padding-left .2s ease;
+}
+body[data-page="home"] .pdt-first-action-option summary::-webkit-details-marker{display:none}
+body[data-page="home"] .pdt-first-action-num{
+  flex:0 0 auto;color:var(--gold-dark);font:800 11px/1.4 var(--font-brand);
+  letter-spacing:.08em;
+}
+body[data-page="home"] .pdt-first-action-choice{flex:1}
+body[data-page="home"] .pdt-first-action-arrow{
+  flex:0 0 25px;width:25px;height:25px;display:grid;place-items:center;
+  border:1px solid rgba(23,75,127,.18);border-radius:50%;
+  background:rgba(255,255,255,.7);color:var(--blue-800);
+  font:700 18px/1 Arial,sans-serif;
+  transition:transform .25s ease,background .25s ease;
+}
+body[data-page="home"] .pdt-first-action-option[open] summary{color:var(--blue-700)}
+body[data-page="home"] .pdt-first-action-option[open] .pdt-first-action-arrow{
+  background:var(--gold);transform:rotate(45deg);
+}
+body[data-page="home"] .pdt-first-action-answer{
+  padding:0 12px 15px 28px;
+  animation:pdtFirstActionReveal .32s cubic-bezier(.22,1,.36,1) both;
+}
+body[data-page="home"] .pdt-first-action-answer p{
+  margin:0 0 7px;color:#344b62;font-size:15px;line-height:1.5;
+}
+body[data-page="home"] .pdt-first-action-answer a{
+  display:inline-flex;gap:4px;align-items:center;
+  color:var(--blue-800);font-size:13px;font-weight:800;
+  text-decoration:underline;text-underline-offset:4px;
+}
+body[data-page="home"] .pdt-first-action-example{
+  margin:11px 0 0;color:#677383;font-size:11px;line-height:1.45;
+}
+body[data-page="home"] .pdt-first-action-option summary:focus-visible,
+body[data-page="home"] .pdt-first-action-answer a:focus-visible{
+  outline:3px solid var(--gold-dark);outline-offset:3px;border-radius:5px;
+}
+@media(hover:hover) and (pointer:fine){
+  body[data-page="home"] .pdt-first-action-option summary:hover{
+    padding-left:8px;color:var(--blue-700);
+  }
+}
+@keyframes pdtFirstActionReveal{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:none}
+}
+@media(max-width:760px){
+  /* The first decision should be available before the hero artwork on a phone. */
+  body[data-page="home"] .pdt-h-hero-figure{order:1;}
+  body[data-page="home"] .pdt-first-action{margin:18px 0 21px;padding:16px 16px 13px}
+  body[data-page="home"] .pdt-first-action-option summary{min-height:44px}
+  body[data-page="home"] .pdt-h-hero-figure img{max-height:285px;}
+}
+@media(max-width:460px){
+  body[data-page="home"] .pdt-first-action h2{font-size:23px}
+  body[data-page="home"] .pdt-first-action-intro{font-size:13px}
+  body[data-page="home"] .pdt-first-action-option summary{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="home"] .pdt-first-action-option *,
+  body[data-page="home"] .pdt-first-action-answer{
+    animation:none!important;transition:none!important;
+  }
+}

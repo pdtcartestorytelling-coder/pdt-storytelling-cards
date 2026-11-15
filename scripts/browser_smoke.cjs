@@ -138,6 +138,22 @@ async function run() {
         assert(facts.language===lang,lang+" home "+label+": wrong language");
         assert(facts.heroImage>0&&facts.title,lang+" home "+label+": hero missing");
         assert(facts.editionCount===3,lang+" home "+label+": missing product editions");
+        // First-screen discovery must be keyboard/click accessible and reveal useful content.
+        const firstActions=await page.$$eval(".pdt-first-action-option",nodes=>nodes.length);
+        assert(firstActions===3,lang+" home "+label+": missing first-click choices");
+        await page.click(".pdt-first-action-option:nth-child(1) summary");
+        const firstOpened=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>el.open);
+        assert(firstOpened,lang+" home "+label+": first option failed to open");
+        const firstDetail=await page.$eval(".pdt-first-action-option:nth-child(1) .pdt-first-action-answer",el=>({
+          text:el.querySelector("p")?.textContent,
+          href:el.querySelector("a")?.getAttribute("href")
+        }));
+        assert(firstDetail.text&&firstDetail.href,lang+" home "+label+": first choice does not reveal prompt/link");
+        await page.$eval(".pdt-first-action-option:nth-child(2) summary",element=>element.click());
+        const secondOpened=await page.$eval(".pdt-first-action-option:nth-child(2)",el=>el.open);
+        const firstClosed=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>!el.open);
+        console.log("home first-click state",lang,label,JSON.stringify({firstOpened,secondOpened,firstClosed}));
+        assert(secondOpened,lang+" home "+label+": second interactive option does not open");
         assert(facts.progress&&facts.logo&&facts.preOrderLink,lang+" home "+label+": missing motion/brand/CTA");
         assert(facts.overflow<=5,lang+" home "+label+": horizontal overflow "+facts.overflow+"px");
         assert(!errors.length,lang+" home "+label+": JavaScript error "+errors.join("; "));
@@ -154,6 +170,6 @@ async function run() {
     await browser.close();
     await new Promise(resolve=>server.close(resolve));
   }
-  console.log("PASS: 18 browser renders across home and pre-order, product assets, motion, responsive overflow, JS and edition form selection");
+  console.log("PASS: 18 browser renders including accessible first-click discovery across home and pre-order, product assets, motion, responsive overflow, JS and edition form selection");
 }
 run().catch(error=>{console.error(error.stack||error);server.close();process.exitCode=1;});

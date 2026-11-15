@@ -45,6 +45,19 @@
     });
   }
 
+  // Keep the three introductory pathways exclusive across browsers.
+  // Native details/summary still works without JavaScript.
+  if (body.dataset.page === "home") {
+    const choices = [...document.querySelectorAll(".pdt-first-action-option")];
+    choices.forEach((choice) => {
+      choice.querySelector("summary")?.addEventListener("click", () => {
+        choices.forEach((other) => {
+          if (other !== choice) other.open = false;
+        });
+      });
+    });
+  }
+
   // Fine reading-progress line, attached outside the site header.
   const progress = document.createElement("div");
   progress.className = "pdt-reading-progress";
