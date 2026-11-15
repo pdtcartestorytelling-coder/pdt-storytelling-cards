@@ -130,6 +130,17 @@ async function run() {
           heroImageHeight:document.querySelector(".pdt-h-hero-figure img")?.naturalHeight,
           heroImageSrc:document.querySelector(".pdt-h-hero-figure img")?.getAttribute("src"),
           heroImageFit:getComputedStyle(document.querySelector(".pdt-h-hero-figure img")).objectFit,
+          heroGradient:getComputedStyle(document.querySelector(".pdt-h-hero")).backgroundImage,
+          heroHeadingColor:getComputedStyle(document.querySelector(".pdt-h-hero h1")).color,
+          headerColor:getComputedStyle(document.querySelector(".site-header")).backgroundColor,
+          photoFrame:(()=>{
+            const style=getComputedStyle(document.querySelector(".pdt-h-hero-figure"));
+            return {padding:style.paddingLeft,borderWidth:style.borderLeftWidth,borderColor:style.borderLeftColor,backgroundColor:style.backgroundColor,backgroundImage:style.backgroundImage};
+          })(),
+          homeNavigation:(()=>{
+            const link=document.querySelector(".nav-links li:first-child a");
+            return {text:link?.textContent.trim(),href:link?.getAttribute("href"),active:link?.getAttribute("aria-current")};
+          })(),
           heroImageRenderedRatio:(()=>{
             const rect=document.querySelector(".pdt-h-hero-figure img").getBoundingClientRect();
             return rect.width/rect.height;
@@ -147,6 +158,13 @@ async function run() {
         assert(facts.heroImageSrc==="images/pdt-cofanetto-chiuso-hero.webp",lang+" home "+label+": wrong closed-box image");
         assert(facts.heroImage===1024&&facts.heroImageHeight===768,lang+" home "+label+": closed-box asset dimensions invalid");
         assert(facts.heroImageFit==="contain",lang+" home "+label+": hero image may be cropped");
+        assert(facts.heroGradient.includes("rgb(23, 75, 127)")&&facts.heroGradient.includes("rgb(11, 47, 88)"),lang+" home "+label+": homepage lost brand blue gradient");
+        assert(facts.heroHeadingColor==="rgb(255, 250, 243)",lang+" home "+label+": homepage heading color does not match interior pages");
+        assert(facts.headerColor==="rgba(18, 63, 111, 0.97)",lang+" home "+label+": header differs from interior pages");
+        assert(facts.photoFrame.padding==="0px"&&facts.photoFrame.borderWidth==="1px",lang+" home "+label+": box has a padded frame");
+        assert(facts.photoFrame.backgroundColor==="rgba(0, 0, 0, 0)"&&facts.photoFrame.backgroundImage==="none",lang+" home "+label+": box still has a white backing");
+        assert(facts.photoFrame.borderColor.includes("7, 12, 20"),lang+" home "+label+": missing dark border");
+        assert(facts.homeNavigation.text==="Home"&&facts.homeNavigation.href===filename&&facts.homeNavigation.active==="page",lang+" home "+label+": inconsistent Home navigation");
         assert(Math.abs(facts.heroImageRenderedRatio-4/3)<0.02,lang+" home "+label+": distorted image aspect ratio");
         assert(facts.editionCount===3,lang+" home "+label+": missing product editions");
         // First-screen discovery must be keyboard/click accessible and reveal useful content.
