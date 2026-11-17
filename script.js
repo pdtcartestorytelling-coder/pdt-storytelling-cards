@@ -114,3 +114,19 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
     });
   });
 })();
+
+
+// Home first-click discovery: deterministic exclusive toggle across browsers/viewports.
+document.querySelectorAll("body[data-page='home'] .pdt-first-action-option > summary").forEach((summary) => {
+  summary.addEventListener("click", (event) => {
+    event.preventDefault();
+    const current = summary.closest("details");
+    if (!current) return;
+
+    const shouldOpen = !current.open;
+    document.querySelectorAll("body[data-page='home'] .pdt-first-action-option").forEach((item) => {
+      item.open = false;
+    });
+    current.open = shouldOpen;
+  });
+});
