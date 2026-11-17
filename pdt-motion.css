@@ -562,3 +562,82 @@ body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo{
     transform:none!important;
   }
 }
+
+/* PdT Motion v6: the environment moves with the story.
+   Purely decorative radial light, anchored to each section. No canvas,
+   third-party libraries, fixed-background repainting or layout shifts. */
+
+/* Preserve the existing hero animations while scrolling its gold/blue glow. */
+body[data-page="home"] .pdt-h-hero::before,
+body[data-page="home"] .pdt-h-hero::after,
+body[data-page="preorder"] .preorder-hero::before {
+  translate:0 var(--pdt-hero-bg-shift,0px);
+}
+body[data-page="home"] .pdt-h-hero::before{
+  background:radial-gradient(circle,rgba(245,179,53,.26),rgba(245,179,53,0) 71%);
+}
+body[data-page="home"] .pdt-h-hero::after{
+  background:radial-gradient(circle,rgba(77,134,183,.24),transparent 72%);
+}
+body[data-page="preorder"] .preorder-hero::before{
+  background:radial-gradient(circle,rgba(245,179,53,.22),transparent 69%);
+}
+
+/* Alternating warm and cool pools of light on the cream product sections. */
+body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+}
+body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  inset:-24% -18%;
+  background:
+    radial-gradient(ellipse 42% 40% at var(--pdt-scene-anchor,78%) 34%,
+      rgba(245,179,53,.17),rgba(245,179,53,.065) 48%,transparent 80%),
+    radial-gradient(ellipse 37% 35% at 18% 80%,
+      rgba(35,95,150,.11),transparent 78%);
+  transform:translate3d(var(--pdt-scene-x,0px),var(--pdt-scene-y,0px),0);
+  transition:transform .16s linear;
+}
+body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene > .container{
+  position:relative;
+  z-index:1;
+}
+/* Dark sections keep a glimmer instead of another solid rectangle. */
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-cta,.pdt-digital-section
+).pdt-scroll-scene::before{
+  background:
+    radial-gradient(ellipse 44% 41% at var(--pdt-scene-anchor,78%) 30%,
+      rgba(245,179,53,.14),transparent 76%),
+    radial-gradient(ellipse 39% 38% at 13% 82%,
+      rgba(80,148,204,.24),transparent 76%);
+}
+/* On touch devices this becomes a light decorative wash, not heavy motion. */
+@media(max-width:760px){
+  body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::before{
+    inset:-12% -12%;
+    opacity:.7;
+  }
+  body[data-page="home"] .pdt-h-hero::before,
+  body[data-page="home"] .pdt-h-hero::after,
+  body[data-page="preorder"] .preorder-hero::before{
+    opacity:.75;
+  }
+}
+/* On low-motion systems nothing moves and all original backgrounds remain. */
+@media(prefers-reduced-motion:reduce){
+  body[data-page="home"] .pdt-h-hero::before,
+  body[data-page="home"] .pdt-h-hero::after,
+  body[data-page="preorder"] .preorder-hero::before{
+    translate:none!important;
+  }
+  body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::before{
+    transform:none!important;
+    transition:none!important;
+  }
+}
