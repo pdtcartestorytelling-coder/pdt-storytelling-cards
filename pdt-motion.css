@@ -641,3 +641,150 @@ body:is([data-page="home"],[data-page="preorder"]) :is(
     transition:none!important;
   }
 }
+
+/* Motion v7: visible cinematic chapters (rather than barely perceptible glows).
+   Backgrounds are decorative layers. Actual cards, text and links never move. */
+
+/* Richer hero lighting makes the first scroll visibly change the backdrop. */
+body[data-page="home"] .pdt-h-hero::before{
+  width:min(78vw,1050px);
+  right:-15%;top:-32%;
+  background:radial-gradient(circle,rgba(245,179,53,.38) 0%,rgba(245,179,53,.17) 37%,transparent 72%);
+}
+body[data-page="home"] .pdt-h-hero::after{
+  width:min(60vw,800px);
+  left:-20%;bottom:-31%;
+  background:radial-gradient(circle,rgba(77,150,211,.30),rgba(35,95,150,.08) 48%,transparent 72%);
+}
+body[data-page="preorder"] .preorder-hero::before{
+  width:min(78vw,1050px);
+  right:-14%;top:-36%;
+  background:radial-gradient(circle,rgba(245,179,53,.33),rgba(245,179,53,.10) 44%,transparent 73%);
+}
+
+/* The story unfolds through different large-scale washes and gentle ribbons. */
+body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::before{
+  inset:-18% -20%;
+  opacity:1;
+  background:
+    radial-gradient(ellipse 48% 55% at var(--pdt-scene-anchor,78%) 39%,
+      rgba(245,179,53,.32) 0%,rgba(245,179,53,.15) 45%,transparent 77%),
+    linear-gradient(118deg,
+      transparent 13%,rgba(35,95,150,.10) 36%,
+      rgba(245,179,53,.15) 51%,transparent 72%),
+    radial-gradient(ellipse 38% 44% at 18% 79%,
+      rgba(35,95,150,.17),transparent 80%);
+  transform:translate3d(var(--pdt-scene-x,0px),var(--pdt-scene-y,0px),0);
+  transition:transform .12s linear;
+}
+body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::after{
+  content:attr(data-pdt-chapter);
+  position:absolute;
+  z-index:0;
+  right:clamp(14px,5vw,90px);
+  top:clamp(30px,11%,110px);
+  font:500 clamp(150px,25vw,380px)/.86 var(--font-brand);
+  letter-spacing:-.075em;
+  color:rgba(23,75,127,.115);
+  pointer-events:none;
+  user-select:none;
+  transform:translate3d(var(--pdt-scene-x,0px),calc(var(--pdt-scene-y,0px) * .38),0);
+  transition:transform .16s linear;
+}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-cta,.pdt-digital-section
+).pdt-scroll-scene::before{
+  background:
+    radial-gradient(ellipse 45% 55% at var(--pdt-scene-anchor,78%) 43%,
+      rgba(245,179,53,.24),rgba(245,179,53,.06) 48%,transparent 79%),
+    linear-gradient(120deg,transparent 16%,rgba(96,161,212,.14) 47%,transparent 75%),
+    radial-gradient(ellipse 42% 44% at 14% 82%,rgba(96,161,212,.3),transparent 79%);
+}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-cta,.pdt-digital-section
+).pdt-scroll-scene::after{color:rgba(255,215,120,.17)}
+
+/* An understated but unmistakably changing journey marker on large screens. */
+.pdt-journey{
+  position:fixed;
+  z-index:950;
+  top:50%;
+  right:12px;
+  transform:translate3d(12px,-50%,0);
+  width:63px;
+  min-height:194px;
+  padding:14px 8px;
+  display:none;
+  align-items:center;
+  flex-direction:column;
+  gap:12px;
+  color:var(--cream-light);
+  border:1px solid rgba(245,179,53,.55);
+  border-radius:999px;
+  background:rgba(11,47,88,.94);
+  box-shadow:0 16px 36px rgba(11,47,88,.19);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .45s ease,transform .55s cubic-bezier(.16,1,.3,1);
+}
+.pdt-journey-count{
+  font:800 9px/1.2 var(--font-ui);
+  letter-spacing:.015em;
+  white-space:nowrap;
+  color:var(--gold-soft);
+}
+.pdt-journey-track{
+  position:relative;
+  width:3px;height:72px;
+  flex:none;
+  border-radius:999px;
+  background:rgba(255,250,243,.24);
+  overflow:hidden;
+}
+.pdt-journey-fill{
+  position:absolute;
+  inset:0;
+  background:var(--gold);
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.pdt-journey-name{
+  max-height:85px;
+  overflow:hidden;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font:700 10px/1.2 var(--font-ui);
+  letter-spacing:.04em;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+@media(min-width:1320px){
+  .pdt-journey{display:flex}
+  body.pdt-show-journey .pdt-journey{
+    opacity:1;
+    transform:translate3d(0,-50%,0);
+  }
+}
+@media(max-width:760px){
+  body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::before{
+    inset:-20% -24%;
+    opacity:.82;
+  }
+  body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::after{
+    top:32px;right:12px;
+    font-size:clamp(120px,31vw,220px);
+    color:rgba(23,75,127,.085);
+  }
+  body[data-page="home"] .pdt-h-hero::before,
+  body[data-page="home"] .pdt-h-hero::after,
+  body[data-page="preorder"] .preorder-hero::before{opacity:.68}
+}
+@media(prefers-reduced-motion:reduce){
+  .pdt-journey{display:none!important}
+  body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::before,
+  body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::after{
+    transform:none!important;
+    transition:none!important;
+  }
+}
