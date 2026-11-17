@@ -92,6 +92,8 @@ async function run() {
           const section=document.querySelector("#editions");
           window.scrollTo({top:Math.max(0,section.getBoundingClientRect().top+window.scrollY-115),behavior:"instant"});
         });
+        // Capture the completed visual state, not an intermediate fade-in frame.
+        await new Promise(resolve=>setTimeout(resolve,1000));
         await page.screenshot({path:path.join(screenshots,lang+"-"+label+".png"),fullPage:false,timeout:12000});
         // Mobile menu should toggle reliably and remain keyboard accessible.
         if(width<=980){
@@ -247,6 +249,7 @@ async function run() {
           document.querySelector(".pdt-h-edition").scrollIntoView({block:"center",behavior:"instant"});
         });
         await page.waitForFunction(()=>document.querySelector(".pdt-h-edition").classList.contains("pdt-is-visible"),{timeout:5000});
+        await new Promise(resolve=>setTimeout(resolve,1000));
         await page.screenshot({path:path.join(screenshots,"home-"+lang+"-"+label+".png"),fullPage:false,timeout:12000});
         await page.close();
       }
