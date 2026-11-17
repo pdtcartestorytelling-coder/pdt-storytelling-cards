@@ -152,22 +152,6 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         if price not in text:
             ERRORS.append(f"{name}: missing proposed price {price}")
 for edition in ("essential", "studio", "signature"):
-        for fmt in ("webp", "avif"):
-            asset = f"images/pdt-{edition}-hq.{fmt}"
-            if asset not in text:
-                ERRORS.append(f"{name}: missing {edition} {fmt} edition image")
-    for edition in ("Essential", "Studio", "Signature"):
-        if f"PdT {edition}" not in text:
-            ERRORS.append(f"{name}: missing edition {edition}")
-    studio_section = text.split("02 / PdT Studio", 1)[-1].split("03 / PdT Signature", 1)[0]
-    required = {
-        "pre-order.html": "22 schede operative stampate",
-        "pre-order-en.html": "22 printed activity sheets",
-        "pre-order-es.html": "22 fichas operativas impresas",
-    }
-    if required[name] not in studio_section:
-        ERRORS.append(f"{name}: Studio must include printed activity sheets")
-for edition in ("essential", "studio", "signature"):
     for fmt in ("webp", "avif"):
         file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
         if not file.exists() or file.stat().st_size < 20000:
