@@ -90,3 +90,20 @@ body[data-page="home"] .pdt-first-action-answer a:focus-visible{
     animation:none!important;transition:none!important;
   }
 }
+
+
+/* Keep the native accordion click target above adjacent hero layers on narrow screens. */
+body[data-page="home"] .pdt-first-action{
+  position:relative;
+  z-index:4;
+  isolation:isolate;
+}
+body[data-page="home"] .pdt-first-action-choices,
+body[data-page="home"] .pdt-first-action-option,
+body[data-page="home"] .pdt-first-action-option summary{
+  position:relative;
+  z-index:2;
+}
+body[data-page="home"] .pdt-first-action-option summary{
+  touch-action:manipulation;
+}
