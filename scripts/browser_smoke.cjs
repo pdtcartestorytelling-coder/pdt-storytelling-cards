@@ -112,13 +112,16 @@ async function run() {
           inputFields:["name","email","edition","quantity","destination","message"].every(n=>!!document.querySelector('form[data-interest-mailto] [name="'+n+'"]')),
           privacy:!!document.querySelector('form[data-interest-mailto] input[name="privacy_acknowledged"][required]'),
           fallback:!!document.querySelector("[data-shop-copy]"),
-          studioVisible:document.querySelector(".pdt-tier-grid")?.textContent.includes("PdT Studio")
+          studioVisible:document.querySelector(".pdt-tier-grid")?.textContent.includes("PdT Studio"),
+          imageMotion:[...document.querySelectorAll(".pdt-edition-preview picture")].every(x=>x.classList.contains("pdt-reveal-photo"))
+          
         }));
         assert(commerce.cards.join(",")==="signature,essential",lang+" "+label+": wrong product order");
-        assert(commerce.prices.join(",")==="179 €,99 €",lang+" "+label+": proposed pricing mismatch");
+        assert(commerce.prices[0]==="189 €"&&commerce.prices[1]===({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang],lang+" "+label+": Signature offer or Essential status mismatch");
         assert(commerce.links.some(x=>x.edition==="signature"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Signature mailto not ready");
         assert(commerce.links.some(x=>x.edition==="essential"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Essential mailto not ready");
         assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
+        assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
         await page.close();
       }
     }
@@ -157,6 +160,11 @@ async function run() {
             return rect.width/rect.height;
           })(),
           editionCount:document.querySelectorAll(".pdt-h-edition").length,
+          buyLabel:document.querySelector(".pdt-h-buy-btn")?.textContent.trim(),
+          buyHref:document.querySelector(".pdt-h-buy-btn")?.getAttribute("href"),
+          signaturePrice:document.querySelector(".pdt-h-edition:first-child .pdt-shop-home-price")?.textContent,
+          essentialPrice:document.querySelector(".pdt-h-edition:nth-child(2) .pdt-shop-home-price")?.textContent,
+          revealImages:[...document.querySelectorAll(".pdt-h-edition picture")].every(x=>x.classList.contains("pdt-reveal-photo")),
           progress:!!document.querySelector(".pdt-reading-progress"),
           overflow:document.documentElement.scrollWidth-window.innerWidth,
           preOrderLink:!!document.querySelector('.pdt-h-cta-actions a[data-shop-edition="signature"][href^="mailto:"]'),
@@ -178,6 +186,11 @@ async function run() {
         assert(facts.homeNavigation.text==="Home"&&facts.homeNavigation.href===filename&&facts.homeNavigation.active==="page",lang+" home "+label+": inconsistent Home navigation");
         assert(Math.abs(facts.heroImageRenderedRatio-4/3)<0.02,lang+" home "+label+": distorted image aspect ratio");
         assert(facts.editionCount===2,lang+" home "+label+": expected Signature and Essential cards");
+        assert(facts.buyLabel===({it:"Acquista",en:"Buy",es:"Comprar"})[lang],lang+" home "+label+": primary buy label not concise");
+        assert(facts.buyHref===({it:"pre-order.html#editions",en:"pre-order-en.html#editions",es:"pre-order-es.html#editions"})[lang],lang+" home "+label+": primary buy link changed");
+        assert(facts.signaturePrice.includes("189 €")||facts.signaturePrice.includes("€189"),lang+" home "+label+": wrong Signature offer");
+        assert(!facts.essentialPrice.includes("99")&&facts.essentialPrice.includes(({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang]),lang+" home "+label+": Essential must have no price");
+        assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
         const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
         assert(shopLinks.some(x=>x.name==="essential"&&x.href.startsWith("mailto:")),lang+" home "+label+": no Essential enquiry CTA");
