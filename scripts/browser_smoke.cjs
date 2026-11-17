@@ -100,9 +100,16 @@ async function run() {
           let tier=["signature","essential"][i];
           assert(variants[i].webp==="images/pdt-"+tier+"-hq.webp",lang+" "+label+": wrong WebP for "+tier);
           assert(variants[i].avif==="images/pdt-"+tier+"-hq.avif",lang+" "+label+": wrong AVIF for "+tier);
-          assert(variants[i].href===variants[i].webp,lang+" "+label+": full resolution preview broken for "+tier);
+          assert(variants[i].href==null,lang+" "+label+": edition image still opens a full-screen preview for "+tier);
         }
         assert(facts.images.length===2&&facts.images.every(x=>x.loaded&&x.width===960&&x.height===720),lang+" "+label+": two edition images failed to decode at 960x720");
+        const imageControls=await page.evaluate(()=>({
+          galleryImages:document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img").length,
+          clickableImages:document.querySelectorAll('.pdt-edition-preview a, a.pdt-edition-preview, .preorder-gallery-image a, a.preorder-gallery-image, .preorder-gallery-caption a[href^="images/"]').length,
+          enlargeButtons:document.querySelectorAll(".pdt-edition-open,.preorder-gallery-open").length
+        }));
+        assert(imageControls.galleryImages===4,lang+" "+label+": product gallery images missing");
+        assert(imageControls.clickableImages===0&&imageControls.enlargeButtons===0,lang+" "+label+": fullscreen image controls must be removed");
         assert(facts.overflow<=5,lang+" "+label+": horizontal overflow "+facts.overflow+"px");
         assert(facts.hasForm&&facts.footer,lang+" "+label+": missing form/footer");
         assert(facts.language===lang,lang+" "+label+": incorrect lang attribute");
