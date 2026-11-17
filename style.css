@@ -1360,3 +1360,27 @@ body[data-page="home"] .pdt-h-purchase-cta p{
     max-width:none;
   }
 }
+
+
+/* Harden purchase CTA against narrow-screen overflow in every language */
+body[data-page="home"] .pdt-h-purchase-cta,
+body[data-page="home"] .pdt-h-purchase-cta > *{
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+}
+body[data-page="home"] .pdt-h-purchase-cta p{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+@media(max-width:620px){
+  body[data-page="home"] .pdt-h-purchase-cta{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    width:100%;
+  }
+  body[data-page="home"] .pdt-h-purchase-cta .pdt-h-buy-btn{
+    min-width:0;
+    max-width:100%;
+  }
+}
