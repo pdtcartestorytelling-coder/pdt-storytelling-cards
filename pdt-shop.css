@@ -76,3 +76,36 @@ body[data-page="home"] .pdt-h-edition-body>a{display:inline-block;margin-top:aut
 /* The commercial enquiry accepts a free-form message, not just preset fields. */
 body[data-page="preorder"] .pdt-interest-fields textarea{width:100%;min-height:112px;padding:12px 13px;border:1px solid rgba(23,75,127,.28);border-radius:10px;background:var(--cream-light);color:var(--text);font:inherit;line-height:1.55;resize:vertical}
 body[data-page="preorder"] .pdt-interest-fields textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Clear visual hierarchy: one priced edition, one forthcoming edition. */
+body[data-page="preorder"] .pdt-shop-card-price--pending{padding-top:24px;min-height:69px}
+body[data-page="preorder"] .pdt-shop-card-price--pending strong{
+  font-size:clamp(27px,3vw,38px);
+  line-height:1.2;
+  letter-spacing:-.025em;
+  color:var(--blue-800);
+}
+body[data-page="home"] .pdt-shop-home-price{line-height:1.3}
+body[data-page="home"] .pdt-shop-home-price small{margin-top:5px;line-height:1.5}
+body[data-page="preorder"] .preorder-hero .pdt-shop-notice{
+  max-width:520px;
+  margin-top:16px;
+  padding:10px 14px;
+}
+body[data-page="preorder"] .pdt-tier-copy ul{gap:10px}
+body[data-page="preorder"] .pdt-shop-card-foot{line-height:1.5}
+body[data-page="home"] .pdt-shop-home-fineprint{max-width:740px}
+body[data-page="preorder"] .pdt-shop-flow-step{transition:transform .3s ease,box-shadow .3s ease}
+@media (hover:hover) and (pointer:fine){
+  body[data-page="preorder"] .pdt-shop-flow-step:hover{
+    transform:translateY(-4px);
+    box-shadow:0 17px 35px rgba(11,47,88,.1);
+  }
+}
+@media(max-width:460px){
+  body[data-page="preorder"] .pdt-shop-card-price--pending strong{font-size:31px}
+  body[data-page="home"] .pdt-h-purchase-cta .pdt-h-buy-btn{min-width:0}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="preorder"] .pdt-shop-flow-step{transition:none}
+}

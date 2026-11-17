@@ -11,15 +11,18 @@
   const selectors = body.dataset.page === "home"
     ? [
         ".pdt-h-heading", ".pdt-h-facts article", ".pdt-h-edition",
-        ".pdt-h-method-grid > div", ".pdt-h-method li",
-        ".pdt-h-cta-grid > div", ".pdt-h-cta-actions"
+        ".pdt-h-edition picture", ".pdt-h-method-grid > div", ".pdt-h-method li",
+        ".pdt-h-cta-grid > div", ".pdt-h-cta-actions", ".pdt-shop-home-fineprint"
       ]
     : [
         ".preorder-highlights-grid > div", ".preorder-section-heading",
         ".preorder-audience-item", ".preorder-audience-note",
         ".preorder-bundle-visual", ".preorder-component", ".pdt-tier-card",
-        ".pdt-digital-grid article", ".preorder-method-item",
-        ".preorder-gallery-card", ".pdt-interest-intro", ".pdt-interest-card"
+        ".pdt-edition-preview picture", ".pdt-digital-grid article",
+        ".pdt-shop-flow-title", ".pdt-shop-flow-lead", ".pdt-shop-flow-step",
+        ".pdt-shop-flow-cta", ".pdt-shop-section-note",
+        ".preorder-method-item", ".preorder-gallery-card",
+        ".preorder-gallery-image", ".pdt-interest-intro", ".pdt-interest-card"
       ];
 
   if (allowsReveal) {
@@ -32,7 +35,12 @@
       }
     }, { threshold: 0.08, rootMargin: "0px 0px -24px 0px" });
 
-    targets.forEach((element) => element.classList.add("pdt-motion-target"));
+    targets.forEach((element) => {
+      element.classList.add("pdt-motion-target");
+      if (element.matches("picture, .preorder-gallery-image")) {
+        element.classList.add("pdt-reveal-photo");
+      }
+    });
     body.classList.add("pdt-motion-enabled");
 
     // Don't hide sections already above the viewport on reload or an anchor jump.

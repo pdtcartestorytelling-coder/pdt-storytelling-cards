@@ -5,24 +5,24 @@
     it:{
       title:"PdT Storytelling Cards — richiesta commerciale (NON È UN ORDINE)",
       fields:["Nome","Email","Settore","Tipo di richiesta","Edizione","Numero di copie","Destinazione di consegna","Messaggio","Consenso aggiornamenti"],
-      signature:"Signature: prezzo di lancio PROPOSTO 179 €; listino PREVISTO 199 €. Prezzo finale e spese di spedizione da confermare.",
-      essential:"Essential: prezzo di lancio IPOTIZZATO 99 €. Prodotto in sviluppo, non ancora ordinabile.",
+      signature:"Signature: offerta di lancio PROPOSTA 189 €. Prezzo finale e spese di spedizione da confermare.",
+      essential:"Essential: in sviluppo, prezzo NON ANCORA DEFINITO; non è ordinabile.",
       notice:"Si tratta di un contatto senza impegno. Nessun ordine, pagamento, prenotazione o licenza digitale viene attivato con questo messaggio.",
       status:"Si apre la tua applicazione email: controlla il testo e premi Invia. Se non si apre, usa l'indirizzo mostrato qui sotto."
     },
     en:{
       title:"PdT Storytelling Cards — commercial enquiry (NOT AN ORDER)",
       fields:["Name","Email","Professional area","Request type","Edition","Number of sets","Shipping destination","Message","Updates consent"],
-      signature:"Signature: PROPOSED launch price €179; EXPECTED standard price €199. Final price and shipping to be confirmed.",
-      essential:"Essential: INDICATIVE launch price €99. In development, not available to order.",
+      signature:"Signature: PROPOSED launch offer €189. Final price and shipping to be confirmed.",
+      essential:"Essential: in development, PRICE NOT YET DEFINED. Not available to order.",
       notice:"This is a non-binding enquiry. No order, payment, reservation or digital licence is activated.",
       status:"Your email app opens: review the draft and click Send. If it doesn't open, use the email address shown below."
     },
     es:{
       title:"PdT Storytelling Cards — consulta comercial (NO ES UN PEDIDO)",
       fields:["Nombre","Correo","Ámbito profesional","Tipo de consulta","Edición","Número de unidades","Destino de envío","Mensaje","Consentimiento novedades"],
-      signature:"Signature: precio de lanzamiento PROPUESTO 179 €; precio habitual PREVISTO 199 €. Se confirmarán precio final y envío.",
-      essential:"Essential: precio de lanzamiento ORIENTATIVO 99 €. En desarrollo, aún no disponible.",
+      signature:"Signature: oferta de lanzamiento PROPUESTA de 189 €. Se confirmarán el precio final y el envío.",
+      essential:"Essential: en desarrollo, PRECIO AÚN SIN DEFINIR. No disponible.",
       notice:"Es una consulta sin compromiso. No genera pedido, pago, reserva ni licencia digital.",
       status:"Se abre tu correo: revisa el borrador y pulsa Enviar. Si no se abre, usa la dirección que aparece abajo."
     }

@@ -148,9 +148,24 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: commercial styling or email logic missing")
     if 'data-interest-mailto' not in text or 'name="destination"' not in text or 'name="message"' not in text:
         ERRORS.append(f"{name}: commercial email enquiry form incomplete")
-    for price in ("179", "199", "99"):
-        if price not in text:
-            ERRORS.append(f"{name}: missing proposed price {price}")
+    if "189 €" not in text:
+        ERRORS.append(f"{name}: missing Signature launch offer of 189 EUR")
+    if 'pdt-shop-card-price--pending' not in text:
+        ERRORS.append(f"{name}: Essential must display development status instead of a price")
+    if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
+        ERRORS.append(f"{name}: outdated launch prices found")
+    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=3' not in text:
+        ERRORS.append(f"{name}: updated commercial email or motion asset missing")
+for name in ("index.html", "home-en.html", "home-es.html"):
+    text = (ROOT / name).read_text(encoding="utf-8")
+    if "189 €" not in text and "€189" not in text:
+        ERRORS.append(f"{name}: Signature 189 EUR offer missing")
+    if 'pdt-shop-home-price' not in text or 'data-shop-edition="essential"' not in text:
+        ERRORS.append(f"{name}: missing forthcoming Essential card")
+    if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
+        ERRORS.append(f"{name}: outdated pricing still present")
+    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=3' not in text:
+        ERRORS.append(f"{name}: updated email or animation scripts missing")
 for edition in ("essential", "studio", "signature"):
     for fmt in ("webp", "avif"):
         file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
