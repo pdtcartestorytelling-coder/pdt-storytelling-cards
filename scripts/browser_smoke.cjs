@@ -170,6 +170,24 @@ async function run() {
         // First-screen discovery must be keyboard/click accessible and reveal useful content.
         const firstActions=await page.$$eval(".pdt-first-action-option",nodes=>nodes.length);
         assert(firstActions===3,lang+" home "+label+": missing first-click choices");
+        if(lang==="en" && label==="small"){
+          const clickDebug=await page.$eval(".pdt-first-action-option:nth-child(1) summary",el=>{
+            const r=el.getBoundingClientRect();
+            const x=r.left+r.width/2, y=r.top+r.height/2;
+            const hit=document.elementFromPoint(x,y);
+            return {
+              rect:{left:r.left,top:r.top,width:r.width,height:r.height,bottom:r.bottom},
+              scrollY:window.scrollY,
+              hitTag:hit?.tagName,
+              hitClass:hit?.className,
+              hitText:hit?.textContent?.trim().slice(0,120),
+              summaryPointer:getComputedStyle(el).pointerEvents,
+              summaryZ:getComputedStyle(el).zIndex,
+              actionZ:getComputedStyle(el.closest(".pdt-first-action")).zIndex
+            };
+          });
+          console.log("CLICK DEBUG",JSON.stringify(clickDebug));
+        }
         await page.click(".pdt-first-action-option:nth-child(1) summary");
         const firstOpened=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>el.open);
         assert(firstOpened,lang+" home "+label+": first option failed to open");
