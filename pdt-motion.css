@@ -688,7 +688,7 @@ body:is([data-page="home"],[data-page="preorder"]) section.pdt-scroll-scene::aft
   color:rgba(23,75,127,.115);
   pointer-events:none;
   user-select:none;
-  transform:translate3d(var(--pdt-scene-x,0px),calc(var(--pdt-scene-y,0px) * .38),0);
+  transform:translate3d(var(--pdt-scene-x,0px),var(--pdt-scene-y,0px),0);
   transition:transform .16s linear;
 }
 body:is([data-page="home"],[data-page="preorder"]) :is(
