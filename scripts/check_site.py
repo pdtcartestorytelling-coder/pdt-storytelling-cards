@@ -166,6 +166,18 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: outdated pricing still present")
     if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=4' not in text or 'pdt-motion.css?v=5' not in text:
         ERRORS.append(f"{name}: updated email or animation scripts missing")
+# The first screen must provide direct one-click links, not hidden accordions.
+for name in ("index.html", "home-en.html", "home-es.html"):
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for target in ("utilizzo-individuale.html", "setting-gruppo.html", "risorse-umane.html"):
+        if f'<a class="pdt-first-action-link" href="{target}"' not in text:
+            ERRORS.append(f"{name}: missing direct context link to {target}")
+    if 'pdt-first-action-option' in text or 'pdt-first-action-answer' in text:
+        ERRORS.append(f"{name}: obsolete context accordion still present")
+    if 'pdt-first-action.css?v=5' not in text:
+        ERRORS.append(f"{name}: updated direct-link styles missing")
+    if name != "index.html" and text.count('hreflang="it"') < 3:
+        ERRORS.append(f"{name}: Italian-only context destinations should be marked")
 for edition in ("essential", "studio", "signature"):
     for fmt in ("webp", "avif"):
         file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
