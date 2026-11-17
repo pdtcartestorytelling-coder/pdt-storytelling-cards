@@ -178,7 +178,7 @@ async function run() {
         assert(facts.homeNavigation.text==="Home"&&facts.homeNavigation.href===filename&&facts.homeNavigation.active==="page",lang+" home "+label+": inconsistent Home navigation");
         assert(Math.abs(facts.heroImageRenderedRatio-4/3)<0.02,lang+" home "+label+": distorted image aspect ratio");
         assert(facts.editionCount===2,lang+" home "+label+": expected Signature and Essential cards");
-        const shopLinks=await page.$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
+        const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
         assert(shopLinks.some(x=>x.name==="essential"&&x.href.startsWith("mailto:")),lang+" home "+label+": no Essential enquiry CTA");
         // First-screen discovery must be keyboard/click accessible and reveal useful content.
