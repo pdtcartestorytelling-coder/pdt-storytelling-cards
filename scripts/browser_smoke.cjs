@@ -28,6 +28,28 @@ const server = http.createServer((req, res) => {
   } catch (_) {res.writeHead(404).end();}
 });
 function assert(ok, message) {if (!ok) throw new Error(message);}
+async function verifyScrollingBackdrop(page,selector){
+  return page.evaluate(async selector=>{
+    const section=document.querySelector(selector);
+    if(!section)return {missing:true};
+    const initial=section.getBoundingClientRect();
+    const midpoint=window.scrollY+initial.top+initial.height/2-window.innerHeight/2;
+    window.scrollTo({top:Math.max(0,Math.round(midpoint)),behavior:"instant"});
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const first=section.style.getPropertyValue("--pdt-scene-y");
+    const xFirst=section.style.getPropertyValue("--pdt-scene-x");
+    window.scrollTo({top:window.scrollY+150,behavior:"instant"});
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const second=section.style.getPropertyValue("--pdt-scene-y");
+    const backdrop=getComputedStyle(section,"::before");
+    return {
+      enabled:section.classList.contains("pdt-scroll-scene"),
+      first,second,xFirst,
+      rendered:backdrop.backgroundImage.includes("radial-gradient"),
+      transform:backdrop.transform
+    };
+  },selector);
+}
 async function run() {
   await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
   const chrome=process.env.CHROME_BIN || execSync("which google-chrome || which chromium || which chromium-browser").toString().trim();
@@ -138,6 +160,10 @@ async function run() {
           });
           assert(depth.smooth==="smooth",lang+" pre-order: anchored scrolling is not smooth");
           assert(depth.shift&&Number.parseFloat(depth.shift)<0,lang+" pre-order: hero depth does not respond to scroll");
+          const backdrop=await verifyScrollingBackdrop(page,".pdt-tier-section");
+          assert(backdrop.enabled&&backdrop.rendered&&backdrop.transform!=="none",lang+" pre-order: decorative backdrop not rendered");
+          assert(backdrop.first!==""&&backdrop.second!==""&&backdrop.first!==backdrop.second,
+            lang+" pre-order: section background does not move during scroll");
         }
         await page.close();
       }
@@ -221,6 +247,10 @@ async function run() {
           assert(depth.smooth==="smooth",lang+" home: smooth anchor scrolling is not active");
           assert(depth.shift&&Number.parseFloat(depth.shift)<0,lang+" home: hero depth does not respond to scroll");
           assert(depth.photoFit==="contain",lang+" home: hero depth must not crop box image");
+          const backdrop=await verifyScrollingBackdrop(page,".pdt-h-kit");
+          assert(backdrop.enabled&&backdrop.rendered&&backdrop.transform!=="none",lang+" home: decorative backdrop not rendered");
+          assert(backdrop.first!==""&&backdrop.second!==""&&backdrop.first!==backdrop.second,
+            lang+" home: section background does not move during scroll");
         }
         const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
@@ -273,10 +303,13 @@ async function run() {
       heroShift:document.querySelector(".pdt-h-hero-figure").style.getPropertyValue("--pdt-hero-shift"),
       scroll:getComputedStyle(document.documentElement).scrollBehavior,
       photos:getComputedStyle(document.querySelector(".pdt-h-edition picture img")).transform,
-      editionVisible:getComputedStyle(document.querySelector(".pdt-h-edition")).opacity
+      editionVisible:getComputedStyle(document.querySelector(".pdt-h-edition")).opacity,
+      sceneCount:document.querySelectorAll(".pdt-scroll-scene").length,
+      heroBg:document.querySelector(".pdt-h-hero").style.getPropertyValue("--pdt-hero-bg-shift")
     }));
     assert(!reduced.hidden&&reduced.heroShift===""&&reduced.scroll==="auto", "Reduced motion: motion still enabled");
     assert(reduced.photos==="none"&&reduced.editionVisible==="1", "Reduced motion: photos or product cards not accessible");
+    assert(reduced.sceneCount===0&&reduced.heroBg==="","Reduced motion: background animation should be disabled");
     await reducedPage.close();
   } finally {
     await browser.close();

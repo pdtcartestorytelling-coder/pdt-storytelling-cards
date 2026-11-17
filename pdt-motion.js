@@ -103,6 +103,20 @@
       : ".pdt-edition-preview picture img, .preorder-gallery-card img"
   )];
 
+  // Independent ambient light layers on section backgrounds. Decorative only:
+  // sections and content do not move, so layout and click targets stay stable.
+  const sceneSections = !supportsReducedMotion.matches
+    ? [...document.querySelectorAll(
+        body.dataset.page === "home"
+          ? ".pdt-h-kit, .pdt-h-collection, .pdt-h-method, .pdt-h-cta"
+          : ".preorder-audience, .pdt-tier-section, .pdt-shop-flow, .preorder-gallery, .pdt-interest-section"
+      )]
+    : [];
+  sceneSections.forEach((section, index) => {
+    section.classList.add("pdt-scroll-scene");
+    section.style.setProperty("--pdt-scene-anchor", index % 2 ? "22%" : "78%");
+  });
+
   updateDepth = () => {
     if (supportsReducedMotion.matches) return;
     const viewportHeight = window.innerHeight;
@@ -112,8 +126,25 @@
         const fraction = Math.max(0, Math.min(1, -rect.top / Math.max(rect.height, 1)));
         // The complete box moves as one: never zoom or crop the cover image.
         heroVisual.style.setProperty("--pdt-hero-shift", Math.round(-(window.innerWidth < 760 ? 20 : 38) * fraction) + "px");
+        // The colored radial lights follow the page at a different speed.
+        // CSS 'translate' composes with the existing ambient keyframe transform.
+        heroSection.style.setProperty("--pdt-hero-bg-shift",
+          Math.round((window.innerWidth < 760 ? 32 : 85) * fraction) + "px");
       }
     }
+    const mobile = window.innerWidth < 760;
+    sceneSections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.bottom < -60 || rect.top > viewportHeight + 60) return;
+      const center = rect.top + rect.height / 2;
+      const span = viewportHeight / 2 + rect.height / 2;
+      const relative = Math.max(-1, Math.min(1, (viewportHeight / 2 - center) / span));
+      const direction = index % 2 ? -1 : 1;
+      section.style.setProperty("--pdt-scene-x",
+        Math.round(direction * relative * (mobile ? 12 : 42)) + "px");
+      section.style.setProperty("--pdt-scene-y",
+        Math.round(relative * (mobile ? 30 : 84)) + "px");
+    });
     for (const image of depthImages) {
       const rect = (image.closest("picture") || image).getBoundingClientRect();
       if (rect.bottom < -40 || rect.top > viewportHeight + 40) continue;
