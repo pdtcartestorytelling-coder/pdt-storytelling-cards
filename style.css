@@ -1412,3 +1412,48 @@ body[data-page="home"] .pdt-h-purchase-cta p{
     border:0;
   }
 }
+
+/* Site-wide interaction polish: interior pages share the smoother PdT rhythm. */
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+@view-transition{navigation:auto}
+.reveal{
+  transform:translate3d(0,26px,0);
+  transition:opacity .76s cubic-bezier(.16,1,.3,1),
+             transform .84s cubic-bezier(.16,1,.3,1);
+}
+.nav-links a{transition:color .27s ease,text-decoration-color .27s ease}
+.primary-button,.article-link{
+  transition:transform .3s cubic-bezier(.16,1,.3,1),
+             box-shadow .3s ease,color .25s ease,
+             background-color .25s ease,border-color .25s ease;
+}
+@media(hover:hover) and (pointer:fine){
+  .primary-button:hover{transform:translateY(-3px)}
+  .article-link:hover{text-decoration-color:var(--gold)}
+}
+/* The menu now slides into view instead of appearing abruptly on touch. */
+@media(max-width:980px){
+  .nav-panel{
+    display:flex;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transform:translate3d(0,-12px,0) scale(.985);
+    transform-origin:top center;
+    transition:opacity .24s ease,
+               transform .36s cubic-bezier(.16,1,.3,1),
+               visibility .24s ease;
+  }
+  .nav-panel.open{
+    display:flex;
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    transform:translate3d(0,0,0) scale(1);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .reveal,.reveal.visible{opacity:1!important;transform:none!important;transition:none!important}
+  .nav-panel,.nav-panel.open,.primary-button,.article-link{transition:none!important}
+}

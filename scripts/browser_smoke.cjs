@@ -92,6 +92,8 @@ async function run() {
           const section=document.querySelector("#editions");
           window.scrollTo({top:Math.max(0,section.getBoundingClientRect().top+window.scrollY-115),behavior:"instant"});
         });
+        // Capture the completed visual state, not an intermediate fade-in frame.
+        await new Promise(resolve=>setTimeout(resolve,1000));
         await page.screenshot({path:path.join(screenshots,lang+"-"+label+".png"),fullPage:false,timeout:12000});
         // Mobile menu should toggle reliably and remain keyboard accessible.
         if(width<=980){
@@ -122,6 +124,21 @@ async function run() {
         assert(commerce.links.some(x=>x.edition==="essential"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Essential mailto not ready");
         assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
         assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
+        if(label==="desktop"){
+          const depth=await page.evaluate(async()=>{
+            // Earlier screenshot setup temporarily forced immediate scrolling.
+            // Restore the stylesheet's scroll behavior before testing it.
+            document.documentElement.style.removeProperty("scroll-behavior");
+            window.scrollTo({top:250,behavior:"instant"});
+            await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+            const visual=document.querySelector(".preorder-hero-product");
+            const shift=visual.style.getPropertyValue("--pdt-hero-shift");
+            const smooth=getComputedStyle(document.documentElement).scrollBehavior;
+            return {shift,smooth};
+          });
+          assert(depth.smooth==="smooth",lang+" pre-order: anchored scrolling is not smooth");
+          assert(depth.shift&&Number.parseFloat(depth.shift)<0,lang+" pre-order: hero depth does not respond to scroll");
+        }
         await page.close();
       }
     }
@@ -191,6 +208,20 @@ async function run() {
         assert(facts.signaturePrice.includes("189 €")||facts.signaturePrice.includes("€189"),lang+" home "+label+": wrong Signature offer");
         assert(!facts.essentialPrice.includes("99")&&facts.essentialPrice.includes(({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang]),lang+" home "+label+": Essential must have no price");
         assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
+        if(label==="desktop"){
+          const depth=await page.evaluate(async()=>{
+            window.scrollTo({top:260,behavior:"instant"});
+            await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+            return {
+              shift:document.querySelector(".pdt-h-hero-figure").style.getPropertyValue("--pdt-hero-shift"),
+              smooth:getComputedStyle(document.documentElement).scrollBehavior,
+              photoFit:getComputedStyle(document.querySelector(".pdt-h-hero-figure img")).objectFit
+            };
+          });
+          assert(depth.smooth==="smooth",lang+" home: smooth anchor scrolling is not active");
+          assert(depth.shift&&Number.parseFloat(depth.shift)<0,lang+" home: hero depth does not respond to scroll");
+          assert(depth.photoFit==="contain",lang+" home: hero depth must not crop box image");
+        }
         const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
         assert(shopLinks.some(x=>x.name==="essential"&&x.href.startsWith("mailto:")),lang+" home "+label+": no Essential enquiry CTA");
@@ -218,14 +249,29 @@ async function run() {
           document.querySelector(".pdt-h-edition").scrollIntoView({block:"center",behavior:"instant"});
         });
         await page.waitForFunction(()=>document.querySelector(".pdt-h-edition").classList.contains("pdt-is-visible"),{timeout:5000});
+        await new Promise(resolve=>setTimeout(resolve,1000));
         await page.screenshot({path:path.join(screenshots,"home-"+lang+"-"+label+".png"),fullPage:false,timeout:12000});
         await page.close();
       }
     }
+    // Accessibility: visitors requesting less motion see fully readable content.
+    const reducedPage=await browser.newPage();
+    await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);
+    await reducedPage.goto("http://127.0.0.1:"+server.address().port+"/index.html",{waitUntil:"domcontentloaded"});
+    const reduced=await reducedPage.evaluate(()=>({
+      hidden:document.body.classList.contains("pdt-motion-enabled"),
+      heroShift:document.querySelector(".pdt-h-hero-figure").style.getPropertyValue("--pdt-hero-shift"),
+      scroll:getComputedStyle(document.documentElement).scrollBehavior,
+      photos:getComputedStyle(document.querySelector(".pdt-h-edition picture img")).transform,
+      editionVisible:getComputedStyle(document.querySelector(".pdt-h-edition")).opacity
+    }));
+    assert(!reduced.hidden&&reduced.heroShift===""&&reduced.scroll==="auto", "Reduced motion: motion still enabled");
+    assert(reduced.photos==="none"&&reduced.editionVisible==="1", "Reduced motion: photos or product cards not accessible");
+    await reducedPage.close();
   } finally {
     await browser.close();
     await new Promise(resolve=>server.close(resolve));
   }
-  console.log("PASS: 18 browser renders including accessible first-click discovery across home and pre-order, product assets, motion, responsive overflow, JS and edition form selection");
+  console.log("PASS: 18 browser renders including scroll-linked image depth, reduced-motion accessibility, links, product images and responsive layouts");
 }
 run().catch(error=>{console.error(error.stack||error);server.close();process.exitCode=1;});
