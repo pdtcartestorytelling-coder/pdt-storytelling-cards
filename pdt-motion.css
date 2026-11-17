@@ -261,3 +261,78 @@ body[data-page="preorder"] .pdt-digital-section {
   }
   .pdt-reading-progress { transition:none !important; }
 }
+
+/* Fluid, intentional navigation and product reveals — v4.
+   Motion is progressive, GPU-friendly and never required to read content. */
+body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo{
+  opacity:0;
+  transform:translate3d(0,22px,0) scale(.965);
+  clip-path:inset(6% 2% 6% 2% round 12px);
+  transition:
+    opacity .82s var(--pdt-motion-ease),
+    transform 1s var(--pdt-motion-ease),
+    clip-path 1s var(--pdt-motion-ease);
+}
+body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  clip-path:inset(0 round 0);
+}
+body.pdt-motion-enabled .pdt-h-edition:nth-child(2) picture.pdt-reveal-photo,
+body.pdt-motion-enabled .pdt-tier-card:nth-child(2) picture.pdt-reveal-photo{
+  transition-delay:.07s;
+}
+body.pdt-motion-enabled .pdt-shop-flow-step:nth-child(2){transition-delay:90ms}
+body.pdt-motion-enabled .pdt-shop-flow-step:nth-child(3){transition-delay:170ms}
+
+/* A lightweight lift and responsive tactile feedback for every action. */
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-btn,.pdt-shop-home-cta,.pdt-tier-link,
+  .preorder-btn,.pdt-shop-flow-cta a
+){
+  transition:transform .26s var(--pdt-motion-ease),
+             box-shadow .26s ease,
+             background-color .26s ease,
+             border-color .26s ease,
+             color .26s ease,
+             filter .26s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-h-btn,.pdt-shop-home-cta,.pdt-tier-link,
+    .preorder-btn,.pdt-shop-flow-cta a
+  ):hover{
+    transform:translate3d(0,-3px,0);
+    box-shadow:0 13px 30px rgba(11,47,88,.18);
+  }
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-first-action-answer a,.pdt-h-edition a:not(.pdt-shop-home-cta),
+    .preorder-gallery-caption a,.nav-links a
+  ){
+    transition:color .25s ease,text-decoration-color .25s ease;
+    text-decoration-thickness:1px;
+    text-underline-offset:4px;
+  }
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-first-action-answer a,.preorder-gallery-caption a
+  ):hover{text-decoration-color:var(--gold-dark)}
+}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-btn,.pdt-shop-home-cta,.pdt-tier-link,.preorder-btn,.pdt-shop-flow-cta a
+):active{transform:translate3d(0,0,0) scale(.975);box-shadow:none}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-btn,.pdt-shop-home-cta,.pdt-tier-link,
+  .preorder-btn,.pdt-shop-flow-cta a,
+  .pdt-edition-preview,.pdt-shop-copy,.pdt-first-action-option summary
+):focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+@media(max-width:790px){html{scroll-padding-top:78px}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo,
+  body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
+    opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important
+  }
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-h-btn,.pdt-shop-home-cta,.pdt-tier-link,.preorder-btn,.pdt-shop-flow-cta a
+  ){transition:none!important}
+}
