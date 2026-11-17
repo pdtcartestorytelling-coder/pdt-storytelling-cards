@@ -131,6 +131,34 @@
     section.dataset.pdtChapter=String(index+1).padStart(2,"0");
   });
 
+  // A continuous, visible motion layer: a large diagonal band and a chapter
+  // seam. They stay behind the content and never catch pointer events.
+  // We add them only on motion-capable devices, so the website remains
+  // fully readable when scripting or animations are unavailable.
+  const cinematicScenes = sceneSections.map((section,index) => {
+    const sweep = document.createElement("div");
+    sweep.className = "pdt-cinema-sweep";
+    sweep.setAttribute("aria-hidden","true");
+    const edge = document.createElement("div");
+    edge.className = "pdt-cinema-edge";
+    edge.setAttribute("aria-hidden","true");
+    section.prepend(edge,sweep);
+    section.classList.add("pdt-cinema-scene");
+    return {section,sweep,edge,index};
+  });
+  const cinematicCards = !supportsReducedMotion.matches
+    ? [...document.querySelectorAll(
+        body.dataset.page === "home"
+          ? ".pdt-h-edition,.pdt-h-facts article,.pdt-h-method-grid > div"
+          : ".pdt-tier-card,.pdt-shop-flow-step,.preorder-gallery-card"
+      )]
+    : [];
+  cinematicCards.forEach((card,index) => {
+    card.classList.add("pdt-cinema-card");
+    card.dataset.pdtCineSide = index % 2 ? "right" : "left";
+  });
+  if(cinematicScenes.length)body.classList.add("pdt-cinema-enabled");
+
   // A small visual scroll guide makes the current chapter unmistakable.
   // It is decorative, never replaces the real site navigation.
   let journey=null,journeyCount=null,journeyName=null,journeyFill=null;
@@ -182,6 +210,31 @@
         Math.round(direction*relative*(mobile?25:130))+"px");
       section.style.setProperty("--pdt-scene-y",
         Math.round(relative*(mobile?36:145))+"px");
+    });
+
+    // Scroll, not time, drives the cinematic layer. As a section passes the
+    // viewport the wide color sweep travels through it and its gold seam grows.
+    cinematicScenes.forEach(({section,sweep,edge,index}) => {
+      const rect=section.getBoundingClientRect();
+      if(rect.bottom < -50 || rect.top > viewportHeight + 50)return;
+      const progress=Math.max(0,Math.min(1,(viewportHeight-rect.top)/(viewportHeight+rect.height)));
+      const direction=index%2?-1:1;
+      const horizontal=Math.round(direction*(progress-.5)*(mobile?66:130));
+      const vertical=Math.round((progress-.5)*(mobile?44:88));
+      sweep.style.transform="translate3d("+horizontal+"%,"+vertical+"px,0) rotate("+(direction*-9)+"deg)";
+      edge.style.transform="scaleX("+Math.max(.08,Math.min(1,progress*2.1)).toFixed(3)+")";
+      section.style.setProperty("--pdt-cinema-step",progress.toFixed(3));
+    });
+    // The product cards subtly grow into focus as they approach the center of
+    // the viewport, and recede again as the visitor continues scrolling.
+    cinematicCards.forEach(card=>{
+      const rect=card.getBoundingClientRect();
+      if(rect.bottom < -30 || rect.top > viewportHeight + 30)return;
+      const cardCenter=rect.top+rect.height/2;
+      const distance=Math.abs(cardCenter-viewportHeight*.52);
+      const range=viewportHeight*.63+rect.height*.42;
+      const focus=Math.max(0,1-distance/range);
+      card.style.setProperty("--pdt-cinema-zoom",(mobile?.978+.022*focus:.95+.055*focus).toFixed(3));
     });
     if(journey){
       body.classList.toggle("pdt-show-journey",visibleChapter>=0);
