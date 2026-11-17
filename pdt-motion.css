@@ -336,3 +336,196 @@ body:is([data-page="home"],[data-page="preorder"]) :is(
     .pdt-h-btn,.pdt-shop-home-cta,.pdt-tier-link,.preorder-btn,.pdt-shop-flow-cta a
   ){transition:none!important}
 }
+
+/* PdT Motion v5 — a more cinematic, scroll-responsive product story.
+   Progressive enhancement: content and links work without animations/JS. */
+html:has(body[data-page="home"]),
+html:has(body[data-page="preorder"]){
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  #editions,#interest,#kit,#digital-access,.pdt-h-collection
+){scroll-margin-top:90px}
+
+/* More readable entrance choreography: distance and timing are noticeable,
+   while fade and transform never affect layout geometry. */
+body.pdt-motion-enabled .pdt-motion-target:not(.pdt-reveal-photo) {
+  opacity:0;
+  transform:translate3d(0,48px,0) scale(.984);
+  transition:
+    opacity 1s cubic-bezier(.16,1,.3,1),
+    transform 1.05s cubic-bezier(.16,1,.3,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+body.pdt-motion-enabled .pdt-motion-target:not(.pdt-reveal-photo).pdt-is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+}
+body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo{
+  opacity:0;
+  transform:translate3d(0,38px,0) scale(.94);
+  clip-path:inset(12% 3% 12% 3% round 18px);
+  transition:
+    opacity .9s cubic-bezier(.16,1,.3,1),
+    transform 1.15s cubic-bezier(.16,1,.3,1),
+    clip-path 1.1s cubic-bezier(.16,1,.3,1);
+}
+body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  clip-path:inset(0 round 0);
+}
+
+/* Section headlines receive a gold baseline as the section arrives. */
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-heading,.preorder-section-heading
+)::after{
+  content:"";
+  display:block;
+  height:3px;
+  width:72px;
+  margin-top:18px;
+  border-radius:4px;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold),rgba(245,179,53,.25));
+  transform-origin:left center;
+  transform:scaleX(.12);
+  transition:transform 1.1s .23s cubic-bezier(.16,1,.3,1);
+}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-h-heading,.preorder-section-heading
+).pdt-is-visible::after{transform:scaleX(1)}
+
+/* Move the ENTIRE closed cofanetto, not its contents; its edges remain visible. */
+body[data-page="home"] .pdt-h-hero-figure,
+body[data-page="preorder"] .preorder-hero-product{
+  translate:0 var(--pdt-hero-shift,0px);
+}
+
+/* Scroll-responsive depth on cover-grid imagery. The full hero is exempt. */
+body[data-page="home"] .pdt-h-edition picture img,
+body[data-page="preorder"] .pdt-edition-preview picture img,
+body[data-page="preorder"] .preorder-gallery-card img {
+  transform:translate3d(0,var(--pdt-image-shift,0px),0) scale(1.075);
+  transition:transform .28s ease-out;
+}
+@media(hover:hover) and (pointer:fine){
+  body[data-page="home"] .pdt-h-edition:hover picture img,
+  body[data-page="preorder"] .pdt-tier-card:hover .pdt-edition-preview picture img,
+  body[data-page="preorder"] .preorder-gallery-card:hover img{
+    transform:translate3d(0,var(--pdt-image-shift,0px),0) scale(1.11);
+  }
+}
+
+/* Responsive gilded highlight follows the pointer on real hover devices. */
+body:is([data-page="home"],[data-page="preorder"]) .pdt-spotlight-card{
+  position:relative;
+  isolation:isolate;
+}
+body:is([data-page="home"],[data-page="preorder"]) .pdt-spotlight-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  z-index:2;
+  pointer-events:none;
+  opacity:0;
+  background:radial-gradient(
+    circle 180px at var(--pdt-pointer-x,50%) var(--pdt-pointer-y,50%),
+    rgba(245,179,53,.18),transparent 78%
+  );
+  transition:opacity .32s ease;
+}
+@media(hover:hover) and (pointer:fine){
+  body:is([data-page="home"],[data-page="preorder"]) .pdt-spotlight-card:hover::after{opacity:1}
+  body.pdt-motion-enabled .pdt-h-edition.pdt-is-visible:hover,
+  body.pdt-motion-enabled .pdt-tier-card.pdt-is-visible:hover{
+    transform:translate3d(0,-8px,0) scale(1.012);
+  }
+}
+
+/* Polished micro-feedback on the commercial call to action. */
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-shop-home-cta,.pdt-tier-link,.pdt-shop-flow-cta a
+){
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transition:
+    transform .36s cubic-bezier(.16,1,.3,1),
+    box-shadow .36s ease,
+    background-color .28s ease,
+    color .28s ease;
+}
+body:is([data-page="home"],[data-page="preorder"]) :is(
+  .pdt-shop-home-cta,.pdt-tier-link,.pdt-shop-flow-cta a
+)::after{
+  content:"";position:absolute;pointer-events:none;inset:-40% 0;
+  background:linear-gradient(110deg,transparent 28%,rgba(255,255,255,.2) 50%,transparent 72%);
+  transform:translateX(-150%) skewX(-15deg);
+  transition:transform .75s cubic-bezier(.16,1,.3,1);
+}
+@media(hover:hover) and (pointer:fine){
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-shop-home-cta,.pdt-tier-link,.pdt-shop-flow-cta a
+  ):hover::after{transform:translateX(150%) skewX(-15deg)}
+}
+
+/* Native cross-document transition where available (between Home and Pre Order).
+   Unsupported browsers simply navigate instantly as before. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:.22s ease-in both pdtPageFadeOut}
+::view-transition-new(root){animation:.42s cubic-bezier(.16,1,.3,1) both pdtPageFadeIn}
+@keyframes pdtPageFadeOut{
+  from{opacity:1;filter:blur(0)}
+  to{opacity:.72;filter:blur(2px)}
+}
+@keyframes pdtPageFadeIn{
+  from{opacity:.65;filter:blur(2px);transform:translate3d(0,9px,0)}
+  to{opacity:1;filter:blur(0);transform:translate3d(0,0,0)}
+}
+@media(max-width:760px){
+  body.pdt-motion-enabled .pdt-motion-target:not(.pdt-reveal-photo){
+    transform:translate3d(0,27px,0) scale(.99);
+    transition-duration:.78s;
+  }
+  body.pdt-motion-enabled .pdt-motion-target:not(.pdt-reveal-photo).pdt-is-visible{
+    transform:none;
+  }
+  body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo{
+    transform:translate3d(0,20px,0) scale(.97);
+    transition-duration:.85s;
+  }
+  body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
+    transform:none;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html:has(body[data-page="home"]),html:has(body[data-page="preorder"]){
+    scroll-behavior:auto!important;
+  }
+  body[data-page="home"] .pdt-h-hero-figure,
+  body[data-page="preorder"] .preorder-hero-product{translate:none!important}
+  body[data-page="home"] .pdt-h-edition picture img,
+  body[data-page="preorder"] .pdt-edition-preview picture img,
+  body[data-page="preorder"] .preorder-gallery-card img{
+    transform:none!important;
+    transition:none!important;
+  }
+  body.pdt-motion-enabled .pdt-motion-target,
+  body.pdt-motion-enabled .pdt-motion-target.pdt-reveal-photo,
+  body.pdt-motion-enabled .pdt-motion-target.pdt-is-visible{
+    opacity:1!important;
+    transform:none!important;
+    clip-path:none!important;
+    transition:none!important;
+  }
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-h-heading,.preorder-section-heading
+  )::after{transform:none!important;transition:none!important}
+  body:is([data-page="home"],[data-page="preorder"]) :is(
+    .pdt-shop-home-cta,.pdt-tier-link,.pdt-shop-flow-cta a
+  )::after{display:none!important}
+  ::view-transition-old(root),::view-transition-new(root){animation:none!important}
+}
