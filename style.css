@@ -1384,3 +1384,31 @@ body[data-page="home"] .pdt-h-purchase-cta p{
     max-width:100%;
   }
 }
+
+
+/* On very narrow home screens keep the floating guide from covering hero controls. */
+@media(max-width:360px){
+  body[data-page="home"] .pdt-guide{
+    right:8px;
+    bottom:8px;
+  }
+  body[data-page="home"] .pdt-guide__toggle{
+    width:48px;
+    height:48px;
+    min-width:48px;
+    padding:5px;
+    gap:0;
+    border-radius:50%;
+  }
+  body[data-page="home"] .pdt-guide__toggle-text{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+    border:0;
+  }
+}
