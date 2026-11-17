@@ -148,6 +148,15 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: commercial styling or email logic missing")
     if 'data-interest-mailto' not in text or 'name="destination"' not in text or 'name="message"' not in text:
         ERRORS.append(f"{name}: commercial email enquiry form incomplete")
+    if text.count('<div class="pdt-edition-preview">') != 2 or text.count('<div class="preorder-gallery-image">') != 4:
+        ERRORS.append(f"{name}: expected 6 static inline photos")
+    if any(fragment in text for fragment in ('pdt-edition-open', 'preorder-gallery-open',
+                                            '<a class="pdt-edition-preview"',
+                                            '<a class="preorder-gallery-image"',
+                                            '<a href="images/')):
+        ERRORS.append(f"{name}: image fullscreen link or button still present")
+    if 'preorder.css?v=22' not in text:
+        ERRORS.append(f"{name}: latest inline gallery style missing")
     if "189 €" not in text:
         ERRORS.append(f"{name}: missing Signature launch offer of 189 EUR")
     if 'pdt-shop-card-price--pending' not in text:
