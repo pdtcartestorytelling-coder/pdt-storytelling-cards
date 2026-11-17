@@ -72,3 +72,7 @@ body[data-page="home"] .pdt-h-edition-body>a{display:inline-block;margin-top:aut
   .pdt-shop-flow-cta a{width:100%}
 }
 @media(prefers-reduced-motion:reduce){.pdt-shop-copy,.pdt-shop-flow-cta a{transition:none}}
+
+/* The commercial enquiry accepts a free-form message, not just preset fields. */
+body[data-page="preorder"] .pdt-interest-fields textarea{width:100%;min-height:112px;padding:12px 13px;border:1px solid rgba(23,75,127,.28);border-radius:10px;background:var(--cream-light);color:var(--text);font:inherit;line-height:1.55;resize:vertical}
+body[data-page="preorder"] .pdt-interest-fields textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
