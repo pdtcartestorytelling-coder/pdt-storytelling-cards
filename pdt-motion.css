@@ -788,3 +788,139 @@ body:is([data-page="home"],[data-page="preorder"]) :is(
     transition:none!important;
   }
 }
+
+/* PdT cinematic scroll v8
+   A clearly visible, scroll-driven visual rhythm. All ornamental layers stay
+   behind content, buttons and gallery images. No scroll hijacking or libraries. */
+body.pdt-cinema-enabled section.pdt-cinema-scene {
+  position:relative;
+  isolation:isolate;
+  overflow:clip;
+}
+body.pdt-cinema-enabled .pdt-cinema-sweep{
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  display:block;
+  left:-19%;
+  top:22%;
+  width:138%;
+  height:clamp(190px,29vw,390px);
+  border-radius:42% 12% 38% 16% / 48% 23% 40% 22%;
+  background:linear-gradient(95deg,
+    rgba(23,75,127,.04) 4%,
+    rgba(23,75,127,.18) 29%,
+    rgba(245,179,53,.31) 55%,
+    rgba(245,179,53,.11) 76%,
+    transparent 98%);
+  transform:translate3d(-40%,0,0) rotate(-9deg);
+  transform-origin:center;
+  opacity:.88;
+  will-change:transform;
+}
+body.pdt-cinema-enabled :is(
+  .pdt-h-cta,.pdt-digital-section
+).pdt-cinema-scene .pdt-cinema-sweep{
+  background:linear-gradient(95deg,
+    transparent 4%,
+    rgba(65,145,206,.23) 28%,
+    rgba(245,179,53,.24) 56%,
+    rgba(245,179,53,.07) 82%,
+    transparent 98%);
+  opacity:1;
+}
+body.pdt-cinema-enabled .pdt-cinema-edge{
+  position:absolute;
+  z-index:0;
+  left:0;
+  top:0;
+  width:100%;
+  height:5px;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    var(--blue-800),var(--gold-dark) 42%,var(--gold) 72%,transparent);
+  box-shadow:0 0 18px rgba(245,179,53,.2);
+  transform:scaleX(.08);
+  transform-origin:left;
+  will-change:transform;
+}
+body.pdt-cinema-enabled .pdt-cinema-scene:nth-of-type(even) .pdt-cinema-edge{
+  transform-origin:right;
+  background:linear-gradient(270deg,
+    var(--blue-800),var(--gold-dark) 42%,var(--gold) 72%,transparent);
+}
+body.pdt-cinema-enabled :is(
+  .pdt-h-cta,.pdt-digital-section
+).pdt-cinema-scene .pdt-cinema-edge{
+  background:linear-gradient(90deg,transparent,var(--gold),var(--gold-soft));
+}
+
+/* Scroll-focus is independent of the transform used by entrance animations.
+   Product images never open full-screen and the closed hero box is not cropped. */
+body.pdt-cinema-enabled .pdt-cinema-card{
+  scale:var(--pdt-cinema-zoom,1);
+  transition:
+    scale .16s linear,
+    box-shadow .3s ease,
+    border-color .3s ease,
+    opacity .75s var(--pdt-motion-ease),
+    transform .82s var(--pdt-motion-ease);
+}
+body.pdt-cinema-enabled .pdt-h-heading.pdt-motion-target:not(.pdt-is-visible),
+body.pdt-cinema-enabled .preorder-section-heading.pdt-motion-target:not(.pdt-is-visible){
+  opacity:.25;
+  transform:translate3d(-65px,22px,0);
+}
+body.pdt-cinema-enabled :is(
+  .pdt-h-heading,.preorder-section-heading
+).pdt-is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0);
+}
+body.pdt-cinema-enabled .pdt-cinema-card.pdt-motion-target:not(.pdt-is-visible){
+  opacity:.58;
+}
+
+/* The photography opens more decisively when it arrives in view. */
+body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo:not(.pdt-is-visible){
+  opacity:.5;
+  clip-path:inset(15% 5% 15% 5% round 20px);
+  transform:translate3d(0,42px,0) scale(.925);
+}
+body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
+  opacity:1;
+  clip-path:inset(0 round 0);
+  transform:translate3d(0,0,0) scale(1);
+}
+
+/* Mobile: significant visual change, smaller transforms and less compositing. */
+@media(max-width:760px){
+  body.pdt-cinema-enabled .pdt-cinema-sweep{
+    left:-28%;
+    top:17%;
+    width:156%;
+    height:clamp(170px,52vw,250px);
+    opacity:.76;
+    will-change:auto;
+  }
+  body.pdt-cinema-enabled .pdt-cinema-edge{height:3px;will-change:auto}
+  body.pdt-cinema-enabled :is(.pdt-h-heading,.preorder-section-heading).pdt-motion-target:not(.pdt-is-visible){
+    transform:translate3d(-29px,14px,0);
+    opacity:.45;
+  }
+  body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo:not(.pdt-is-visible){
+    transform:translate3d(0,22px,0) scale(.97);
+    clip-path:inset(7% 2% 7% 2% round 14px);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body.pdt-cinema-enabled .pdt-cinema-sweep,
+  body.pdt-cinema-enabled .pdt-cinema-edge{display:none!important}
+  body.pdt-cinema-enabled .pdt-cinema-card{scale:1!important;transition:none!important}
+  body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo,
+  body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
+    opacity:1!important;transform:none!important;clip-path:none!important;
+  }
+  body.pdt-cinema-enabled .pdt-h-heading,
+  body.pdt-cinema-enabled .preorder-section-heading{opacity:1!important;transform:none!important}
+}

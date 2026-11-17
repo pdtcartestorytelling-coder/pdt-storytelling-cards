@@ -163,7 +163,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: Essential must display development status instead of a price")
     if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
         ERRORS.append(f"{name}: outdated launch prices found")
-    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=6' not in text or 'pdt-motion.css?v=7' not in text:
+    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=7' not in text or 'pdt-motion.css?v=8' not in text:
         ERRORS.append(f"{name}: updated commercial email or motion asset missing")
 for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
@@ -173,7 +173,7 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: missing forthcoming Essential card")
     if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
         ERRORS.append(f"{name}: outdated pricing still present")
-    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=6' not in text or 'pdt-motion.css?v=7' not in text:
+    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=7' not in text or 'pdt-motion.css?v=8' not in text:
         ERRORS.append(f"{name}: updated email or animation scripts missing")
 # The first screen must provide direct one-click links, not hidden accordions.
 for name in ("index.html", "home-en.html", "home-es.html"):
@@ -192,6 +192,14 @@ for edition in ("essential", "studio", "signature"):
         file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
         if not file.exists() or file.stat().st_size < 20000:
             ERRORS.append(f"{file.name}: missing or too small to be a full-size render")
+motion_js=(ROOT/"pdt-motion.js").read_text(encoding="utf-8")
+motion_css=(ROOT/"pdt-motion.css").read_text(encoding="utf-8")
+if "pdt-cinema-sweep" not in motion_js or "pdt-cinema-edge" not in motion_js:
+    ERRORS.append("pdt-motion.js: cinematic section layers missing")
+if "pdt-cinema-zoom" not in motion_js or "pdt-cinema-card" not in motion_css:
+    ERRORS.append("cinematic scroll-focus cards missing")
+if "prefers-reduced-motion:reduce" not in motion_css:
+    ERRORS.append("cinematic accessibility fallback missing")
 css = (ROOT / "preorder.css").read_text(encoding="utf-8")
 if ".pdt-tier-visual.pdt-edition-image{height:auto;aspect-ratio:4/3;" not in css:
     ERRORS.append("preorder.css: dedicated image card style missing")

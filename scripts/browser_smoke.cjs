@@ -38,6 +38,10 @@ async function verifyScrollingBackdrop(page,selector){
     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     const first=section.style.getPropertyValue("--pdt-scene-y");
     const xFirst=section.style.getPropertyValue("--pdt-scene-x");
+    const sweep=section.querySelector(".pdt-cinema-sweep");
+    const edge=section.querySelector(".pdt-cinema-edge");
+    const firstSweep=sweep?.style.transform;
+    const firstEdge=edge?.style.transform;
     window.scrollTo({top:window.scrollY+150,behavior:"instant"});
     await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
     const second=section.style.getPropertyValue("--pdt-scene-y");
@@ -46,7 +50,11 @@ async function verifyScrollingBackdrop(page,selector){
       enabled:section.classList.contains("pdt-scroll-scene"),
       first,second,xFirst,
       rendered:backdrop.backgroundImage.includes("radial-gradient"),
-      transform:backdrop.transform
+      transform:backdrop.transform,
+      cinema:section.classList.contains("pdt-cinema-scene"),
+      firstSweep,secondSweep:sweep?.style.transform,
+      firstEdge,secondEdge:edge?.style.transform,
+      edgeCount:document.querySelectorAll(".pdt-cinema-edge").length
     };
   },selector);
 }
@@ -171,6 +179,10 @@ async function run() {
           assert(backdrop.enabled&&backdrop.rendered&&backdrop.transform!=="none",lang+" pre-order: decorative backdrop not rendered");
           assert(backdrop.first!==""&&backdrop.second!==""&&backdrop.first!==backdrop.second,
             lang+" pre-order: section background does not move during scroll");
+          assert(backdrop.cinema&&backdrop.edgeCount>0&&backdrop.firstSweep&&backdrop.firstSweep!==backdrop.secondSweep,
+            lang+" "+label+": cinematic sweep is not moving continuously");
+          assert(backdrop.firstEdge&&backdrop.secondEdge,
+            lang+" "+label+": chapter edge progress missing");
           const chapter=await page.evaluate(()=>{
             const section=document.querySelector(".pdt-tier-section");
             return {
@@ -270,6 +282,10 @@ async function run() {
           assert(backdrop.enabled&&backdrop.rendered&&backdrop.transform!=="none",lang+" home: decorative backdrop not rendered");
           assert(backdrop.first!==""&&backdrop.second!==""&&backdrop.first!==backdrop.second,
             lang+" home: section background does not move during scroll");
+          assert(backdrop.cinema&&backdrop.edgeCount>0&&backdrop.firstSweep&&backdrop.firstSweep!==backdrop.secondSweep,
+            lang+" "+label+": cinematic sweep is not moving continuously");
+          assert(backdrop.firstEdge&&backdrop.secondEdge,
+            lang+" "+label+": chapter edge progress missing");
           const chapter=await page.evaluate(()=>{
             const section=document.querySelector(".pdt-h-kit");
             return {
@@ -336,11 +352,14 @@ async function run() {
       photos:getComputedStyle(document.querySelector(".pdt-h-edition picture img")).transform,
       editionVisible:getComputedStyle(document.querySelector(".pdt-h-edition")).opacity,
       sceneCount:document.querySelectorAll(".pdt-scroll-scene").length,
+      cinemaCount:document.querySelectorAll(".pdt-cinema-sweep,.pdt-cinema-edge").length,
+      cinemaEnabled:document.body.classList.contains("pdt-cinema-enabled"),
       heroBg:document.querySelector(".pdt-h-hero").style.getPropertyValue("--pdt-hero-bg-shift")
     }));
     assert(!reduced.hidden&&reduced.heroShift===""&&reduced.scroll==="auto", "Reduced motion: motion still enabled");
     assert(reduced.photos==="none"&&reduced.editionVisible==="1", "Reduced motion: photos or product cards not accessible");
     assert(reduced.sceneCount===0&&reduced.heroBg==="","Reduced motion: background animation should be disabled");
+    assert(reduced.cinemaCount===0&&!reduced.cinemaEnabled,"Reduced motion: cinematic layers should not be created");
     const reducedRail=await reducedPage.$(".pdt-journey");
     assert(!reducedRail,"Reduced motion: journey marker must not appear");
     await reducedPage.close();
