@@ -182,26 +182,35 @@
   updateDepth = () => {
     if (supportsReducedMotion.matches) return;
     const viewportHeight = window.innerHeight;
-    if (heroVisual && heroSection) {
-      const rect = heroSection.getBoundingClientRect();
-      if (rect.bottom > 0 && rect.top < viewportHeight) {
-        const fraction = Math.max(0, Math.min(1, -rect.top / Math.max(rect.height, 1)));
-        // The complete box moves as one: never zoom or crop the cover image.
-        heroVisual.style.setProperty("--pdt-hero-shift", Math.round(-(window.innerWidth < 760 ? 20 : 38) * fraction) + "px");
-        // The colored radial lights follow the page at a different speed.
-        // CSS 'translate' composes with the existing ambient keyframe transform.
-        heroSection.style.setProperty("--pdt-hero-bg-shift",
-          Math.round((window.innerWidth < 760 ? 32 : 85) * fraction) + "px");
-      }
-    }
     const mobile = window.innerWidth < 760;
+
+    // Read layout in one batch, then update transforms in one batch.
+    // Interleaving layout reads and writes on scroll causes jank on phones.
+    const heroRect = heroSection?.getBoundingClientRect();
+    const sectionRects = sceneSections.map(section=>section.getBoundingClientRect());
+    const cardRects = cinematicCards.map(card=>card.getBoundingClientRect());
+    const imageRects = depthImages.map(image=>
+      (image.closest("picture") || image).getBoundingClientRect());
+
+    if (heroVisual && heroSection && heroRect &&
+        heroRect.bottom > 0 && heroRect.top < viewportHeight) {
+      const fraction = Math.max(0, Math.min(1,-heroRect.top / Math.max(heroRect.height,1)));
+      // Move the whole closed box, never zoom or crop its actual photograph.
+      heroVisual.style.setProperty("--pdt-hero-shift",
+        Math.round(-(mobile?20:38)*fraction)+"px");
+      heroSection.style.setProperty("--pdt-hero-bg-shift",
+        Math.round((mobile?32:85)*fraction)+"px");
+    }
+
     let visibleChapter=-1;
-    sceneSections.forEach((section,index)=>{
-      const rect=section.getBoundingClientRect();
-      if(rect.top<viewportHeight*.55&&rect.bottom>viewportHeight*.25){
+    sectionRects.forEach((rect,index)=>{
+      const section=sceneSections[index];
+      if(rect.top<viewportHeight*.55 && rect.bottom>viewportHeight*.25){
         visibleChapter=index;
       }
-      if(rect.bottom < -60 || rect.top > viewportHeight + 60) return;
+      if(rect.bottom < -60 || rect.top > viewportHeight+60)return;
+
+      // Existing chapter lighting and numerals.
       const center=rect.top+rect.height/2;
       const span=viewportHeight/2+rect.height/2;
       const relative=Math.max(-1,Math.min(1,(viewportHeight/2-center)/span));
@@ -210,50 +219,50 @@
         Math.round(direction*relative*(mobile?25:130))+"px");
       section.style.setProperty("--pdt-scene-y",
         Math.round(relative*(mobile?36:145))+"px");
-    });
 
-    // Scroll, not time, drives the cinematic layer. As a section passes the
-    // viewport the wide color sweep travels through it and its gold seam grows.
-    cinematicScenes.forEach(({section,sweep,edge,index}) => {
-      const rect=section.getBoundingClientRect();
-      if(rect.bottom < -50 || rect.top > viewportHeight + 50)return;
-      const progress=Math.max(0,Math.min(1,(viewportHeight-rect.top)/(viewportHeight+rect.height)));
-      const direction=index%2?-1:1;
+      // New cinematic band passes through each section continuously.
+      const progress=Math.max(0,Math.min(1,
+        (viewportHeight-rect.top)/(viewportHeight+rect.height)));
+      const {sweep,edge}=cinematicScenes[index];
       const horizontal=Math.round(direction*(progress-.5)*(mobile?66:130));
       const vertical=Math.round((progress-.5)*(mobile?44:88));
-      sweep.style.transform="translate3d("+horizontal+"%,"+vertical+"px,0) rotate("+(direction*-9)+"deg)";
-      edge.style.transform="scaleX("+Math.max(.08,Math.min(1,progress*2.1)).toFixed(3)+")";
+      sweep.style.transform="translate3d("+horizontal+"%,"+vertical+
+        "px,0) rotate("+(direction*-9)+"deg)";
+      edge.style.transform="scaleX("+
+        Math.max(.08,Math.min(1,progress*2.1)).toFixed(3)+")";
       section.style.setProperty("--pdt-cinema-step",progress.toFixed(3));
     });
-    // The product cards subtly grow into focus as they approach the center of
-    // the viewport, and recede again as the visitor continues scrolling.
-    cinematicCards.forEach(card=>{
-      const rect=card.getBoundingClientRect();
-      if(rect.bottom < -30 || rect.top > viewportHeight + 30)return;
+
+    cardRects.forEach((rect,index)=>{
+      if(rect.bottom < -30 || rect.top > viewportHeight+30)return;
       const cardCenter=rect.top+rect.height/2;
       const distance=Math.abs(cardCenter-viewportHeight*.52);
       const range=viewportHeight*.63+rect.height*.42;
       const focus=Math.max(0,1-distance/range);
-      card.style.setProperty("--pdt-cinema-zoom",(mobile?.978+.022*focus:.95+.055*focus).toFixed(3));
+      cinematicCards[index].style.setProperty("--pdt-cinema-zoom",
+        (mobile?.978+.022*focus:.95+.055*focus).toFixed(3));
     });
+
     if(journey){
       body.classList.toggle("pdt-show-journey",visibleChapter>=0);
       if(visibleChapter>=0){
         const step=visibleChapter+1;
-        journeyCount.textContent=String(step).padStart(2,"0")+" / "+String(sceneSections.length).padStart(2,"0");
+        journeyCount.textContent=String(step).padStart(2,"0")+" / "+
+          String(sceneSections.length).padStart(2,"0");
         journeyName.textContent=names[visibleChapter]||"PdT";
         journeyFill.style.transform="scaleY("+(step/sceneSections.length)+")";
       }
     }
-    for (const image of depthImages) {
-      const rect = (image.closest("picture") || image).getBoundingClientRect();
-      if (rect.bottom < -40 || rect.top > viewportHeight + 40) continue;
-      const imageCenter = (rect.top + rect.bottom) / 2;
-      const range = viewportHeight / 2 + rect.height / 2;
-      const relative = Math.max(-1, Math.min(1, (imageCenter - viewportHeight / 2) / range));
-      const amplitude = window.innerWidth < 760 ? 7 : 13;
-      image.style.setProperty("--pdt-image-shift", Math.round(-relative * amplitude) + "px");
-    }
+
+    imageRects.forEach((rect,index)=>{
+      if(rect.bottom < -40 || rect.top > viewportHeight+40)return;
+      const imageCenter=(rect.top+rect.bottom)/2;
+      const range=viewportHeight/2+rect.height/2;
+      const relative=Math.max(-1,Math.min(1,
+        (imageCenter-viewportHeight/2)/range));
+      depthImages[index].style.setProperty("--pdt-image-shift",
+        Math.round(-relative*(mobile?7:13))+"px");
+    });
   };
 
   // Subtle mouse-following gold highlight on cards; ignored on touch devices.
