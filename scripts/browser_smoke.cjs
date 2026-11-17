@@ -124,6 +124,9 @@ async function run() {
         assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
         if(label==="desktop"){
           const depth=await page.evaluate(async()=>{
+            // Earlier screenshot setup temporarily forced immediate scrolling.
+            // Restore the stylesheet's scroll behavior before testing it.
+            document.documentElement.style.removeProperty("scroll-behavior");
             window.scrollTo({top:250,behavior:"instant"});
             await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
             const visual=document.querySelector(".preorder-hero-product");
