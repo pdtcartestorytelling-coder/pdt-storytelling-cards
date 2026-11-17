@@ -154,7 +154,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: Essential must display development status instead of a price")
     if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
         ERRORS.append(f"{name}: outdated launch prices found")
-    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=5' not in text or 'pdt-motion.css?v=6' not in text:
+    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=6' not in text or 'pdt-motion.css?v=7' not in text:
         ERRORS.append(f"{name}: updated commercial email or motion asset missing")
 for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
@@ -164,7 +164,7 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: missing forthcoming Essential card")
     if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
         ERRORS.append(f"{name}: outdated pricing still present")
-    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=5' not in text or 'pdt-motion.css?v=6' not in text:
+    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=6' not in text or 'pdt-motion.css?v=7' not in text:
         ERRORS.append(f"{name}: updated email or animation scripts missing")
 # The first screen must provide direct one-click links, not hidden accordions.
 for name in ("index.html", "home-en.html", "home-es.html"):
