@@ -44,7 +44,7 @@ async function run() {
         const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:15000});
         // Lazy images must enter the viewport before Chrome begins downloading.
         // Scroll each card individually, including those below the fold on mobile.
-        for(let i=0;i<3;i++){
+        for(let i=0;i<2;i++){
           await page.evaluate(index=>{
             document.querySelectorAll(".pdt-edition-image img")[index].scrollIntoView({block:"center"});
           },i);
@@ -68,19 +68,19 @@ async function run() {
         });
         console.log(lang,label,JSON.stringify(facts));
         assert(response.status()===200,lang+" "+label+": HTTP "+response.status());
-        assert(facts.cardCount===3,lang+" "+label+": missing edition cards");
+        assert(facts.cardCount===2,lang+" "+label+": expected Signature and Essential cards");
         const variants=await page.evaluate(()=>[...document.querySelectorAll(".pdt-edition-image")].map(x=>({
           webp:x.querySelector("img")?.getAttribute("src"),
           avif:x.querySelector("source")?.getAttribute("srcset"),
           href:x.querySelector("a")?.getAttribute("href")
         })));
-        for(let i=0;i<3;i++){
-          let tier=["essential","studio","signature"][i];
+        for(let i=0;i<2;i++){
+          let tier=["signature","essential"][i];
           assert(variants[i].webp==="images/pdt-"+tier+"-hq.webp",lang+" "+label+": wrong WebP for "+tier);
           assert(variants[i].avif==="images/pdt-"+tier+"-hq.avif",lang+" "+label+": wrong AVIF for "+tier);
           assert(variants[i].href===variants[i].webp,lang+" "+label+": full resolution preview broken for "+tier);
         }
-        assert(facts.images.length===3&&facts.images.every(x=>x.loaded&&x.width===960&&x.height===720),lang+" "+label+": images failed to decode at 960x720");
+        assert(facts.images.length===2&&facts.images.every(x=>x.loaded&&x.width===960&&x.height===720),lang+" "+label+": two edition images failed to decode at 960x720");
         assert(facts.overflow<=5,lang+" "+label+": horizontal overflow "+facts.overflow+"px");
         assert(facts.hasForm&&facts.footer,lang+" "+label+": missing form/footer");
         assert(facts.language===lang,lang+" "+label+": incorrect lang attribute");
@@ -105,9 +105,20 @@ async function run() {
           });
           await page.waitForFunction(()=>document.querySelector(".preorder-mobile-action")?.classList.contains("is-hidden"),{timeout:5000});
         }
-        await page.click('a[data-edition-choice="mid"]');
-        const edition=await page.$eval('select[name="edition"]',node=>node.value);
-        assert(edition==="mid",lang+" "+label+": edition CTA did not update enquiry form");
+        const commerce=await page.evaluate(()=>({
+          cards:[...document.querySelectorAll(".pdt-tier-card")].map(x=>x.dataset.shopCard),
+          prices:[...document.querySelectorAll(".pdt-shop-card-price strong")].map(x=>x.textContent.trim()),
+          links:[...document.querySelectorAll("a[data-shop-edition]")].map(x=>({edition:x.dataset.shopEdition,href:x.getAttribute("href")})),
+          inputFields:["name","email","edition","quantity","destination","message"].every(n=>!!document.querySelector('form[data-interest-mailto] [name="'+n+'"]')),
+          privacy:!!document.querySelector('form[data-interest-mailto] input[name="privacy_acknowledged"][required]'),
+          fallback:!!document.querySelector("[data-shop-copy]"),
+          studioVisible:document.querySelector(".pdt-tier-grid")?.textContent.includes("PdT Studio")
+        }));
+        assert(commerce.cards.join(",")==="signature,essential",lang+" "+label+": wrong product order");
+        assert(commerce.prices.join(",")==="179 €,99 €",lang+" "+label+": proposed pricing mismatch");
+        assert(commerce.links.some(x=>x.edition==="signature"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Signature mailto not ready");
+        assert(commerce.links.some(x=>x.edition==="essential"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Essential mailto not ready");
+        assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
         await page.close();
       }
     }
@@ -148,7 +159,7 @@ async function run() {
           editionCount:document.querySelectorAll(".pdt-h-edition").length,
           progress:!!document.querySelector(".pdt-reading-progress"),
           overflow:document.documentElement.scrollWidth-window.innerWidth,
-          preOrderLink:!!document.querySelector(".pdt-h-cta-actions a[href*='pre-order']"),
+          preOrderLink:!!document.querySelector('.pdt-h-cta-actions a[data-shop-edition="signature"][href^="mailto:"]'),
           logo:!!document.querySelector(".brand-logo")
         }));
         console.log("home",lang,label,JSON.stringify(facts));
@@ -166,7 +177,10 @@ async function run() {
         assert(facts.photoFrame.borderColor.includes("7, 12, 20"),lang+" home "+label+": missing dark border");
         assert(facts.homeNavigation.text==="Home"&&facts.homeNavigation.href===filename&&facts.homeNavigation.active==="page",lang+" home "+label+": inconsistent Home navigation");
         assert(Math.abs(facts.heroImageRenderedRatio-4/3)<0.02,lang+" home "+label+": distorted image aspect ratio");
-        assert(facts.editionCount===3,lang+" home "+label+": missing product editions");
+        assert(facts.editionCount===2,lang+" home "+label+": expected Signature and Essential cards");
+        const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
+        assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
+        assert(shopLinks.some(x=>x.name==="essential"&&x.href.startsWith("mailto:")),lang+" home "+label+": no Essential enquiry CTA");
         // First-screen discovery must be keyboard/click accessible and reveal useful content.
         const firstActions=await page.$$eval(".pdt-first-action-option",nodes=>nodes.length);
         assert(firstActions===3,lang+" home "+label+": missing first-click choices");
