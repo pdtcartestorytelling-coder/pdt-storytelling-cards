@@ -164,6 +164,18 @@ async function run() {
           assert(backdrop.enabled&&backdrop.rendered&&backdrop.transform!=="none",lang+" pre-order: decorative backdrop not rendered");
           assert(backdrop.first!==""&&backdrop.second!==""&&backdrop.first!==backdrop.second,
             lang+" pre-order: section background does not move during scroll");
+          const chapter=await page.evaluate(()=>{
+            const section=document.querySelector(".pdt-tier-section");
+            return {
+              count:document.querySelectorAll(".pdt-scroll-scene").length,
+              marker:section.dataset.pdtChapter,
+              markerText:getComputedStyle(section,"::after").content,
+              rail:!!document.querySelector(".pdt-journey"),
+              railLabel:document.querySelector(".pdt-journey-count")?.textContent
+            };
+          });
+          assert(chapter.count>=7&&chapter.marker==="02"&&chapter.markerText.includes("02"),lang+" pre-order: visible story chapters missing");
+          assert(chapter.rail&&chapter.railLabel,lang+" pre-order: scrolling chapter guide missing");
         }
         await page.close();
       }
@@ -251,6 +263,18 @@ async function run() {
           assert(backdrop.enabled&&backdrop.rendered&&backdrop.transform!=="none",lang+" home: decorative backdrop not rendered");
           assert(backdrop.first!==""&&backdrop.second!==""&&backdrop.first!==backdrop.second,
             lang+" home: section background does not move during scroll");
+          const chapter=await page.evaluate(()=>{
+            const section=document.querySelector(".pdt-h-kit");
+            return {
+              count:document.querySelectorAll(".pdt-scroll-scene").length,
+              marker:section.dataset.pdtChapter,
+              markerText:getComputedStyle(section,"::after").content,
+              rail:!!document.querySelector(".pdt-journey"),
+              railLabel:document.querySelector(".pdt-journey-count")?.textContent
+            };
+          });
+          assert(chapter.count===4&&chapter.marker==="01"&&chapter.markerText.includes("01"),lang+" home: visible story chapters missing");
+          assert(chapter.rail&&chapter.railLabel,lang+" home: scrolling chapter guide missing");
         }
         const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
@@ -310,6 +334,8 @@ async function run() {
     assert(!reduced.hidden&&reduced.heroShift===""&&reduced.scroll==="auto", "Reduced motion: motion still enabled");
     assert(reduced.photos==="none"&&reduced.editionVisible==="1", "Reduced motion: photos or product cards not accessible");
     assert(reduced.sceneCount===0&&reduced.heroBg==="","Reduced motion: background animation should be disabled");
+    const reducedRail=await reducedPage.$(".pdt-journey");
+    assert(!reducedRail,"Reduced motion: journey marker must not appear");
     await reducedPage.close();
   } finally {
     await browser.close();
