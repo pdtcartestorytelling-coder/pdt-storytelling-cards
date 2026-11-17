@@ -88,4 +88,72 @@
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule, { passive: true });
   update();
+  // Noticeable but restrained depth on scroll. Only update visible visuals and
+  // use transforms/CSS variables, so no layout shifts or additional libraries.
+  const heroVisual = document.querySelector(
+    body.dataset.page === "home" ? ".pdt-h-hero-figure" : ".preorder-hero-product"
+  );
+  const heroSection = document.querySelector(
+    body.dataset.page === "home" ? ".pdt-h-hero" : ".preorder-hero"
+  );
+  const depthImages = [...document.querySelectorAll(
+    body.dataset.page === "home"
+      ? ".pdt-h-edition picture img"
+      : ".pdt-edition-preview picture img, .preorder-gallery-card img"
+  )];
+
+  const updateDepth = () => {
+    if (supportsReducedMotion.matches) return;
+    const viewportHeight = window.innerHeight;
+    if (heroVisual && heroSection) {
+      const rect = heroSection.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < viewportHeight) {
+        const fraction = Math.max(0, Math.min(1, -rect.top / Math.max(rect.height, 1)));
+        // The complete box moves as one: never zoom or crop the cover image.
+        heroVisual.style.setProperty("--pdt-hero-shift", Math.round(-38 * fraction) + "px");
+      }
+    }
+    for (const image of depthImages) {
+      const rect = image.getBoundingClientRect();
+      if (rect.bottom < -40 || rect.top > viewportHeight + 40) continue;
+      const imageCenter = (rect.top + rect.bottom) / 2;
+      const range = viewportHeight / 2 + rect.height / 2;
+      const relative = Math.max(-1, Math.min(1, (imageCenter - viewportHeight / 2) / range));
+      const amplitude = window.innerWidth < 760 ? 7 : 13;
+      image.style.setProperty("--pdt-image-shift", Math.round(-relative * amplitude) + "px");
+    }
+  };
+
+  // Subtle mouse-following gold highlight on cards; ignored on touch devices.
+  if (!supportsReducedMotion.matches &&
+      window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    document.querySelectorAll(
+      body.dataset.page === "home" ? ".pdt-h-edition" : ".pdt-tier-card"
+    ).forEach((card) => {
+      card.classList.add("pdt-spotlight-card");
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        card.style.setProperty("--pdt-pointer-x",
+          Math.round(100 * (event.clientX - rect.left) / rect.width) + "%");
+        card.style.setProperty("--pdt-pointer-y",
+          Math.round(100 * (event.clientY - rect.top) / rect.height) + "%");
+      }, { passive: true });
+    });
+  }
+
+  // Reuse the existing scroll requestAnimationFrame for progress and depth.
+  const scheduleDepth = () => {
+    if (supportsReducedMotion.matches || depthScheduled) return;
+    depthScheduled = true;
+    window.requestAnimationFrame(() => {
+      updateDepth();
+      depthScheduled = false;
+    });
+  };
+  let depthScheduled = false;
+  window.addEventListener("scroll", scheduleDepth, { passive: true });
+  window.addEventListener("resize", scheduleDepth, { passive: true });
+  updateDepth();
+
 })();
