@@ -128,7 +128,30 @@ except (ET.ParseError, OSError) as exc:
 
 for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
-    for edition in ("essential", "studio", "signature"):
+    for edition in ("signature", "essential"):
+        for fmt in ("webp", "avif"):
+            asset = f"images/pdt-{edition}-hq.{fmt}"
+            if asset not in text:
+                ERRORS.append(f"{name}: missing {edition} {fmt} edition image")
+    for edition in ("Essential", "Signature"):
+        if f"PdT {edition}" not in text:
+            ERRORS.append(f"{name}: missing edition {edition}")
+    if 'data-shop-card="signature"' not in text or 'data-shop-card="essential"' not in text:
+        ERRORS.append(f"{name}: missing one of two commercial edition cards")
+    if text.count('class="pdt-tier-card pdt-shop-') != 2:
+        ERRORS.append(f"{name}: expected exactly two commercial edition cards")
+    if 'PdT Studio' in text:
+        ERRORS.append(f"{name}: obsolete Studio commercial edition still visible")
+    if 'data-shop-edition="signature"' not in text or 'data-shop-edition="essential"' not in text:
+        ERRORS.append(f"{name}: direct email CTA missing for one edition")
+    if 'pdt-shop.js' not in text or 'pdt-shop.css' not in text:
+        ERRORS.append(f"{name}: commercial styling or email logic missing")
+    if 'data-interest-mailto' not in text or 'name="destination"' not in text or 'name="message"' not in text:
+        ERRORS.append(f"{name}: commercial email enquiry form incomplete")
+    for price in ("179", "199", "99"):
+        if price not in text:
+            ERRORS.append(f"{name}: missing proposed price {price}")
+for edition in ("essential", "studio", "signature"):
         for fmt in ("webp", "avif"):
             asset = f"images/pdt-{edition}-hq.{fmt}"
             if asset not in text:
@@ -153,7 +176,7 @@ css = (ROOT / "preorder.css").read_text(encoding="utf-8")
 if ".pdt-tier-visual.pdt-edition-image{height:auto;aspect-ratio:4/3;" not in css:
     ERRORS.append("preorder.css: dedicated image card style missing")
 
-print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 3 edition panels.")
+print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
     sys.exit(1)
