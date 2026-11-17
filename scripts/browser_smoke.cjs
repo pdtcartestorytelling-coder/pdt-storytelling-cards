@@ -225,22 +225,24 @@ async function run() {
         const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
         assert(shopLinks.some(x=>x.name==="essential"&&x.href.startsWith("mailto:")),lang+" home "+label+": no Essential enquiry CTA");
-        // First-screen discovery must be keyboard/click accessible and reveal useful content.
-        const firstActions=await page.$$eval(".pdt-first-action-option",nodes=>nodes.length);
-        assert(firstActions===3,lang+" home "+label+": missing first-click choices");
-        await page.click(".pdt-first-action-option:nth-child(1) summary");
-        const firstOpened=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>el.open);
-        assert(firstOpened,lang+" home "+label+": first option failed to open");
-        const firstDetail=await page.$eval(".pdt-first-action-option:nth-child(1) .pdt-first-action-answer",el=>({
-          text:el.querySelector("p")?.textContent,
-          href:el.querySelector("a")?.getAttribute("href")
-        }));
-        assert(firstDetail.text&&firstDetail.href,lang+" home "+label+": first choice does not reveal prompt/link");
-        await page.$eval(".pdt-first-action-option:nth-child(2) summary",element=>element.click());
-        const secondOpened=await page.$eval(".pdt-first-action-option:nth-child(2)",el=>el.open);
-        const firstClosed=await page.$eval(".pdt-first-action-option:nth-child(1)",el=>!el.open);
-        console.log("home first-click state",lang,label,JSON.stringify({firstOpened,secondOpened,firstClosed}));
-        assert(secondOpened,lang+" home "+label+": second interactive option does not open");
+        // All three contexts now navigate directly with one accessible link.
+        const useLinks=await page.$$eval(".pdt-first-action-link",nodes=>nodes.map(node=>({
+          tag:node.tagName,
+          title:node.querySelector(".pdt-first-action-choice")?.textContent.trim(),
+          href:node.getAttribute("href"),
+          lang:node.getAttribute("hreflang"),
+          minHeight:getComputedStyle(node).minHeight
+        })));
+        const usePages=["utilizzo-individuale.html","setting-gruppo.html","risorse-umane.html"];
+        assert(useLinks.length===3,lang+" home "+label+": three context links missing");
+        assert(useLinks.every((x,i)=>x.tag==="A"&&x.title&&x.href===usePages[i]),
+          lang+" home "+label+": context navigation is not direct");
+        assert(useLinks.every(x=>Number.parseFloat(x.minHeight)>=48),
+          lang+" home "+label+": context links are too small for touch");
+        assert(useLinks.every(x=>lang==="it"?!x.lang:x.lang==="it"),
+          lang+" home "+label+": untranslated destination should be marked IT");
+        const legacyAccordion=await page.$$(".pdt-first-action-option, .pdt-first-action-answer");
+        assert(legacyAccordion.length===0,lang+" home "+label+": obsolete accordions still present");
         assert(facts.progress&&facts.logo&&facts.preOrderLink,lang+" home "+label+": missing motion/brand/CTA");
         assert(facts.overflow<=5,lang+" home "+label+": horizontal overflow "+facts.overflow+"px");
         assert(!errors.length,lang+" home "+label+": JavaScript error "+errors.join("; "));
@@ -251,6 +253,14 @@ async function run() {
         await page.waitForFunction(()=>document.querySelector(".pdt-h-edition").classList.contains("pdt-is-visible"),{timeout:5000});
         await new Promise(resolve=>setTimeout(resolve,1000));
         await page.screenshot({path:path.join(screenshots,"home-"+lang+"-"+label+".png"),fullPage:false,timeout:12000});
+        if(label==="desktop"){
+          await Promise.all([
+            page.waitForNavigation({waitUntil:"domcontentloaded",timeout:8000}),
+            page.click(".pdt-first-action-link:first-child")
+          ]);
+          assert(new URL(page.url()).pathname.endsWith("/utilizzo-individuale.html"),
+            lang+" home: context row did not navigate to individual-use page");
+        }
         await page.close();
       }
     }
