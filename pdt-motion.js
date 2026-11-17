@@ -109,13 +109,47 @@
     ? [...document.querySelectorAll(
         body.dataset.page === "home"
           ? ".pdt-h-kit, .pdt-h-collection, .pdt-h-method, .pdt-h-cta"
-          : ".preorder-audience, .pdt-tier-section, .pdt-shop-flow, .preorder-gallery, .pdt-interest-section"
+          : ".preorder-audience, .pdt-tier-section, .pdt-digital-section, .pdt-shop-flow, .preorder-method, .preorder-gallery, .pdt-interest-section"
       )]
     : [];
+  const chapterNames={
+    it:body.dataset.page==="home"
+      ? ["Il kit","Le edizioni","Il metodo","La tua storia"]
+      : ["Per chi","Le edizioni","Materiali online","Come acquistare","Il metodo","Le immagini","Contattaci"],
+    en:body.dataset.page==="home"
+      ? ["The kit","The editions","The method","Your story"]
+      : ["For whom","The editions","Digital resources","How to buy","The method","The images","Contact us"],
+    es:body.dataset.page==="home"
+      ? ["El kit","Las ediciones","El método","Tu historia"]
+      : ["Para quién","Las ediciones","Recursos digitales","Cómo comprar","El método","Las imágenes","Contacta"]
+  };
+  const language=(document.documentElement.lang||"it").slice(0,2);
+  const names=chapterNames[language]||chapterNames.it;
   sceneSections.forEach((section, index) => {
     section.classList.add("pdt-scroll-scene");
     section.style.setProperty("--pdt-scene-anchor", index % 2 ? "22%" : "78%");
+    section.dataset.pdtChapter=String(index+1).padStart(2,"0");
   });
+
+  // A small visual scroll guide makes the current chapter unmistakable.
+  // It is decorative, never replaces the real site navigation.
+  let journey=null,journeyCount=null,journeyName=null,journeyFill=null;
+  if(sceneSections.length){
+    journey=document.createElement("div");
+    journey.className="pdt-journey";
+    journey.setAttribute("aria-hidden","true");
+    journeyCount=document.createElement("span");
+    journeyCount.className="pdt-journey-count";
+    const track=document.createElement("span");
+    track.className="pdt-journey-track";
+    journeyFill=document.createElement("span");
+    journeyFill.className="pdt-journey-fill";
+    track.appendChild(journeyFill);
+    journeyName=document.createElement("span");
+    journeyName.className="pdt-journey-name";
+    journey.append(journeyCount,track,journeyName);
+    body.appendChild(journey);
+  }
 
   updateDepth = () => {
     if (supportsReducedMotion.matches) return;
@@ -133,18 +167,31 @@
       }
     }
     const mobile = window.innerWidth < 760;
-    sceneSections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.bottom < -60 || rect.top > viewportHeight + 60) return;
-      const center = rect.top + rect.height / 2;
-      const span = viewportHeight / 2 + rect.height / 2;
-      const relative = Math.max(-1, Math.min(1, (viewportHeight / 2 - center) / span));
-      const direction = index % 2 ? -1 : 1;
+    let visibleChapter=-1;
+    sceneSections.forEach((section,index)=>{
+      const rect=section.getBoundingClientRect();
+      if(rect.top<viewportHeight*.55&&rect.bottom>viewportHeight*.25){
+        visibleChapter=index;
+      }
+      if(rect.bottom < -60 || rect.top > viewportHeight + 60) return;
+      const center=rect.top+rect.height/2;
+      const span=viewportHeight/2+rect.height/2;
+      const relative=Math.max(-1,Math.min(1,(viewportHeight/2-center)/span));
+      const direction=index%2?-1:1;
       section.style.setProperty("--pdt-scene-x",
-        Math.round(direction * relative * (mobile ? 12 : 42)) + "px");
+        Math.round(direction*relative*(mobile?25:130))+"px");
       section.style.setProperty("--pdt-scene-y",
-        Math.round(relative * (mobile ? 30 : 84)) + "px");
+        Math.round(relative*(mobile?36:145))+"px");
     });
+    if(journey){
+      body.classList.toggle("pdt-show-journey",visibleChapter>=0);
+      if(visibleChapter>=0){
+        const step=visibleChapter+1;
+        journeyCount.textContent=String(step).padStart(2,"0")+" / "+String(sceneSections.length).padStart(2,"0");
+        journeyName.textContent=names[visibleChapter]||"PdT";
+        journeyFill.style.transform="scaleY("+(step/sceneSections.length)+")";
+      }
+    }
     for (const image of depthImages) {
       const rect = (image.closest("picture") || image).getBoundingClientRect();
       if (rect.bottom < -40 || rect.top > viewportHeight + 40) continue;
