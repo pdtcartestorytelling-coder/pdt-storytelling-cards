@@ -187,6 +187,17 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: updated direct-link styles missing")
     if name != "index.html" and text.count('hreflang="it"') < 3:
         ERRORS.append(f"{name}: Italian-only context destinations should be marked")
+# The Italian provenance and professional positioning must be consistent
+# across all storefront translations.
+for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-order-en.html","pre-order-es.html"):
+    text = (ROOT/name).read_text(encoding="utf-8")
+    if 'class="pdt-origin ' not in text or "Made in Italy" not in text:
+        ERRORS.append(f"{name}: missing Italian provenance module")
+    if 'pdt-shop.css?v=3' not in text:
+        ERRORS.append(f"{name}: outdated provenance stylesheet")
+    if 'pdt-origin-title' not in text:
+        ERRORS.append(f"{name}: missing provenance heading")
+
 for edition in ("essential", "studio", "signature"):
     for fmt in ("webp", "avif"):
         file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
