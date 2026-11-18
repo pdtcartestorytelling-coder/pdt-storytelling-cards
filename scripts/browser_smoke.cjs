@@ -74,7 +74,7 @@ async function run() {
         const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:15000});
         // Lazy images must enter the viewport before Chrome begins downloading.
         // Scroll each card individually, including those below the fold on mobile.
-        for(let i=0;i<2;i++){
+        for(let i=0;i<1;i++){
           await page.evaluate(index=>{
             document.querySelectorAll(".pdt-edition-image img")[index].scrollIntoView({block:"center"});
           },i);
@@ -91,14 +91,14 @@ async function run() {
             cardCount:document.querySelectorAll(".pdt-tier-card").length,
             images:imgs.map(x=>({loaded:x.complete,width:x.naturalWidth,height:x.naturalHeight})),
             overflow:document.documentElement.scrollWidth - window.innerWidth,
-            hasForm:!!document.querySelector('form[data-interest-mailto] select[name="edition"]'),
+            hasForm:!!document.querySelector('form[data-interest-mailto] input[type="hidden"][name="edition"][value="top"]'),
             footer:!!footer,
             language:document.documentElement.lang
           };
         });
         console.log(lang,label,JSON.stringify(facts));
         assert(response.status()===200,lang+" "+label+": HTTP "+response.status());
-        assert(facts.cardCount===2,lang+" "+label+": expected Signature and Essential cards");
+        assert(facts.cardCount===1,lang+" "+label+": expected only Signature");
         const variants=await page.evaluate(()=>[...document.querySelectorAll(".pdt-edition-image")].map(x=>({
           webp:x.querySelector("img")?.getAttribute("src"),
           avif:x.querySelector("source")?.getAttribute("srcset"),
@@ -106,13 +106,11 @@ async function run() {
         })));
         assert(variants[0].webp==="images/pdt-cofanetto-signature-2026.webp"&&variants[0].avif==null,
           lang+" "+label+": final Signature rendering is not in the card");
-        assert(variants[1].webp==="images/pdt-essential-hq.webp"&&variants[1].avif==="images/pdt-essential-hq.avif",
-          lang+" "+label+": Essential conceptual edition changed unexpectedly");
+
         assert(variants.every(x=>x.href==null),lang+" "+label+": image links must remain disabled");
-        assert(facts.images.length===2&&facts.images.every(x=>x.loaded)&&
-          facts.images[0].width===1448&&facts.images[0].height===1086&&
-          facts.images[1].width===960&&facts.images[1].height===720,
-          lang+" "+label+": final Signature or Essential image did not decode");
+        assert(facts.images.length===1&&facts.images[0].loaded&&
+          facts.images[0].width===1448&&facts.images[0].height===1086,
+          lang+" "+label+": definitive Signature image failed to decode");
         const imageControls=await page.evaluate(()=>({
           galleryImages:document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img").length,
           clickableImages:document.querySelectorAll('.pdt-edition-preview a, a.pdt-edition-preview, .preorder-gallery-image a, a.preorder-gallery-image, .preorder-gallery-caption a[href^="images/"]').length,
@@ -188,10 +186,13 @@ async function run() {
           imageMotion:[...document.querySelectorAll(".pdt-edition-preview picture")].every(x=>x.classList.contains("pdt-reveal-photo"))
           
         }));
-        assert(commerce.cards.join(",")==="signature,essential",lang+" "+label+": wrong product order");
-        assert(commerce.prices[0]==="189 €"&&commerce.prices[1]===({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang],lang+" "+label+": Signature offer or Essential status mismatch");
+        assert(commerce.cards.join(",")==="signature",lang+" "+label+": only Signature should remain");
+        assert(commerce.prices.length===1&&commerce.prices[0]==="179 €",lang+" "+label+": Signature pre-order must cost 179 EUR");
+        const referencePrice=await page.$eval(".pdt-shop-card-price del",x=>x.textContent.trim());
+        assert(referencePrice==="199 €",lang+" "+label+": planned 199 EUR list reference missing");
         assert(commerce.links.some(x=>x.edition==="signature"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Signature mailto not ready");
-        assert(commerce.links.some(x=>x.edition==="essential"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Essential mailto not ready");
+        assert(commerce.links.some(x=>x.href.includes("179")&&x.href.includes("199")),lang+" "+label+": email draft missing pre-order pricing");
+        assert(commerce.links.every(x=>x.edition==="signature"),lang+" "+label+": retired edition still has email CTA");
         assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
         assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
         if(label==="desktop"){
@@ -226,7 +227,7 @@ async function run() {
               railLabel:document.querySelector(".pdt-journey-count")?.textContent
             };
           });
-          assert(chapter.count>=7&&chapter.marker==="02"&&chapter.markerText.includes("02"),lang+" pre-order: visible story chapters missing");
+          assert(chapter.count===6&&chapter.marker==="02"&&chapter.markerText.includes("02"),lang+" pre-order: visible story chapters missing");
           assert(chapter.rail&&chapter.railLabel,lang+" pre-order: scrolling chapter guide missing");
         }
         await page.close();
@@ -270,7 +271,7 @@ async function run() {
           buyLabel:document.querySelector(".pdt-h-buy-btn")?.textContent.trim(),
           buyHref:document.querySelector(".pdt-h-buy-btn")?.getAttribute("href"),
           signaturePrice:document.querySelector(".pdt-h-edition:first-child .pdt-shop-home-price")?.textContent,
-          essentialPrice:document.querySelector(".pdt-h-edition:nth-child(2) .pdt-shop-home-price")?.textContent,
+          comparePrice:document.querySelector(".pdt-h-edition:first-child .pdt-compare-price")?.textContent,
           revealImages:[...document.querySelectorAll(".pdt-h-edition picture")].every(x=>x.classList.contains("pdt-reveal-photo")),
           progress:!!document.querySelector(".pdt-reading-progress"),
           overflow:document.documentElement.scrollWidth-window.innerWidth,
@@ -292,11 +293,12 @@ async function run() {
         assert(facts.photoFrame.borderColor.includes("7, 12, 20"),lang+" home "+label+": missing dark border");
         assert(facts.homeNavigation.text==="Home"&&facts.homeNavigation.href===filename&&facts.homeNavigation.active==="page",lang+" home "+label+": inconsistent Home navigation");
         assert(Math.abs(facts.heroImageRenderedRatio-4/3)<0.02,lang+" home "+label+": distorted image aspect ratio");
-        assert(facts.editionCount===2,lang+" home "+label+": expected Signature and Essential cards");
+        assert(facts.editionCount===1,lang+" home "+label+": expected one Signature card");
         assert(facts.buyLabel===({it:"Acquista",en:"Buy",es:"Comprar"})[lang],lang+" home "+label+": primary buy label not concise");
         assert(facts.buyHref===({it:"pre-order.html#editions",en:"pre-order-en.html#editions",es:"pre-order-es.html#editions"})[lang],lang+" home "+label+": primary buy link changed");
-        assert(facts.signaturePrice.includes("189 €")||facts.signaturePrice.includes("€189"),lang+" home "+label+": wrong Signature offer");
-        assert(!facts.essentialPrice.includes("99")&&facts.essentialPrice.includes(({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang]),lang+" home "+label+": Essential must have no price");
+        assert(facts.signaturePrice.includes("179")&&facts.signaturePrice.includes("199"),lang+" home "+label+": wrong Signature pre-order/reference price");
+        assert(facts.comparePrice.includes("199"),lang+" home "+label+": crossed-out planned list reference missing");
+        assert(!facts.signaturePrice.includes("189"),lang+" home "+label+": previous Signature offer remains");
         assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
         // The below-the-fold Signature card uses native lazy-loading.
         // During QA, decode it before checking pixel dimensions.
@@ -361,7 +363,7 @@ async function run() {
         }
         const shopLinks=await page.$$eval("a[data-shop-edition]",nodes=>nodes.map(n=>({name:n.dataset.shopEdition,href:n.getAttribute("href")})));
         assert(shopLinks.some(x=>x.name==="signature"&&x.href.startsWith("mailto:")),lang+" home "+label+": no email purchase CTA");
-        assert(shopLinks.some(x=>x.name==="essential"&&x.href.startsWith("mailto:")),lang+" home "+label+": no Essential enquiry CTA");
+        assert(shopLinks.every(x=>x.name==="signature"),lang+" home "+label+": retired edition still has a CTA");
         // All three contexts now navigate directly with one accessible link.
         const useLinks=await page.$$eval(".pdt-first-action-link",nodes=>nodes.map(node=>({
           tag:node.tagName,
