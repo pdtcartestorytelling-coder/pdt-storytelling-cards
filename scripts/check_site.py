@@ -129,57 +129,53 @@ except (ET.ParseError, OSError) as exc:
 for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
     for asset in ("images/pdt-cofanetto-signature-2026.webp",
-                  "images/pdt-essential-hq.webp","images/pdt-essential-hq.avif",
                   "images/pdt-grafica-frontale-2026.webp",
                   "images/pdt-grafica-retro-2026.webp"):
         if asset not in text:
-            ERRORS.append(f"{name}: missing definitive artwork {asset}")
+            ERRORS.append(f"{name}: missing approved Signature artwork {asset}")
         if not (ROOT / asset).is_file():
-            ERRORS.append(f"{name}: definitive image not found on disk: {asset}")
-    if "pdt-signature-hq.webp" in text or "pdt-signature-hq.avif" in text:
-        ERRORS.append(f"{name}: old Signature imagery remains")
-    for edition in ("Essential", "Signature"):
-        if f"PdT {edition}" not in text:
-            ERRORS.append(f"{name}: missing edition {edition}")
-    if 'data-shop-card="signature"' not in text or 'data-shop-card="essential"' not in text:
-        ERRORS.append(f"{name}: missing one of two commercial edition cards")
-    if text.count('class="pdt-tier-card pdt-shop-') != 2:
-        ERRORS.append(f"{name}: expected exactly two commercial edition cards")
-    if 'PdT Studio' in text:
-        ERRORS.append(f"{name}: obsolete Studio commercial edition still visible")
-    if 'data-shop-edition="signature"' not in text or 'data-shop-edition="essential"' not in text:
-        ERRORS.append(f"{name}: direct email CTA missing for one edition")
-    if 'pdt-shop.js' not in text or 'pdt-shop.css' not in text:
-        ERRORS.append(f"{name}: commercial styling or email logic missing")
+            ERRORS.append(f"{name}: approved Signature image not found: {asset}")
+    if text.count('data-shop-card="signature"') != 1 or text.count('class="pdt-tier-card') != 1:
+        ERRORS.append(f"{name}: expected only one Signature product card")
+    if 'data-shop-edition="signature"' not in text or 'data-shop-edition="essential"' in text:
+        ERRORS.append(f"{name}: Signature-only email CTA is missing or Essential remains")
     if 'data-interest-mailto' not in text or 'name="destination"' not in text or 'name="message"' not in text:
         ERRORS.append(f"{name}: commercial email enquiry form incomplete")
-    if text.count('<div class="pdt-edition-preview">') != 2 or text.count('<div class="preorder-gallery-image">') != 4:
-        ERRORS.append(f"{name}: expected 6 static inline photos")
-    if any(fragment in text for fragment in ('pdt-edition-open', 'preorder-gallery-open',
+    if 'name="edition" value="top"' not in text or '<select name="edition"' in text:
+        ERRORS.append(f"{name}: edition must be fixed to Signature")
+    if text.count('<div class="pdt-edition-preview">') != 1 or text.count('<div class="preorder-gallery-image">') != 4:
+        ERRORS.append(f"{name}: expected one Signature box and four gallery images")
+    if any(fragment in text for fragment in ('pdt-edition-open','preorder-gallery-open',
                                             '<a class="pdt-edition-preview"',
                                             '<a class="preorder-gallery-image"',
                                             '<a href="images/')):
-        ERRORS.append(f"{name}: image fullscreen link or button still present")
+        ERRORS.append(f"{name}: fullscreen image control still present")
     if 'preorder.css?v=22' not in text:
-        ERRORS.append(f"{name}: latest inline gallery style missing")
-    if "189 €" not in text:
-        ERRORS.append(f"{name}: missing Signature launch offer of 189 EUR")
-    if 'pdt-shop-card-price--pending' not in text:
-        ERRORS.append(f"{name}: Essential must display development status instead of a price")
-    if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
-        ERRORS.append(f"{name}: outdated launch prices found")
-    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=7' not in text or 'pdt-motion.css?v=8' not in text:
-        ERRORS.append(f"{name}: updated commercial email or motion asset missing")
+        ERRORS.append(f"{name}: latest gallery style missing")
+    if '<strong>179 €</strong><del class="pdt-compare-price">199 €</del>' not in text:
+        ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
+    if '189 €' in text or '99 €' in text or 'Essential' in text or 'essential' in text:
+        ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
+    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
+        ERRORS.append(f"{name}: current Signature sales assets missing")
+    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
+        ERRORS.append(f"{name}: motion assets missing")
+
 for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
-    if "189 €" not in text and "€189" not in text:
-        ERRORS.append(f"{name}: Signature 189 EUR offer missing")
-    if 'pdt-shop-home-price' not in text or 'data-shop-edition="essential"' not in text:
-        ERRORS.append(f"{name}: missing forthcoming Essential card")
-    if any(old in text for old in ("179 €", "199 €", "99 €", "€179", "€199", "€99")):
-        ERRORS.append(f"{name}: outdated pricing still present")
-    if 'pdt-shop.js?v=2' not in text or 'pdt-motion.js?v=7' not in text or 'pdt-motion.css?v=8' not in text:
-        ERRORS.append(f"{name}: updated email or animation scripts missing")
+    if text.count('class="pdt-h-edition"') != 1:
+        ERRORS.append(f"{name}: expected exactly one Signature card")
+    if '<del class="pdt-compare-price">' not in text or 'pdt-current-price' not in text:
+        ERRORS.append(f"{name}: pre-order versus planned list price is not shown")
+    if "189 €" in text or "€189" in text or "99 €" in text or "Essential" in text or "essential" in text:
+        ERRORS.append(f"{name}: outdated prices or Essential remain")
+    if 'pdt-shop.css?v=5' not in text or 'pdt-shop.js?v=3' not in text:
+        ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
+    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
+        ERRORS.append(f"{name}: motion assets missing")
+    if 'data-shop-edition="essential"' in text:
+        ERRORS.append(f"{name}: Essential is still selectable")
+
 # The first screen must provide direct one-click links, not hidden accordions.
 for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
@@ -198,7 +194,7 @@ for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-or
     text = (ROOT/name).read_text(encoding="utf-8")
     if 'class="pdt-origin ' not in text or "Made in Italy" not in text:
         ERRORS.append(f"{name}: missing Italian provenance module")
-    if 'pdt-shop.css?v=4' not in text:
+    if 'pdt-shop.css?v=5' not in text:
         ERRORS.append(f"{name}: outdated provenance stylesheet")
     if 'pdt-origin-title' not in text:
         ERRORS.append(f"{name}: missing provenance heading")
