@@ -154,7 +154,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: latest gallery style missing")
     if '<strong>179 €</strong><del class="pdt-compare-price">199 €</del>' not in text:
         ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
-    if '189 €' in text or '99 €' in text or 'Essential' in text or 'essential' in text:
+    if re.search(r'(?<!\\d)(?:189|99)\\s*€|€\\s*(?:189|99)\\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
     if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
@@ -167,7 +167,7 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: expected exactly one Signature card")
     if '<del class="pdt-compare-price">' not in text or 'pdt-current-price' not in text:
         ERRORS.append(f"{name}: pre-order versus planned list price is not shown")
-    if "189 €" in text or "€189" in text or "99 €" in text or "Essential" in text or "essential" in text:
+    if re.search(r'(?<!\\d)(?:189|99)\\s*€|€\\s*(?:189|99)\\b', text) or "Essential" in text or "essential" in text:
         ERRORS.append(f"{name}: outdated prices or Essential remain")
     if 'pdt-shop.css?v=5' not in text or 'pdt-shop.js?v=3' not in text:
         ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
