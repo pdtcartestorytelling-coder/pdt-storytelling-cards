@@ -115,13 +115,13 @@
   const chapterNames={
     it:body.dataset.page==="home"
       ? ["Il kit","Le edizioni","Il metodo","La tua storia"]
-      : ["Per chi","Le edizioni","Materiali online","Come acquistare","Il metodo","Le immagini","Contattaci"],
+      : ["Per chi","Il cofanetto","Come acquistare","Il metodo","Le immagini","Contattaci"],
     en:body.dataset.page==="home"
       ? ["The kit","The editions","The method","Your story"]
-      : ["For whom","The editions","Digital resources","How to buy","The method","The images","Contact us"],
+      : ["For whom","The box","How to buy","The method","The images","Contact us"],
     es:body.dataset.page==="home"
       ? ["El kit","Las ediciones","El método","Tu historia"]
-      : ["Para quién","Las ediciones","Recursos digitales","Cómo comprar","El método","Las imágenes","Contacta"]
+      : ["Para quién","El cofre","Cómo comprar","El método","Las imágenes","Contacta"]
   };
   const language=(document.documentElement.lang||"it").slice(0,2);
   const names=chapterNames[language]||chapterNames.it;
