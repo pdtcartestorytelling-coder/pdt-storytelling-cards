@@ -5,24 +5,21 @@
     it:{
       title:"PdT Storytelling Cards — richiesta commerciale (NON È UN ORDINE)",
       fields:["Nome","Email","Settore","Tipo di richiesta","Edizione","Numero di copie","Destinazione di consegna","Messaggio","Consenso aggiornamenti"],
-      signature:"Signature: offerta di lancio PROPOSTA 189 €. Prezzo finale e spese di spedizione da confermare.",
-      essential:"Essential: in sviluppo, prezzo NON ANCORA DEFINITO; non è ordinabile.",
+      signature:"PdT Signature pre-order: 179 €. Listino futuro previsto 199 € (non prezzo precedente). Disponibilità e spedizione da confermare.",
       notice:"Si tratta di un contatto senza impegno. Nessun ordine, pagamento, prenotazione o licenza digitale viene attivato con questo messaggio.",
       status:"Si apre la tua applicazione email: controlla il testo e premi Invia. Se non si apre, usa l'indirizzo mostrato qui sotto."
     },
     en:{
       title:"PdT Storytelling Cards — commercial enquiry (NOT AN ORDER)",
       fields:["Name","Email","Professional area","Request type","Edition","Number of sets","Shipping destination","Message","Updates consent"],
-      signature:"Signature: PROPOSED launch offer €189. Final price and shipping to be confirmed.",
-      essential:"Essential: in development, PRICE NOT YET DEFINED. Not available to order.",
+      signature:"PdT Signature pre-order: €179. Planned future list price €199 (not a former price). Availability and delivery to be confirmed.",
       notice:"This is a non-binding enquiry. No order, payment, reservation or digital licence is activated.",
       status:"Your email app opens: review the draft and click Send. If it doesn't open, use the email address shown below."
     },
     es:{
       title:"PdT Storytelling Cards — consulta comercial (NO ES UN PEDIDO)",
       fields:["Nombre","Correo","Ámbito profesional","Tipo de consulta","Edición","Número de unidades","Destino de envío","Mensaje","Consentimiento novedades"],
-      signature:"Signature: oferta de lanzamiento PROPUESTA de 189 €. Se confirmarán el precio final y el envío.",
-      essential:"Essential: en desarrollo, PRECIO AÚN SIN DEFINIR. No disponible.",
+      signature:"PdT Signature pre-order: 179 €. Precio de catálogo futuro previsto 199 € (no precio anterior). Disponibilidad y envío por confirmar.",
       notice:"Es una consulta sin compromiso. No genera pedido, pago, reserva ni licencia digital.",
       status:"Se abre tu correo: revisa el borrador y pulsa Enviar. Si no se abre, usa la dirección que aparece abajo."
     }
@@ -38,24 +35,16 @@
   }
   document.querySelectorAll("form[data-interest-mailto]").forEach(form=>{
     const fields=form.elements;
-    const editionField=fields.namedItem("edition");
-    const typeField=fields.namedItem("interest");
-    if(editionField&&typeField){
-      editionField.addEventListener("change",()=>{
-        if(editionField.value==="low"&&typeField.value==="purchase")typeField.value="waitlist";
-        if(editionField.value==="top"&&typeField.value==="waitlist")typeField.value="purchase";
-      });
-    }
     form.addEventListener("submit",event=>{
       event.preventDefault();
       if(!form.reportValidity())return;
       const v=name=>(fields.namedItem(name)?.value||"").trim();
       const selected=name=>{
         const node=fields.namedItem(name);
+        if(name==="edition")return "PdT Signature";
         return node?.selectedOptions?.length?node.selectedOptions[0].text.trim():"—";
       };
-      const edition=v("edition");
-      const pricing=edition==="top"?t.signature:edition==="low"?t.essential:t.signature+"\n"+t.essential;
+      const pricing=t.signature;
       const lines=[
         t.title,
         "",

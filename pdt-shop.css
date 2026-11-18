@@ -271,3 +271,97 @@ body[data-page="preorder"] .preorder-hero-product .pdt-render-caption{
 @media(max-width:760px){
  body[data-page="preorder"] .preorder-hero-product .pdt-render-caption{font-size:11px;padding:8px 12px}
 }
+
+/* Signature only — pre-order launch, November 2026.
+   The crossed-out value is explicitly a planned FUTURE list price,
+   not a historical price charged to customers. */
+body[data-page="home"] .pdt-h-edition-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  max-width:970px;
+  margin-inline:auto;
+}
+body[data-page="home"] .pdt-signature-only .pdt-h-edition{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:center;
+  overflow:hidden;
+  border:1px solid rgba(189,140,62,.38);
+  box-shadow:0 20px 55px rgba(11,47,88,.11);
+}
+body[data-page="home"] .pdt-signature-only .pdt-h-edition picture{
+  display:block;width:100%;height:100%;min-height:300px;
+}
+body[data-page="home"] .pdt-signature-only .pdt-h-edition picture img{
+  display:block;width:100%;height:100%;object-fit:contain;
+}
+body[data-page="home"] .pdt-signature-only .pdt-h-edition-body{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(22px,3vw,40px);
+}
+body[data-page="home"] .pdt-shop-home-price{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:8px 13px;
+  font-family:var(--font-brand,Georgia,serif);
+  color:var(--blue-950,#0b2f58);
+}
+body[data-page="home"] .pdt-shop-home-price .pdt-current-price{
+  font-size:clamp(37px,4vw,54px);
+  font-weight:600;
+  line-height:1.1;
+}
+body[data-page="home"] .pdt-shop-home-price .pdt-compare-price{
+  font-size:clamp(23px,2.3vw,29px);
+  font-weight:500;
+  text-decoration:line-through;
+  text-decoration-thickness:2px;
+  color:#748092;
+}
+body[data-page="home"] .pdt-shop-home-price small{
+  flex-basis:100%;
+  font:600 12px/1.5 var(--font-ui,Arial,sans-serif);
+  color:#59687a;
+}
+body[data-page="preorder"] .pdt-signature-only .pdt-tier-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  max-width:780px;
+  margin-inline:auto;
+}
+body[data-page="preorder"] .pdt-signature-only .pdt-tier-card{
+  width:100%;
+  margin:0;
+}
+body[data-page="preorder"] .pdt-shop-hero-amount del{
+  font-size:clamp(24px,2.6vw,33px);
+  font-weight:400;
+  color:rgba(255,255,255,.76);
+  text-decoration:line-through;
+  text-decoration-thickness:2px;
+}
+body[data-page="preorder"] .pdt-shop-card-price del{
+  color:#69798b;
+  font-size:clamp(21px,2.4vw,29px);
+  text-decoration:line-through;
+  text-decoration-thickness:2px;
+}
+body[data-page="preorder"] .pdt-shop-card-price strong{color:var(--blue-950)}
+@media(max-width:790px){
+  body[data-page="home"] .pdt-signature-only .pdt-h-edition{
+    grid-template-columns:minmax(0,1fr);
+  }
+  body[data-page="home"] .pdt-signature-only .pdt-h-edition picture{
+    height:auto;min-height:0;
+  }
+  body[data-page="home"] .pdt-signature-only .pdt-h-edition picture img{
+    height:auto;aspect-ratio:4/3;
+  }
+  body[data-page="home"] .pdt-signature-only .pdt-h-edition-body{
+    padding:23px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="home"] .pdt-signature-only .pdt-h-edition img{transform:none!important}
+}
