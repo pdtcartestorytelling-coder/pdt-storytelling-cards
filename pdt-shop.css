@@ -109,3 +109,137 @@ body[data-page="preorder"] .pdt-shop-flow-step{transition:transform .3s ease,box
 @media(prefers-reduced-motion:reduce){
   body[data-page="preorder"] .pdt-shop-flow-step{transition:none}
 }
+
+/* Italian design provenance — editorial, restrained and product-led. */
+.pdt-origin{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:var(--blue-950,#0b2f58);
+  background:
+    radial-gradient(ellipse at 95% 10%,rgba(191,139,52,.11),transparent 47%),
+    linear-gradient(155deg,#fffaf1 0%,#f5ede0 100%);
+  border-block:1px solid rgba(178,134,64,.4);
+}
+.pdt-origin::before{
+  content:"";
+  position:absolute;
+  left:clamp(18px,5vw,74px);
+  right:clamp(18px,5vw,74px);
+  top:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#bc924d 26%,#e4bf79 58%,transparent);
+  pointer-events:none;
+}
+.pdt-origin .container{position:relative;z-index:1}
+.pdt-origin--home{padding:clamp(50px,6vw,86px) 0}
+.pdt-origin--home .pdt-origin-intro{max-width:900px;margin:0 auto 32px;text-align:center}
+.pdt-origin-eyebrow{
+  margin:0 0 13px;
+  color:#946a32;
+  font:800 11px/1.3 var(--font-ui,Arial,sans-serif);
+  letter-spacing:.17em;
+}
+.pdt-origin h2{
+  font-family:var(--font-brand,Georgia,serif);
+  font-size:clamp(27px,3vw,43px);
+  line-height:1.18;
+  letter-spacing:-.025em;
+  font-weight:500;
+  margin:0 0 16px;
+  color:var(--blue-950,#0b2f58);
+}
+.pdt-origin-intro>p:last-child{
+  max-width:780px;
+  margin:0 auto;
+  font-size:clamp(15px,1.25vw,18px);
+  line-height:1.75;
+  color:#435469;
+}
+.pdt-origin-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  border:1px solid rgba(176,137,78,.29);
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,.45);
+  box-shadow:0 18px 55px rgba(11,47,88,.055);
+}
+.pdt-origin-point{
+  padding:27px 25px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  min-width:0;
+}
+.pdt-origin-point+.pdt-origin-point{border-left:1px solid rgba(176,137,78,.26)}
+.pdt-origin-index{
+  color:#bd8c3e;
+  font:700 12px/1.2 var(--font-ui,Arial,sans-serif);
+  letter-spacing:.12em;
+  margin-bottom:7px;
+}
+.pdt-origin-point strong{
+  font-family:var(--font-brand,Georgia,serif);
+  color:var(--blue-950,#0b2f58);
+  font-size:clamp(18px,2vw,24px);
+  font-weight:600;
+}
+.pdt-origin-point span:last-child{font-size:14px;line-height:1.6;color:#526477}
+.pdt-origin--product{padding:clamp(43px,5vw,76px) 0}
+.pdt-origin-product-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(240px,.85fr);
+  align-items:center;
+  gap:clamp(28px,5vw,78px);
+}
+.pdt-origin--product .pdt-origin-intro{max-width:800px}
+.pdt-origin--product .pdt-origin-intro>p:last-child{margin:0}
+.pdt-origin-seals{border-left:1px solid rgba(176,137,78,.43);padding-left:clamp(20px,3vw,48px);display:grid;gap:15px}
+.pdt-origin-seals span{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:650;
+  font-size:clamp(14px,1.2vw,17px);
+  color:var(--blue-950,#0b2f58);
+}
+.pdt-origin-seals small{
+  flex:0 0 34px;
+  border:1px solid rgba(176,137,78,.54);
+  color:#976e39;
+  display:grid;
+  place-items:center;
+  border-radius:100px;
+  width:34px;
+  height:34px;
+  font-size:11px;
+}
+@media(max-width:790px){
+  .pdt-origin-grid{grid-template-columns:minmax(0,1fr)}
+  .pdt-origin-point{padding:18px 22px}
+  .pdt-origin-point+.pdt-origin-point{
+    border-left:0;
+    border-top:1px solid rgba(176,137,78,.26)
+  }
+  .pdt-origin--home .pdt-origin-intro{text-align:left;margin-bottom:26px}
+  .pdt-origin--home .pdt-origin-intro>p:last-child{margin:0}
+  .pdt-origin-product-layout{grid-template-columns:1fr;gap:24px}
+  .pdt-origin-seals{
+    border-left:0;
+    padding-left:0;
+    border-top:1px solid rgba(176,137,78,.43);
+    padding-top:22px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+  }
+  .pdt-origin-seals span{align-items:flex-start;flex-direction:column;gap:8px}
+}
+@media(max-width:470px){
+  .pdt-origin--home,.pdt-origin--product{padding:43px 0}
+  .pdt-origin-seals{grid-template-columns:1fr}
+  .pdt-origin-seals span{flex-direction:row;align-items:center}
+  .pdt-origin-grid{border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){.pdt-origin *{scroll-behavior:auto}}
