@@ -119,6 +119,17 @@ async function run() {
           enlargeButtons:document.querySelectorAll(".pdt-edition-open,.preorder-gallery-open").length
         }));
         assert(imageControls.galleryImages===4,lang+" "+label+": product gallery images missing");
+        // Front/back artwork is lazy-loaded. Trigger it explicitly during QA;
+        // keep native lazy-loading enabled for real visitors.
+        await page.evaluate(()=>{
+          [...document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img")]
+            .slice(0,2).forEach(img=>{img.loading="eager"});
+        });
+        await page.waitForFunction(()=>{
+          const imgs=[...document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img")];
+          return imgs.length>=2&&imgs[0].complete&&imgs[0].naturalWidth>0&&
+            imgs[1].complete&&imgs[1].naturalWidth>0;
+        },{timeout:12000});
         const definitive=await page.evaluate(()=>{
           const hero=document.querySelector(".preorder-hero-product img");
           const gallery=[...document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img")];
