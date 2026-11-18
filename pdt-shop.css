@@ -243,3 +243,31 @@ body[data-page="preorder"] .pdt-shop-flow-step{transition:transform .3s ease,box
   .pdt-origin-grid{border-radius:12px}
 }
 @media(prefers-reduced-motion:reduce){.pdt-origin *{scroll-behavior:auto}}
+
+/* Definitive PdT Signature artwork: never crop the approved box rendering. */
+body[data-page="home"] .pdt-h-edition:first-child picture img,
+body[data-page="preorder"] .pdt-shop-signature .pdt-edition-preview img{
+  object-fit:contain;
+  object-position:center;
+  background:#f5e8d8;
+}
+body[data-page="preorder"] .preorder-gallery-card:nth-child(-n+2) .preorder-gallery-image{
+  background:#294b75;
+}
+body[data-page="preorder"] .preorder-gallery-card:nth-child(-n+2) .preorder-gallery-image img{
+  object-fit:contain;
+  object-position:center;
+}
+body[data-page="preorder"] .preorder-hero-product .pdt-render-caption{
+  margin:0;
+  padding:10px 14px;
+  background:rgba(11,47,88,.96);
+  color:var(--cream-light,#fbf4e9);
+  font-size:12px;
+  text-align:center;
+  line-height:1.45;
+  letter-spacing:.015em;
+}
+@media(max-width:760px){
+ body[data-page="preorder"] .preorder-hero-product .pdt-render-caption{font-size:11px;padding:8px 12px}
+}
