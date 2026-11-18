@@ -128,11 +128,16 @@ except (ET.ParseError, OSError) as exc:
 
 for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
-    for edition in ("signature", "essential"):
-        for fmt in ("webp", "avif"):
-            asset = f"images/pdt-{edition}-hq.{fmt}"
-            if asset not in text:
-                ERRORS.append(f"{name}: missing {edition} {fmt} edition image")
+    for asset in ("images/pdt-cofanetto-signature-2026.webp",
+                  "images/pdt-essential-hq.webp","images/pdt-essential-hq.avif",
+                  "images/pdt-grafica-frontale-2026.webp",
+                  "images/pdt-grafica-retro-2026.webp"):
+        if asset not in text:
+            ERRORS.append(f"{name}: missing definitive artwork {asset}")
+        if not (ROOT / asset).is_file():
+            ERRORS.append(f"{name}: definitive image not found on disk: {asset}")
+    if "pdt-signature-hq.webp" in text or "pdt-signature-hq.avif" in text:
+        ERRORS.append(f"{name}: old Signature imagery remains")
     for edition in ("Essential", "Signature"):
         if f"PdT {edition}" not in text:
             ERRORS.append(f"{name}: missing edition {edition}")
@@ -187,6 +192,23 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: updated direct-link styles missing")
     if name != "index.html" and text.count('hreflang="it"') < 3:
         ERRORS.append(f"{name}: Italian-only context destinations should be marked")
+# The Italian provenance and professional positioning must be consistent
+# across all storefront translations.
+for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-order-en.html","pre-order-es.html"):
+    text = (ROOT/name).read_text(encoding="utf-8")
+    if 'class="pdt-origin ' not in text or "Made in Italy" not in text:
+        ERRORS.append(f"{name}: missing Italian provenance module")
+    if 'pdt-shop.css?v=4' not in text:
+        ERRORS.append(f"{name}: outdated provenance stylesheet")
+    if 'pdt-origin-title' not in text:
+        ERRORS.append(f"{name}: missing provenance heading")
+    if "images/pdt-cofanetto-signature-2026.webp" not in text:
+        ERRORS.append(f"{name}: definitive 3D packaging render missing")
+    if "pdt-cofanetto-chiuso-hero.webp" in text:
+        ERRORS.append(f"{name}: obsolete hero render still referenced")
+    if "102" not in text:
+        ERRORS.append(f"{name}: original photograph count missing")
+
 for edition in ("essential", "studio", "signature"):
     for fmt in ("webp", "avif"):
         file = ROOT / f"images/pdt-{edition}-hq.{fmt}"

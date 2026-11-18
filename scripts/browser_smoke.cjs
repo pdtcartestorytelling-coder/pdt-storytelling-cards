@@ -104,19 +104,52 @@ async function run() {
           avif:x.querySelector("source")?.getAttribute("srcset"),
           href:x.querySelector("a")?.getAttribute("href")
         })));
-        for(let i=0;i<2;i++){
-          let tier=["signature","essential"][i];
-          assert(variants[i].webp==="images/pdt-"+tier+"-hq.webp",lang+" "+label+": wrong WebP for "+tier);
-          assert(variants[i].avif==="images/pdt-"+tier+"-hq.avif",lang+" "+label+": wrong AVIF for "+tier);
-          assert(variants[i].href==null,lang+" "+label+": edition image still opens a full-screen preview for "+tier);
-        }
-        assert(facts.images.length===2&&facts.images.every(x=>x.loaded&&x.width===960&&x.height===720),lang+" "+label+": two edition images failed to decode at 960x720");
+        assert(variants[0].webp==="images/pdt-cofanetto-signature-2026.webp"&&variants[0].avif==null,
+          lang+" "+label+": final Signature rendering is not in the card");
+        assert(variants[1].webp==="images/pdt-essential-hq.webp"&&variants[1].avif==="images/pdt-essential-hq.avif",
+          lang+" "+label+": Essential conceptual edition changed unexpectedly");
+        assert(variants.every(x=>x.href==null),lang+" "+label+": image links must remain disabled");
+        assert(facts.images.length===2&&facts.images.every(x=>x.loaded)&&
+          facts.images[0].width===1448&&facts.images[0].height===1086&&
+          facts.images[1].width===960&&facts.images[1].height===720,
+          lang+" "+label+": final Signature or Essential image did not decode");
         const imageControls=await page.evaluate(()=>({
           galleryImages:document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img").length,
           clickableImages:document.querySelectorAll('.pdt-edition-preview a, a.pdt-edition-preview, .preorder-gallery-image a, a.preorder-gallery-image, .preorder-gallery-caption a[href^="images/"]').length,
           enlargeButtons:document.querySelectorAll(".pdt-edition-open,.preorder-gallery-open").length
         }));
         assert(imageControls.galleryImages===4,lang+" "+label+": product gallery images missing");
+        // Front/back artwork is lazy-loaded. Trigger it explicitly during QA;
+        // keep native lazy-loading enabled for real visitors.
+        await page.evaluate(()=>{
+          [...document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img")]
+            .slice(0,2).forEach(img=>{img.loading="eager"});
+        });
+        await page.waitForFunction(()=>{
+          const imgs=[...document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img")];
+          return imgs.length>=2&&imgs[0].complete&&imgs[0].naturalWidth>0&&
+            imgs[1].complete&&imgs[1].naturalWidth>0;
+        },{timeout:12000});
+        const definitive=await page.evaluate(()=>{
+          const hero=document.querySelector(".preorder-hero-product img");
+          const gallery=[...document.querySelectorAll(".preorder-gallery-card .preorder-gallery-image img")];
+          return {
+            hero:hero?.getAttribute("src"),
+            heroLoaded:hero?.complete&&hero?.naturalWidth===1448,
+            gallerySources:gallery.map(img=>img.getAttribute("src")),
+            frontLoaded:gallery[0]?.complete&&gallery[0]?.naturalWidth===1002,
+            backLoaded:gallery[1]?.complete&&gallery[1]?.naturalWidth===1497,
+            madeInItaly:!!document.querySelector(".pdt-origin--product"),
+            imageFit:getComputedStyle(hero).objectFit
+          };
+        });
+        assert(definitive.hero==="images/pdt-cofanetto-signature-2026.webp"&&definitive.heroLoaded,
+          lang+" "+label+": final box render missing from product hero");
+        assert(definitive.gallerySources[0]==="images/pdt-grafica-frontale-2026.webp"&&
+          definitive.gallerySources[1]==="images/pdt-grafica-retro-2026.webp",
+          lang+" "+label+": final packaging artwork missing from gallery");
+        assert(definitive.frontLoaded&&definitive.backLoaded&&definitive.madeInItaly&&definitive.imageFit==="contain",
+          lang+" "+label+": definitive gallery or Made in Italy module incomplete");
         assert(imageControls.clickableImages===0&&imageControls.enlargeButtons===0,lang+" "+label+": fullscreen image controls must be removed");
         assert(facts.overflow<=5,lang+" "+label+": horizontal overflow "+facts.overflow+"px");
         assert(facts.hasForm&&facts.footer,lang+" "+label+": missing form/footer");
@@ -248,8 +281,8 @@ async function run() {
         assert(response.status()===200,lang+" home "+label+": HTTP "+response.status());
         assert(facts.language===lang,lang+" home "+label+": wrong language");
         assert(facts.heroImage>0&&facts.title,lang+" home "+label+": hero missing");
-        assert(facts.heroImageSrc==="images/pdt-cofanetto-chiuso-hero.webp",lang+" home "+label+": wrong closed-box image");
-        assert(facts.heroImage===1024&&facts.heroImageHeight===768,lang+" home "+label+": closed-box asset dimensions invalid");
+        assert(facts.heroImageSrc==="images/pdt-cofanetto-signature-2026.webp",lang+" home "+label+": wrong closed-box image");
+        assert(facts.heroImage===1448&&facts.heroImageHeight===1086,lang+" home "+label+": closed-box asset dimensions invalid");
         assert(facts.heroImageFit==="contain",lang+" home "+label+": hero image may be cropped");
         assert(facts.heroGradient.includes("rgb(23, 75, 127)")&&facts.heroGradient.includes("rgb(11, 47, 88)"),lang+" home "+label+": homepage lost brand blue gradient");
         assert(facts.heroHeadingColor==="rgb(255, 250, 243)",lang+" home "+label+": homepage heading color does not match interior pages");
@@ -265,6 +298,33 @@ async function run() {
         assert(facts.signaturePrice.includes("189 €")||facts.signaturePrice.includes("€189"),lang+" home "+label+": wrong Signature offer");
         assert(!facts.essentialPrice.includes("99")&&facts.essentialPrice.includes(({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang]),lang+" home "+label+": Essential must have no price");
         assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
+        // The below-the-fold Signature card uses native lazy-loading.
+        // During QA, decode it before checking pixel dimensions.
+        await page.evaluate(()=>{
+          const photo=document.querySelector(".pdt-h-edition:first-child picture img");
+          if(photo)photo.loading="eager";
+        });
+        await page.waitForFunction(()=>{
+          const img=document.querySelector(".pdt-h-edition:first-child picture img");
+          return !!img&&img.complete&&img.naturalWidth>0;
+        },{timeout:12000});
+        const newPackaging=await page.evaluate(()=>{
+          const hero=document.querySelector(".pdt-h-hero-figure img");
+          const signature=document.querySelector(".pdt-h-edition:first-child picture img");
+          return {
+            heroSrc:hero?.getAttribute("src"),heroLoaded:hero?.complete&&hero?.naturalWidth===1448,
+            signatureSrc:signature?.getAttribute("src"),
+            signatureLoaded:signature?.complete&&signature?.naturalWidth===1448,
+            origin:!!document.querySelector(".pdt-origin--home"),
+            imgFit:getComputedStyle(hero).objectFit
+          };
+        });
+        assert(newPackaging.heroSrc==="images/pdt-cofanetto-signature-2026.webp"&&newPackaging.heroLoaded,
+          lang+" home "+label+": new 3D rendering missing from hero");
+        assert(newPackaging.signatureSrc===newPackaging.heroSrc&&newPackaging.signatureLoaded,
+          lang+" home "+label+": Signature edition still displays old box");
+        assert(newPackaging.origin&&newPackaging.imgFit==="contain",
+          lang+" home "+label+": Italian provenance section or full box display missing");
         if(label==="desktop"){
           const depth=await page.evaluate(async()=>{
             window.scrollTo({top:260,behavior:"instant"});
