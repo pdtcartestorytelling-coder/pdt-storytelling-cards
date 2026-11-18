@@ -298,6 +298,16 @@ async function run() {
         assert(facts.signaturePrice.includes("189 €")||facts.signaturePrice.includes("€189"),lang+" home "+label+": wrong Signature offer");
         assert(!facts.essentialPrice.includes("99")&&facts.essentialPrice.includes(({it:"In sviluppo",en:"In development",es:"En desarrollo"})[lang]),lang+" home "+label+": Essential must have no price");
         assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
+        // The below-the-fold Signature card uses native lazy-loading.
+        // During QA, decode it before checking pixel dimensions.
+        await page.evaluate(()=>{
+          const photo=document.querySelector(".pdt-h-edition:first-child picture img");
+          if(photo)photo.loading="eager";
+        });
+        await page.waitForFunction(()=>{
+          const img=document.querySelector(".pdt-h-edition:first-child picture img");
+          return !!img&&img.complete&&img.naturalWidth>0;
+        },{timeout:12000});
         const newPackaging=await page.evaluate(()=>{
           const hero=document.querySelector(".pdt-h-hero-figure img");
           const signature=document.querySelector(".pdt-h-edition:first-child picture img");
