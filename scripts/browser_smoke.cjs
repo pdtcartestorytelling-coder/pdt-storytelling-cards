@@ -281,8 +281,8 @@ async function run() {
         assert(response.status()===200,lang+" home "+label+": HTTP "+response.status());
         assert(facts.language===lang,lang+" home "+label+": wrong language");
         assert(facts.heroImage>0&&facts.title,lang+" home "+label+": hero missing");
-        assert(facts.heroImageSrc==="images/pdt-cofanetto-chiuso-hero.webp",lang+" home "+label+": wrong closed-box image");
-        assert(facts.heroImage===1024&&facts.heroImageHeight===768,lang+" home "+label+": closed-box asset dimensions invalid");
+        assert(facts.heroImageSrc==="images/pdt-cofanetto-signature-2026.webp",lang+" home "+label+": wrong closed-box image");
+        assert(facts.heroImage===1448&&facts.heroImageHeight===1086,lang+" home "+label+": closed-box asset dimensions invalid");
         assert(facts.heroImageFit==="contain",lang+" home "+label+": hero image may be cropped");
         assert(facts.heroGradient.includes("rgb(23, 75, 127)")&&facts.heroGradient.includes("rgb(11, 47, 88)"),lang+" home "+label+": homepage lost brand blue gradient");
         assert(facts.heroHeadingColor==="rgb(255, 250, 243)",lang+" home "+label+": homepage heading color does not match interior pages");
