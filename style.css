@@ -1498,3 +1498,6 @@ body[data-page="preorder"] .pdt-interest-fields :is(input,textarea,select) { bor
 @media(prefers-reduced-motion:reduce) {
   html .reveal,html .reveal.visible {opacity:1 !important;transform:none !important;transition:none !important;}
 }
+
+/* An empty live region stays available without displaying an empty card. */
+.pdt-guide__answer:empty { padding:0; margin:0; border:0; min-height:0; }
