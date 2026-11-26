@@ -16,7 +16,7 @@
       send: "Invia", note: "Non inserire dati personali o sanitari. Le domande non vengono inviate o memorizzate. Questo strumento non fornisce consulenza clinica.",
       unknown: "Posso aiutarti a conoscere PdT Signature, il metodo, le applicazioni professionali e le modalità di richiesta informazioni. Prova una delle domande qui sopra.",
       special: "PdT è un supporto narrativo, non un test diagnostico o psicometrico né un trattamento autonomo. La guida non offre consulenza clinica o assistenza di emergenza. Non inserire dati di pazienti, candidati o dipendenti.",
-      specialLink: "Scopri il metodo", price: "Prezzo di lancio previsto 179 €; listino futuro previsto 199 €, non un prezzo precedente. Prezzo totale, imposte applicabili, spedizione e disponibilità da confermare via email prima di ogni impegno.",
+      specialLink: "Scopri il metodo", price: "Prezzo di lancio previsto 149 € per il Lotto 01 (50 cofanetti previsti); listino futuro previsto 199 €, non un prezzo precedente. Prezzo totale, imposte applicabili, spedizione e disponibilità da confermare via email prima di ogni impegno.",
       priceLink: "Richiedi informazioni", fallbackLink: "Vai ai contatti", contact: "contatti.html",
       topics: [
         { label: "Cosa contiene il kit?", keys: ["kit","contien","mazz","quante carte","quantita","manual","schede","prodott","bundle"], answer: "PdT Signature comprende 102 carte fotografiche (due mazzi da 51), manuale stampato di 60 pagine con 22 schede operative integrate e cofanetto magnetico.", link: "Scopri Signature", href: "pre-order.html" },
@@ -35,7 +35,7 @@
       send: "Send", note: "Do not enter personal or health information. Questions are not sent or stored. This guide does not provide clinical advice.",
       unknown: "I can help you explore PdT Signature, the method, professional uses and product enquiries. Please choose a question above.",
       special: "PdT is a storytelling resource, not a diagnostic or psychometric test or a stand-alone treatment. The guide provides neither clinical advice nor emergency assistance. Do not enter patient, candidate or employee data.",
-      specialLink: "Explore the project", price: "Planned launch price €179; planned future list price €199, not a previously charged price. Total price, applicable taxes, delivery and availability to be confirmed by email before any commitment.",
+      specialLink: "Explore the project", price: "Planned launch price €149 for Batch 01 (50 boxed sets planned); planned future list price €199, not a previously charged price. Total price, applicable taxes, delivery and availability to be confirmed by email before any commitment.",
       priceLink: "Request information", fallbackLink: "Contact PdT", contact: "contact-en.html",
       topics: [
         { label: "What is included in the kit?", keys: ["kit","include","contain","deck","cards","how many","manual","product","bundle"], answer: "PdT Signature includes 102 photographic cards (two decks of 51), a 60-page printed manual containing 22 activity sheets and a magnetic box.", link: "Explore Signature", href: "pre-order-en.html" },
@@ -54,7 +54,7 @@
       send: "Enviar", note: "No introduzcas datos personales ni de salud. Las preguntas no se envían ni se guardan. Esta guía no ofrece asesoramiento clínico.",
       unknown: "Puedo ayudarte a conocer PdT Signature, el método, sus usos profesionales y cómo solicitar información. Prueba una pregunta de la lista.",
       special: "PdT es un recurso narrativo, no una prueba diagnóstica o psicométrica ni un tratamiento autónomo. La guía no ofrece asesoramiento clínico ni asistencia de emergencia. No introduzcas datos de pacientes, candidatos o empleados.",
-      specialLink: "Conoce el proyecto", price: "Precio de lanzamiento previsto 179 €; precio de catálogo futuro previsto 199 €, no un precio anterior. Precio total, impuestos aplicables, envío y disponibilidad por confirmar antes de cualquier compromiso.",
+      specialLink: "Conoce el proyecto", price: "Precio de lanzamiento previsto 149 € para el Lote 01 (50 estuches previstos); precio de catálogo futuro previsto 199 €, no un precio anterior. Precio total, impuestos aplicables, envío y disponibilidad por confirmar antes de cualquier compromiso.",
       priceLink: "Solicitar información", fallbackLink: "Contacta con PdT", contact: "contact-es.html",
       topics: [
         { label: "¿Qué incluye el kit?", keys: ["kit","incluy","contien","baraja","cartas","cuantas","cuantos","manual","producto"], answer: "PdT Signature incluye 102 cartas fotográficas (dos barajas de 51), manual impreso de 60 páginas con 22 fichas integradas y cofre magnético.", link: "Descubre Signature", href: "pre-order-es.html" },

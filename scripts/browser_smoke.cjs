@@ -187,11 +187,11 @@ async function run() {
           
         }));
         assert(commerce.cards.join(",")==="signature",lang+" "+label+": only Signature should remain");
-        assert(commerce.prices.length===1&&commerce.prices[0]==="179 €",lang+" "+label+": Signature pre-order must cost 179 EUR");
+        assert(commerce.prices.length===1&&commerce.prices[0]==="149 €",lang+" "+label+": Signature pre-order must cost 149 EUR");
         const referencePrice=await page.$eval(".pdt-shop-card-price .pdt-future-price",x=>x.textContent.trim());
         assert(referencePrice.includes("199"),lang+" "+label+": planned 199 EUR list reference missing");
         assert(commerce.links.some(x=>x.edition==="signature"&&x.href.startsWith("mailto:pdtstorytellingcards@gmail.com?subject=")&&x.href.includes("body=")),lang+" "+label+": Signature mailto not ready");
-        assert(commerce.links.some(x=>x.href.includes("179")&&x.href.includes("199")),lang+" "+label+": email draft missing pre-order pricing");
+        assert(commerce.links.some(x=>x.href.includes("149")&&x.href.includes("199")),lang+" "+label+": email draft missing pre-order pricing");
         assert(commerce.links.every(x=>x.edition==="signature"),lang+" "+label+": retired edition still has email CTA");
         assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
         assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
@@ -296,7 +296,7 @@ async function run() {
         assert(facts.editionCount===1,lang+" home "+label+": expected one Signature card");
         assert(facts.buyLabel===({it:"Richiedi disponibilità",en:"Enquire about availability",es:"Consultar disponibilidad"})[lang],lang+" home "+label+": primary buy label not concise");
         assert(facts.buyHref===({it:"pre-order.html#editions",en:"pre-order-en.html#editions",es:"pre-order-es.html#editions"})[lang],lang+" home "+label+": primary buy link changed");
-        assert(facts.signaturePrice.includes("179")&&facts.signaturePrice.includes("199"),lang+" home "+label+": wrong Signature pre-order/reference price");
+        assert(facts.signaturePrice.includes("149")&&facts.signaturePrice.includes("199"),lang+" home "+label+": wrong Signature pre-order/reference price");
         assert(facts.comparePrice.includes("199"),lang+" home "+label+": planned future list reference missing");
         assert(!facts.signaturePrice.includes("189"),lang+" home "+label+": previous Signature offer remains");
         assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
