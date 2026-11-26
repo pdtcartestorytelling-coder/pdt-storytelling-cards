@@ -407,7 +407,7 @@ async function run() {
             page.waitForNavigation({waitUntil:"domcontentloaded",timeout:8000}),
             page.click(".pdt-first-action-link:first-child")
           ]);
-          assert(new URL(page.url()).pathname.endsWith("/utilizzo-individuale.html"),
+          assert(new URL(page.url()).pathname.endsWith("/"+usePages[0]),
             lang+" home: context row did not navigate to individual-use page");
         }
         await page.close();
@@ -477,6 +477,19 @@ async function run() {
         const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".method-hero-grid")).display,limits:!!document.querySelector("#boundary-title"),cross:document.querySelectorAll("#other-pathways a").length,cta:document.querySelector(".method-identity .method-button")?.getAttribute("href"),fields:document.querySelectorAll("main form,main input,main textarea").length}));
         assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": pathway layout "+JSON.stringify(info));
         assert(info.limits&&info.cross===3&&info.cta===preorder+"#interest"&&info.fields===0,file+": pathway scope/navigation");
+        await page.close();
+      }
+    }
+    // Gallery: use existing assets, accessible no-JS layout and no fake player.
+    for(const [lang,file] of [["it","galleria-pdt.html"],["en","gallery-en.html"],["es","gallery-es.html"]]){
+      for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        await page.setJavaScriptEnabled(false);
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"load",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".gallery-grid")).display,assets:document.querySelectorAll(".gallery-asset img").length,hero:document.querySelector(".gallery-hero img")?.naturalWidth,planned:document.querySelectorAll(".gallery-planned").length,players:document.querySelectorAll("main video,main iframe,main embed,main object").length}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": gallery layout "+JSON.stringify(info));
+        assert(info.assets===3&&info.hero===1448&&info.planned===3&&info.players===0,file+": gallery content or media boundary");
         await page.close();
       }
     }

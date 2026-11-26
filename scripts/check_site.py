@@ -344,6 +344,22 @@ for i, group in enumerate(pathway_groups):
             if target != name and f'href="{target}"' not in text:
                 ERRORS.append(f"{name}: missing cross-pathway link {target}")
 
+# Gallery: only existing artwork/rendering, explicit planned video status, no player.
+gallery_pages = [["galleria-pdt.html","prodotto.html","pre-order.html"],["gallery-en.html","product-en.html","pre-order-en.html"],["gallery-es.html","product-es.html","pre-order-es.html"]]
+for name, product, preorder in gallery_pages:
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for marker in ('id="artwork"', 'id="sample"', 'id="videos"', 'pdt-gallery.css?v=1', 'pdt-cofanetto-signature-2026.webp', 'pdt-grafica-frontale-2026.webp', 'pdt-grafica-retro-2026.webp', f'href="{preorder}#interest"'):
+        if marker not in text:
+            ERRORS.append(f"{name}: gallery missing {marker}")
+    if text.count('class="gallery-asset"') != 3 or text.count('class="method-card gallery-planned"') != 3 or any(tag in text for tag in ('<video', '<iframe', '<embed', '<object', '<form', '05_manuale_schede.webp', '06_mazzi_affiancati.webp')):
+        ERRORS.append(f"{name}: unexpected gallery media or player")
+    for target, _, _ in gallery_pages:
+        if f'https://pdtstorytellingcards.com/{target}' not in text:
+            ERRORS.append(f"{name}: missing translated gallery alternate")
+    for source in (product, preorder):
+        if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8"):
+            ERRORS.append(f"{name}: missing gallery link from {source}")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
