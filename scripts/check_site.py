@@ -399,6 +399,87 @@ for name, home, method, articles, manual, examples, product in resource_pages:
         if f'href="{target}"' not in text:
             ERRORS.append(f"{name}: missing local resource link {target}")
 
+# SEO release candidate: canonical URLs, reciprocal language alternatives and crawlable navigation.
+from html import unescape
+seo_groups = [["index.html","home-en.html","home-es.html"],["prodotto.html","product-en.html","product-es.html"],["metodo-pdt.html","method-en.html","method-es.html"],["pre-order.html","pre-order-en.html","pre-order-es.html"],["risorse-pdt.html","resources-en.html","resources-es.html"],["psicologi-psicoterapeuti.html","psychologists-en.html","psychologists-es.html"],["utilizzo-individuale.html","individual-en.html","individual-es.html"],["setting-gruppo.html","group-en.html","group-es.html"],["risorse-umane.html","hr-en.html","hr-es.html"],["esempi-pdt.html","examples-en.html","examples-es.html"],["manuale-pdt.html","manual-en.html","manual-es.html"],["galleria-pdt.html","gallery-en.html","gallery-es.html"],["chi-siamo.html","about-en.html","about-es.html"],["articoli-pubblicazioni.html","articles-en.html","articles-es.html"],["contatti.html","contact-en.html","contact-es.html"],["articolo-nascita-pdt.html","articolo-nascita-pdt-en.html","articolo-nascita-pdt-es.html"],["articolo-narrazione-coscienza-immagini.html","articolo-narrazione-coscienza-immagini-en.html","articolo-narrazione-coscienza-immagini-es.html"],["articolo-roland-barthes-fotografia.html","articolo-roland-barthes-fotografia-en.html","articolo-roland-barthes-fotografia-es.html"],["articolo-stili-modi-pdt.html","articolo-stili-modi-pdt-en.html","articolo-stili-modi-pdt-es.html"],["faq.html"]]
+seo_origin = "https://pdtstorytellingcards.com/"
+seo_url = lambda name: seo_origin + ("" if name == "index.html" else name)
+seo_languages = ("it", "en", "es")
+seo_titles = set()
+seo_descriptions = set()
+seo_ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9", "x": "http://www.w3.org/1999/xhtml"}
+seo_xml = ET.parse(ROOT / "sitemap.xml").getroot()
+seo_rows = {node.findtext("s:loc", namespaces=seo_ns): node for node in seo_xml.findall("s:url", seo_ns)}
+if len(seo_rows) != len(seo_xml.findall("s:url", seo_ns)) or set(seo_rows) != {seo_url(n) for group in seo_groups for n in group}:
+    ERRORS.append("sitemap: duplicate or unexpected canonical URLs")
+class SeoPage(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.canonicals = []
+        self.alternates = {}
+        self.description_text = []
+        self.robots = []
+        self.title_text = ""
+        self.in_title = False
+        self.schemas = []
+        self.in_schema = False
+        self.schema_text = ""
+        self.lang_code = ""
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "html": self.lang_code = a.get("lang", "")
+        if tag == "title": self.in_title = True
+        if tag == "link" and a.get("rel") == "canonical": self.canonicals.append(a.get("href"))
+        if tag == "link" and a.get("rel") == "alternate" and a.get("hreflang"):
+            self.alternates[a["hreflang"]] = a.get("href")
+        if tag == "meta" and a.get("name") == "description": self.description_text.append(a.get("content", ""))
+        if tag == "meta" and a.get("name") == "robots": self.robots.append(a.get("content", ""))
+        if tag == "script" and a.get("type") == "application/ld+json": self.in_schema = True; self.schema_text = ""
+    def handle_data(self, data):
+        if self.in_title: self.title_text += data
+        if self.in_schema: self.schema_text += data
+    def handle_endtag(self, tag):
+        if tag == "title": self.in_title = False
+        if tag == "script" and self.in_schema:
+            self.in_schema = False
+            try: self.schemas.append(json.loads(self.schema_text))
+            except ValueError: ERRORS.append("invalid JSON-LD: " + self.title_text)
+for group in seo_groups:
+    expected = {seo_languages[i]: seo_url(name) for i, name in enumerate(group)}
+    expected["x-default"] = seo_url(group[0])
+    for i, name in enumerate(group):
+        text = (ROOT / name).read_text(encoding="utf-8")
+        page = SeoPage()
+        page.feed(text)
+        if page.canonicals != [seo_url(name)] or page.alternates != expected or page.lang_code != seo_languages[i]:
+            ERRORS.append(f"{name}: canonical, reciprocal hreflang or language mismatch")
+        if any("noindex" in value.lower() for value in page.robots):
+            ERRORS.append(f"{name}: indexable URL has noindex")
+        title = page.title_text.strip().casefold()
+        desc = page.description_text[0].strip().casefold() if len(page.description_text) == 1 else ""
+        if not title or title in seo_titles or not desc or desc in seo_descriptions:
+            ERRORS.append(f"{name}: empty or duplicate title/description")
+        seo_titles.add(title)
+        seo_descriptions.add(desc)
+        if not page.schemas:
+            ERRORS.append(f"{name}: missing JSON-LD")
+        if any(marker in text for marker in ('"@type":"Offer"', 'aggregateRating', '"@type":"Review"', 'google-site-verification')):
+            ERRORS.append(f"{name}: premature commerce/review/verification metadata")
+        node = seo_rows.get(seo_url(name))
+        if node is None or {x.get("hreflang"): x.get("href") for x in node.findall("x:link", seo_ns)} != expected:
+            ERRORS.append(f"{name}: sitemap alternate mismatch")
+        resource = ("risorse-pdt.html", "resources-en.html", "resources-es.html")[i]
+        menu = re.search(r'<ul class="nav-links">([\s\S]*?)</ul>', text)
+        if not menu or f'href="{resource}"' not in menu.group(1) or 'class="container pdt-discovery-links"' not in text:
+            ERRORS.append(f"{name}: missing localized resource navigation")
+for name in ("404.html", "grazie.html", "thank-you.html", "gracias.html", "contatti-acquista.html", "privacy-policy.html", "privacy-policy-en.html", "privacy-policy-es.html"):
+    page = SeoPage()
+    page.feed((ROOT / name).read_text(encoding="utf-8"))
+    if not any("noindex" in value.lower() for value in page.robots) or seo_url(name) in seo_rows:
+        ERRORS.append(f"{name}: technical/privacy page should stay out of sitemap")
+if "Sitemap: " + seo_origin + "sitemap.xml" not in (ROOT / "robots.txt").read_text(encoding="utf-8"):
+    ERRORS.append("robots.txt: sitemap reference missing")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)

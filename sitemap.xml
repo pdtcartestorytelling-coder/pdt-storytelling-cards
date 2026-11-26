@@ -1,235 +1,465 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pdtstorytellingcards.com/</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/chi-siamo.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articoli-pubblicazioni.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/contatti.html</loc>
-    <lastmod>2026-10-25</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-nascita-pdt.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/home-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/home-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/home-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/about-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articles-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/contact-en.html</loc>
-    <lastmod>2026-10-25</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-nascita-pdt-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-stili-modi-pdt-en.html</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/home-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/home-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/home-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/about-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articles-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/contact-es.html</loc>
-    <lastmod>2026-10-25</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-nascita-pdt-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/articolo-stili-modi-pdt-es.html</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/home-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/home-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/prodotto.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/metodo-pdt.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/utilizzo-individuale.html</loc>
     <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/setting-gruppo.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/risorse-umane.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/faq.html</loc>
-    <lastmod>2026-10-19</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/pre-order.html</loc>
-    <lastmod>2026-11-04</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/pre-order-en.html</loc>
-    <lastmod>2026-11-04</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/pre-order-es.html</loc>
-    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/prodotto.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/product-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/product-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/prodotto.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/product-en.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/prodotto.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/product-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/product-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/prodotto.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/product-es.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/prodotto.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/product-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/product-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/prodotto.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/metodo-pdt.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/metodo-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/method-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/method-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/metodo-pdt.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/method-en.html</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/metodo-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/method-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/method-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/metodo-pdt.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/method-es.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/esempi-pdt.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/examples-en.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/examples-es.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/manuale-pdt.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/manual-en.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/manual-es.html</loc>
-    <lastmod>2026-11-26</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/psychologists-en.html</loc>
     <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/metodo-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/method-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/method-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/metodo-pdt.html" />
   </url>
   <url>
-    <loc>https://pdtstorytellingcards.com/individual-en.html</loc>
+    <loc>https://pdtstorytellingcards.com/pre-order.html</loc>
     <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/pre-order.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/pre-order-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/pre-order-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/pre-order.html" />
   </url>
   <url>
-    <loc>https://pdtstorytellingcards.com/group-en.html</loc>
+    <loc>https://pdtstorytellingcards.com/pre-order-en.html</loc>
     <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/pre-order.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/pre-order-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/pre-order-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/pre-order.html" />
   </url>
   <url>
-    <loc>https://pdtstorytellingcards.com/hr-en.html</loc>
+    <loc>https://pdtstorytellingcards.com/pre-order-es.html</loc>
     <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/psychologists-es.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/individual-es.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/group-es.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/hr-es.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/galleria-pdt.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/gallery-en.html</loc>
-    <lastmod>2026-11-27</lastmod>
-  </url>
-  <url>
-    <loc>https://pdtstorytellingcards.com/gallery-es.html</loc>
-    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/pre-order.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/pre-order-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/pre-order-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/pre-order.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/risorse-pdt.html</loc>
     <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/risorse-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/resources-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/resources-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/risorse-pdt.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/resources-en.html</loc>
     <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/risorse-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/resources-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/resources-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/risorse-pdt.html" />
   </url>
   <url>
     <loc>https://pdtstorytellingcards.com/resources-es.html</loc>
     <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/risorse-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/resources-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/resources-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/risorse-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/psychologists-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/psychologists-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/psychologists-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/psychologists-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/psychologists-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/psychologists-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/psychologists-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/psychologists-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/psicologi-psicoterapeuti.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/utilizzo-individuale.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/utilizzo-individuale.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/individual-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/individual-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/utilizzo-individuale.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/individual-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/utilizzo-individuale.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/individual-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/individual-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/utilizzo-individuale.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/individual-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/utilizzo-individuale.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/individual-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/individual-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/utilizzo-individuale.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/setting-gruppo.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/setting-gruppo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/group-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/group-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/setting-gruppo.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/group-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/setting-gruppo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/group-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/group-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/setting-gruppo.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/group-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/setting-gruppo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/group-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/group-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/setting-gruppo.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/risorse-umane.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/risorse-umane.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/hr-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/hr-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/risorse-umane.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/hr-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/risorse-umane.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/hr-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/hr-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/risorse-umane.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/hr-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/risorse-umane.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/hr-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/hr-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/risorse-umane.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/esempi-pdt.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/esempi-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/examples-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/examples-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/esempi-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/examples-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/esempi-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/examples-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/examples-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/esempi-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/examples-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/esempi-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/examples-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/examples-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/esempi-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/manuale-pdt.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/manuale-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/manual-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/manual-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/manuale-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/manual-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/manuale-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/manual-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/manual-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/manuale-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/manual-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/manuale-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/manual-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/manual-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/manuale-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/galleria-pdt.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/galleria-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/gallery-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/gallery-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/galleria-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/gallery-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/galleria-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/gallery-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/gallery-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/galleria-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/gallery-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/galleria-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/gallery-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/gallery-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/galleria-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/chi-siamo.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/chi-siamo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/about-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/about-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/chi-siamo.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/about-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/chi-siamo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/about-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/about-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/chi-siamo.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/about-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/chi-siamo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/about-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/about-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/chi-siamo.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articoli-pubblicazioni.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articoli-pubblicazioni.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articles-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articles-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articoli-pubblicazioni.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articles-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articoli-pubblicazioni.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articles-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articles-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articoli-pubblicazioni.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articles-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articoli-pubblicazioni.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articles-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articles-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articoli-pubblicazioni.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/contatti.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/contatti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/contact-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/contact-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/contatti.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/contact-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/contatti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/contact-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/contact-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/contatti.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/contact-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/contatti.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/contact-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/contact-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/contatti.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-nascita-pdt.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-nascita-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-nascita-pdt-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-nascita-pdt-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-nascita-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-nascita-pdt-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-nascita-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-nascita-pdt-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-nascita-pdt-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-nascita-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-nascita-pdt-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-nascita-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-nascita-pdt-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-nascita-pdt-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-nascita-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-narrazione-coscienza-immagini.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-roland-barthes-fotografia.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-stili-modi-pdt-en.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/articolo-stili-modi-pdt-es.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt-en.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt-es.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/articolo-stili-modi-pdt.html" />
+  </url>
+  <url>
+    <loc>https://pdtstorytellingcards.com/faq.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/faq.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/faq.html" />
   </url>
 </urlset>
