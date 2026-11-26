@@ -1,0 +1,31 @@
+/* Scoped PdT method page, independent of shared styles. */
+body[data-page="method"] .method-hero,body[data-page="method"] .method-identity{background:linear-gradient(135deg,#174b7f,#0b2f58);color:#fffaf3;padding:clamp(2.5rem,6vw,5rem) 0}
+.method-hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;gap:clamp(1.5rem,4vw,4rem)}
+.method-kicker{font-size:.8rem;line-height:1.4;letter-spacing:.1em;font-weight:800;color:#174b7f;margin:0 0 .8rem}
+.method-hero .method-kicker,.method-identity .method-kicker{color:#f5d38c}
+.method-hero h1{font-family:var(--font-brand);font-size:clamp(2.25rem,5vw,4.6rem);line-height:1.08;margin:0 0 1rem;color:#fffaf3;overflow-wrap:break-word}
+.method-lead,.method-intro{font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.65;max-width:780px}
+.method-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}
+.method-button{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:48px;max-width:100%;padding:.75rem 1.2rem;background:#f5b335;border:1px solid #f5b335;border-radius:999px;color:#0b2f58;font-weight:800;text-decoration:none;overflow-wrap:anywhere}
+.method-outline{background:transparent;color:#fffaf3}
+.method-button:hover{background:#ffe0a0;color:#0b2f58}
+.method-hero-mark{min-width:0;border:1px solid #c49a49;border-radius:20px;padding:clamp(1.1rem,4vw,2.5rem);text-align:center;background:#123f6f}
+.method-hero-mark>span{display:block;color:#f5d38c;font:clamp(3rem,9vw,7rem)/1.1 var(--font-brand)}
+.method-hero-words{display:grid;gap:.6rem;margin-top:1.25rem}.method-hero-words span{border-top:1px solid #c49a49;padding:.7rem 0 0;font-size:1.15rem;color:#fffaf3}
+.method-nav{padding:.6rem 0;background:#faf4e9;border-bottom:1px solid #e4d9c9}.method-nav .container{display:flex;flex-wrap:wrap;gap:.3rem 1.2rem}
+.method-nav a,.method-context a,.method-reading a{display:inline-flex;align-items:center;min-height:44px;color:#174b7f;text-decoration:underline;text-underline-offset:.2em;font-weight:700;gap:.4rem;flex-wrap:wrap}
+.method-section{padding:clamp(2.5rem,6vw,5rem) 0;scroll-margin-top:7rem;background:#fffaf3;color:#0b2f58}
+.method-section h2{color:inherit;font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.15;margin:0 0 1rem}
+.method-soft{background:#faf4e9}
+.method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0 0}.method-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.method-card,.method-steps li{min-width:0;background:#fffaf3;border:1px solid #e4d9c9;border-radius:16px;padding:1.2rem;overflow-wrap:anywhere}
+.method-num{display:block;color:#174b7f;font-size:1.3rem;font-weight:800;margin-bottom:.6rem}
+.method-card h3,.method-steps h3,.method-limit h3{margin:0 0 .6rem;color:#0b2f58;font-size:1.3rem;line-height:1.3}
+.method-card p,.method-steps p,.method-limit p,.method-note{line-height:1.65;color:#334b65;margin:0}
+.method-context a{margin-top:.7rem}.method-steps{list-style:none;padding:0}
+.method-note,.method-limit{margin:1.5rem 0 0;border-left:3px solid #c18b29;background:#fffaf3;padding:1rem}
+.method-reading{padding:0;list-style:none;margin:1rem 0 0}.method-reading li{border-bottom:1px solid #e4d9c9;padding:.35rem 0}.method-reading a{padding:.4rem 0}
+body[data-page="method"] main a:focus-visible{outline:3px solid #174b7f;outline-offset:4px}
+body[data-page="method"] .method-hero a:focus-visible,body[data-page="method"] .method-identity a:focus-visible{outline-color:#fffaf3}
+@media(max-width:850px){.method-hero-grid,.method-grid{grid-template-columns:minmax(0,1fr)}.method-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.method-four{grid-template-columns:minmax(0,1fr)}.method-actions{display:grid;grid-template-columns:minmax(0,1fr)}}

@@ -428,6 +428,19 @@ async function run() {
         await page.close();
       }
     }
+    // Method: translated navigation, theoretical references, layout and limits.
+    for(const [lang,file,product] of [["it","metodo-pdt.html","prodotto.html"],["en","method-en.html","product-en.html"],["es","method-es.html","product-es.html"]]){
+      for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        const errors=[];page.on("pageerror",error=>errors.push(error.message));
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".method-hero-grid")).display,steps:document.querySelectorAll(".method-steps li").length,contexts:document.querySelectorAll(".method-context").length,articles:document.querySelectorAll(".method-reading a").length,limits:!!document.querySelector(".method-limit"),product:document.querySelector(".method-hero a.method-outline")?.getAttribute("href")}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": method layout");
+        assert(info.steps===3&&info.contexts===3&&info.articles===4&&info.limits&&info.product===product&&!errors.length,file+": method content or links missing");
+        await page.close();
+      }
+    }
     // Accessibility: visitors requesting less motion see fully readable content.
     const reducedPage=await browser.newPage();
     await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);

@@ -281,6 +281,19 @@ for name in product_pages:
     if 'id="specifications"' not in text or 'href="#specifications"' not in text or 'href="docs/commercial/PdT_Signature_Scheda_tecnica_rev01.pdf"' not in text:
         ERRORS.append(f"{name}: preliminary specification section or PDF link missing")
 
+# Method pages: theoretical context, illustrative approach, limitations and translations.
+method_pages = {"metodo-pdt.html": "prodotto.html", "method-en.html": "product-en.html", "method-es.html": "product-es.html"}
+for name, product in method_pages.items():
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for marker in ('id="foundations"', 'id="visual-languages"', 'id="approach"', 'id="contexts"', 'id="reading"', 'id="limits-title"', 'pdt-skip-link', 'pdt-method.css?v=1', 'Damasio', 'Barthes', 'Maynard'):
+        if marker not in text:
+            ERRORS.append(f"{name}: method content missing {marker}")
+    if f'href="{product}"' not in text or '<form' in text or 'data-shop-edition' in text:
+        ERRORS.append(f"{name}: method product link or enquiry boundary invalid")
+    for target in method_pages:
+        if f'https://pdtstorytellingcards.com/{target}' not in text:
+            ERRORS.append(f"{name}: translated method alternate missing {target}")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
