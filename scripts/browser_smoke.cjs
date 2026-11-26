@@ -520,6 +520,17 @@ async function run() {
         await page.close();
       }
     }
+    // SEO: localized resource navigation and crawlable footer in the key entry pages.
+    for(const [lang,home,resource,product,method,gallery] of [["it","index.html","risorse-pdt.html","prodotto.html","metodo-pdt.html","galleria-pdt.html"],["en","home-en.html","resources-en.html","product-en.html","method-en.html","gallery-en.html"],["es","home-es.html","resources-es.html","product-es.html","method-es.html","gallery-es.html"]]){
+      for(const file of [home,product,resource]){
+        const page=await browser.newPage();
+        await page.setViewport({width:1365,height:900,deviceScaleFactor:1});
+        await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"load",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,menu:[...document.querySelectorAll(".nav-links a")].map(a=>a.getAttribute("href")),footer:[...document.querySelectorAll(".pdt-discovery-links a")].map(a=>a.getAttribute("href")),overflow:document.documentElement.scrollWidth-innerWidth,canonical:document.querySelector('link[rel="canonical"]')?.href}));
+        assert(info.lang===lang&&info.menu.includes(resource)&&info.footer.join(",")===[product,method,resource,gallery].join(",")&&info.overflow<=5&&info.canonical?.startsWith("https://pdtstorytellingcards.com/"),file+": SEO navigation "+JSON.stringify(info));
+        await page.close();
+      }
+    }
     // Accessibility: visitors requesting less motion see fully readable content.
     const reducedPage=await browser.newPage();
     await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);
