@@ -129,7 +129,7 @@ except (ET.ParseError, OSError) as exc:
 # Consolidated candidate: do not expose incomplete policies or revive old asset versions.
 candidate_assets = {"style.css":22, "script.js":12, "pdt-motion.css":10,
                     "interest.js":13, "pdt-shop.css":7, "pdt-shop.js":5,
-                    "guida-informativa.js":5}
+                    "guida-informativa.js":6}
 deferred_policy = re.compile(r"^(?:terms-of-use|cookie-policy|legal-information|intellectual-property|sales-terms|returns-policy|product-safety|professional-use)(?:-en|-es)?\\.html$")
 for file, page in parsed.items():
     for raw in page.links:
