@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+  <meta property="og:site_name" content="PdT Storytelling Cards" />
+<meta name="application-name" content="PdT Storytelling Cards" />
+<title>Propiedad intelectual | PdT Storytelling Cards</title>
+  <meta name="description" content="Información sobre los derechos relativos a fotografías, textos, diseños y signos distintivos." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://pdtstorytellingcards.com/intellectual-property-es.html" />
+  <link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/intellectual-property.html" />
+  <link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/intellectual-property-en.html" />
+  <link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/intellectual-property-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/intellectual-property.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="style.css?v=22" />
+  <script src="script.js?v=12" defer></script>
+</head>
+<body data-page="intellectual-property">
+<a class="pdt-skip-link" href="#main-content">Ir al contenido principal</a>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Navegación principal">
+    <a class="brand" href="home-es.html" aria-label="PdT Storytelling Cards">
+      <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" class="brand-logo" width="965" height="425" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" data-label-open="Abrir menú" data-label-close="Cerrar menú" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-es.html">Inicio</a></li>
+        <li><a href="about-es.html">Quiénes somos</a></li>
+        <li><a href="articles-es.html">Artículos</a></li>
+        <li><a href="contact-es.html">Contacto</a></li>
+        <li><a href="pre-order-es.html">Pre Order</a></li>
+      </ul>
+      <div class="language-switcher" aria-label="Selección de idioma">
+        <a href="intellectual-property.html" class="lang" aria-label="Italiano" lang="it" hreflang="it"><img class="lang-flag" src="images/flag-it.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="intellectual-property-en.html" class="lang" aria-label="English" lang="en" hreflang="en"><img class="lang-flag" src="images/flag-gb.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="intellectual-property-es.html" class="lang active" aria-label="Español" lang="es" hreflang="es" aria-current="true"><img class="lang-flag" src="images/flag-es.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main id="main-content" tabindex="-1">
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Propiedad intelectual</p>
+        <h1>Derechos de autor y uso de los materiales PdT.</h1>
+        <p class="page-hero-text">Información sobre los derechos relativos a fotografías, textos, diseños y signos distintivos.</p>
+      </div>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" />
+      </div>
+    </div>
+  </section>
+  <section class="section section-light">
+    <div class="container privacy-content reveal">
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.3 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — verificar titularidad, autorizaciones y registros antes de publicar.</p>
+<h2>Materiales PdT</h2>
+<p>El sitio presenta PdT Storytelling Cards, con fotografías, manual teórico-práctico, fichas, textos, gráficos y diseños. Los materiales están protegidos en los términos previstos por la ley y pertenecen a sus respectivos titulares. Silvia Dierico y Roberto Antoniello figuran como titulares de los materiales originales del proyecto, sin perjuicio de los derechos de terceros y de la atribución específica de cada material. [VERIFICAR DOCUMENTACIÓN, REPARTO DE DERECHOS Y LICENCIAS].</p>
+<h2>Consulta y reproducción</h2>
+<p>La consulta del sitio no concede una licencia general para reproducir, modificar, distribuir o explotar comercialmente materiales protegidos. Los usos reservados a los titulares requieren su autorización, sin perjuicio de las excepciones legales, licencias aplicables y derechos irrenunciables.</p>
+<h2>Uso profesional de Signature</h2>
+<p>El kit físico está destinado a los contextos profesionales descritos en el sitio. Comprar un ejemplar no implica por sí mismo la cesión de derechos de autor. Las autorizaciones adicionales para reproducciones, fichas, proyecciones, formación o distribución digital se definirán en condiciones específicas antes de la venta, sin limitar los derechos legales.</p>
+<h2>Nombre, logotipo y diseño</h2>
+<p>Los signos distintivos y diseños de PdT se utilizan conforme a los derechos aplicables. [Verificar titulares, estado, territorio y alcance de los registros; no declarar un registro sin pruebas]. Este aviso no reivindica derechos exclusivos sobre ideas o métodos abstractos.</p>
+<h2>Materiales de terceros y código</h2>
+<p>Los materiales y componentes de terceros están sujetos a sus propios derechos y licencias. La disponibilidad pública de un archivo no concede una licencia general; se respetan las condiciones de la plataforma y las licencias aplicables.</p>
+<h2>Autorizaciones y avisos</h2>
+<p>Para solicitar autorizaciones o comunicar posibles infracciones, escribir a <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>, indicando el material, uso previsto o dirección de la página afectada. Evitar información confidencial innecesaria. Consulta la <a href="privacy-policy-es.html">política de privacidad</a>.</p>
+<h2>Versión</h2>
+<p>Borrador del 26 de noviembre de 2026. No publicar antes de las comprobaciones documentales y la revisión profesional.</p>
+</div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-es.html"><img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" loading="lazy" decoding="async" /></a>
+    <div class="footer-copy">
+      <p>Cartas fotográficas para storytelling y narración de sí.</p>
+      <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>
+      <nav class="pdt-footer-links" aria-label="Enlaces rápidos"><a href="contact-es.html">Contacto</a><a href="pre-order-es.html">Pre Order</a></nav>
+    </div>
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards. Todos los derechos reservados.<br/>
+      <a class="footer-privacy-link" href="privacy-policy-es.html">Política de privacidad</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

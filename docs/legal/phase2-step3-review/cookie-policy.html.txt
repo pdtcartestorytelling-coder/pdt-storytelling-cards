@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+  <meta property="og:site_name" content="PdT Storytelling Cards" />
+<meta name="application-name" content="PdT Storytelling Cards" />
+<title>Cookie Policy | PdT Storytelling Cards</title>
+  <meta name="description" content="Informazioni sull'utilizzo di cookie e strumenti analoghi nel sito PdT Storytelling Cards." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://pdtstorytellingcards.com/cookie-policy.html" />
+  <link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/cookie-policy.html" />
+  <link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/cookie-policy-en.html" />
+  <link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/cookie-policy-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/cookie-policy.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="style.css?v=22" />
+  <script src="script.js?v=12" defer></script>
+</head>
+<body data-page="cookies">
+<a class="pdt-skip-link" href="#main-content">Vai al contenuto principale</a>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Navigazione principale">
+    <a class="brand" href="index.html" aria-label="PdT Storytelling Cards">
+      <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" class="brand-logo" width="965" height="425" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Apri il menu" data-label-open="Apri il menu" data-label-close="Chiudi il menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="articoli-pubblicazioni.html">Articoli</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a href="pre-order.html">Pre Order</a></li>
+      </ul>
+      <div class="language-switcher" aria-label="Selezione lingua">
+        <a href="cookie-policy.html" class="lang active" aria-label="Italiano" lang="it" hreflang="it" aria-current="true"><img class="lang-flag" src="images/flag-it.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="cookie-policy-en.html" class="lang" aria-label="English" lang="en" hreflang="en"><img class="lang-flag" src="images/flag-gb.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="cookie-policy-es.html" class="lang" aria-label="Español" lang="es" hreflang="es"><img class="lang-flag" src="images/flag-es.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main id="main-content" tabindex="-1">
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Cookie Policy</p>
+        <h1>Cookie e tecnologie di tracciamento.</h1>
+        <p class="page-hero-text">Informazioni sull'utilizzo di cookie e strumenti analoghi nel sito PdT Storytelling Cards.</p>
+      </div>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" />
+      </div>
+    </div>
+  </section>
+  <section class="section section-light">
+    <div class="container privacy-content reveal">
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.3 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verifica del sito pubblicato e dei fornitori necessaria prima della pubblicazione.</p>
+<h2>Gestore e contatti</h2>
+<p>Silvia Dierico, titolare del trattamento. [RECAPITI PROFESSIONALI DA CONFERMARE]. Per informazioni: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<h2>Cosa sono i cookie</h2>
+<p>I cookie sono piccoli file che un sito può memorizzare nel browser. Altre tecnologie possono archiviare o leggere informazioni sul dispositivo. La necessità del consenso dipende dalla finalità e dalle condizioni di utilizzo.</p>
+<h2>Configurazione attuale del sito</h2>
+<p>L'analisi del codice non ha rilevato l'impostazione di cookie da parte di PdT, né l'utilizzo di localStorage, sessionStorage o IndexedDB, né script di analisi comportamentale, pubblicità o profilazione. La guida informativa funziona localmente; i moduli preparano email. Questi risultati riguardano il codice e non costituiscono una verifica del traffico del sito pubblico.</p>
+<h2>Hosting e sicurezza</h2>
+<p>GitHub Pages dichiara di registrare gli indirizzi IP dei visitatori per sicurezza; i log di navigazione non sono di per sé cookie. Cloudflare è attivo. I cookie di sicurezza possono dipendere dai servizi abilitati; esempi documentati dal fornitore sono __cf_bm e cf_clearance, non accertati sul sito PdT. [VERIFICARE PROXY, SERVIZI ATTIVI, NOMI, FINALITÀ, DURATE E CONSENSO OVE DOVUTO]. <a href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/">Cloudflare Cookies</a>.</p>
+<h2>Collegamenti esterni</h2>
+<p>I collegamenti a Instagram e ad altri siti esterni rinviano a servizi soggetti alle rispettive informative; la sola presenza di un collegamento non implica che PdT installi cookie di tali servizi.</p>
+<h2>Consenso e gestione</h2>
+<p>Se la verifica finale conferma la sola presenza di strumenti strettamente necessari, non è richiesto un banner di consenso. Gli eventuali strumenti non tecnici soggetti a consenso resteranno disattivati fino a una scelta informata e revocabile. Puoi controllare o eliminare i cookie nelle impostazioni del browser; disabilitare quelli necessari può limitare alcune funzionalità.</p>
+<h2>Aggiornamenti e privacy</h2>
+<p>Prima di attivare analytics, pixel, pagamenti, account o altri servizi verranno valutati i relativi trattamenti e aggiornate le informazioni e, se necessario, i meccanismi di consenso. Consulta l'<a href="privacy-policy.html">informativa privacy</a>.</p>
+<h2>Versione</h2>
+<p>Bozza del 26 novembre 2026. Non pubblicare prima della verifica tecnica e della revisione professionale.</p>
+</div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="index.html"><img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" loading="lazy" decoding="async" /></a>
+    <div class="footer-copy">
+      <p>Carte fotografiche per lo storytelling e la narrazione di sé.</p>
+      <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>
+      <nav class="pdt-footer-links" aria-label="Collegamenti rapidi"><a href="contatti.html">Contatti</a><a href="pre-order.html">Pre Order</a></nav>
+    </div>
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards. Tutti i diritti riservati.<br/>
+      <a class="footer-privacy-link" href="privacy-policy.html">Informativa privacy</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

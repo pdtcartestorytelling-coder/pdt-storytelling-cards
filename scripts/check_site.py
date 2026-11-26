@@ -126,6 +126,34 @@ try:
 except (ET.ParseError, OSError) as exc:
     ERRORS.append(f"Sitemap invalid: {exc}")
 
+# Consolidated candidate: do not expose incomplete policies or revive old asset versions.
+candidate_assets = {"style.css":22, "script.js":12, "pdt-motion.css":10,
+                    "interest.js":13, "pdt-shop.css":7, "pdt-shop.js":5,
+                    "guida-informativa.js":6}
+deferred_policy = re.compile(r"^(?:terms-of-use|cookie-policy|legal-information|intellectual-property|sales-terms|returns-policy|product-safety|professional-use)(?:-en|-es)?\\.html$")
+for file, page in parsed.items():
+    for raw in page.links:
+        url = urllib.parse.urlsplit(raw)
+        name = url.path.rsplit("/", 1)[-1]
+        if name in candidate_assets and url.query != f"v={candidate_assets[name]}":
+            ERRORS.append(f"{file.name}: inconsistent shared asset version: {raw}")
+        if deferred_policy.fullmatch(name):
+            ERRORS.append(f"{file.name}: link to policy awaiting approval: {raw}")
+for name in ("contatti.html", "contact-en.html", "contact-es.html",
+             "pre-order.html", "pre-order-en.html", "pre-order-es.html"):
+    text = (ROOT / name).read_text(encoding="utf-8")
+    if 'method="post"' not in text or "form-action 'none'" not in text or "data-pdt-form-fallback" not in text:
+        ERRORS.append(f"{name}: secure mail form guard missing")
+    if 'name="updates_consent"' in text or "data-marketing-consent-text" in text:
+        ERRORS.append(f"{name}: marketing collection is not approved")
+    if "pdt-skip-link" not in text:
+        ERRORS.append(f"{name}: skip link missing")
+guide = (ROOT / "guida-informativa.js").read_text(encoding="utf-8")
+if any(word in guide for word in ("Essential", "Studio", "tre edizioni", "three PdT editions", "tres ediciones")):
+    ERRORS.append("guida-informativa.js: outdated editions")
+if "updates_consent" in (ROOT / "interest.js").read_text(encoding="utf-8"):
+    ERRORS.append("interest.js: marketing consent not approved")
+
 for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
     for asset in ("images/pdt-cofanetto-signature-2026.webp",
@@ -152,26 +180,26 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: fullscreen image control still present")
     if 'preorder.css?v=22' not in text:
         ERRORS.append(f"{name}: latest gallery style missing")
-    if '<strong>179 €</strong><del class="pdt-compare-price">199 €</del>' not in text:
+    if '<strong>179 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
-    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
+    if 'pdt-shop.js?v=5' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=13' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
-    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
+    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=10' not in text:
         ERRORS.append(f"{name}: motion assets missing")
 
 for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
     if text.count('class="pdt-h-edition"') != 1:
         ERRORS.append(f"{name}: expected exactly one Signature card")
-    if '<del class="pdt-compare-price">' not in text or 'pdt-current-price' not in text:
+    if '<span class="pdt-future-price">' not in text or 'pdt-current-price' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: pre-order versus planned list price is not shown")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or "Essential" in text or "essential" in text:
         ERRORS.append(f"{name}: outdated prices or Essential remain")
-    if 'pdt-shop.css?v=5' not in text or 'pdt-shop.js?v=3' not in text:
+    if 'pdt-shop.css?v=7' not in text or 'pdt-shop.js?v=5' not in text:
         ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
-    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
+    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=10' not in text:
         ERRORS.append(f"{name}: motion assets missing")
     if 'data-shop-edition="essential"' in text:
         ERRORS.append(f"{name}: Essential is still selectable")
@@ -194,7 +222,7 @@ for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-or
     text = (ROOT/name).read_text(encoding="utf-8")
     if 'class="pdt-origin ' not in text or "Made in Italy" not in text:
         ERRORS.append(f"{name}: missing Italian provenance module")
-    if 'pdt-shop.css?v=5' not in text:
+    if 'pdt-shop.css?v=7' not in text:
         ERRORS.append(f"{name}: outdated provenance stylesheet")
     if 'pdt-origin-title' not in text:
         ERRORS.append(f"{name}: missing provenance heading")

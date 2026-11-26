@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+  <meta property="og:site_name" content="PdT Storytelling Cards" />
+<meta name="application-name" content="PdT Storytelling Cards" />
+<title>Legal information | PdT Storytelling Cards</title>
+  <meta name="description" content="Information about the PdT project and the responsible parties." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://pdtstorytellingcards.com/legal-information-en.html" />
+  <link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/legal-information.html" />
+  <link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/legal-information-en.html" />
+  <link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/legal-information-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/legal-information.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="style.css?v=22" />
+  <script src="script.js?v=12" defer></script>
+</head>
+<body data-page="legal">
+<a class="pdt-skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="home-en.html" aria-label="PdT Storytelling Cards">
+      <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" class="brand-logo" width="965" height="425" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-en.html">Home</a></li>
+        <li><a href="about-en.html">About us</a></li>
+        <li><a href="articles-en.html">Articles</a></li>
+        <li><a href="contact-en.html">Contact</a></li>
+        <li><a href="pre-order-en.html">Pre Order</a></li>
+      </ul>
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="legal-information.html" class="lang" aria-label="Italiano" lang="it" hreflang="it"><img class="lang-flag" src="images/flag-it.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="legal-information-en.html" class="lang active" aria-label="English" lang="en" hreflang="en" aria-current="true"><img class="lang-flag" src="images/flag-gb.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="legal-information-es.html" class="lang" aria-label="Español" lang="es" hreflang="es"><img class="lang-flag" src="images/flag-es.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main id="main-content" tabindex="-1">
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Legal information</p>
+        <h1>Website operator and legal information.</h1>
+        <p class="page-hero-text">Information about the PdT project and the responsible parties.</p>
+      </div>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" />
+      </div>
+    </div>
+  </section>
+  <section class="section section-light">
+    <div class="container privacy-content reveal">
+<p class="privacy-note"><strong>REVIEW TEXT 0.5 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — confirm legal identity and tax details; do not publish.</p>
+<h2>The project</h2>
+<p>PdT Storytelling Cards is the name of the project presented on this website. Roberto Antoniello and Silvia Dierico are identified as co-founders on the About page. This does not automatically identify the legal person operating the website or making sales.</p>
+<h2>Website operator</h2>
+<p>Name or legal name: [to be confirmed].<br/>Legal form: natural person.<br/>Business address or registered office: [to be confirmed].<br/>Email: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.<br/>Other direct contact details: [to be confirmed].</p>
+<h3>Technical website management</h3>
+<p>Lorenzo Cicogna currently manages the website's technical operations. This operational role does not automatically identify the legal operator, data controller or seller. For technical reports use the project contact; personal contact details are not published without specific approval.</p>
+<h2>Tax and company information</h2>
+<p>Named tax contact: Silvia Dierico, who has an existing VAT number as confirmed by the project. [VERIFY VAT NUMBER, TAX REGIME, AUTHORIZED BUSINESS ACTIVITIES AND SELLER IDENTITY].</p>
+<p>VAT or equivalent number: [to be confirmed, where applicable].<br/>Business register, office and registration number, REA: [to be confirmed, where applicable].<br/>Certified email and other mandatory legal-form disclosures, including capital, sole shareholder or liquidation where relevant: [to be confirmed].</p>
+<h2>Data controller</h2>
+<p>Data controller: Silvia Dierico. See the <a href="privacy-policy-en.html">Privacy Policy</a>.</p>
+<h2>Enquiries and commercial activity</h2>
+<p>Enquiries submitted through the site do not automatically generate an order or payment. [Identify the seller and confirm tax and contact details before concluding sales; assess whether disclosure obligations already apply].</p>
+<h2>Version</h2>
+<p>Draft dated 26 November 2026. Do not publish until details are confirmed and professionally reviewed.</p>
+</div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-en.html"><img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" loading="lazy" decoding="async" /></a>
+    <div class="footer-copy">
+      <p>Photographic cards for storytelling and self-narration.</p>
+      <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>
+      <nav class="pdt-footer-links" aria-label="Quick links"><a href="contact-en.html">Contact</a><a href="pre-order-en.html">Pre Order</a></nav>
+    </div>
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards. All rights reserved.<br/>
+      <a class="footer-privacy-link" href="privacy-policy-en.html">Privacy notice</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>

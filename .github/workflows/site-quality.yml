@@ -22,9 +22,14 @@ jobs:
           node --check interest.js
           node --check guida-informativa.js
           node --check pdt-motion.js
+          node --check pdt-shop.js
 
       - name: Install browser smoke dependencies
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
+      - name: Mail form security and marketing suspension (IT EN ES)
+        run: timeout 90s node scripts/form_security.cjs
+      - name: Accessibility keyboard and no-JS regression
+        run: timeout 120s node scripts/accessibility_smoke.cjs
       - name: Verify AVIF image container and dimensions
         run: |
           file images/pdt-editions-hq.avif
