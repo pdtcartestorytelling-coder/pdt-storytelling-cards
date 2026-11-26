@@ -158,7 +158,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
     if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
-    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
+    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=9' not in text:
         ERRORS.append(f"{name}: motion assets missing")
 
 for name in ("index.html", "home-en.html", "home-es.html"):
@@ -171,7 +171,7 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: outdated prices or Essential remain")
     if 'pdt-shop.css?v=5' not in text or 'pdt-shop.js?v=3' not in text:
         ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
-    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
+    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=9' not in text:
         ERRORS.append(f"{name}: motion assets missing")
     if 'data-shop-edition="essential"' in text:
         ERRORS.append(f"{name}: Essential is still selectable")

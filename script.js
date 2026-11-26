@@ -15,7 +15,7 @@ function closeMenu() {
 }
 
 if (menuButton && menuPanel) {
-  menuButton.addEventListener("click", () => {
+  menuButton.addEventListener("click", (event) => {
     const isOpen = menuPanel.classList.toggle("open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
     menuButton.setAttribute(
@@ -24,6 +24,13 @@ if (menuButton && menuPanel) {
         ? menuButton.dataset.labelClose || "Close menu"
         : menuButton.dataset.labelOpen || "Open menu"
     );
+
+    // Keyboard and assistive-technology activation produce a click with
+    // detail 0. Start navigation on the first actual link, not on the page
+    // behind the expanded menu. Pointer activation keeps its natural focus.
+    if (isOpen && event.detail === 0) {
+      menuPanel.querySelector("a[href]")?.focus();
+    }
   });
 
   menuPanel.querySelectorAll("a").forEach((link) => {
@@ -39,6 +46,15 @@ if (menuButton && menuPanel) {
     }
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuPanel.classList.contains("open")) {
+      event.preventDefault();
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+
+  document.documentElement.classList.add("pdt-menu-ready");
   window.addEventListener("resize", () => {
     if (window.innerWidth > 980) {
       closeMenu();
@@ -74,6 +90,7 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
   );
 
   revealElements.forEach((element) => observer.observe(element));
+  document.documentElement.classList.add("pdt-reveal-ready");
 }
 
 
