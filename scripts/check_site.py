@@ -127,7 +127,7 @@ except (ET.ParseError, OSError) as exc:
     ERRORS.append(f"Sitemap invalid: {exc}")
 
 # Consolidated candidate: do not expose incomplete policies or revive old asset versions.
-candidate_assets = {"style.css":22, "script.js":12, "pdt-motion.css":10,
+candidate_assets = {"style.css":23, "script.js":12, "pdt-motion.css":11,
                     "interest.js":14, "pdt-shop.css":7, "pdt-shop.js":5,
                     "guida-informativa.js":6}
 deferred_policy = re.compile(r"^(?:terms-of-use|cookie-policy|legal-information|intellectual-property|sales-terms|returns-policy|product-safety|professional-use)(?:-en|-es)?\\.html$")
@@ -182,7 +182,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
                                             '<a class="preorder-gallery-image"',
                                             '<a href="images/')):
         ERRORS.append(f"{name}: fullscreen image control still present")
-    if 'preorder.css?v=22' not in text:
+    if 'preorder.css?v=23' not in text:
         ERRORS.append(f"{name}: latest gallery style missing")
     if '<strong>149 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: expected prominent pre-order 149 vs planned list 199")
@@ -190,7 +190,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
     if 'pdt-shop.js?v=5' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=14' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
-    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=10' not in text:
+    if 'pdt-motion.js?v=9' not in text or 'pdt-motion.css?v=11' not in text:
         ERRORS.append(f"{name}: motion assets missing")
 
 for name in ("index.html", "home-en.html", "home-es.html"):
@@ -203,7 +203,7 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: outdated prices or Essential remain")
     if 'pdt-shop.css?v=7' not in text or 'pdt-shop.js?v=5' not in text:
         ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
-    if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=10' not in text:
+    if 'pdt-motion.js?v=9' not in text or 'pdt-motion.css?v=11' not in text:
         ERRORS.append(f"{name}: motion assets missing")
     if 'data-shop-edition="essential"' in text:
         ERRORS.append(f"{name}: Essential is still selectable")
