@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
 
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#174b7f" />
@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="style.css?v=14" />
-  <script src="script.js?v=8" defer></script>
+  <script src="script.js?v=9" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"PdT Storytelling Cards Pre Order","description":"PdT Signature: special pre-order price €179; planned list price €199. 102 original cards, Italian design and Made in Italy production. Enquire by email.","url":"https://pdtstorytellingcards.com/pre-order-en.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"PdT Storytelling Cards","url":"https://pdtstorytellingcards.com/"}}</script>
   <link rel="stylesheet" href="preorder.css?v=22" />
   <link rel="stylesheet" href="pdt-motion.css?v=8" />
@@ -141,20 +141,21 @@
 <div class="pdt-interest-intro"><p class="preorder-eyebrow">DIRECT ENQUIRY</p><h2 id="interest-title">Let's talk about PdT.</h2><p>Interested in PdT Signature? Fill in the fields to prepare your personal, non-binding pre-order enquiry.</p>
 <h3>Your enquiry, without obligation</h3><p>This site does not accept online orders yet. After filling in the form, your email app opens: review the draft and click Send.</p></div>
 <div class="pdt-interest-card"><h3>Your enquiry, without obligation</h3>
-<form data-interest-mailto data-recipient="pdtstorytellingcards@gmail.com" data-subject="PdT Storytelling Cards — richiesta commerciale">
+<form data-interest-mailto data-recipient="pdtstorytellingcards@gmail.com" data-subject="PdT Storytelling Cards — richiesta commerciale" method="post">
+<p class="pdt-interest-hint" data-pdt-form-fallback>This form is available only if its script loads successfully. If it stays disabled, email <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <div class="pdt-interest-fields">
-<label>Full name<input type="text" name="name" maxlength="100" autocomplete="name" required></label>
-<label>Email<input type="email" name="email" maxlength="254" autocomplete="email" required></label>
-<label>Professional area<select name="sector"><option value="">Select (optional)</option><option value="1">Psychology / psychotherapy</option><option value="2">Human Resources</option><option value="3">Education / training</option><option value="4">Other</option></select></label>
-<label>Request type<select name="interest" required><option value="purchase">Signature pre-order / availability enquiry</option><option value="question">General information</option></select></label>
-<label>Indicative number of sets<select name="quantity"><option value="1">1 set</option><option value="2-3">2–3 sets</option><option value="4+">4 or more sets</option></select></label>
-<input type="hidden" name="edition" value="top">
-<label class="pdt-field-full">Delivery city / country (optional)<input name="destination" type="text" maxlength="140" autocomplete="address-level2"></label>
-<label class="pdt-field-full">Message (optional)<textarea name="message" rows="3" maxlength="1200" placeholder="For example: I'd like to buy two Signature sets and ask about shipping to..."></textarea></label>
+<label>Full name<input disabled data-pdt-enable type="text" name="name" maxlength="100" autocomplete="name" required></label>
+<label>Email<input disabled data-pdt-enable type="email" name="email" maxlength="254" autocomplete="email" required></label>
+<label>Professional area<select disabled data-pdt-enable name="sector"><option value="">Select (optional)</option><option value="1">Psychology / psychotherapy</option><option value="2">Human Resources</option><option value="3">Education / training</option><option value="4">Other</option></select></label>
+<label>Request type<select disabled data-pdt-enable name="interest" required><option value="purchase">Signature pre-order / availability enquiry</option><option value="question">General information</option></select></label>
+<label>Indicative number of sets<select disabled data-pdt-enable name="quantity"><option value="1">1 set</option><option value="2-3">2–3 sets</option><option value="4+">4 or more sets</option></select></label>
+<input disabled data-pdt-enable type="hidden" name="edition" value="top">
+<label class="pdt-field-full">Delivery city / country (optional)<input disabled data-pdt-enable name="destination" type="text" maxlength="140" autocomplete="address-level2"></label>
+<label class="pdt-field-full">Message (optional)<textarea disabled data-pdt-enable name="message" rows="3" maxlength="1200" placeholder="For example: I'd like to buy two Signature sets and ask about shipping to..."></textarea></label>
 </div>
-<label class="pdt-interest-check"><input type="checkbox" name="privacy_acknowledged" required><span>I have read the <a href="privacy-policy-en.html">privacy policy</a>.</span></label>
-<label class="pdt-interest-check"><input type="checkbox" name="updates_consent"><span>I agree to receive email updates (optional, can withdraw).</span></label>
-<button type="submit" class="preorder-btn preorder-btn--primary pdt-interest-send">Prepare enquiry email ↗</button>
+<label class="pdt-interest-check"><input disabled data-pdt-enable type="checkbox" name="privacy_acknowledged" required><span>I have read the <a href="privacy-policy-en.html">privacy policy</a>.</span></label>
+<label class="pdt-interest-check"><input disabled data-pdt-enable type="checkbox" name="updates_consent"><span>I agree to receive email updates (optional, can withdraw).</span></label>
+<button disabled data-pdt-enable type="submit" class="preorder-btn preorder-btn--primary pdt-interest-send">Prepare enquiry email ↗</button>
 <p class="pdt-interest-hint" data-interest-status role="status">Please click Send in your email app; nothing is sent automatically.</p>
 </form>
 <div class="pdt-shop-fallback"><span>Email app not opening?</span><a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a><button type="button" class="pdt-shop-copy" data-shop-copy>Copy address</button><span role="status" class="pdt-shop-copy-status" data-shop-copy-status></span></div>
@@ -182,7 +183,7 @@
   </div>
 </footer>
 
-<script src="interest.js?v=8" defer></script>
+<script src="interest.js?v=9" defer></script>
 <script src="pdt-shop.js?v=3" defer></script>
 </body>
 </html>
