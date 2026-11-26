@@ -1,16 +1,14 @@
 # PdT Storytelling Cards — piano operativo Pre Order
 
-Stato al 27 ottobre 2026: **PREPARAZIONE / NON APERTO**.
+Stato al 26 novembre 2026: **PREPARAZIONE / NON APERTO**.
 
-## Valori pubblicati (tutti indicativi)
-- Pre Order ipotizzato: **70,00 EUR** per cofanetto.
-- Prezzo ordinario futuro ipotizzato: **90,00 EUR** per cofanetto.
-- Spedizione standard **Italia** ipotizzata: **6,90 EUR** per un cofanetto.
-- Totale esemplificativo Italia per un cofanetto in Pre Order: **76,90 EUR**.
-- Prezzi non definitivi; trattamento fiscale, IVA, costi e condizioni finali vanno confermati.
-- Non si presenta il prezzo 90 EUR come prezzo precedente realmente praticato, né si barrano prezzi o si dichiarano sconti percentuali.
-- Nessuna promessa di spedizione gratuita su due o più cofanetti: da valutare solo dopo il preventivo.
-- Spedizioni internazionali: non lanciate e da valutare separatamente.
+## Valori di progetto aggiornati (non offerta vincolante)
+- PdT Signature: **149 EUR** per cofanetto, prezzo di lancio previsto per Lotto 01 (50 cofanetti programmati).
+- Listino futuro previsto: **199 EUR**, non prezzo precedente applicato.
+- Le precedenti ipotesi 70/90 EUR sono superate; 6,90 EUR di spedizione era solo un'ipotesi storica, non confermata.
+- Spedizione, fiscalità, IVA, disponibilità e totale devono essere confermati; non pubblicare tariffe, sconti o tempi inventati.
+- Nessun ordine, prenotazione, pagamento o stock in tempo reale. Richieste via email non vincolanti; nessun servizio attivo.
+- Spedizioni internazionali da valutare separatamente.
 
 ## Operatività Stripe (NON attiva)
 1. Ricevere il preventivo di produzione; verificare margini, IVA, tempi e disponibilità.
@@ -22,7 +20,7 @@ Stato al 27 ottobre 2026: **PREPARAZIONE / NON APERTO**.
 
 ## Operatività Sendcloud (NON attiva)
 1. Attivare Sendcloud; inserire mittente, dati pacco, pesi e dimensioni **misurati a confezione ultimata**.
-2. Confrontare costi e servizi del corriere per destinazione Italia; confermare o modificare l'ipotesi commerciale 6,90 EUR.
+2. Confrontare costi e servizi del corriere per destinazione Italia; definire una tariffa reale dopo la verifica del collo e dei preventivi.
 3. Per un primo piccolo lotto, preparare manualmente le spedizioni a partire dagli ordini confermati e dagli indirizzi ottenuti tramite Stripe, evitando automatismi non configurati.
 4. Creare etichette, spedire, comunicare tracking e conservare i dati necessari per assistenza.
 5. Per automatizzare il passaggio Stripe→Sendcloud, prevedere un backend sicuro/API oppure un'integrazione di e-commerce adatta. **GitHub Pages statico non fornisce webhook né gestione ordini lato server.**

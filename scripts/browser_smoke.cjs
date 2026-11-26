@@ -181,6 +181,8 @@ async function run() {
           links:[...document.querySelectorAll("a[data-shop-edition]")].map(x=>({edition:x.dataset.shopEdition,href:x.getAttribute("href")})),
           inputFields:["name","email","edition","quantity","destination","message"].every(n=>!!document.querySelector('form[data-interest-mailto] [name="'+n+'"]')),
           privacy:!!document.querySelector('form[data-interest-mailto] input[name="privacy_acknowledged"][required]'),
+          minimalForm:!document.querySelector('form[data-interest-mailto] [name="sector"],form[data-interest-mailto] [name="interest"]'),
+          enquiryCTAs:[".preorder-actions .preorder-btn--primary",".pdt-tier-link",".preorder-mobile-action a"].every(sel=>document.querySelector(sel)?.getAttribute("href")==="#interest"),
           fallback:!!document.querySelector("[data-shop-copy]"),
           studioVisible:document.querySelector(".pdt-tier-grid")?.textContent.includes("PdT Studio"),
           imageMotion:[...document.querySelectorAll(".pdt-edition-preview picture")].every(x=>x.classList.contains("pdt-reveal-photo"))
@@ -194,6 +196,7 @@ async function run() {
         assert(commerce.links.some(x=>x.href.includes("149")&&x.href.includes("199")),lang+" "+label+": email draft missing pre-order pricing");
         assert(commerce.links.every(x=>x.edition==="signature"),lang+" "+label+": retired edition still has email CTA");
         assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
+        assert(commerce.minimalForm&&commerce.enquiryCTAs,lang+" "+label+": simplified enquiry path missing");
         assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
         if(label==="desktop"){
           const depth=await page.evaluate(async()=>{
@@ -418,9 +421,9 @@ async function run() {
         const errors=[];page.on("pageerror",error=>errors.push(error.message));
         const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
         await page.waitForFunction(()=>{const img=document.querySelector(".sig-hero-photo img");return img&&img.complete&&img.naturalWidth===1448;},{timeout:12000});
-        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,cta:[...document.querySelectorAll(".sig-primary")].map(a=>a.getAttribute("href")),cards:document.querySelectorAll(".sig-card").length,contexts:document.querySelectorAll(".sig-context").length,price:document.querySelector(".sig-price")?.textContent,style:getComputedStyle(document.querySelector(".sig-hero-grid")).display}));
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,cta:[...document.querySelectorAll(".sig-primary")].map(a=>a.getAttribute("href")),cards:document.querySelectorAll(".sig-card").length,contexts:document.querySelectorAll("#contexts .sig-context").length,specs:document.querySelectorAll("#specifications .sig-context").length,price:document.querySelector(".sig-price")?.textContent,style:getComputedStyle(document.querySelector(".sig-hero-grid")).display}));
         assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.style==="grid",file+" "+width+": product page layout");
-        assert(info.cta.length===2&&info.cta.every(x=>x===preorder+"#interest")&&info.cards===3&&info.contexts===3&&info.price.includes("149")&&info.price.includes("199")&&!errors.length,file+": product contents or enquiry missing");
+        assert(info.cta.length===2&&info.cta.every(x=>x===preorder+"#interest")&&info.cards===3&&info.contexts===3&&info.specs===3&&info.price.includes("149")&&info.price.includes("199")&&!errors.length,file+": product contents or enquiry missing");
         await page.screenshot({path:path.join(screenshots,"product-"+lang+"-"+width+".png"),fullPage:false,timeout:12000});
         await page.close();
       }
