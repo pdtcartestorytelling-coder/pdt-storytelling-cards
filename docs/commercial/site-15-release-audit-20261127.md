@@ -86,3 +86,6 @@ Trigger: errori 4xx/5xx su percorsi critici, form trasmette dati impropri, priva
 - [ ] Conferma esplicita pubblicazione e responsabile release
 - [ ] Collaudo post-deploy e monitoraggio concordati
 - [ ] Servizi futuri mantenuti inattivi
+
+### Cache commerciale e guard aggiuntivi
+Versioni shop JS v6 e guida JS v7 riallineate nelle sei pagine che le caricano, per evitare riutilizzo del copy precedente in cache. Script invariati nel contenuto. Aggiunto controllo statico prezzi 159/179 EUR sulle 9 pagine commerciali e 3 script e presenza nota editoriale nei 12 articoli. Restano da verificare cache CDN effettiva, inventario completo asset/storia e approvazioni.
