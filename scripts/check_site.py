@@ -294,6 +294,22 @@ for name, product in method_pages.items():
         if f'https://pdtstorytellingcards.com/{target}' not in text:
             ERRORS.append(f"{name}: translated method alternate missing {target}")
 
+# Examples are read-only, fictional and translated.
+example_pages = {"esempi-pdt.html": ("metodo-pdt.html", "prodotto.html"), "examples-en.html": ("method-en.html", "product-en.html"), "examples-es.html": ("method-es.html", "product-es.html")}
+for name, (method, product) in example_pages.items():
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for marker in ('id="individual"', 'id="group"', 'id="hr"', 'id="example-limits"', 'class="example-notice"', 'pdt-skip-link', 'pdt-examples.css?v=1'):
+        if marker not in text:
+            ERRORS.append(f"{name}: illustrative example missing {marker}")
+    if text.count('class="example-questions"') != 3 or any(tag in text for tag in ('<form', '<input', '<textarea', 'data-shop-edition')):
+        ERRORS.append(f"{name}: example structure or read-only boundary invalid")
+    for target in example_pages:
+        if f'https://pdtstorytellingcards.com/{target}' not in text:
+            ERRORS.append(f"{name}: translated example alternate missing {target}")
+    for source in (method, product):
+        if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8") or f'href="{source}"' not in text:
+            ERRORS.append(f"{name}: missing reciprocal navigation to {source}")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
