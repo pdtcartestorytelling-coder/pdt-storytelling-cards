@@ -1,0 +1,10 @@
+/* Editorial overview only; abstract number panel, not a facsimile. */
+.pdt-manual-page main{overflow-wrap:anywhere}
+.pdt-manual-page main .container{min-width:0}
+.manual-notice{border-left:3px solid #f5d38c;padding:1rem;background:#123f6f;color:#fffaf3;line-height:1.6;margin:1.25rem 0}
+.manual-abstract{display:grid;min-width:0;gap:.45rem;justify-items:center;text-align:center;padding:clamp(1.2rem,4vw,2.7rem);border:1px solid #c49a49;border-radius:20px;background:#123f6f;color:#fffaf3}
+.manual-abstract strong,.manual-stat strong{font-family:var(--font-brand);font-size:clamp(2.5rem,5vw,4.2rem);line-height:1.1;color:#f5d38c}
+.manual-abstract-line{height:1px;width:75%;background:#c49a49;margin:.6rem 0}
+.manual-stat strong{color:#174b7f}.manual-stat p{margin-top:.5rem}
+.manual-sheet a{color:#174b7f;text-decoration:underline;text-underline-offset:.2em;display:inline-flex;align-items:center;min-height:44px;gap:.3rem;flex-wrap:wrap;font-weight:700}
+.pdt-manual-page main a{max-width:100%;overflow-wrap:anywhere;white-space:normal}

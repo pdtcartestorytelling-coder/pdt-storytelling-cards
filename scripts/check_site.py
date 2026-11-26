@@ -298,7 +298,7 @@ for name, product in method_pages.items():
 example_pages = {"esempi-pdt.html": ("metodo-pdt.html", "prodotto.html"), "examples-en.html": ("method-en.html", "product-en.html"), "examples-es.html": ("method-es.html", "product-es.html")}
 for name, (method, product) in example_pages.items():
     text = (ROOT / name).read_text(encoding="utf-8")
-    for marker in ('id="individual"', 'id="group"', 'id="hr"', 'id="example-limits"', 'class="example-notice"', 'pdt-skip-link', 'pdt-examples.css?v=1'):
+    for marker in ('id="individual"', 'id="group"', 'id="hr"', 'id="example-limits"', 'class="example-notice"', 'pdt-skip-link', 'pdt-examples.css?v=2'):
         if marker not in text:
             ERRORS.append(f"{name}: illustrative example missing {marker}")
     if text.count('class="example-questions"') != 3 or any(tag in text for tag in ('<form', '<input', '<textarea', 'data-shop-edition')):
@@ -307,6 +307,22 @@ for name, (method, product) in example_pages.items():
         if f'https://pdtstorytellingcards.com/{target}' not in text:
             ERRORS.append(f"{name}: translated example alternate missing {target}")
     for source in (method, product):
+        if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8") or f'href="{source}"' not in text:
+            ERRORS.append(f"{name}: missing reciprocal navigation to {source}")
+
+# Editorial overview: metadata only; no original excerpt, embedded document or access flow.
+manual_pages = {"manuale-pdt.html": ("metodo-pdt.html", "prodotto.html", "esempi-pdt.html"), "manual-en.html": ("method-en.html", "product-en.html", "examples-en.html"), "manual-es.html": ("method-es.html", "product-es.html", "examples-es.html")}
+for name, sources in manual_pages.items():
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for marker in ('id="manual"', 'id="sheets"', 'id="access"', 'class="manual-notice"', 'pdt-skip-link', 'pdt-manual.css?v=1', '60', '22', '102'):
+        if marker not in text:
+            ERRORS.append(f"{name}: editorial overview missing {marker}")
+    if text.count('class="method-card manual-sheet"') != 3 or any(tag in text for tag in ('<form', '<input', '<textarea', '<iframe', '<object', '<embed', '.pdf"', 'data-shop-edition')):
+        ERRORS.append(f"{name}: editorial overview contains unexpected content or access functionality")
+    for target in manual_pages:
+        if f'https://pdtstorytellingcards.com/{target}' not in text:
+            ERRORS.append(f"{name}: translated editorial alternate missing {target}")
+    for source in sources:
         if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8") or f'href="{source}"' not in text:
             ERRORS.append(f"{name}: missing reciprocal navigation to {source}")
 

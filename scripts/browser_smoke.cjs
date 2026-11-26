@@ -449,8 +449,21 @@ async function run() {
         await page.setJavaScriptEnabled(false);
         const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
         const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".example-layout")).display,cases:document.querySelectorAll(".example-case").length,questions:[...document.querySelectorAll(".example-questions")].map(x=>x.querySelectorAll("li").length),notice:!!document.querySelector(".example-notice"),fields:document.querySelectorAll("main form,main input,main textarea").length,limits:!!document.querySelector("#example-limits")}));
-        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": examples layout");
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": examples layout "+JSON.stringify(info));
         assert(info.cases===3&&info.questions.length===3&&info.questions.every(n=>n===3)&&info.notice&&info.limits&&info.fields===0,file+": example content or privacy boundary missing");
+        await page.close();
+      }
+    }
+    // Editorial overview: no-JS, three sheet groups, no original-file or access UI.
+    for(const [lang,file] of [["it","manuale-pdt.html"],["en","manual-en.html"],["es","manual-es.html"]]){
+      for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        await page.setJavaScriptEnabled(false);
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".method-hero-grid")).display,sheets:[...document.querySelectorAll(".manual-sheet .method-num")].map(x=>x.textContent.trim()),notice:!!document.querySelector(".manual-notice"),fields:document.querySelectorAll("main form,main input,main textarea,main iframe,main object,main embed,main a[download]").length}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": manual layout "+JSON.stringify(info));
+        assert(info.sheets.join(",")==="8,6,8"&&info.notice&&info.fields===0,file+": editorial composition or access boundary invalid");
         await page.close();
       }
     }
