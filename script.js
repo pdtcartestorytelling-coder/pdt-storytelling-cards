@@ -47,26 +47,10 @@ if (menuButton && menuPanel) {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (!menuPanel.classList.contains("open")) return;
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && menuPanel.classList.contains("open")) {
       event.preventDefault();
       closeMenu();
       menuButton.focus();
-      return;
-    }
-    // Preserve DOM order for the mobile disclosure, including reverse Tab.
-    // Do not trap focus: forward Tab on the final link leaves the panel.
-    if (event.key !== "Tab" || !window.matchMedia("(max-width:980px)").matches) return;
-    const links = Array.from(menuPanel.querySelectorAll("a[href]"));
-    const active = document.activeElement;
-    const index = links.indexOf(active);
-    let next = null;
-    if (active === menuButton && !event.shiftKey) next = links[0];
-    else if (index >= 0 && event.shiftKey) next = index === 0 ? menuButton : links[index - 1];
-    else if (index >= 0 && index < links.length - 1) next = links[index + 1];
-    if (next) {
-      event.preventDefault();
-      next.focus();
     }
   });
 
