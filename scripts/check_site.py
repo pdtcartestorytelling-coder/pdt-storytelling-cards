@@ -126,6 +126,34 @@ try:
 except (ET.ParseError, OSError) as exc:
     ERRORS.append(f"Sitemap invalid: {exc}")
 
+# Consolidated candidate: do not expose incomplete policies or revive old asset versions.
+candidate_assets = {"style.css":22, "script.js":12, "pdt-motion.css":10,
+                    "interest.js":13, "pdt-shop.css":7, "pdt-shop.js":5,
+                    "guida-informativa.js":5}
+deferred_policy = re.compile(r"^(?:terms-of-use|cookie-policy|legal-information|intellectual-property|sales-terms|returns-policy|product-safety|professional-use)(?:-en|-es)?\\.html$")
+for file, page in parsed.items():
+    for raw in page.links:
+        url = urllib.parse.urlsplit(raw)
+        name = url.path.rsplit("/", 1)[-1]
+        if name in candidate_assets and url.query != f"v={candidate_assets[name]}":
+            ERRORS.append(f"{file.name}: inconsistent shared asset version: {raw}")
+        if deferred_policy.fullmatch(name):
+            ERRORS.append(f"{file.name}: link to policy awaiting approval: {raw}")
+for name in ("contatti.html", "contact-en.html", "contact-es.html",
+             "pre-order.html", "pre-order-en.html", "pre-order-es.html"):
+    text = (ROOT / name).read_text(encoding="utf-8")
+    if 'method="post"' not in text or "form-action 'none'" not in text or "data-pdt-form-fallback" not in text:
+        ERRORS.append(f"{name}: secure mail form guard missing")
+    if 'name="updates_consent"' in text or "data-marketing-consent-text" in text:
+        ERRORS.append(f"{name}: marketing collection is not approved")
+    if "pdt-skip-link" not in text:
+        ERRORS.append(f"{name}: skip link missing")
+guide = (ROOT / "guida-informativa.js").read_text(encoding="utf-8")
+if any(word in guide for word in ("Essential", "Studio", "tre edizioni", "three PdT editions", "tres ediciones")):
+    ERRORS.append("guida-informativa.js: outdated editions")
+if "updates_consent" in (ROOT / "interest.js").read_text(encoding="utf-8"):
+    ERRORS.append("interest.js: marketing consent not approved")
+
 for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
     for asset in ("images/pdt-cofanetto-signature-2026.webp",
