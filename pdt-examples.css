@@ -1,0 +1,11 @@
+/* Illustrative examples: same visual system as method, no scripts or response collection. */
+.example-notice{max-width:820px;padding:1rem;border-left:3px solid #f5d38c;background:#123f6f;color:#fffaf3;line-height:1.6;margin:1.25rem 0}
+.example-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,4vw,3rem);margin-top:1.5rem}
+.example-layout>div{min-width:0}.example-layout h3{color:#0b2f58;font-size:1.3rem;line-height:1.3;margin:0 0 .65rem}
+.example-layout p{color:#334b65;line-height:1.65;margin:0}
+.example-prompt{margin-top:1.25rem;padding:1.2rem;background:#faf4e9;border:1px solid #e4d9c9;border-left:3px solid #c18b29;border-radius:12px}
+.method-soft .example-prompt{background:#fffaf3}
+.example-questions{padding:0;margin:0;list-style:none;display:grid;gap:.7rem}
+.example-questions li{border:1px solid #e4d9c9;border-radius:12px;background:#fffaf3;padding:.9rem 1rem;overflow-wrap:anywhere}
+.example-questions strong{display:block;color:#174b7f;margin-bottom:.3rem}
+@media(max-width:740px){.example-layout{grid-template-columns:minmax(0,1fr)}}

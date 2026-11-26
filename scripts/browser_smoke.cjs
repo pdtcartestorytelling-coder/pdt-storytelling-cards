@@ -441,6 +441,19 @@ async function run() {
         await page.close();
       }
     }
+    // Read-only illustrative examples, localised and responsive.
+    for(const [lang,file] of [["it","esempi-pdt.html"],["en","examples-en.html"],["es","examples-es.html"]]){
+      for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        await page.setJavaScriptEnabled(false);
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".example-layout")).display,cases:document.querySelectorAll(".example-case").length,questions:[...document.querySelectorAll(".example-questions")].map(x=>x.querySelectorAll("li").length),notice:!!document.querySelector(".example-notice"),fields:document.querySelectorAll("main form,main input,main textarea").length,limits:!!document.querySelector("#example-limits")}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": examples layout");
+        assert(info.cases===3&&info.questions.length===3&&info.questions.every(n=>n===3)&&info.notice&&info.limits&&info.fields===0,file+": example content or privacy boundary missing");
+        await page.close();
+      }
+    }
     // Accessibility: visitors requesting less motion see fully readable content.
     const reducedPage=await browser.newPage();
     await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);
