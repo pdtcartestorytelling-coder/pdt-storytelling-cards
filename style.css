@@ -1457,3 +1457,44 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   .reveal,.reveal.visible{opacity:1!important;transform:none!important;transition:none!important}
   .nav-panel,.nav-panel.open,.primary-button,.article-link{transition:none!important}
 }
+
+/* Accessibility: preserve the blue/gold identity; use two-tone keyboard focus. */
+.pdt-skip-link {
+  position:fixed; top:8px; left:8px; z-index:10000;
+  max-width:calc(100% - 16px); padding:12px 18px; border-radius:8px;
+  color:#fff; background:#0b2f58; font-weight:700;
+  transform:translateY(calc(-100% - 16px));
+}
+.pdt-skip-link:focus { transform:none; }
+body :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible {
+  outline:3px solid #fff !important; outline-offset:3px !important;
+  box-shadow:0 0 0 6px #0b2f58 !important;
+}
+main[tabindex="-1"]:focus { outline:none; }
+main[tabindex="-1"] { scroll-margin-top:12px; }
+body :is(a,button,input,select,textarea,summary):focus { scroll-margin-block:110px 90px; }
+/* Make content readable even when the script fails; never hide a focused subtree. */
+html:not(.pdt-reveal-ready) .reveal,
+.reveal:focus-within { opacity:1 !important; transform:none !important; visibility:visible !important; transition:none !important; }
+body.pdt-motion-enabled .pdt-motion-target:focus-within { opacity:1 !important; transform:none !important; transition:none !important; }
+body .form-field :is(input,textarea,select),
+body[data-page="preorder"] .pdt-interest-fields :is(input,textarea,select) { border-color:#626b78 !important; }
+.section-light .section-label,.section-cream .section-label {color:#87540b;}
+/* No script: keep the mobile navigation in normal document flow. */
+@media(max-width:980px) {
+  html:not(.pdt-menu-ready) .site-header {position:relative;}
+  html:not(.pdt-menu-ready) .navbar {flex-wrap:wrap;padding-block:12px;}
+  html:not(.pdt-menu-ready) .menu-toggle {display:none;}
+  html:not(.pdt-menu-ready) .nav-panel {
+    position:static;display:flex;flex-basis:100%;visibility:visible;
+    opacity:1;pointer-events:auto;transform:none;box-shadow:none;
+  }
+}
+@media (forced-colors:active) {
+  body :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible {
+    outline:3px solid Highlight !important;box-shadow:none !important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html .reveal,html .reveal.visible {opacity:1 !important;transform:none !important;transition:none !important;}
+}
