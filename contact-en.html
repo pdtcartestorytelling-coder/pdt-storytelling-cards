@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
 
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#174b7f" />
@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="style.css?v=13" />
-  <script src="script.js?v=6" defer></script>
+  <script src="script.js?v=9" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Contact PdT Storytelling Cards.","description":"Contact PdT Storytelling Cards for product information, general enquiries and professional collaborations.","url":"https://pdtstorytellingcards.com/contact-en.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"PdT Storytelling Cards","url":"https://pdtstorytellingcards.com/"}}</script>
 </head>
 
@@ -138,15 +138,16 @@
           <h2 id="secure-contact-title">Write to us from the website</h2>
           <p>For information about PdT Storytelling Cards or professional collaborations, complete the fields below. The button will open your email app with the message already prepared: simply press Send.</p>
         </div>
-        <form class="secure-contact-form" data-mailto-form data-recipient="pdtstorytellingcards@gmail.com" data-subject="Request from PdT Storytelling Cards website" novalidate>
+        <form class="secure-contact-form" data-mailto-form data-recipient="pdtstorytellingcards@gmail.com" data-subject="Request from PdT Storytelling Cards website" method="post">
+<p class="form-security-note" data-pdt-form-fallback>This form is available only if its script loads successfully. If it stays disabled, email <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
           <div class="form-grid">
-            <label class="form-field"><span>Full name</span><input type="text" name="name" maxlength="100" autocomplete="name" required /></label>
-            <label class="form-field"><span>Email</span><input type="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required /></label>
-            <label class="form-field form-field-wide"><span>Message</span><textarea name="message" rows="6" maxlength="2000" required></textarea></label>
+            <label class="form-field"><span>Full name</span><input disabled data-pdt-enable type="text" name="name" maxlength="100" autocomplete="name" required /></label>
+            <label class="form-field"><span>Email</span><input disabled data-pdt-enable type="email" name="email" maxlength="254" autocomplete="email" inputmode="email" required /></label>
+            <label class="form-field form-field-wide"><span>Message</span><textarea disabled data-pdt-enable name="message" rows="6" maxlength="2000" required></textarea></label>
           </div>
-          <label class="form-privacy"><input type="checkbox" name="privacy_acknowledged" value="yes" required /><span>I confirm that I have read the <a href="privacy-policy-en.html">Privacy Policy</a>.</span></label>
+          <label class="form-privacy"><input disabled data-pdt-enable type="checkbox" name="privacy_acknowledged" value="yes" required /><span>I confirm that I have read the <a href="privacy-policy-en.html">Privacy Policy</a>.</span></label>
           <div class="form-actions">
-            <button class="primary-button solid secure-submit" type="submit">Prepare email</button>
+            <button disabled data-pdt-enable class="primary-button solid secure-submit" type="submit">Prepare email</button>
             <p class="form-direct-email">Prefer to email us directly? <a href="mailto:pdtstorytellingcards@gmail.com">Write to pdtstorytellingcards@gmail.com</a></p>
           </div>
           <p class="form-security-note" data-mailto-status>The message is sent from your own email app. This website does not use an external service to forward the message content.</p>
