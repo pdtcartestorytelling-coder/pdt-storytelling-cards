@@ -60,9 +60,17 @@ async function run(){
         });
         assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" opening menu must focus first link: "+JSON.stringify(menuDiagnostics));
         await page.keyboard.press("Tab");
-        assert.ok(await page.$eval(".nav-panel a[href]",links=>document.activeElement===links[1]),file+" Tab must reach second menu link");
-        await page.keyboard.press("Shift+Tab");
+        assert.ok(await page.evaluate(()=>document.activeElement===document.querySelectorAll(".nav-panel a[href]")[1]),file+" Tab must reach second menu link");
+        await page.keyboard.down("Shift");
+        try { await page.keyboard.press("Tab"); } finally { await page.keyboard.up("Shift"); }
         assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" Shift+Tab must return to first link");
+        const linkCount=await page.evaluate(()=>document.querySelectorAll(".nav-panel a[href]").length);
+        for(let index=1;index<linkCount;index++){
+          await page.keyboard.press("Tab");
+          assert.ok(await page.evaluate(i=>document.activeElement===document.querySelectorAll(".nav-panel a[href]")[i],index),file+" Tab must reach menu link "+(index+1));
+        }
+        await page.keyboard.press("Tab");
+        assert.ok(await page.$eval(".nav-panel",e=>!e.contains(document.activeElement)),file+" Tab must leave menu after last link (no keyboard trap)");
         await page.keyboard.press("Escape");
         assert.ok(await page.$eval(".menu-toggle",e=>e.getAttribute("aria-expanded")==="false"&&document.activeElement===e),file+" Escape focus");
         await page.keyboard.press("Tab");
