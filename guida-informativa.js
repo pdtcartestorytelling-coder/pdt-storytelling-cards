@@ -15,7 +15,7 @@
       prompt: "Oppure scrivi una domanda generale", placeholder: "Es. quante carte contiene?",
       send: "Invia", note: "Non inserire dati personali o sanitari. Le domande non vengono inviate o memorizzate. Questo strumento non fornisce consulenza clinica.",
       unknown: "Posso aiutarti a conoscere le tre edizioni PdT, il metodo, le applicazioni professionali e le modalità di richiesta informazioni. Prova una delle domande qui sopra.",
-      special: "PdT è uno strumento narrativo professionale, non un test diagnostico e non offre consulenza clinica individuale.",
+      special: "PdT è un supporto narrativo, non un test diagnostico o psicometrico né un trattamento autonomo. La guida non offre consulenza clinica o assistenza di emergenza. Non inserire dati di pazienti, candidati o dipendenti.",
       specialLink: "Scopri il metodo", price: "Per prezzi, disponibilità e condizioni di acquisto aggiornate, contatta direttamente il progetto PdT. Il sito non riporta qui un prezzo verificato.",
       priceLink: "Richiedi informazioni", fallbackLink: "Vai ai contatti", contact: "contatti.html",
       topics: [
@@ -24,7 +24,7 @@
         { label: "Si può usare individualmente?", keys: ["individual","singol","persona","uno a uno","1 a 1","colloquio"], answer: "Sì, in contesti professionali appropriati. Le 8 schede per il lavoro individuale accompagnano l'esplorazione narrativa; lo strumento viene integrato nel mandato e nelle competenze del professionista.", link: "Utilizzo individuale", href: "utilizzo-individuale.html" },
         { label: "Si può usare con i gruppi?", keys: ["grupp","team","equipe","équipe","collettiv","workshop"], answer: "PdT prevede 6 schede operative per il setting di gruppo, orientate a narrazione, ascolto e confronto tra punti di vista all'interno di un contesto professionale condiviso.", link: "Setting di gruppo", href: "setting-gruppo.html" },
         { label: "È utile per psicologi e psicoterapeuti?", keys: ["psicolog","psicoterap","terapeut","clinico","clinica"], answer: "PdT è rivolto anche a psicologi e psicoterapeuti come supporto narrativo e relazionale da integrare nel proprio setting. Non sostituisce test o strumenti diagnostici.", link: "Per psicologi e psicoterapeuti", href: "psicologi-psicoterapeuti.html" },
-        { label: "Come si usa nelle Risorse Umane?", keys: ["risors","uman","lavoro","organizz","hr","selezion","aziend"], answer: "Sono previste 8 schede per i contesti Risorse Umane. Le carte possono sostenere la narrazione e il confronto in attività coerenti con il ruolo e il mandato del professionista.", link: "Per le Risorse Umane", href: "risorse-umane.html" },
+        { label: "Come si usa nelle Risorse Umane?", keys: ["risors","uman","lavoro","organizz","hr","selezion","aziend"], answer: "Sono previste 8 schede per i contesti Risorse Umane. Le carte sono proposte per dialogo e riflessione, non per punteggi, profili psicologici o decisioni di selezione. Non sollecitare dati sensibili o racconti privati.", link: "Per le Risorse Umane", href: "risorse-umane.html" },
         { label: "Come posso richiedere informazioni?", keys: ["acquist","ordin","compr","spediz","consegn","disponib","contatt","email","informaz"], answer: "Per conoscere meglio Essential, Studio o Signature e ricevere dettagli sulla disponibilità, consulta la pagina Pre Order o scrivi a pdtstorytellingcards@gmail.com.", link: "Scopri le edizioni", href: "pre-order.html" }
       ]
     },
@@ -34,7 +34,7 @@
       prompt: "Or ask a general question", placeholder: "E.g. how many cards?",
       send: "Send", note: "Do not enter personal or health information. Questions are not sent or stored. This guide does not provide clinical advice.",
       unknown: "I can help you explore the three PdT editions, the method, professional uses and product enquiries. Please choose a question above.",
-      special: "PdT is a professional storytelling tool, not a diagnostic test, and this guide cannot provide personal clinical advice.",
+      special: "PdT is a storytelling resource, not a diagnostic or psychometric test or a stand-alone treatment. The guide provides neither clinical advice nor emergency assistance. Do not enter patient, candidate or employee data.",
       specialLink: "Explore the project", price: "For current prices, availability and purchase terms, please contact PdT directly. No verified price is provided here.",
       priceLink: "Request information", fallbackLink: "Contact PdT", contact: "contact-en.html",
       topics: [
@@ -43,7 +43,7 @@
         { label: "Can it be used individually?", keys: ["individual","one-to-one","one to one","single","session","personal"], answer: "Yes, in an appropriate professional setting. Eight activity sheets are intended for individual work; their use depends on the professional's role and agreed purpose.", link: "Explore PdT", href: "home-en.html#project" },
         { label: "Can it be used with groups?", keys: ["group","team","workshop","collective"], answer: "Six activity sheets are dedicated to group settings, supporting storytelling, listening and exchange of perspectives within an agreed professional framework.", link: "Explore PdT", href: "home-en.html#project" },
         { label: "Is it for psychologists?", keys: ["psycholog","psychotherap","therap","clinician","clinical"], answer: "PdT is designed for psychologists and psychotherapists as a narrative and relational resource to use within their professional practice. It does not replace diagnostic or psychometric tools.", link: "About the project", href: "about-en.html" },
-        { label: "Can HR professionals use it?", keys: ["human resources","hr","workplace","organisation","organization","company","recruit"], answer: "PdT includes eight activity sheets for Human Resources contexts. Their use should be aligned with the professional's role and the purpose of the activity.", link: "About the project", href: "about-en.html" },
+        { label: "Can HR professionals use it?", keys: ["human resources","hr","workplace","organisation","organization","company","recruit"], answer: "PdT includes eight activity sheets for Human Resources contexts. Use them for dialogue and reflection, not for scores, psychological profiling or recruitment decisions. Do not solicit sensitive information or private disclosures.", link: "About the project", href: "about-en.html" },
         { label: "How can I learn about availability?", keys: ["buy","purchase","order","ship","delivery","availab","contact","email","information"], answer: "Explore Essential, Studio and Signature on the Pre Order page, or email pdtstorytellingcards@gmail.com for information and availability.", link: "Explore editions", href: "pre-order-en.html" }
       ]
     },
@@ -53,7 +53,7 @@
       prompt: "O escribe una pregunta general", placeholder: "Ej. ¿cuántas cartas hay?",
       send: "Enviar", note: "No introduzcas datos personales ni de salud. Las preguntas no se envían ni se guardan. Esta guía no ofrece asesoramiento clínico.",
       unknown: "Puedo ayudarte a conocer las tres ediciones PdT, el método, sus usos profesionales y cómo solicitar información. Prueba una pregunta de la lista.",
-      special: "PdT es una herramienta narrativa profesional, no una prueba diagnóstica, y esta guía no puede ofrecer asesoramiento clínico personal.",
+      special: "PdT es un recurso narrativo, no una prueba diagnóstica o psicométrica ni un tratamiento autónomo. La guía no ofrece asesoramiento clínico ni asistencia de emergencia. No introduzcas datos de pacientes, candidatos o empleados.",
       specialLink: "Conoce el proyecto", price: "Para conocer precios, disponibilidad y condiciones de compra actualizados, ponte en contacto con PdT. Aquí no se indica ningún precio verificado.",
       priceLink: "Solicitar información", fallbackLink: "Contacta con PdT", contact: "contact-es.html",
       topics: [
@@ -62,7 +62,7 @@
         { label: "¿Sirve para trabajo individual?", keys: ["individual","uno a uno","una persona","sesion","personal"], answer: "Sí, en un contexto profesional adecuado. Ocho fichas están dedicadas al trabajo individual y deben utilizarse según la función y el encuadre del profesional.", link: "Conoce PdT", href: "home-es.html#project" },
         { label: "¿Se puede usar con grupos?", keys: ["grupo","equipo","taller","colectiv"], answer: "Seis fichas operativas están dedicadas a los contextos grupales para favorecer la narración, la escucha y el intercambio de perspectivas.", link: "Conoce PdT", href: "home-es.html#project" },
         { label: "¿Es para psicólogos?", keys: ["psicolog","psicoterap","terapeut","clinic"], answer: "PdT puede integrarse en el trabajo de psicólogos y psicoterapeutas como recurso narrativo y relacional. No sustituye herramientas diagnósticas ni psicométricas.", link: "Sobre el proyecto", href: "about-es.html" },
-        { label: "¿Es útil en Recursos Humanos?", keys: ["recursos humanos","rrhh","empresa","organiz","trabajo","seleccion"], answer: "PdT incluye ocho fichas destinadas al ámbito de Recursos Humanos. Su utilización debe adaptarse al cometido y a las competencias profesionales.", link: "Sobre el proyecto", href: "about-es.html" },
+        { label: "¿Es útil en Recursos Humanos?", keys: ["recursos humanos","rrhh","empresa","organiz","trabajo","seleccion"], answer: "PdT incluye ocho fichas destinadas al ámbito de Recursos Humanos. Utilízalas para el diálogo y la reflexión, no para puntuaciones, perfiles psicológicos o decisiones de selección. No solicites datos sensibles ni relatos privados.", link: "Sobre el proyecto", href: "about-es.html" },
         { label: "¿Cómo puedo solicitar información?", keys: ["compr","pedid","envio","entrega","disponib","contact","correo","informacion"], answer: "Conoce Essential, Studio y Signature en la página Pre Order o escribe a pdtstorytellingcards@gmail.com para consultar disponibilidad.", link: "Descubre las ediciones", href: "pre-order-es.html" }
       ]
     }
