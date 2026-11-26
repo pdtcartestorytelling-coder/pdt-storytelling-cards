@@ -91,15 +91,22 @@ async function run(){
       try{
         await nojs.setViewport({width:390,height:844});
         await nojs.setJavaScriptEnabled(false);
-        await nojs.goto(url,{waitUntil:"domcontentloaded",timeout:12000});
+        // Without JavaScript, DOMContentLoaded may precede stylesheet loading.
+        // Wait for the complete page before testing the CSS-only fallback.
+        await nojs.goto(url,{waitUntil:"load",timeout:20000});
         const facts=await nojs.evaluate(()=>({
           menu:getComputedStyle(document.querySelector(".nav-panel")).visibility,
           toggle:getComputedStyle(document.querySelector(".menu-toggle")).display,
           visible:[...document.querySelectorAll(".reveal")].every(e=>getComputedStyle(e).opacity==="1"),
-          skip:!!document.querySelector(".pdt-skip-link")
+          skip:!!document.querySelector(".pdt-skip-link"),
+          styleLoaded:[...document.styleSheets].some(s=>s.href&&new URL(s.href).pathname.endsWith("/style.css")),
+          root:document.documentElement.className,
+          ready:document.readyState
         }));
+        assert.ok(facts.styleLoaded,file+" no-JS shared stylesheet not loaded: "+JSON.stringify(facts));
+        assert.ok(!facts.root.includes("pdt-menu-ready"),file+" no-JS unexpectedly initialised menu");
         assert.equal(facts.menu,"visible",file+" no-JS menu");
-        assert.equal(facts.toggle,"none",file+" no-JS nonfunctional toggle");
+        assert.equal(facts.toggle,"none",file+" no-JS nonfunctional toggle: "+JSON.stringify(facts));
         assert.ok(facts.visible&&facts.skip,file+" no-JS content");
       }finally{await nojs.close();}
       console.log(file,"accessibility smoke OK");
