@@ -380,6 +380,25 @@ for about, articles, product, lang in cred_pages:
     if f'href="{about}#founders"' not in (ROOT / product).read_text(encoding="utf-8"):
         ERRORS.append(f"{product}: founder link missing")
 
+# Free resources: editorial-only guide, paper checklist, glossary and local links.
+resource_pages = [["risorse-pdt.html","index.html","metodo-pdt.html","articoli-pubblicazioni.html","manuale-pdt.html","esempi-pdt.html","prodotto.html"],["resources-en.html","home-en.html","method-en.html","articles-en.html","manual-en.html","examples-en.html","product-en.html"],["resources-es.html","home-es.html","method-es.html","articles-es.html","manual-es.html","examples-es.html","product-es.html"]]
+for name, home, method, articles, manual, examples, product in resource_pages:
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for marker in ('id="guide"', 'id="checklist"', 'id="glossary"', 'id="reading"', 'pdt-resources.css?v=1', 'class="resource-notice"', 'pdt-skip-link'):
+        if marker not in text:
+            ERRORS.append(f"{name}: resource missing {marker}")
+    if text.count('class="method-card resource-guide"') != 3 or text.count('class="resource-checkmark"') != 6 or text.count('<dt>') != 6 or text.count('class="method-card resource-link"') != 4 or any(marker in text for marker in ('<form', '<input', '<textarea', '<iframe', '<object', '<embed', 'data-shop-edition', '.pdf"')):
+        ERRORS.append(f"{name}: resource content or read-only boundary invalid")
+    for target, *_ in resource_pages:
+        if f'https://pdtstorytellingcards.com/{target}' not in text:
+            ERRORS.append(f"{name}: missing translated resource alternate")
+    for source in (home, method, articles, manual):
+        if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8"):
+            ERRORS.append(f"{name}: missing entry from {source}")
+    for target in (method, articles, manual, examples, product):
+        if f'href="{target}"' not in text:
+            ERRORS.append(f"{name}: missing local resource link {target}")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
