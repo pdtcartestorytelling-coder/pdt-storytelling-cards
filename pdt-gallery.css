@@ -1,0 +1,8 @@
+/* Signature gallery — documented visual assets, no player or external embeds. */
+.pdt-gallery-page main{overflow-wrap:anywhere}.pdt-gallery-page main .container{min-width:0}.pdt-gallery-page main a{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.gallery-hero,.gallery-asset{min-width:0;margin:0;border:1px solid #e4d9c9;border-radius:16px;overflow:hidden;background:#fffaf3;color:#0b2f58}
+.gallery-hero img,.gallery-asset img{display:block;width:100%;height:auto;object-fit:contain;aspect-ratio:4/3;background:#faf4e9}
+.gallery-hero figcaption,.gallery-asset figcaption{padding:1rem;line-height:1.55}.gallery-asset h3{margin:0 0 .45rem;font-size:1.25rem}.gallery-asset p{margin:0;color:#334b65}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+.gallery-state{font-size:.82rem;font-weight:700;color:#174b7f!important;margin:0 0 .7rem!important}
+@media(max-width:850px){.gallery-grid{grid-template-columns:minmax(0,1fr)}}
