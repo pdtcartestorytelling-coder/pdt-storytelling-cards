@@ -23,6 +23,8 @@ jobs:
           node --check guida-informativa.js
           node --check pdt-motion.js
 
+      - name: Verify optional marketing consent (no email sent)
+        run: node scripts/marketing_consent.cjs
       - name: Install browser smoke dependencies
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
       - name: Verify AVIF image container and dimensions

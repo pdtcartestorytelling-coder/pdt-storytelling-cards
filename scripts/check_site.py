@@ -156,7 +156,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
-    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
+    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=12' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
     if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
         ERRORS.append(f"{name}: motion assets missing")
@@ -175,6 +175,15 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: motion assets missing")
     if 'data-shop-edition="essential"' in text:
         ERRORS.append(f"{name}: Essential is still selectable")
+
+# Marketing is optional and separate from the privacy acknowledgement.
+for name in ("pre-order.html","pre-order-en.html","pre-order-es.html"):
+    text = (ROOT/name).read_text(encoding="utf-8")
+    fields = re.findall(r'<input\b[^>]*\bname="updates_consent"[^>]*>', text)
+    if len(fields) != 1 or re.search(r'\b(?:checked|required)\b', fields[0]):
+        ERRORS.append(f"{name}: marketing consent must be optional and unchecked")
+    if 'data-consent-version="PDT-MKT-20261126-v1"' not in text or 'data-marketing-consent-text' not in text or 'id="pdt-marketing-note"' not in text:
+        ERRORS.append(f"{name}: versioned marketing consent information missing")
 
 # The first screen must provide direct one-click links, not hidden accordions.
 for name in ("index.html", "home-en.html", "home-es.html"):
