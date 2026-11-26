@@ -51,14 +51,9 @@ Non inserire mai nel repository pubblico:
 - credenziali account;
 - dati personali non destinati alla pubblicazione.
 
-## Pubblicazione / aggiornamento
+## Pubblicazione / aggiornamento — BLOCCATA NEL CANDIDATO
 
-1. Scompattare lo ZIP.
-2. Copiare **tutti i file e le cartelle** nella root del repository GitHub.
-3. Sostituire i file esistenti.
-4. Fare commit/push.
-5. Attendere il deploy di GitHub Pages.
-6. Verificare il sito e, se necessario, fare un refresh forzato (`Ctrl + F5`).
+Non copiare tutti i file del repository sul sito. Questo ramo contiene bozze non approvate. Seguire esclusivamente il registro finale `docs/commercial/site-15-release-audit-20261127.md`: approvazioni, pacchetto web verificato, PR finale verso main, autorizzazione esplicita, verifica deployment e rollback. Non cambiare GitHub Pages, DNS, CNAME o servizi in questa fase. Nessuna credenziale o dato reale nel repository pubblico.
 
 ## SEO
 

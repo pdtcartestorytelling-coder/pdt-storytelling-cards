@@ -182,7 +182,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
                                             '<a class="preorder-gallery-image"',
                                             '<a href="images/')):
         ERRORS.append(f"{name}: fullscreen image control still present")
-    if 'preorder.css?v=23' not in text:
+    if 'preorder.css?v=24' not in text:
         ERRORS.append(f"{name}: latest gallery style missing")
     if '<strong>149 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: expected prominent pre-order 149 vs planned list 199")

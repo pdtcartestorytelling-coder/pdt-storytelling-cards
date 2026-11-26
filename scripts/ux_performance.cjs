@@ -70,8 +70,9 @@ async function run(){
           assert.ok(menu.open&&menu.bottom<=menu.viewport+5&&menu.height>=44&&menu.overflow==="auto",file+" short mobile menu "+JSON.stringify(menu));
           await page.keyboard.press("Escape");
           if(file===pre){
-            await page.$eval('#interest input[name="name"]',e=>e.focus());
-            assert.ok(await page.$eval(".preorder-mobile-action",e=>getComputedStyle(e).visibility==="hidden"),file+" CTA must not obscure focused form");
+            await page.$eval('#interest input[name="name"]',e=>{e.focus({preventScroll:true});});
+            const focused=await page.evaluate(()=>{const input=document.querySelector('#interest input[name="name"]'),bar=document.querySelector(".preorder-mobile-action"),style=getComputedStyle(bar);return {active:document.activeElement===input,disabled:input.disabled,display:style.display,visibility:style.visibility,rect:bar.getBoundingClientRect().height};});
+            assert.ok(focused.active&&!focused.disabled&&focused.display==="none"&&focused.rect===0,file+" CTA must not obscure focused form "+JSON.stringify(focused));
           }
         }finally{await page.close();}
       }
