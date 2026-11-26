@@ -9,3 +9,8 @@
 .example-questions li{border:1px solid #e4d9c9;border-radius:12px;background:#fffaf3;padding:.9rem 1rem;overflow-wrap:anywhere}
 .example-questions strong{display:block;color:#174b7f;margin-bottom:.3rem}
 @media(max-width:740px){.example-layout{grid-template-columns:minmax(0,1fr)}}
+
+/* PR #74: keep long translated headings and link labels within narrow viewports. */
+.pdt-examples-page main,.pdt-examples-page main h1,.pdt-examples-page main h2,.pdt-examples-page main h3{overflow-wrap:anywhere}
+.pdt-examples-page main .container,.pdt-examples-page .method-actions>*{min-width:0;max-width:100%}
+.pdt-examples-page main a{white-space:normal;overflow-wrap:anywhere;max-width:100%}
