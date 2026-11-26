@@ -81,7 +81,7 @@
       '<div class="pdt-guide__body">' +
         '<p class="pdt-guide__intro"></p>' +
         '<div class="pdt-guide__choices"></div>' +
-        '<div class="pdt-guide__answer" aria-live="polite" aria-atomic="true" hidden></div>' +
+        '<div class="pdt-guide__answer" aria-live="polite" aria-atomic="true"></div>' +
         '<form class="pdt-guide__form" autocomplete="off">' +
           '<label for="pdt-guide-input"></label>' +
           '<div class="pdt-guide__form-row"><input type="text" id="pdt-guide-input" maxlength="160" autocomplete="off" required /><button type="submit"></button></div>' +
@@ -122,7 +122,7 @@
       link.textContent = label;
       answer.appendChild(link);
     }
-    answer.hidden = false;
+
   }
 
   function respond(raw) {
@@ -159,7 +159,6 @@
       close.focus();
     } else {
       input.value = "";
-      answer.hidden = true;
       answer.replaceChildren();
       toggle.focus();
     }
