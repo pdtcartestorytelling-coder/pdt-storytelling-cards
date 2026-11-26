@@ -35,6 +35,15 @@ jobs:
           file images/pdt-editions-hq.avif
       - name: Browser smoke test (IT EN ES / mobile desktop)
         run: timeout 150s node scripts/browser_smoke.cjs
+      - name: UX and local performance lab (IT EN ES)
+        run: timeout 120s node scripts/ux_performance.cjs
+      - name: Save local performance report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdt-performance-lab
+          path: browser-test-screenshots/performance-lab.json
+          if-no-files-found: ignore
       - name: Save responsive screenshots
         if: always()
         uses: actions/upload-artifact@v4

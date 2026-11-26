@@ -929,3 +929,10 @@ body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
 body:is([data-page="home"],[data-page="preorder"]) :is(.pdt-motion-target,.pdt-h-hero-copy > *, .preorder-hero-grid > div > *):focus-within {
   opacity:1 !important; transform:none !important; animation:none !important; transition:none !important;
 }
+
+/* Coarse-pointer devices: readable content with no scroll-linked depth or clipping. */
+@media(pointer:coarse){
+  body:is([data-page="home"],[data-page="preorder"]) .pdt-motion-target{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
+  body.pdt-cinema-enabled .pdt-cinema-sweep,body.pdt-cinema-enabled .pdt-cinema-edge,.pdt-journey{display:none!important}
+  body.pdt-cinema-enabled .pdt-cinema-card{scale:1!important;transition:none!important}
+}

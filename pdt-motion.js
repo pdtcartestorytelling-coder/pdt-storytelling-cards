@@ -8,6 +8,9 @@
 
   const supportsReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const allowsReveal = !supportsReducedMotion.matches && "IntersectionObserver" in window;
+  // Touch devices retain simple reveal/progress; skip expensive decorative scroll depth.
+  const coarsePointer = window.matchMedia("(pointer: coarse)");
+  const allowsDepth = !supportsReducedMotion.matches && !coarsePointer.matches;
   const selectors = body.dataset.page === "home"
     ? [
         ".pdt-h-heading", ".pdt-h-facts article", ".pdt-h-edition",
@@ -105,7 +108,7 @@
 
   // Independent ambient light layers on section backgrounds. Decorative only:
   // sections and content do not move, so layout and click targets stay stable.
-  const sceneSections = !supportsReducedMotion.matches
+  const sceneSections = allowsDepth
     ? [...document.querySelectorAll(
         body.dataset.page === "home"
           ? ".pdt-h-kit, .pdt-h-collection, .pdt-h-method, .pdt-h-cta"
@@ -146,7 +149,7 @@
     section.classList.add("pdt-cinema-scene");
     return {section,sweep,edge,index};
   });
-  const cinematicCards = !supportsReducedMotion.matches
+  const cinematicCards = allowsDepth
     ? [...document.querySelectorAll(
         body.dataset.page === "home"
           ? ".pdt-h-edition,.pdt-h-facts article,.pdt-h-method-grid > div"
@@ -180,7 +183,7 @@
   }
 
   updateDepth = () => {
-    if (supportsReducedMotion.matches) return;
+    if (!allowsDepth || supportsReducedMotion.matches || coarsePointer.matches) return;
     const viewportHeight = window.innerHeight;
     const mobile = window.innerWidth < 760;
 
