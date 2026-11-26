@@ -421,9 +421,9 @@ async function run() {
         const errors=[];page.on("pageerror",error=>errors.push(error.message));
         const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
         await page.waitForFunction(()=>{const img=document.querySelector(".sig-hero-photo img");return img&&img.complete&&img.naturalWidth===1448;},{timeout:12000});
-        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,cta:[...document.querySelectorAll(".sig-primary")].map(a=>a.getAttribute("href")),cards:document.querySelectorAll(".sig-card").length,contexts:document.querySelectorAll(".sig-context").length,price:document.querySelector(".sig-price")?.textContent,style:getComputedStyle(document.querySelector(".sig-hero-grid")).display}));
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,cta:[...document.querySelectorAll(".sig-primary")].map(a=>a.getAttribute("href")),cards:document.querySelectorAll(".sig-card").length,contexts:document.querySelectorAll("#contexts .sig-context").length,specs:document.querySelectorAll("#specifications .sig-context").length,price:document.querySelector(".sig-price")?.textContent,style:getComputedStyle(document.querySelector(".sig-hero-grid")).display}));
         assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.style==="grid",file+" "+width+": product page layout");
-        assert(info.cta.length===2&&info.cta.every(x=>x===preorder+"#interest")&&info.cards===3&&info.contexts===3&&info.price.includes("149")&&info.price.includes("199")&&!errors.length,file+": product contents or enquiry missing");
+        assert(info.cta.length===2&&info.cta.every(x=>x===preorder+"#interest")&&info.cards===3&&info.contexts===3&&info.specs===3&&info.price.includes("149")&&info.price.includes("199")&&!errors.length,file+": product contents or enquiry missing");
         await page.screenshot({path:path.join(screenshots,"product-"+lang+"-"+width+".png"),fullPage:false,timeout:12000});
         await page.close();
       }

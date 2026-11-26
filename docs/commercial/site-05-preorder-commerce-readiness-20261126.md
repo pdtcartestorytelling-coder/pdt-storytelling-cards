@@ -10,3 +10,6 @@ Base incrementale PR #71. Lotto 01: 50 cofanetti programmati, prezzo di lancio p
 5. Fatturazione secondo commercialista; Sendcloud solo dopo pagamento verificato, indirizzo e scorta confermati. Test riconciliazione, annullamento, rimborso, reso e assistenza; nessuna automazione o sottoscrizione attivata.
 
 Gate: confermare fabbricante/soggetto venditore, destinazione, GPSR, privacy, condizioni B2B/B2C, fiscalità, margini, stock, consegna; definire segreti/ruoli, test sandbox e rilascio, approvazione esplicita. Prima del merge verificare CI, desktop/mobile, no-JS, mailto con app reale e tutti i gate #67–71; mantenere sito pubblico invariato. Nessun dato cliente reale in repository.
+
+## Correzione CI
+Run #121 PR #71: browser smoke contava anche i 3 pannelli specifiche con classe sig-context; selettore ora limitato a #contexts, con asserzione separata sui 3 pannelli #specifications. Run #122 PR #72: controllo legacy Essential intercettava la parola inglese generica essential; copy sostituito con key details senza rimuovere il controllo anti-edizione. Correzioni solo nella #72, #71 invariata. Nuova CI da verificare.
