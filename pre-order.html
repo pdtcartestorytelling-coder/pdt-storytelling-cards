@@ -153,7 +153,8 @@
 <label class="pdt-field-full">Messaggio (facoltativo)<textarea name="message" rows="3" maxlength="1200" placeholder="Per esempio: vorrei acquistare 2 Signature e sapere la spedizione a..."></textarea></label>
 </div>
 <label class="pdt-interest-check"><input type="checkbox" name="privacy_acknowledged" required><span>Dichiaro di aver letto l’<a href="privacy-policy.html">informativa privacy</a>.</span></label>
-<label class="pdt-interest-check"><input type="checkbox" name="updates_consent"><span>Acconsento a ricevere aggiornamenti via email (facoltativo e revocabile).</span></label>
+<label class="pdt-interest-check"><input type="checkbox" name="updates_consent" value="yes" data-consent-version="PDT-MKT-20261126-v1" aria-describedby="pdt-marketing-note"><span data-marketing-consent-text>Acconsento a ricevere via email newsletter e comunicazioni promozionali di PdT Storytelling Cards su prodotti, novità e iniziative del progetto.</span></label>
+<p class="pdt-interest-hint" id="pdt-marketing-note">Facoltativo: la risposta alla richiesta non dipende dal consenso. La scelta sarà trasmessa solo se invii l’email; prima di iscriverti chiederemo conferma dell’indirizzo. Puoi revocare il consenso in ogni momento, senza costi, scrivendo a <a href="mailto:pdtstorytellingcards@gmail.com?subject=Revoca%20consenso%20marketing">pdtstorytellingcards@gmail.com</a>.</p>
 <button type="submit" class="preorder-btn preorder-btn--primary pdt-interest-send">Prepara email di richiesta ↗</button>
 <p class="pdt-interest-hint" data-interest-status role="status">Dovrai confermare l'invio dalla tua app email; nessuna richiesta viene spedita automaticamente.</p>
 </form>
@@ -182,7 +183,7 @@
   </div>
 </footer>
 
-<script src="interest.js?v=8" defer></script>
+<script src="interest.js?v=12" defer></script>
 <script src="pdt-shop.js?v=3" defer></script>
 </body>
 </html>
