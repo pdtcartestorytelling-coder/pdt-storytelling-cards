@@ -128,7 +128,7 @@ except (ET.ParseError, OSError) as exc:
 
 # Consolidated candidate: do not expose incomplete policies or revive old asset versions.
 candidate_assets = {"style.css":22, "script.js":12, "pdt-motion.css":10,
-                    "interest.js":13, "pdt-shop.css":7, "pdt-shop.js":5,
+                    "interest.js":14, "pdt-shop.css":7, "pdt-shop.js":5,
                     "guida-informativa.js":6}
 deferred_policy = re.compile(r"^(?:terms-of-use|cookie-policy|legal-information|intellectual-property|sales-terms|returns-policy|product-safety|professional-use)(?:-en|-es)?\\.html$")
 for file, page in parsed.items():
@@ -169,6 +169,10 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: Signature-only email CTA is missing or Essential remains")
     if 'data-interest-mailto' not in text or 'name="destination"' not in text or 'name="message"' not in text:
         ERRORS.append(f"{name}: commercial email enquiry form incomplete")
+    if 'name="sector"' in text or 'name="interest"' in text:
+        ERRORS.append(f"{name}: unnecessary enquiry field remains")
+    if text.count('href="#interest"') < 3 or 'name="quantity"' not in text:
+        ERRORS.append(f"{name}: direct enquiry path missing")
     if 'name="edition" value="top"' not in text or '<select name="edition"' in text:
         ERRORS.append(f"{name}: edition must be fixed to Signature")
     if text.count('<div class="pdt-edition-preview">') != 1 or text.count('<div class="preorder-gallery-image">') != 4:
@@ -184,7 +188,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: expected prominent pre-order 149 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
-    if 'pdt-shop.js?v=5' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=13' not in text:
+    if 'pdt-shop.js?v=5' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=14' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
     if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=10' not in text:
         ERRORS.append(f"{name}: motion assets missing")

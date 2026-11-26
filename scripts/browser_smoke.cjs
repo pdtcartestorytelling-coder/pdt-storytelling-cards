@@ -181,6 +181,8 @@ async function run() {
           links:[...document.querySelectorAll("a[data-shop-edition]")].map(x=>({edition:x.dataset.shopEdition,href:x.getAttribute("href")})),
           inputFields:["name","email","edition","quantity","destination","message"].every(n=>!!document.querySelector('form[data-interest-mailto] [name="'+n+'"]')),
           privacy:!!document.querySelector('form[data-interest-mailto] input[name="privacy_acknowledged"][required]'),
+          minimalForm:!document.querySelector('form[data-interest-mailto] [name="sector"],form[data-interest-mailto] [name="interest"]'),
+          enquiryCTAs:[".preorder-actions .preorder-btn--primary",".pdt-tier-link",".preorder-mobile-action a"].every(sel=>document.querySelector(sel)?.getAttribute("href")==="#interest"),
           fallback:!!document.querySelector("[data-shop-copy]"),
           studioVisible:document.querySelector(".pdt-tier-grid")?.textContent.includes("PdT Studio"),
           imageMotion:[...document.querySelectorAll(".pdt-edition-preview picture")].every(x=>x.classList.contains("pdt-reveal-photo"))
@@ -194,6 +196,7 @@ async function run() {
         assert(commerce.links.some(x=>x.href.includes("149")&&x.href.includes("199")),lang+" "+label+": email draft missing pre-order pricing");
         assert(commerce.links.every(x=>x.edition==="signature"),lang+" "+label+": retired edition still has email CTA");
         assert(commerce.inputFields&&commerce.privacy&&commerce.fallback&&!commerce.studioVisible,lang+" "+label+": commercial request flow incomplete");
+        assert(commerce.minimalForm&&commerce.enquiryCTAs,lang+" "+label+": simplified enquiry path missing");
         assert(commerce.imageMotion,lang+" "+label+": product image reveal not initialised");
         if(label==="desktop"){
           const depth=await page.evaluate(async()=>{
