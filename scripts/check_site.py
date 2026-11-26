@@ -211,15 +211,15 @@ for name in ("index.html", "home-en.html", "home-es.html"):
 # The first screen must provide direct one-click links, not hidden accordions.
 for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
-    for target in ("utilizzo-individuale.html", "setting-gruppo.html", "risorse-umane.html"):
+    for target in {"index.html": ("utilizzo-individuale.html", "setting-gruppo.html", "risorse-umane.html"), "home-en.html": ("individual-en.html", "group-en.html", "hr-en.html"), "home-es.html": ("individual-es.html", "group-es.html", "hr-es.html")}[name]:
         if f'<a class="pdt-first-action-link" href="{target}"' not in text:
             ERRORS.append(f"{name}: missing direct context link to {target}")
     if 'pdt-first-action-option' in text or 'pdt-first-action-answer' in text:
         ERRORS.append(f"{name}: obsolete context accordion still present")
     if 'pdt-first-action.css?v=5' not in text:
         ERRORS.append(f"{name}: updated direct-link styles missing")
-    if name != "index.html" and text.count('hreflang="it"') < 3:
-        ERRORS.append(f"{name}: Italian-only context destinations should be marked")
+    if 'pdt-first-action-language' in text or 'hreflang="it"><span class="pdt-first-action-num"' in text:
+        ERRORS.append(f"{name}: obsolete Italian-only context marker")
 # The Italian provenance and professional positioning must be consistent
 # across all storefront translations.
 for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-order-en.html","pre-order-es.html"):
@@ -325,6 +325,24 @@ for name, sources in manual_pages.items():
     for source in sources:
         if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8") or f'href="{source}"' not in text:
             ERRORS.append(f"{name}: missing reciprocal navigation to {source}")
+
+# Professional pathways: four routes per language, three settings only.
+pathway_groups = [["psicologi-psicoterapeuti.html","utilizzo-individuale.html","setting-gruppo.html","risorse-umane.html"],["psychologists-en.html","individual-en.html","group-en.html","hr-en.html"],["psychologists-es.html","individual-es.html","group-es.html","hr-es.html"]]
+for i, group in enumerate(pathway_groups):
+    preorder = ("pre-order.html", "pre-order-en.html", "pre-order-es.html")[i]
+    for j, name in enumerate(group):
+        text = (ROOT / name).read_text(encoding="utf-8")
+        for marker in ('id="directions"', 'id="resources"', 'id="other-pathways"', 'id="boundary-title"', 'pdt-pathways.css?v=1', f'href="{preorder}#interest"'):
+            if marker not in text:
+                ERRORS.append(f"{name}: pathway missing {marker}")
+        if any(tag in text for tag in ('<form', '<input', '<textarea', 'data-shop-edition')):
+            ERRORS.append(f"{name}: unexpected data collection or order functionality")
+        for targets in pathway_groups:
+            if f'https://pdtstorytellingcards.com/{targets[j]}' not in text:
+                ERRORS.append(f"{name}: translated pathway alternate missing")
+        for target in group:
+            if target != name and f'href="{target}"' not in text:
+                ERRORS.append(f"{name}: missing cross-pathway link {target}")
 
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:

@@ -1,0 +1,5 @@
+/* Dedicated professional pathways: read-only, scoped, responsive. */
+.pdt-pathway-page main{overflow-wrap:anywhere}.pdt-pathway-page main .container{min-width:0}
+.path-stat{min-width:0;border:1px solid #c49a49;background:#123f6f;border-radius:20px;padding:clamp(1rem,4vw,2.4rem);text-align:center;color:#fffaf3}
+.path-stat strong{font-family:var(--font-brand);font-size:clamp(2.5rem,5vw,4.2rem);line-height:1.15;color:#f5d38c}.path-stat p{margin:.8rem 0 0}
+.pdt-pathway-page main a{max-width:100%;overflow-wrap:anywhere;white-space:normal}.path-notice{max-width:780px;color:#fffaf3;line-height:1.6}
