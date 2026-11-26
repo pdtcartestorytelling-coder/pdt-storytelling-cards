@@ -1,0 +1,19 @@
+# PdT — matrice IVA e mercati
+26 novembre 2026 — bozza per verifica fiscale; nessun mercato aggiuntivo attivato. Ipotesi venditore stabilito in Italia, beni fisici spediti da Italia. Verificare effettivo regime, luogo stock, clienti, data operazione e normativa 2027 prima dell'uso.
+
+| Scenario | Regola da verificare | Controllo prima della vendita |
+|---|---|---|
+| Italia B2C, vendita a distanza con spedizione | Commercio elettronico indiretto/vendita per corrispondenza: in generale esonero fattura se non richiesta entro effettuazione operazione ed esonero certificazione e invio telematico corrispettivi; registrazione secondo regime applicabile | Confermare qualificazione anche flusso email, registro corrispettivi ove dovuto, opzione fatturare volontariamente, no doppia contabilizzazione |
+| Italia B2B | Fatturazione secondo regole applicabili, di norma fattura elettronica via SdI | Verificare dati fiscali, imponibile/IVA o natura, data operazione, recapito |
+| Italia B2C in presenza/ritiro | Non presumere esoneri e-commerce | Verificare certificazione e corrispettivi specifici |
+| UE B2C spedizione da Italia | Soglia aggregata 10.000 EUR netti IVA per vendite a distanza intra-UE e servizi TBE rilevanti, anno precedente e corrente, se condizioni (stabilimento unico Stato membro e spedizione da quello Stato) ricorrono; sopra soglia o opzione applicare IVA destinazione, salvo esenzioni applicabili | Monitorare soglia prima dell'ordine, aliquote paese, OSS Unione o registrazioni locali; non confondere con soglia forfetario |
+| UE B2B | In regime ordinario possibile cessione intra-UE non imponibile solo a condizioni soddisfatte | VIES, status acquirente, prova trasporto, adempimenti Intrastat e dichiarativi ove dovuti; regime forfetario/SME richiede analisi distinta |
+| Extra UE | Possibile esportazione non imponibile se presupposti e prova doganale, con regole proprie del regime | EORI se necessario, classificazione doganale, origine, dichiarazione e prova uscita, oneri importazione, resa e informazione cliente, regole destinazione |
+| Licenza digitale / formazione futura | Regole distinte da kit materiale | Classificare servizi e combinazioni, territorialità, IVA, eventuale OSS; non attivi |
+
+### Regime UE piccole imprese (SME), dal 1 gennaio 2025
+Valutare in alternativa o coordinamento con regole ordinarie/OSS: plafond annuo UE non superiore a 100.000 EUR nell'anno corrente e precedente e soglie/requisiti nazionali di ciascun paese. Notifica preventiva allo Stato di stabilimento, numero EX e adempimenti periodici; non esenzione automatica, non coincidente con regime forfetario o soglia 10.000 EUR. Verificare compatibilità, detrazione IVA e documentazione. OSS non riguarda indistintamente B2B o esportazioni. IOSS non è la soluzione per merci già in Italia spedite a consumatori UE.
+### Gate proposto
+Partire con Italia soltanto dopo approvazione fiscale/commerciale, poi UE ed extra UE con matrice approvata. Non impostare restrizioni discriminatorie di accesso/acquisto: delimitare zone di consegna nel rispetto del regolamento geoblocking e dei diritti applicabili. Non modificato sito. Lingua inglese/spagnola non equivale a mercati abilitati.
+Prima di ogni estensione: fiscalità, consumatori, GPSR, etichette, EPR, logistica, prezzi e resi; tenere storico versione regole e validità temporale. Verificare TU IVA applicabile dal 1 gennaio 2027.
+Fonti: https://www.to.camcom.it/book/export/html/8776 ; https://europa.eu/youreurope/business/finance-and-tax/vat/cross-border-vat/ ; https://europa.eu/youreurope/business/finance-and-tax/vat/one-stop-shop/index_en.htm ; https://sme-vat-rules.ec.europa.eu/index_en ; https://sme-vat-rules.ec.europa.eu/sme-scheme/cross-border-sme-scheme_en ; https://temi.camera.it/temi/19_tl18_iva_imposte_indirette.html .
