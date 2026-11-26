@@ -493,6 +493,19 @@ async function run() {
         await page.close();
       }
     }
+    // Credibility: author profiles, project articles and no testimonial collection, no JS.
+    for(const [lang,about,articles] of [["it","chi-siamo.html","articoli-pubblicazioni.html"],["en","about-en.html","articles-en.html"],["es","about-es.html","articles-es.html"]]){
+      for(const file of [about,articles]) for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        await page.setJavaScriptEnabled(false);
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"load",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,articles:document.querySelectorAll(".cred-article").length,founders:document.querySelectorAll(".founder-card").length,status:!!document.querySelector("#testimonials .cred-status"),forms:document.querySelectorAll("main form,main input,main textarea,main iframe").length,style:getComputedStyle(document.querySelector(".cred-main")).overflowWrap}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.style==="anywhere",file+" "+width+": credibility layout "+JSON.stringify(info));
+        assert(info.articles===4&&info.forms===0&&(file!==about||(info.founders===2&&info.status)),file+": credibility content or privacy boundary");
+        await page.close();
+      }
+    }
     // Accessibility: visitors requesting less motion see fully readable content.
     const reducedPage=await browser.newPage();
     await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);
