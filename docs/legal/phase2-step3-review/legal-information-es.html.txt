@@ -64,16 +64,18 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.4 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — confirmar identidad jurídica y datos fiscales; no publicar.</p>
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.5 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — confirmar identidad jurídica y datos fiscales; no publicar.</p>
 <h2>El proyecto</h2>
 <p>PdT Storytelling Cards es el nombre del proyecto presentado en este sitio. Roberto Antoniello y Silvia Dierico figuran como cofundadores en la página Quiénes somos. Esta indicación no identifica automáticamente al sujeto jurídico que gestiona el sitio o realiza las ventas.</p>
 <h2>Gestor del sitio</h2>
 <p>Nombre o razón social: [por confirmar].<br/>Forma jurídica: persona física.<br/>Domicilio profesional o sede social: [por confirmar].<br/>Correo electrónico: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.<br/>Otros datos de contacto directo: [por confirmar].</p>
+<h3>Gestión técnica del sitio</h3>
+<p>Lorenzo Cicogna gestiona actualmente el funcionamiento técnico del sitio. Esta función operativa no identifica automáticamente al gestor jurídico, al responsable del tratamiento ni al vendedor. Para comunicar incidencias técnicas utiliza el contacto del proyecto; los datos personales de contacto no se publican sin aprobación específica.</p>
 <h2>Información fiscal y societaria</h2>
 <p>Referente fiscal indicado: Silvia Dierico, con número de IVA existente según confirmación del proyecto. [VERIFICAR NÚMERO DE IVA, RÉGIMEN FISCAL, ACTIVIDAD AUTORIZADA E IDENTIDAD DEL VENDEDOR].</p>
 <p>Número de IVA o equivalente: [por confirmar, cuando proceda].<br/>Registro mercantil, oficina y número de inscripción, REA: [por confirmar, cuando proceda].<br/>Correo certificado y otros datos obligatorios según la forma jurídica, incluidos capital, socio único o liquidación si corresponde: [por confirmar].</p>
 <h2>Responsable del tratamiento</h2>
-<p>Responsable del tratamiento: Silvia Dierico.. Consulta la <a href="privacy-policy-es.html">política de privacidad</a>.</p>
+<p>Responsable del tratamiento: Silvia Dierico. Consulta la <a href="privacy-policy-es.html">política de privacidad</a>.</p>
 <h2>Consultas y actividad comercial</h2>
 <p>Las consultas enviadas desde el sitio no generan automáticamente un pedido ni un pago. [Identificar al vendedor y confirmar los datos fiscales y de contacto antes de concluir ventas; evaluar si ya se aplican obligaciones informativas].</p>
 <h2>Versión</h2>
