@@ -27,3 +27,23 @@ Footer IT/EN/ES: 3 frammenti testuali con 6 link, ordine proposto. Dopo approvaz
 Browser pulito: DevTools Application (Cookies, Local/Session Storage, IndexedDB), Network (richieste e Set-Cookie) con profilo pulito, prima/dopo interazione, desktop/mobile, tutte le tipologie pagina. Esportare HAR soltanto in archivio privato e redigere dati personali. Admin GitHub Pages/Cloudflare: DNS/proxy, WAF/Bot, Web Analytics, Zaraz, header, log e accessi. Controllare Gmail tipo account, accessi, inoltri, retention/backup e DPA. Nessuna credenziale richiesta nel repository.
 Gate: L01–L11 pertinenti chiusi con evidenze, testi e traduzioni approvati, niente placeholder, policy/cookie e runtime coerenti, test integrati sullo SHA aggiornato, revisione e autorizzazione separata. Il superamento della CI non chiude i gate legali.
 Fonti consultate: GDPR art.13 e 26 https://eur-lex.europa.eu/eli/reg/2016/679/oj ; Garante cookie https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9677876 ; D.Lgs.70/2003 art.7 https://www.normattiva.it/atto/caricaDettaglioAtto?atto.articolo.numero=7&atto.codiceRedazionale=003G0090&atto.dataPubblicazioneGazzetta=2003-04-14 ; GPSR https://eur-lex.europa.eu/eli/reg/2023/988/oj?locale=it ; GitHub Pages data collection https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages . Riesame professionale prima del rilascio.
+
+## Aggiornamento — conferme fornite il 26 novembre 2026
+Le seguenti informazioni sono dichiarazioni del referente del progetto, non verifiche documentali indipendenti. Restano soggette ad approvazione finale.
+| ID | Conferma acquisita | Residuo |
+|---|---|---|
+| L01 | Gestore persona fisica | Nome completo del gestore (non dedotto dall'identità GDPR), domicilio professionale, recapiti e dati obbligatori |
+| L02 | Titolare GDPR Silvia Dierico | Recapito privacy e indirizzo, conferma effettiva dei ruoli e DPO se designato |
+| L03 | Gmail standard consumer, Cloudflare attivo | Configurazione, account/ruoli, DPA ove necessario, trasferimenti, inoltri, accessi e archivi |
+| L04 | Nessuna conferma dei tempi | 12 mesi resta proposta; motivare e attuare criteri e cancellazione |
+| L05 | Cloudflare attivo | DNS-only/proxy, servizi e cookie effettivi non verificati |
+| L06 | Predisporre futura attivazione marketing | Mantenere raccolta e invio sospesi nel candidato; attivare soltanto dopo consenso, revoca, prova e fornitore approvati |
+| L07 | Silvia Dierico e Roberto Antoniello indicati come titolari IP | Documentazione e specifica ripartizione diritti, terzi, liberatorie e registrazioni da verificare |
+| L08 | Nessuna conferma nuova | Approvazione destinazione e claim |
+| L09 | 22 schede integrate nel manuale | Allineato copy delle 6 Home/Pre Order, metadata prodotto e guida; confermare specifica completa, prezzo e origine e applicabilità GPSR |
+| L10 | Silvia Dierico indicata per situazione fiscale | Non equivale a conferma P.IVA, regime, attività abilitata, venditore o fabbricante; verifica commercialista |
+| L11 | Nessuna approvazione definitiva | Revisione, traduzioni e pubblicazione ancora bloccate |
+### Gmail e Cloudflare
+Google dichiara di non offrire un DPA per Gmail/Drive consumer: https://support.google.com/policies/answer/9581826?hl=en-GB . Valutare il ruolo effettivo, l'art.28 GDPR ove applicabile, e l'adeguatezza del servizio per il trattamento professionale; valutare Workspace o altro servizio con accordo appropriato, senza sottoscrizioni o migrazione automatica. Verificare anche Cloudflare e GitHub, non presumere contratti sottoscritti o trasferimenti coperti. Cloudflare documenta cookie potenziali come __cf_bm e cf_clearance: https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/ . Nessuno di tali cookie è accertato su PdT; verificare configurazione e traffico effettivo. Non attivare banner o tracking sulla sola base del nome del fornitore.
+### Modifiche
+15 testi legali di revisione aggiornati a 0.3 (privacy, cookie, gestore, termini, IP nelle tre lingue); 3 testi professionali restano 0.2 senza nuove conferme. Schede integrate chiarite nelle pagine del candidato, guida cache v6. Footer non attivato. Pagine privacy radice non sostituite. Nessun dato di contatto privato, credenziale o prova fiscale inseriti. Nessun merge, servizio, invio marketing o pubblicazione autorizzata. Verificare CI sul nuovo SHA prima del prossimo rilascio.
