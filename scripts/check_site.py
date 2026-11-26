@@ -360,6 +360,26 @@ for name, product, preorder in gallery_pages:
         if f'href="{name}"' not in (ROOT / source).read_text(encoding="utf-8"):
             ERRORS.append(f"{name}: missing gallery link from {source}")
 
+# Credibility pages: authentic profiles, project articles, no review collection or markup.
+cred_pages = [["chi-siamo.html","articoli-pubblicazioni.html","prodotto.html","it"],["about-en.html","articles-en.html","product-en.html","en"],["about-es.html","articles-es.html","product-es.html","es"]]
+for about, articles, product, lang in cred_pages:
+    for name in (about, articles):
+        text = (ROOT / name).read_text(encoding="utf-8")
+        for marker in ('id="main-content"', 'id="project-articles"', 'pdt-skip-link', 'pdt-credibility.css?v=1', 'Roberto Antoniello'):
+            if marker not in text:
+                ERRORS.append(f"{name}: credibility content missing {marker}")
+        if text.count('class="publication-card cred-article"') != 4 or any(marker in text for marker in ('<form', '<input', '<textarea', 'aggregateRating', '"@type":"Review"', '<iframe')):
+            ERRORS.append(f"{name}: unexpected testimonial or publication structure")
+        for stem in ["articolo-nascita-pdt","articolo-narrazione-coscienza-immagini","articolo-roland-barthes-fotografia","articolo-stili-modi-pdt"]:
+            target = stem + ("" if lang == "it" else "-" + lang) + ".html"
+            if f'href="{target}"' not in text:
+                ERRORS.append(f"{name}: missing article link {target}")
+    text = (ROOT / about).read_text(encoding="utf-8")
+    if text.count('class="founder-card"') != 2 or 'id="testimonials"' not in text or 'Silvia Dierico' not in text:
+        ERRORS.append(f"{about}: founders or testimonial status missing")
+    if f'href="{about}#founders"' not in (ROOT / product).read_text(encoding="utf-8"):
+        ERRORS.append(f"{product}: founder link missing")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
