@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+  <meta property="og:site_name" content="PdT Storytelling Cards" />
+<meta name="application-name" content="PdT Storytelling Cards" />
+<title>Términos de uso | PdT Storytelling Cards</title>
+  <meta name="description" content="Información sobre la consulta del sitio y las solicitudes comerciales de PdT Signature." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://pdtstorytellingcards.com/terms-of-use-es.html" />
+  <link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/terms-of-use.html" />
+  <link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/terms-of-use-en.html" />
+  <link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/terms-of-use-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/terms-of-use.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="style.css?v=22" />
+  <script src="script.js?v=12" defer></script>
+</head>
+<body data-page="terms">
+<a class="pdt-skip-link" href="#main-content">Ir al contenido principal</a>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Navegación principal">
+    <a class="brand" href="home-es.html" aria-label="PdT Storytelling Cards">
+      <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" class="brand-logo" width="965" height="425" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" data-label-open="Abrir menú" data-label-close="Cerrar menú" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-es.html">Inicio</a></li>
+        <li><a href="about-es.html">Quiénes somos</a></li>
+        <li><a href="articles-es.html">Artículos</a></li>
+        <li><a href="contact-es.html">Contacto</a></li>
+        <li><a href="pre-order-es.html">Pre Order</a></li>
+      </ul>
+      <div class="language-switcher" aria-label="Selección de idioma">
+        <a href="terms-of-use.html" class="lang" aria-label="Italiano" lang="it" hreflang="it"><img class="lang-flag" src="images/flag-it.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="terms-of-use-en.html" class="lang" aria-label="English" lang="en" hreflang="en"><img class="lang-flag" src="images/flag-gb.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="terms-of-use-es.html" class="lang active" aria-label="Español" lang="es" hreflang="es" aria-current="true"><img class="lang-flag" src="images/flag-es.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main id="main-content" tabindex="-1">
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Términos de uso</p>
+        <h1>Términos y condiciones de uso del sitio.</h1>
+        <p class="page-hero-text">Información sobre la consulta del sitio y las solicitudes comerciales de PdT Signature.</p>
+      </div>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" />
+      </div>
+    </div>
+  </section>
+  <section class="section section-light">
+    <div class="container privacy-content reveal">
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.2 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — completar y someter a revisión profesional antes de publicar.</p>
+<h2>Responsable del sitio</h2>
+<p>[Identidad jurídica, dirección geográfica, datos de contacto y datos fiscales o registrales cuando proceda: por confirmar]. Contacto: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<h2>Ámbito</h2>
+<p>El sitio presenta PdT Storytelling Cards y permite enviar consultas informativas y comerciales por correo electrónico. Estos términos se refieren al uso del sitio, no son condiciones generales de venta y no limitan los derechos irrenunciables de los usuarios.</p>
+<h2>PdT Signature y consultas sin compromiso</h2>
+<p>El sitio presenta PdT Signature, un estuche con cartas fotográficas, manual y fichas operativas. El precio de pre-order anunciado es de 179 €; 199 € es el precio de catálogo futuro previsto, no un precio aplicado anteriormente. Enviar una consulta no constituye un pedido, reserva ni obligación de pago. La disponibilidad, el precio total con los impuestos aplicables, los gastos de entrega y los plazos deberán comunicarse antes de cualquier compromiso contractual.</p>
+<h2>Posibles ventas futuras</h2>
+<p>Antes de concluir una venta a distancia se facilitarán la información precontractual y las condiciones aplicables, incluidos pago, entrega, desistimiento cuando corresponda, devoluciones, garantía legal y reclamaciones. Los derechos imperativos de los consumidores no se ven afectados; las compras por correo electrónico también pueden estar sujetas a las normas de contratación a distancia.</p>
+<h2>Uso de los materiales</h2>
+<p>Las fotografías, textos, elementos gráficos y otros materiales están protegidos en los términos previstos por la ley y pertenecen a sus respectivos titulares. Consultar el sitio no concede licencia para reproducir, redistribuir o explotar comercialmente los materiales, salvo excepciones legales o autorizaciones concedidas. Los derechos de uso del kit adquirido se regularán por separado.</p>
+<h2>Información y uso profesional</h2>
+<p>El contenido del sitio y la guía informativa son ilustrativos; no proporcionan diagnósticos, tratamientos personalizados ni asesoramiento sanitario y no sustituyen el criterio profesional. No introduzcas datos sanitarios ni información confidencial de terceros en los formularios o en la guía.</p>
+<h2>Enlaces externos y disponibilidad</h2>
+<p>Los enlaces externos remiten a servicios de terceros sujetos a sus propias condiciones. El sitio puede actualizarse o no estar disponible temporalmente. Nada en estos términos excluye responsabilidades o garantías que no puedan excluirse legalmente.</p>
+<h2>Privacidad y contacto</h2>
+<p>Consulta la <a href="privacy-policy-es.html">política de privacidad</a> para el tratamiento de datos personales. Para consultas o incidencias: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<h2>Versión</h2>
+<p>Borrador del 26 de noviembre de 2026. No publicar hasta verificar los datos y completar la revisión profesional.</p>
+</div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-es.html"><img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" loading="lazy" decoding="async" /></a>
+    <div class="footer-copy">
+      <p>Cartas fotográficas para storytelling y narración de sí.</p>
+      <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>
+      <nav class="pdt-footer-links" aria-label="Enlaces rápidos"><a href="contact-es.html">Contacto</a><a href="pre-order-es.html">Pre Order</a></nav>
+    </div>
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards. Todos los derechos reservados.<br/>
+      <a class="footer-privacy-link" href="privacy-policy-es.html">Política de privacidad</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
