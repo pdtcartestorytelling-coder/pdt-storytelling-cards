@@ -25,6 +25,8 @@ jobs:
 
       - name: Install browser smoke dependencies
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
+      - name: Accessibility keyboard and no-JS regression
+        run: timeout 120s node scripts/accessibility_smoke.cjs
       - name: Verify AVIF image container and dimensions
         run: |
           file images/pdt-editions-hq.avif
