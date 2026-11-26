@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.2 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify ownership, permissions and registrations before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.3 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify ownership, permissions and registrations before publication.</p>
 <h2>PdT materials</h2>
-<p>The website presents PdT Storytelling Cards, including photographs, a theoretical and practical manual, activity sheets, texts, graphics and designs. Materials are protected to the extent provided by law and belong to their respective rights holders. [Identify rights holders and applicable licences before publication].</p>
+<p>The website presents PdT Storytelling Cards, including photographs, a theoretical and practical manual, activity sheets, texts, graphics and designs. Materials are protected to the extent provided by law and belong to their respective rights holders. Silvia Dierico and Roberto Antoniello are identified as rights holders of the original project materials, subject to third-party rights and specific attribution of individual materials. [VERIFY DOCUMENTATION, ALLOCATION OF RIGHTS AND LICENCES].</p>
 <h2>Browsing and reproduction</h2>
 <p>Browsing does not grant a general licence to reproduce, modify, distribute or commercially exploit protected materials. Uses reserved to rights holders require their permission, subject to statutory exceptions, applicable licences and mandatory rights.</p>
 <h2>Professional use of Signature</h2>

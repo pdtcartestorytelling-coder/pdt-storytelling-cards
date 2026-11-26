@@ -64,15 +64,15 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.2 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify the live website and service providers before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.3 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify the live website and service providers before publication.</p>
 <h2>Operator and contact</h2>
-<p>[Legal identity and contact details of the controller to be confirmed]. Enquiries: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Silvia Dierico, data controller. [PROFESSIONAL CONTACT DETAILS TO BE CONFIRMED]. Enquiries: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>What cookies are</h2>
 <p>Cookies are small files that websites may store in a browser. Other technologies may store or access information on a device. Consent requirements depend on the purpose and conditions of use.</p>
 <h2>Current website configuration</h2>
 <p>Source-code review found no PdT-set cookies, use of localStorage, sessionStorage or IndexedDB, or behavioural analytics, advertising or profiling scripts. The informational guide runs locally; forms prepare emails. These findings concern source code and do not establish the live site's network behaviour.</p>
 <h2>Hosting and security</h2>
-<p>GitHub Pages states that visitor IP addresses are logged for security; navigation logs are not in themselves cookies. [Verify any Cloudflare proxy, security services and all cookies actually set by the infrastructure; record their names, providers, purposes and durations before publication].</p>
+<p>GitHub Pages states that visitor IP addresses are logged for security; navigation logs are not in themselves cookies. Cloudflare is active. Security cookies may depend on the enabled services; provider-documented examples include __cf_bm and cf_clearance, not confirmed on the PdT website. [VERIFY PROXY, ACTIVE SERVICES, NAMES, PURPOSES, DURATIONS AND CONSENT WHERE REQUIRED]. <a href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/">Cloudflare Cookies</a>.</p>
 <h2>External links</h2>
 <p>Links to Instagram and other external sites lead to services governed by their own notices; a link alone does not mean PdT sets cookies from those services.</p>
 <h2>Consent and controls</h2>

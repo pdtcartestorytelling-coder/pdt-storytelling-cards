@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.2 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — verificar titularidad, autorizaciones y registros antes de publicar.</p>
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.3 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — verificar titularidad, autorizaciones y registros antes de publicar.</p>
 <h2>Materiales PdT</h2>
-<p>El sitio presenta PdT Storytelling Cards, con fotografías, manual teórico-práctico, fichas, textos, gráficos y diseños. Los materiales están protegidos en los términos previstos por la ley y pertenecen a sus respectivos titulares. [Identificar titulares y licencias aplicables antes de publicar].</p>
+<p>El sitio presenta PdT Storytelling Cards, con fotografías, manual teórico-práctico, fichas, textos, gráficos y diseños. Los materiales están protegidos en los términos previstos por la ley y pertenecen a sus respectivos titulares. Silvia Dierico y Roberto Antoniello figuran como titulares de los materiales originales del proyecto, sin perjuicio de los derechos de terceros y de la atribución específica de cada material. [VERIFICAR DOCUMENTACIÓN, REPARTO DE DERECHOS Y LICENCIAS].</p>
 <h2>Consulta y reproducción</h2>
 <p>La consulta del sitio no concede una licencia general para reproducir, modificar, distribuir o explotar comercialmente materiales protegidos. Los usos reservados a los titulares requieren su autorización, sin perjuicio de las excepciones legales, licencias aplicables y derechos irrenunciables.</p>
 <h2>Uso profesional de Signature</h2>

@@ -64,15 +64,15 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TESTO DI REVISIONE 0.2 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verifica del sito pubblicato e dei fornitori necessaria prima della pubblicazione.</p>
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.3 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verifica del sito pubblicato e dei fornitori necessaria prima della pubblicazione.</p>
 <h2>Gestore e contatti</h2>
-<p>[Identità giuridica e recapiti del titolare da confermare]. Per informazioni: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Silvia Dierico, titolare del trattamento. [RECAPITI PROFESSIONALI DA CONFERMARE]. Per informazioni: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>Cosa sono i cookie</h2>
 <p>I cookie sono piccoli file che un sito può memorizzare nel browser. Altre tecnologie possono archiviare o leggere informazioni sul dispositivo. La necessità del consenso dipende dalla finalità e dalle condizioni di utilizzo.</p>
 <h2>Configurazione attuale del sito</h2>
 <p>L'analisi del codice non ha rilevato l'impostazione di cookie da parte di PdT, né l'utilizzo di localStorage, sessionStorage o IndexedDB, né script di analisi comportamentale, pubblicità o profilazione. La guida informativa funziona localmente; i moduli preparano email. Questi risultati riguardano il codice e non costituiscono una verifica del traffico del sito pubblico.</p>
 <h2>Hosting e sicurezza</h2>
-<p>GitHub Pages dichiara di registrare gli indirizzi IP dei visitatori per sicurezza; i log di navigazione non sono di per sé cookie. [Verificare l'eventuale proxy Cloudflare, i servizi di sicurezza e ogni cookie effettivamente impostato dall'infrastruttura, indicando nome, fornitore, finalità e durata prima di pubblicare].</p>
+<p>GitHub Pages dichiara di registrare gli indirizzi IP dei visitatori per sicurezza; i log di navigazione non sono di per sé cookie. Cloudflare è attivo. I cookie di sicurezza possono dipendere dai servizi abilitati; esempi documentati dal fornitore sono __cf_bm e cf_clearance, non accertati sul sito PdT. [VERIFICARE PROXY, SERVIZI ATTIVI, NOMI, FINALITÀ, DURATE E CONSENSO OVE DOVUTO]. <a href="https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/">Cloudflare Cookies</a>.</p>
 <h2>Collegamenti esterni</h2>
 <p>I collegamenti a Instagram e ad altri siti esterni rinviano a servizi soggetti alle rispettive informative; la sola presenza di un collegamento non implica che PdT installi cookie di tali servizi.</p>
 <h2>Consenso e gestione</h2>
