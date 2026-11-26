@@ -1,0 +1,9 @@
+<!-- REVIEW ONLY: activate only after all referenced pages are approved. Do not copy before release approval. -->
+<nav class="pdt-footer-links pdt-legal-links" aria-label="Información legal">
+  <a class="footer-privacy-link" href="legal-information-es.html">Información legal</a>
+  <a class="footer-privacy-link" href="privacy-policy-es.html">Política de privacidad</a>
+  <a class="footer-privacy-link" href="cookie-policy-es.html">Política de cookies</a>
+  <a class="footer-privacy-link" href="terms-of-use-es.html">Condiciones de uso</a>
+  <a class="footer-privacy-link" href="intellectual-property-es.html">Propiedad intelectual</a>
+  <a class="footer-privacy-link" href="professional-use-es.html">Uso profesional y límites</a>
+</nav>
