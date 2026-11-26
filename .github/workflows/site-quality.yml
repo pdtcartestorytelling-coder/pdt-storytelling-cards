@@ -25,6 +25,8 @@ jobs:
 
       - name: Install browser smoke dependencies
         run: npm install --no-save --no-package-lock --ignore-scripts puppeteer-core@24
+      - name: Mail form security regression (IT EN ES)
+        run: timeout 90s node scripts/form_security.cjs
       - name: Verify AVIF image container and dimensions
         run: |
           file images/pdt-editions-hq.avif
