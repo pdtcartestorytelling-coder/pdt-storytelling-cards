@@ -15,7 +15,7 @@ function closeMenu() {
 }
 
 if (menuButton && menuPanel) {
-  menuButton.addEventListener("click", () => {
+  menuButton.addEventListener("click", (event) => {
     const isOpen = menuPanel.classList.toggle("open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
     menuButton.setAttribute(
@@ -24,6 +24,13 @@ if (menuButton && menuPanel) {
         ? menuButton.dataset.labelClose || "Close menu"
         : menuButton.dataset.labelOpen || "Open menu"
     );
+
+    // Keyboard and assistive-technology activation produce a click with
+    // detail 0. Start navigation on the first actual link, not on the page
+    // behind the expanded menu. Pointer activation keeps its natural focus.
+    if (isOpen && event.detail === 0) {
+      menuPanel.querySelector("a[href]")?.focus();
+    }
   });
 
   menuPanel.querySelectorAll("a").forEach((link) => {
