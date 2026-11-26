@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'none'; frame-src 'none'; media-src 'self'; manifest-src 'self'; upgrade-insecure-requests;" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#174b7f" />
+  <meta property="og:site_name" content="PdT Storytelling Cards" />
+<meta name="application-name" content="PdT Storytelling Cards" />
+<title>Privacy Policy | PdT Storytelling Cards</title>
+  <meta name="description" content="PdT Storytelling Cards privacy notice with information on personal data processing and the services currently available on the website." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://pdtstorytellingcards.com/privacy-policy-en.html" />
+  <link rel="alternate" hreflang="it" href="https://pdtstorytellingcards.com/privacy-policy.html" />
+  <link rel="alternate" hreflang="en" href="https://pdtstorytellingcards.com/privacy-policy-en.html" />
+  <link rel="alternate" hreflang="es" href="https://pdtstorytellingcards.com/privacy-policy-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://pdtstorytellingcards.com/privacy-policy.html" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="style.css?v=22" />
+  <script src="script.js?v=12" defer></script>
+</head>
+<body data-page="privacy">
+<a class="pdt-skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <nav class="navbar container" aria-label="Main navigation">
+    <a class="brand" href="home-en.html" aria-label="PdT Storytelling Cards">
+      <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" class="brand-logo" width="965" height="425" />
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-panel" id="main-menu">
+      <ul class="nav-links">
+        <li><a href="home-en.html">Home</a></li>
+        <li><a href="about-en.html">About us</a></li>
+        <li><a href="articles-en.html">Articles</a></li>
+        <li><a href="contact-en.html">Contact</a></li>
+        <li><a href="pre-order-en.html">Pre Order</a></li>
+      </ul>
+      <div class="language-switcher" aria-label="Language selection">
+        <a href="privacy-policy.html" class="lang" aria-label="Italiano" lang="it" hreflang="it"><img class="lang-flag" src="images/flag-it.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="privacy-policy-en.html" class="lang active" aria-label="English" lang="en" hreflang="en" aria-current="true"><img class="lang-flag" src="images/flag-gb.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+        <a href="privacy-policy-es.html" class="lang" aria-label="Español" lang="es" hreflang="es"><img class="lang-flag" src="images/flag-es.svg" alt="" aria-hidden="true" width="24" height="16" /></a>
+      </div>
+    </div>
+  </nav>
+</header>
+<main id="main-content" tabindex="-1">
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div class="reveal">
+        <p class="eyebrow">Privacy</p>
+        <h1>Information on the processing of personal data.</h1>
+        <p class="page-hero-text">Essential information about data processing on the PdT Storytelling Cards website.</p>
+      </div>
+      <div class="mini-logo-badge reveal">
+        <img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" />
+      </div>
+    </div>
+  </section>
+  <section class="section section-light">
+    <div class="container privacy-content reveal">
+<p class="privacy-note"><strong>REVIEW TEXT 0.2 — do not publish. Bracketed fields require confirmation; this text describes the candidate branch, not the current live website.</strong></p>
+<h2>1. Scope and controller</h2><p>Privacy notice under Article 13 of <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">Regulation (EU) 2016/679</a> (GDPR), concerning browsing and enquiries made through pdtstorytellingcards.com.</p><p>Controller: [LEGAL NAME — confirm; previous notice names Silvia Dierico].<br>Postal address: [CONTROLLER ADDRESS].<br>Current project contact: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>. Privacy rights contact: [CONFIRM CONTROLLER EMAIL].<br>[DPO AND CONTACT DETAILS, ONLY IF APPOINTED].</p>
+<h2>2. Data, purposes and legal bases</h2><h3>Browsing</h3><p>Hosting receives technical data necessary to deliver pages, including IP addresses. GitHub Pages states that IP addresses are logged for security. For processing attributable to the controller, the proposed basis is the legitimate interest in operating and securing the website (Article 6(1)(f)); providers' independent processing is explained in their notices.</p>
+<h3>Contact and Signature pre-order enquiries</h3><p>The contact form requires full name, email and message. The Pre Order form requires full name, email and request type; it includes optional professional area, indicative number of sets (initially one), optional delivery city/country and message, the fixed Signature product, acknowledgement of this notice. Ordinary email metadata may also be received. Availability enquiry links prepare a draft requesting availability, quantity, final price and delivery details.</p><p>We respond to enquiries, provide Signature information and manage requested pre-contractual steps. Article 6(1)(b) applies to requested pre-contractual steps; legitimate interests in handling general correspondence apply under Article 6(1)(f). Applicable legal duties rely on Article 6(1)(c). Acknowledging this notice is not consent to processing necessary to respond.</p><p>Forms prepare a draft in your email application. In normal operation no message is automatically sent and the site does not store submissions in a database. The controller receives the contents when you send the email. An enquiry is not an order, binding reservation or payment. Required fields are necessary to use the respective form; without contact details we cannot reply. Optional details may be omitted. Do not include health information or identifiable or confidential information about patients, clients, employees or third parties.</p>
+<h3>Updates and marketing</h3><p>This website configuration does not collect new promotional opt-ins. Sending an enquiry does not subscribe you to a newsletter. Any historical consents will not be used for promotional messages until their validity, purposes and withdrawal procedure have been verified. You may withdraw consent or object to direct marketing by contacting the privacy contact, without affecting previous lawful processing.</p>
+<h3>Information guide</h3><p>The guide uses predefined answers processed in the browser. The reviewed code does not transmit questions to an external AI service or persistently save them. Do not enter personal or health information. It is not clinical advice.</p>
+<h2>3. Recipients, providers and international transfers</h2><p>Authorized project personnel, necessary service providers and competent authorities where legally required may access data. Provider roles and arrangements remain to be confirmed.</p><ul><li><strong>GitHub Pages:</strong> hosting and technical browsing data. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</li><li><strong>Google Gmail:</strong> receipt and storage of submitted email enquiries, contact details, content and metadata. <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</li><li><strong>Your email provider:</strong> its own terms and privacy notice apply when opening and sending the draft.</li><li><strong>External links:</strong> Instagram and other linked websites have their own privacy notices.</li></ul><p>GitHub and Google describe international processing, including in the United States. Their notices describe the EU–US Data Privacy Framework for covered transfers and, where applicable, standard contractual clauses or other GDPR mechanisms. <a href="https://policies.google.com/privacy/frameworks">Google – Data transfer frameworks</a>. [CONFIRM CONTRACTING ENTITIES, ROLES, COUNTRIES, ARTICLE 28 DPAS WHERE REQUIRED, TRANSFER MECHANISMS AND HOW TO OBTAIN A COPY OF SAFEGUARDS]. [VERIFY CLOUDFLARE, FORWARDING AND MANUAL RECORDS AND UPDATE RECIPIENTS].</p>
+<h2>4. Retention</h2><p>General and pre-contractual enquiries: [APPROVED RETENTION PERIOD OR CRITERIA — working proposal of 12 months after closure, not yet adopted]. Historical consents and objections, if any: [APPROVED PERIOD AND CRITERIA FOR CONSENT EVIDENCE AND SUPPRESSION RECORDS]. Data needed for legal obligations or disputes is limited to those purposes and retained for applicable periods. [CONFIRM LOG, EMAIL AND BACKUP RETENTION AND DELETION PROCEDURE].</p>
+<h2>5. Your rights</h2><p>Under Articles 15–22 GDPR, where applicable, you may request access, rectification, erasure, restriction and portability, object to legitimate-interest processing and withdraw consent. You may object to direct marketing at any time. Contact <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a> [CONFIRM PRIVACY CONTACT]. We normally respond within one month; where permitted, the period may be extended by two further months, with reasons provided within the first month. Proportionate identity verification may be required. You may lodge a complaint with the Italian <a href="https://www.garanteprivacy.it/diritti/come-agire-per-tutelare-i-tuoi-dati-personali/reclamo">Garante per la protezione dei dati personali</a> or the competent supervisory authority.</p>
+<h2>6. Cookies, profiling and future services</h2><p>The reviewed code contains no analytics tools, marketing pixels or cookies set by PdT. [VERIFY LIVE DOMAIN AND CDN COOKIES AND NETWORK TRAFFIC]. No solely automated decisions with legal or similarly significant effects or profiling were identified. The site currently has no accounts, checkout, automatic payments or integrated order and invoice management. Before introducing new processing or purposes, we will update this notice and obtain any required consent.</p>
+<h2>7. Version</h2><p>Review text 0.2 — 26 November 2026. Effective date: [APPROVED PUBLICATION DATE].</p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a class="footer-brand" href="home-en.html"><img src="images/pdt-logo-registered-v2.png?v=1" alt="PdT Storytelling Cards" width="965" height="425" loading="lazy" decoding="async" /></a>
+    <div class="footer-copy">
+      <p>Photographic cards for storytelling and self-narration.</p>
+      <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>
+      <nav class="pdt-footer-links" aria-label="Quick links"><a href="contact-en.html">Contact</a><a href="pre-order-en.html">Pre Order</a></nav>
+    </div>
+    <p class="footer-legal">
+      © <span data-current-year></span> PdT Storytelling Cards. All rights reserved.<br/>
+      <a class="footer-privacy-link" href="privacy-policy-en.html">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
