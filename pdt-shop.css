@@ -365,3 +365,9 @@ body[data-page="preorder"] .pdt-shop-card-price strong{color:var(--blue-950)}
 @media(prefers-reduced-motion:reduce){
   body[data-page="home"] .pdt-signature-only .pdt-h-edition img{transform:none!important}
 }
+
+/* Planned future prices are not previous prices or discounts. */
+body[data-page="home"] .pdt-future-price,body[data-page="preorder"] .pdt-shop-card-price .pdt-future-price{display:block;color:#46566b;font-size:14px;line-height:1.5;font-weight:400;text-decoration:none}
+body[data-page="preorder"] .pdt-shop-hero-amount{flex-wrap:wrap;align-items:baseline}
+body[data-page="preorder"] .pdt-shop-hero-amount .pdt-future-price{color:#fffaf3;font-size:14px;line-height:1.5;text-decoration:none}
+body[data-page="home"] .pdt-shop-home-price{flex-wrap:wrap}

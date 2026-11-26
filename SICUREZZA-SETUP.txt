@@ -1,10 +1,10 @@
 SICUREZZA — PASSI ESTERNI AL SITO
-Aggiornato: 22/09/2026
+Aggiornato: 26/11/2026 — bozza intervento 06
 
 GIÀ INCLUSO NELLO ZIP
 - Content Security Policy restrittiva a livello HTML.
 - Referrer Policy.
-- form-action limitata al sito; nessun backend form esterno.
+- Contatti e Pre Order: form-action 'none', metodo POST di riserva, controlli disabilitati finché il gestore mailto è installato; nessun backend form esterno.
 - Nessun iframe/plugin esterno caricato nelle pagine.
 - target=_blank protetti con noopener/noreferrer.
 - Modulo contatti con validazione dei campi e invio diretto tramite app email dell’utente.
@@ -13,9 +13,9 @@ GIÀ INCLUSO NELLO ZIP
 - Nessuna chiave API o password inserita nel repository.
 
 DOPO IL PRIMO UPLOAD
-1) Fai un test del modulo verificando che si apra correttamente l’app email con destinatario e testo precompilati.
+1) Testa i sei moduli con dati fittizi, con JavaScript attivo, disattivato e con lo script bloccato. Verifica l'app email, il link diretto di riserva e l'assenza di richieste HTTP contenenti dati dei campi. Non inviare dati reali durante il test.
 
-2) Conferma quella email. Dal secondo invio il modulo sarà operativo normalmente.
+2) Verifica i risultati di Site Quality e del test scripts/form_security.cjs prima di pubblicare. Nessuna attivazione tramite un primo invio è richiesta.
 
 ACCOUNT / HOSTING (NON SI POSSONO IMPOSTARE CON UNO ZIP)
 - Attiva 2FA su GitHub, Cloudflare e Gmail.
