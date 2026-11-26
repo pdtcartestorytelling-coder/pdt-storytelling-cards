@@ -268,6 +268,15 @@ for name, preorder in product_pages.items():
         if f'https://pdtstorytellingcards.com/{target}' not in text:
             ERRORS.append(f"{name}: translated product alternate missing {target}")
 
+# Preliminary Signature specification sheet (not a certification).
+spec_pdf = ROOT / "docs/commercial/PdT_Signature_Scheda_tecnica_rev01.pdf"
+if not spec_pdf.is_file() or not spec_pdf.read_bytes().startswith(b"%PDF-") or not spec_pdf.read_bytes().rstrip().endswith(b"%%EOF"):
+    ERRORS.append("Signature preliminary PDF missing or invalid header/trailer")
+for name in product_pages:
+    text = (ROOT / name).read_text(encoding="utf-8")
+    if 'id="specifications"' not in text or 'href="#specifications"' not in text or 'href="docs/commercial/PdT_Signature_Scheda_tecnica_rev01.pdf"' not in text:
+        ERRORS.append(f"{name}: preliminary specification section or PDF link missing")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
