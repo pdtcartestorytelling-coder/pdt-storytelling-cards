@@ -152,11 +152,11 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: fullscreen image control still present")
     if 'preorder.css?v=22' not in text:
         ERRORS.append(f"{name}: latest gallery style missing")
-    if '<strong>179 €</strong><del class="pdt-compare-price">199 €</del>' not in text:
+    if '<strong>179 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
-    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
+    if 'pdt-shop.js?v=4' not in text or 'pdt-shop.css?v=6' not in text or 'interest.js?v=11' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
     if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
         ERRORS.append(f"{name}: motion assets missing")
@@ -165,11 +165,11 @@ for name in ("index.html", "home-en.html", "home-es.html"):
     text = (ROOT / name).read_text(encoding="utf-8")
     if text.count('class="pdt-h-edition"') != 1:
         ERRORS.append(f"{name}: expected exactly one Signature card")
-    if '<del class="pdt-compare-price">' not in text or 'pdt-current-price' not in text:
+    if '<span class="pdt-future-price">' not in text or 'pdt-current-price' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: pre-order versus planned list price is not shown")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or "Essential" in text or "essential" in text:
         ERRORS.append(f"{name}: outdated prices or Essential remain")
-    if 'pdt-shop.css?v=5' not in text or 'pdt-shop.js?v=3' not in text:
+    if 'pdt-shop.css?v=6' not in text or 'pdt-shop.js?v=4' not in text:
         ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
     if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
         ERRORS.append(f"{name}: motion assets missing")
@@ -194,7 +194,7 @@ for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-or
     text = (ROOT/name).read_text(encoding="utf-8")
     if 'class="pdt-origin ' not in text or "Made in Italy" not in text:
         ERRORS.append(f"{name}: missing Italian provenance module")
-    if 'pdt-shop.css?v=5' not in text:
+    if 'pdt-shop.css?v=6' not in text:
         ERRORS.append(f"{name}: outdated provenance stylesheet")
     if 'pdt-origin-title' not in text:
         ERRORS.append(f"{name}: missing provenance heading")
