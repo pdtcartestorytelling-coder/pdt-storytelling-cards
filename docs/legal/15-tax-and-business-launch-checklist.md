@@ -1,0 +1,30 @@
+# PdT Signature — inquadramento fiscale e avvio impresa
+26 novembre 2026 — bozza per commercialista, non parere fiscale né autorizzazione alla vendita.
+Evidenze: sito statico, richieste via email; Signature 179 EUR lancio previsto, 199 EUR listino futuro previsto; nessun checkout rilevato. Le bozze #50, #54 e #60 lasciano aperti venditore, regime, IVA e archivi. Non verificati eventuali vendite offline, partite IVA esistenti, costi, contratti o posizioni previdenziali. Non assumere che la titolare privacy sia il venditore.
+
+## Decisioni prima di ordini vincolanti o incassi
+- [ ] Identificare venditore effettivo, titolari e rapporti tra fondatori, proprietà/licenze del marchio e materiali, finanziamenti, ripartizione compensi e responsabilità. Verificare eventuali posizioni già aperte e compatibilità con attività professionali esistenti. Non usare P.IVA di altra persona senza assetto reale.
+- [ ] Confrontare impresa individuale, società di persone e SRL/SRLS: responsabilità, governance, costi, imposte, contributi e distribuzione utili; impresa individuale non equivale a proprietà congiunta. Non decidere forma giuridica dai soli ricavi.
+- [ ] Classificare attività effettiva con ATECO 2025, aggiornamenti 2026: produzione in proprio o affidata, commercio per conto proprio, eventuale editoria, formazione e licenze future. Nel dettaglio classificazione per prodotto, non automaticamente vecchio 47.91.10. Confermare codice prevalente e secondari con commercialista/CCIAA; nessun codice assegnato.
+- [ ] Verificare partita IVA, Registro Imprese/REA, ComUnica, domicilio digitale PEC, firma digitale, SUAP/SCIA commercio a distanza ove dovuta, sede e magazzino, requisiti e INAIL se applicabile. Eventuali deroghe produttore/artigiano da verificare sulla concreta attività; non presumere esenzione.
+- [ ] INPS: gestione commercianti/artigiani o altra posizione secondo attività e partecipazione abituale/prevalente, compatibilità con eventuali altre casse; stimare contributi minimi anche in assenza di utili ove dovuti, eccedenze e agevolazioni. Circolare INPS 14/2026; aggiornare importi per anno effettivo di avvio.
+- [ ] Valutare regime forfetario solo per persona fisica idonea (L.190/2014 commi 54 ss., soglia generale ricavi/compensi 85.000 EUR, oltre 100.000 EUR uscita nell'anno; oltre 85.000 e fino a 100.000 uscita anno successivo, verificare condizioni e cause ostative vigenti all'avvio). Aliquota sostitutiva 15%, 5% solo se condizioni nuova attività per primo quinquennio; reddito secondo coefficiente ATECO e contributi deducibili, costi effettivi non dedotti analiticamente, IVA acquisti di norma non detraibile. Confrontare ordinario/semplificato, costi di produzione, contribuzione, capitale circolante; non raccomandare regime senza dati.
+- [ ] Determinare IVA del kit nel suo complesso: ipotesi ordinaria 22%, non conclusione. Valutare prestazione/cessione unica, elementi accessori, eventuale disciplina editoriale e aliquote; manuale non rende automaticamente tutto il kit libro al 4%. Confermare trattamento trasporto, sconti, anticipi e resi.
+- [ ] Definire contabilità e documentazione per canale, calendario scadenze con consulente e conto dedicato (raccomandato, obbligatorietà secondo soggetto). Verificare fatture fornitori, acquisti di servizi esteri e reverse charge anche se forfetario, bollo ove dovuto, conservazione digitale.
+- [ ] Aggiornare dati obbligatori sito, prezzi comprensivi imposte per B2C, CGV, privacy e processi #50/#54/#55/#60 dopo approvazione. Nessuna raccolta di dati fiscali nella semplice richiesta informazioni. Definire mercati e spedizioni prima del lancio, inclusi EPR/GPSR.
+- [ ] Aggiornamento normativo: dal 1 gennaio 2027 prevista applicazione del TU IVA D.Lgs.10/2026, come modificato, sostituisce le corrispondenti disposizioni del DPR 633/72 e altre norme. Verificare testo vigente alla data operazione, riferimenti fatture/CGV e specifiche SdI; controllare eventuali modifiche di fine anno. Riferimenti 2026 qui non vanno copiati automaticamente nel 2027.
+
+## Simulazione prezzo, non previsione ricavi/utili
+Ipotesi di aliquota ordinaria 22%, prezzo finale del kit, spedizione esclusa, arrotondamento a centesimi:
+| Prezzo lordo | Imponibile | IVA |
+|---|---:|---:|
+| 179,00 | 146,72 | 32,28 |
+| 199,00 | 163,11 | 35,89 |
+Se regime forfetario nazionale applicabile e operazione senza addebito IVA, 179/199 sono importi di vendita prima di costi, contributi, imposte e eventuale bollo; non utile netto. IVA acquisti non detraibile in via ordinaria nel regime. Prezzi invariati; nessuna decisione aliquota.
+Margine unitario = ricavo al netto IVA addebitata (se dovuta) - produzione - imballo - logistica a carico venditore - commissioni - resi/difetti attesi - altri costi variabili; costi coerenti con detraibilità effettiva. Punto pareggio = costi fissi / margine positivo, arrotondato per eccesso. Richiedere preventivi reali, nessuna ipotesi di costi approvata. Valutare contributi, imposte e cassa separatamente.
+
+## Domande da sottoporre al commercialista
+Chi vende e fattura? È compatibile con le attività attuali dei fondatori? Quale forma e ATECO? Quali pratiche e contributi prima del primo ordine? Quale regime e aliquota kit/trasporto? Come registrare corrispettivi/fatture B2C, B2B, anticipi e rimborsi? Quali mercati iniziali, soglie e registrazioni? Quali costi fissi, dichiarazioni, scadenze e conservazione? Quale disciplina dal 2027? Richiedere preventivo e risposta scritta, non inviare automaticamente.
+
+Fonti: https://www.istat.it/classificazione/ateco-2025/ ; https://www.impresainungiorno.gov.it/it/web/l-impresa-e-l-europa/faq-italy ; https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.02.gestioni-artigiani-e-commercianti-i-contributi-per-il-2026.html ; L.190/2014 art.1 commi 54–89; DPR 633/1972; https://www.normattiva.it/eli/id/2026/01/30/26G00022/CONSOLIDATED ; https://temi.camera.it/temi/19_tl18_iva_imposte_indirette.html .
+Non pubblicare dati privati, dichiarazioni fiscali o documenti dei fondatori in GitHub pubblico.
