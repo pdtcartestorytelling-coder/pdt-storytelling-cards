@@ -1,0 +1,38 @@
+/* Signature product page only. No shared stylesheet changes. */
+body[data-page="product"] .sig-hero,body[data-page="product"] .sig-launch{background:linear-gradient(135deg,#174b7f,#0b2f58);color:#fffaf3;}
+body[data-page="product"] .sig-hero{padding:clamp(2rem,6vw,5rem) 0}
+.sig-hero-grid,.sig-launch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:clamp(1.5rem,5vw,4rem)}
+.sig-kicker{font-size:.78rem;line-height:1.4;font-weight:800;letter-spacing:.11em;color:#174b7f;margin:0 0 .65rem}
+.sig-hero .sig-kicker,.sig-launch .sig-kicker{color:#f5d38c}
+.sig-hero h1{color:#fffaf3;font-family:var(--font-brand);font-size:clamp(2.15rem,4.8vw,4.4rem);line-height:1.08;margin:0 0 1rem;overflow-wrap:break-word}
+.sig-lead{font-size:clamp(1.08rem,1.8vw,1.35rem);line-height:1.6;margin:0 0 1.25rem}
+.sig-price{display:grid;gap:.3rem;margin:1.2rem 0;color:#fffaf3}
+.sig-price strong{color:#f5d38c;font-size:clamp(2.4rem,4vw,3.8rem);line-height:1;font-family:var(--font-brand)}
+.sig-price small,.sig-note{font-size:.9rem;line-height:1.5;color:#e5edf6}
+.sig-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0}
+.sig-button{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:48px;max-width:100%;padding:.75rem 1.2rem;border:1px solid #f5b335;border-radius:999px;font-weight:800;text-decoration:none;line-height:1.35;overflow-wrap:anywhere}
+.sig-primary{background:#f5b335;color:#0b2f58}.sig-outline{background:transparent;color:#fffaf3}
+.sig-primary:hover,.sig-outline:hover{background:#ffe0a0;color:#0b2f58}
+.sig-hero-photo{margin:0;min-width:0}.sig-hero-photo img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid #315e89;object-fit:contain}
+.sig-hero-photo figcaption{font-size:.85rem;line-height:1.5;color:#e5edf6;margin:.5rem 0 0}
+.sig-facts{background:#faf4e9;color:#0b2f58;padding:1.5rem 0}.sig-facts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;text-align:center}
+.sig-facts strong{display:block;color:#174b7f;font-size:clamp(2rem,4vw,3.3rem);line-height:1.15}.sig-facts span{display:block;font-weight:700;overflow-wrap:anywhere}
+.sig-nav{background:#fffaf3;border-bottom:1px solid #e4d9c9;padding:.6rem 0}.sig-nav .container{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.sig-nav a{display:inline-flex;align-items:center;min-height:44px;color:#174b7f;font-size:.8rem;font-weight:800;text-decoration:underline;text-underline-offset:.2em}
+.sig-section{padding:clamp(2.5rem,6vw,5rem) 0;scroll-margin-top:7rem;background:#fffaf3;color:#0b2f58}
+.sig-section h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.14;margin:0 0 1rem;color:inherit}.sig-intro{max-width:760px;font-size:1.1rem;line-height:1.65}
+.sig-cards,.sig-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.15rem;margin:1.5rem 0 0}
+.sig-card,.sig-context,.sig-steps li{min-width:0;border:1px solid #e4d9c9;border-radius:16px;background:#fffaf3;overflow:hidden}
+.sig-card-image{aspect-ratio:4/3;background:#faf4e9;padding:.8rem;display:grid;place-items:center}
+.sig-card-image img{display:block;width:100%;height:100%;max-height:100%;object-fit:contain;min-height:0}
+.sig-card-copy,.sig-context,.sig-steps li{padding:1.25rem}.sig-card h3,.sig-context h3,.sig-steps h3{margin:0 0 .5rem;font-size:1.3rem;color:#0b2f58}
+.sig-card p,.sig-context p,.sig-steps p{margin:0;line-height:1.65;color:#334b65}
+.sig-soft{background:#faf4e9}.sig-context-count,.sig-steps li>span{display:block;color:#174b7f!important;font-weight:800;margin-bottom:.6rem!important}
+.sig-context a,.sig-inline-link a{color:#174b7f;text-decoration:underline;text-underline-offset:.2em;font-weight:700;display:inline-flex;align-items:center;min-height:44px;gap:.35rem;flex-wrap:wrap}
+.sig-context a{margin-top:.7rem}.sig-inline-link{margin:1rem 0 0}.sig-steps{list-style:none;padding:0}
+.sig-limit{margin:1.5rem 0 .5rem;border-left:3px solid #c18b29;padding:.85rem 1rem;background:#faf4e9;line-height:1.6}
+.sig-launch p:not(.sig-kicker){line-height:1.6}.sig-launch .sig-actions{align-items:flex-start}
+body[data-page="product"] main a:focus-visible{outline:3px solid #174b7f;outline-offset:4px}
+body[data-page="product"] .sig-hero a:focus-visible,body[data-page="product"] .sig-launch a:focus-visible{outline-color:#fffaf3}
+@media(max-width:800px){.sig-hero-grid,.sig-launch-grid,.sig-cards,.sig-steps{grid-template-columns:minmax(0,1fr)}.sig-hero-photo{max-width:620px}.sig-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.sig-card-image{aspect-ratio:auto;min-height:160px}}
+@media(max-width:520px){.sig-card{display:block}.sig-card-image{aspect-ratio:4/3;min-height:0}.sig-actions{display:grid;grid-template-columns:minmax(0,1fr)}.sig-facts-grid{gap:.4rem}.sig-facts span{font-size:.82rem}.sig-nav .container{gap:.2rem .8rem}}

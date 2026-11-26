@@ -410,6 +410,21 @@ async function run() {
         await page.close();
       }
     }
+    // Signature product page: local images, responsive layout, direct enquiry (all languages).
+    for(const [lang,file,preorder] of [["it","prodotto.html","pre-order.html"],["en","product-en.html","pre-order-en.html"],["es","product-es.html","pre-order-es.html"]]){
+      for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        const errors=[];page.on("pageerror",error=>errors.push(error.message));
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"domcontentloaded",timeout:15000});
+        await page.waitForFunction(()=>{const img=document.querySelector(".sig-hero-photo img");return img&&img.complete&&img.naturalWidth===1448;},{timeout:12000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,cta:[...document.querySelectorAll(".sig-primary")].map(a=>a.getAttribute("href")),cards:document.querySelectorAll(".sig-card").length,contexts:document.querySelectorAll(".sig-context").length,price:document.querySelector(".sig-price")?.textContent,style:getComputedStyle(document.querySelector(".sig-hero-grid")).display}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.style==="grid",file+" "+width+": product page layout");
+        assert(info.cta.length===2&&info.cta.every(x=>x===preorder+"#interest")&&info.cards===3&&info.contexts===3&&info.price.includes("149")&&info.price.includes("199")&&!errors.length,file+": product contents or enquiry missing");
+        await page.screenshot({path:path.join(screenshots,"product-"+lang+"-"+width+".png"),fullPage:false,timeout:12000});
+        await page.close();
+      }
+    }
     // Accessibility: visitors requesting less motion see fully readable content.
     const reducedPage=await browser.newPage();
     await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);

@@ -250,6 +250,24 @@ css = (ROOT / "preorder.css").read_text(encoding="utf-8")
 if ".pdt-tier-visual.pdt-edition-image{height:auto;aspect-ratio:4/3;" not in css:
     ERRORS.append("preorder.css: dedicated image card style missing")
 
+# Signature product pages: three translations, contents, non-binding contact and existing assets.
+product_pages = {"prodotto.html": "pre-order.html", "product-en.html": "pre-order-en.html", "product-es.html": "pre-order-es.html"}
+for name, preorder in product_pages.items():
+    text = (ROOT / name).read_text(encoding="utf-8")
+    for marker in ('id="contents"', 'id="contexts"', 'id="method"', 'id="launch"', 'id="main-content"', 'pdt-skip-link', 'pdt-product.css?v=1', '102', '60', '22', '149', '199', '50'):
+        if marker not in text:
+            ERRORS.append(f"{name}: Signature product content missing {marker}")
+    if text.count(f'href="{preorder}#interest"') != 2 or f'href="{preorder}#gallery"' not in text:
+        ERRORS.append(f"{name}: product enquiry or gallery link missing")
+    if '<form' in text or '<del' in text or 'data-shop-edition' in text:
+        ERRORS.append(f"{name}: unexpected order functionality or prior-price discount")
+    for asset in ('pdt-cofanetto-signature-2026.webp', '06_mazzi_affiancati.webp', '05_manuale_schede.webp', 'pdt-grafica-frontale-2026.webp'):
+        if f'images/{asset}' not in text:
+            ERRORS.append(f"{name}: product asset missing {asset}")
+    for target in product_pages:
+        if f'https://pdtstorytellingcards.com/{target}' not in text:
+            ERRORS.append(f"{name}: translated product alternate missing {target}")
+
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)
