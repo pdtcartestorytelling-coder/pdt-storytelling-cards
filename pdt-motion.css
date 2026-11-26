@@ -61,12 +61,12 @@ body[data-page="home"] .pdt-h-hero::after {
 body[data-page="home"] .pdt-h-hero::before {
   width:min(52vw,650px); right:-14%; top:-46%;
   background:radial-gradient(circle,rgba(245,179,53,.19),rgba(245,179,53,0) 68%);
-  animation:pdtAmbientGold 13s ease-in-out infinite alternate;
+  animation:none;
 }
 body[data-page="home"] .pdt-h-hero::after {
   width:min(50vw,560px); left:-23%; bottom:-50%;
   background:radial-gradient(circle,rgba(35,95,150,.13),transparent 70%);
-  animation:pdtAmbientBlue 16s ease-in-out infinite alternate;
+  animation:none;
 }
 body[data-page="home"] .pdt-h-hero-grid { position:relative; z-index:1; }
 body[data-page="home"] .pdt-h-hero-copy > * {
@@ -81,7 +81,7 @@ body[data-page="home"] .pdt-h-hero-figure {
   border-color:rgba(7,12,20,.82);
   background:transparent;
   box-shadow:0 28px 75px rgba(0,0,0,.23),0 2px 8px rgba(0,0,0,.1);
-  animation:pdtEnterVisual 1s .16s var(--pdt-motion-ease) both,pdtHoverFloat 8s 1.16s ease-in-out infinite;
+  animation:pdtEnterVisual 1s .16s var(--pdt-motion-ease) both;
   transition:box-shadow .5s var(--pdt-motion-ease),border-color .4s ease;
 }
 body[data-page="home"] .pdt-h-hero-figure img {
@@ -174,7 +174,7 @@ body[data-page="preorder"] .preorder-hero::before {
   content:""; position:absolute; z-index:0; pointer-events:none; border-radius:50%;
   width:min(55vw,680px); aspect-ratio:1; top:-45%; right:-14%;
   background:radial-gradient(circle,rgba(245,179,53,.12),transparent 68%);
-  animation:pdtAmbientGold 13s ease-in-out infinite alternate;
+  animation:none;
 }
 body[data-page="preorder"] .preorder-hero-grid { position:relative; z-index:1; }
 body[data-page="preorder"] .preorder-hero-grid > div > * { animation:pdtEnter .85s var(--pdt-motion-ease) both; }
@@ -182,7 +182,7 @@ body[data-page="preorder"] .preorder-hero-grid > div > :nth-child(2) { animation
 body[data-page="preorder"] .preorder-hero-grid > div > :nth-child(3) { animation-delay:.17s; }
 body[data-page="preorder"] .preorder-hero-grid > div > :nth-child(4) { animation-delay:.25s; }
 body[data-page="preorder"] .preorder-hero-product {
-  animation:pdtEnterVisual .9s .16s var(--pdt-motion-ease) both,pdtHoverFloat 8s 1.06s ease-in-out infinite;
+  animation:pdtEnterVisual .9s .16s var(--pdt-motion-ease) both;
 }
 body[data-page="preorder"] .pdt-tier-card {
   transition:opacity .75s var(--pdt-motion-ease),transform .75s var(--pdt-motion-ease),box-shadow .38s var(--pdt-motion-ease),border-color .38s ease;
@@ -923,4 +923,9 @@ body.pdt-cinema-enabled .pdt-motion-target.pdt-reveal-photo.pdt-is-visible{
   }
   body.pdt-cinema-enabled .pdt-h-heading,
   body.pdt-cinema-enabled .preorder-section-heading{opacity:1!important;transform:none!important}
+}
+
+/* Keyboard users must not focus transparent entrance-animation targets. */
+body:is([data-page="home"],[data-page="preorder"]) :is(.pdt-motion-target,.pdt-h-hero-copy > *, .preorder-hero-grid > div > *):focus-within {
+  opacity:1 !important; transform:none !important; animation:none !important; transition:none !important;
 }
