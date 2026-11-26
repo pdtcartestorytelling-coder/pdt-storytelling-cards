@@ -1,0 +1,7 @@
+# PdT — Sito 02: homepage e messaggio commerciale (bozza)
+
+Base incrementale: PR #68, 149 EUR / lotto programmato di 50 cofanetti, futuro listino previsto 199 EUR. Nessuna pubblicazione autorizzata. Obiettivo: far capire prodotto, contenuto, destinatari e prossimo passo prima di introdurre nuovi contenuti o funzionalità.
+
+Intervento IT/EN/ES: mantenuto slogan identitario, nuovo kicker Signature, valore 102/60/22 nella hero; prezzo e lotto accanto alla CTA primaria; dichiarazione non vincolante; una sola CTA primaria con destinazione Pre Order esistente, link secondario #kit, tre contesti diretti invariati; nuovo testo kit e collezione, collegamenti al prodotto e metodo esistenti (marcati come italiano nelle versioni EN/ES), CTA finale coerente; description SEO/social allineate. Nessun nuovo claim clinico, recensione, dato utente, asset esterno o servizio. Rendering, CSS, JS applicativi, menu, CSP, footer e animazioni non modificati. Le pagine prodotto e metodo non sono state tradotte in questa fase.
+
+Verifica statica durante la preparazione: ID non duplicati, CTA e ancoraggio, 3 contesti, prezzi. Aggiunte asserzioni alla smoke suite per gerarchia e contenuti della hero. Necessari CI, verifica browser 320/390/1365 px, focus e leggibilità IT/EN/ES, controllo cache script e residui prezzo già aperti in #68, approvazione e tutti i gate di #67. La decisione 149 non equivale ad apertura vendite; 199 non è un prezzo precedente.

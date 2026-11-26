@@ -270,6 +270,10 @@ async function run() {
           editionCount:document.querySelectorAll(".pdt-h-edition").length,
           buyLabel:document.querySelector(".pdt-h-buy-btn")?.textContent.trim(),
           buyHref:document.querySelector(".pdt-h-buy-btn")?.getAttribute("href"),
+          heroLaunch:document.querySelector(".pdt-h-purchase-cta p")?.textContent,
+          heroValue:document.querySelector(".pdt-h-lead")?.textContent,
+          heroSecondary:document.querySelector(".pdt-h-actions a")?.getAttribute("href"),
+          heroPrimaryCount:document.querySelectorAll(".pdt-h-hero .pdt-h-btn-primary").length,
           signaturePrice:document.querySelector(".pdt-h-edition:first-child .pdt-shop-home-price")?.textContent,
           comparePrice:document.querySelector(".pdt-h-edition:first-child .pdt-future-price")?.textContent,
           revealImages:[...document.querySelectorAll(".pdt-h-edition picture")].every(x=>x.classList.contains("pdt-reveal-photo")),
@@ -297,6 +301,9 @@ async function run() {
         assert(facts.buyLabel===({it:"Richiedi disponibilità",en:"Enquire about availability",es:"Consultar disponibilidad"})[lang],lang+" home "+label+": primary buy label not concise");
         assert(facts.buyHref===({it:"pre-order.html#editions",en:"pre-order-en.html#editions",es:"pre-order-es.html#editions"})[lang],lang+" home "+label+": primary buy link changed");
         assert(facts.signaturePrice.includes("149")&&facts.signaturePrice.includes("199"),lang+" home "+label+": wrong Signature pre-order/reference price");
+        assert(facts.heroLaunch.includes("149")&&facts.heroLaunch.includes("50"),lang+" home "+label+": launch price/batch missing near main CTA");
+        assert(["102","60","22"].every(n=>facts.heroValue.includes(n)),lang+" home "+label+": kit value missing from first section");
+        assert(facts.heroSecondary==="#kit"&&facts.heroPrimaryCount===1,lang+" home "+label+": hero CTA hierarchy is unclear");
         assert(facts.comparePrice.includes("199"),lang+" home "+label+": planned future list reference missing");
         assert(!facts.signaturePrice.includes("189"),lang+" home "+label+": previous Signature offer remains");
         assert(facts.revealImages,lang+" home "+label+": photo reveal not initialised");
