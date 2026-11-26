@@ -46,10 +46,19 @@ async function run(){
         assert.notEqual(await page.$eval(".pdt-skip-link",e=>getComputedStyle(e).outlineStyle),"none");
         await page.keyboard.press("Enter");
         assert.ok(await page.$eval("main",e=>document.activeElement===e),file+" skip destination not focused");
-        await page.$eval(".menu-toggle",e=>e.focus());
+        await page.$eval(".menu-toggle",e=>{
+          e.focus();
+          e.addEventListener("click",event=>{e.dataset.testClickDetail=String(event.detail);},{once:true});
+        });
+        assert.ok(await page.$eval(".menu-toggle",e=>document.activeElement===e),file+" toggle must receive focus before Enter");
         await page.keyboard.press("Enter");
         assert.equal(await page.$eval(".menu-toggle",e=>e.getAttribute("aria-expanded")),"true");
-        assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" opening menu must focus first link");
+        const menuDiagnostics=await page.evaluate(()=>{
+          const panel=document.querySelector(".nav-panel"), first=panel.querySelector("a[href]"), button=document.querySelector(".menu-toggle");
+          const style=e=>({display:getComputedStyle(e).display,visibility:getComputedStyle(e).visibility,opacity:getComputedStyle(e).opacity,rect:e.getBoundingClientRect().toJSON()});
+          return {active:document.activeElement?.outerHTML.slice(0,350),first:first.outerHTML,detail:button.dataset.testClickDetail,classes:panel.className,root:document.documentElement.className,panel:style(panel),firstStyle:style(first),width:innerWidth,media:matchMedia("(max-width:980px)").matches,focused:document.hasFocus()};
+        });
+        assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" opening menu must focus first link: "+JSON.stringify(menuDiagnostics));
         await page.keyboard.press("Tab");
         assert.ok(await page.$eval(".nav-panel a[href]",links=>document.activeElement===links[1]),file+" Tab must reach second menu link");
         await page.keyboard.press("Shift+Tab");
