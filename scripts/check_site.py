@@ -156,7 +156,7 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
-    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=8' not in text:
+    if 'pdt-shop.js?v=3' not in text or 'pdt-shop.css?v=5' not in text or 'interest.js?v=9' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
     if 'pdt-motion.js?v=8' not in text or 'pdt-motion.css?v=8' not in text:
         ERRORS.append(f"{name}: motion assets missing")

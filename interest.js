@@ -67,5 +67,9 @@
       if(status)status.textContent=t.status;
       window.location.href="mailto:"+encodeURIComponent(form.dataset.recipient).replace(/%40/g,"@")+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(lines.join("\n"));
     });
+    // Enable controls only after the submit handler is successfully installed.
+    form.querySelectorAll("[data-pdt-enable]").forEach(control => { control.disabled = false; });
+    const fallback = form.querySelector("[data-pdt-form-fallback]");
+    if (fallback) fallback.hidden = true;
   });
 })();
