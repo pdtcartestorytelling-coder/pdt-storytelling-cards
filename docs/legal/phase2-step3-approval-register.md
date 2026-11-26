@@ -11,7 +11,7 @@
 | L01 | Gestore effettivo, natura giuridica, indirizzo professionale/geografico, recapito diretto e dati fiscali/registro ove dovuti | Fondatori + consulente | Aperto |
 | L02 | Titolare effettivo; se contitolari accordo art.26 e contenuto essenziale, recapito diritti, DPO solo se designato | Fondatori + privacy | Aperto |
 | L03 | Gmail consumer o Workspace, autorizzati, inoltri, archivi e social; GitHub e Cloudflare eventuale, contratti e ruoli, DPA ove dovuto, trasferimenti e garanzie | Gestore + tecnico | Aperto |
-| L04 | Finalità e basi giuridiche effettive, bilanciamento legittimo interesse, tempi/criteri conservazione email, log, backup, cancellazione e richieste diritti; 12 mesi è proposta non adottata | Titolare | Aperto |
+| L04 | Finalità e basi giuridiche effettive, bilanciamento legittimo interesse, tempi/criteri conservazione email, log, backup, cancellazione e richieste diritti; 12 mesi confermati per richieste; attuazione da verificare | Titolare | Aperto |
 | L05 | Inventario cookie/storage/network e configurazione CDN: nomi, fornitori, finalità, durata, necessità/consenso; verificare anche strumenti social | Tecnico | Aperto |
 | L06 | Conferma sospensione marketing; consensi storici e revoche, registro esclusione, nessun invio finché procedura verificata; aggiornare informativa se riattivato | Titolare | Aperto |
 | L07 | Titolarità foto/testi/manuale/schede/logo/design, liberatorie e licenze; registrazione marchio solo se documentata; nessun claim di esclusiva non verificato | Autori | Aperto |
@@ -33,17 +33,25 @@ Le seguenti informazioni sono dichiarazioni del referente del progetto, non veri
 | ID | Conferma acquisita | Residuo |
 |---|---|---|
 | L01 | Gestore persona fisica | Nome completo del gestore (non dedotto dall'identità GDPR), domicilio professionale, recapiti e dati obbligatori |
-| L02 | Titolare GDPR Silvia Dierico | Recapito privacy e indirizzo, conferma effettiva dei ruoli e DPO se designato |
+| L02 | Titolare GDPR Silvia Dierico; pdtstorytellingcards@gmail.com confermata per i diritti | Indirizzo, verifica effettiva dei ruoli e DPO se designato |
 | L03 | Gmail standard consumer, Cloudflare attivo | Configurazione, account/ruoli, DPA ove necessario, trasferimenti, inoltri, accessi e archivi |
-| L04 | Nessuna conferma dei tempi | 12 mesi resta proposta; motivare e attuare criteri e cancellazione |
+| L04 | 12 mesi dalla chiusura delle richieste confermati | Attuare e verificare cancellazione, eccezioni documentate, log/backup e prova consensi storici |
 | L05 | Cloudflare attivo | DNS-only/proxy, servizi e cookie effettivi non verificati |
 | L06 | Predisporre futura attivazione marketing | Mantenere raccolta e invio sospesi nel candidato; attivare soltanto dopo consenso, revoca, prova e fornitore approvati |
 | L07 | Silvia Dierico e Roberto Antoniello indicati come titolari IP | Documentazione e specifica ripartizione diritti, terzi, liberatorie e registrazioni da verificare |
 | L08 | Nessuna conferma nuova | Approvazione destinazione e claim |
-| L09 | 22 schede integrate nel manuale | Allineato copy delle 6 Home/Pre Order, metadata prodotto e guida; confermare specifica completa, prezzo e origine e applicabilità GPSR |
-| L10 | Silvia Dierico indicata per situazione fiscale | Non equivale a conferma P.IVA, regime, attività abilitata, venditore o fabbricante; verifica commercialista |
+| L09 | 22 schede integrate nel manuale | Allineato copy delle 6 Home/Pre Order, metadata prodotto e guida; prezzi 179/199 EUR confermati; verificare specifica completa, origine, IVA, veridicità listino futuro e applicabilità GPSR |
+| L10 | Silvia Dierico indicata per situazione fiscale; P.IVA esistente dichiarata | Numero, regime, attività abilitata, venditore e fabbricante non verificati; verifica commercialista |
 | L11 | Nessuna approvazione definitiva | Revisione, traduzioni e pubblicazione ancora bloccate |
 ### Gmail e Cloudflare
 Google dichiara di non offrire un DPA per Gmail/Drive consumer: https://support.google.com/policies/answer/9581826?hl=en-GB . Valutare il ruolo effettivo, l'art.28 GDPR ove applicabile, e l'adeguatezza del servizio per il trattamento professionale; valutare Workspace o altro servizio con accordo appropriato, senza sottoscrizioni o migrazione automatica. Verificare anche Cloudflare e GitHub, non presumere contratti sottoscritti o trasferimenti coperti. Cloudflare documenta cookie potenziali come __cf_bm e cf_clearance: https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/ . Nessuno di tali cookie è accertato su PdT; verificare configurazione e traffico effettivo. Non attivare banner o tracking sulla sola base del nome del fornitore.
 ### Modifiche
 15 testi legali di revisione aggiornati a 0.3 (privacy, cookie, gestore, termini, IP nelle tre lingue); 3 testi professionali restano 0.2 senza nuove conferme. Schede integrate chiarite nelle pagine del candidato, guida cache v6. Footer non attivato. Pagine privacy radice non sostituite. Nessun dato di contatto privato, credenziale o prova fiscale inseriti. Nessun merge, servizio, invio marketing o pubblicazione autorizzata. Verificare CI sul nuovo SHA prima del prossimo rilascio.
+
+## Ulteriori conferme — 26 novembre 2026
+- Gestore effettivo: ancora da identificare; non dedurre che coincida con la titolare GDPR. Destinazione d'uso: non approvata dagli autori; i testi e disclaimer professionali restano proposte, da verificare con manuale, materiali e classificazione prima della pubblicazione.
+- Partita IVA esistente di Silvia Dierico dichiarata dal referente; nessun numero, documento fiscale, regime o abilitazione verificato. Non è conferma automatica della possibilità di vendere il kit con quella posizione fiscale.
+- Contatto privacy confermato: pdtstorytellingcards@gmail.com. Conservazione delle richieste informative e precontrattuali: 12 mesi dalla chiusura, con eccezioni documentate per obblighi legali o difesa di diritti. Non estendere il termine automaticamente a log, backup, documenti fiscali, consensi o lista esclusioni.
+- Prezzi confermati dal referente: 179 EUR lancio, 199 EUR futuro listino, non prezzo precedente. Le bozze mantengono prezzo previsto e richiesta non vincolante; verificare IVA, prezzo complessivo e consegna prima di un impegno contrattuale. Nessuna modifica prezzi necessaria.
+- Procedura di conservazione da attuare: registrare in archivio privato la data effettiva di chiusura di ogni richiesta, calcolare scadenza a 12 mesi, riesame mensile delle pratiche scadute e cancellazione sicura nelle cartelle/archivi applicabili; separare legal hold motivati con riesame e conservazione fiscale dove pertinente; definire e documentare gestione cestino, backup, copie/inoltri e prove minime di cancellazione. Non cancellare oggi messaggi né attivare automazioni. Silvia deve approvare e attuare la procedura e confermare la compatibilità dei tempi con finalità e basi giuridiche.
+- Sei testi privacy e informazioni legali aggiornati a 0.4, IT/EN/ES. Termini e prezzi già coerenti, nessuna modifica alle pagine radice. Il precedente workflow 45882231512 sul commit 91fdef979cef646e84aa78fc3b78cc8b01276954 è success; nuovo commit da collaudare. Nessuna pubblicazione, sottoscrizione o autorizzazione commerciale. Registro e testi restano in revisione.
