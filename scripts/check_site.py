@@ -180,8 +180,8 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
         ERRORS.append(f"{name}: fullscreen image control still present")
     if 'preorder.css?v=22' not in text:
         ERRORS.append(f"{name}: latest gallery style missing")
-    if '<strong>179 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
-        ERRORS.append(f"{name}: expected prominent pre-order 179 vs planned list 199")
+    if '<strong>149 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
+        ERRORS.append(f"{name}: expected prominent pre-order 149 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
     if 'pdt-shop.js?v=5' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=13' not in text:
