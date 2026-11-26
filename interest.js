@@ -4,21 +4,21 @@
   const translations={
     it:{
       title:"PdT Storytelling Cards — richiesta commerciale (NON È UN ORDINE)",
-      fields:["Nome","Email","Settore","Tipo di richiesta","Edizione","Numero di copie","Destinazione di consegna","Messaggio","Consenso aggiornamenti"],
+      fields:["Nome","Email","Settore","Tipo di richiesta","Edizione","Numero di copie","Destinazione di consegna","Messaggio","Consenso marketing email"],
       signature:"PdT Signature pre-order: 179 €. Listino futuro previsto 199 € (non prezzo precedente). Disponibilità e spedizione da confermare.",
       notice:"Si tratta di un contatto senza impegno. Nessun ordine, pagamento, prenotazione o licenza digitale viene attivato con questo messaggio.",
       status:"Si apre la tua applicazione email: controlla il testo e premi Invia. Se non si apre, usa l'indirizzo mostrato qui sotto."
     },
     en:{
       title:"PdT Storytelling Cards — commercial enquiry (NOT AN ORDER)",
-      fields:["Name","Email","Professional area","Request type","Edition","Number of sets","Shipping destination","Message","Updates consent"],
+      fields:["Name","Email","Professional area","Request type","Edition","Number of sets","Shipping destination","Message","Email marketing consent"],
       signature:"PdT Signature pre-order: €179. Planned future list price €199 (not a former price). Availability and delivery to be confirmed.",
       notice:"This is a non-binding enquiry. No order, payment, reservation or digital licence is activated.",
       status:"Your email app opens: review the draft and click Send. If it doesn't open, use the email address shown below."
     },
     es:{
       title:"PdT Storytelling Cards — consulta comercial (NO ES UN PEDIDO)",
-      fields:["Nombre","Correo","Ámbito profesional","Tipo de consulta","Edición","Número de unidades","Destino de envío","Mensaje","Consentimiento novedades"],
+      fields:["Nombre","Correo","Ámbito profesional","Tipo de consulta","Edición","Número de unidades","Destino de envío","Mensaje","Consentimiento marketing por correo"],
       signature:"PdT Signature pre-order: 179 €. Precio de catálogo futuro previsto 199 € (no precio anterior). Disponibilidad y envío por confirmar.",
       notice:"Es una consulta sin compromiso. No genera pedido, pago, reserva ni licencia digital.",
       status:"Se abre tu correo: revisa el borrador y pulsa Enviar. Si no se abre, usa la dirección que aparece abajo."
@@ -45,6 +45,11 @@
         return node?.selectedOptions?.length?node.selectedOptions[0].text.trim():"—";
       };
       const pricing=t.signature;
+      const marketing=fields.namedItem("updates_consent");
+      const consentText=form.querySelector("[data-marketing-consent-text]")?.textContent.trim()||"";
+      const consentVersion=marketing?.dataset.consentVersion||"";
+      // A mailto draft is not proof of receipt or confirmed subscription.
+      const consentRequested=marketing?.checked===true && !!consentText && !!consentVersion;
       const lines=[
         t.title,
         "",
@@ -56,7 +61,13 @@
         t.fields[5]+": "+selected("quantity"),
         t.fields[6]+": "+v("destination"),
         t.fields[7]+": "+v("message"),
-        t.fields[8]+": "+(fields.namedItem("updates_consent")?.checked?"YES":"NO"),
+        t.fields[8]+": "+(consentRequested?"YES":"NO"),
+        ...(consentRequested?[
+          "Marketing consent version: "+consentVersion,
+          "Marketing consent language: "+lang,
+          "Marketing consent text: "+consentText,
+          "Marketing consent status: REQUESTED — confirmation required"
+        ]:[]),
         "",
         pricing,
         t.notice,
