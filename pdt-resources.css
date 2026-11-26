@@ -1,0 +1,12 @@
+/* Free public resources: read-only, no interactive inputs or client-side storage. */
+.pdt-resources-page main{overflow-wrap:anywhere}.pdt-resources-page main .container{min-width:0}.pdt-resources-page main a{max-width:100%;overflow-wrap:anywhere;white-space:normal}
+.resource-notice{border-left:3px solid #f5d38c;background:#123f6f;color:#fffaf3;padding:1rem;max-width:820px;line-height:1.6;margin:1.25rem 0}
+.resource-checklist{list-style:none;padding:0;margin:1.5rem 0;max-width:900px;display:grid;gap:.65rem}
+.resource-checklist li{display:flex;align-items:flex-start;gap:.8rem;border:1px solid #e4d9c9;background:#fffaf3;border-radius:12px;padding:1rem;color:#0b2f58;line-height:1.55}
+.resource-checkmark{flex:0 0 18px;width:18px;height:18px;border:2px solid #174b7f;border-radius:3px;margin-top:.18rem}
+.resource-glossary,.resource-link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.5rem 0 0}
+.resource-glossary>div{border:1px solid #e4d9c9;border-radius:12px;padding:1.2rem;background:#fffaf3;min-width:0}
+.resource-glossary dt{font-weight:800;color:#174b7f;margin-bottom:.5rem}.resource-glossary dd{margin:0;color:#334b65;line-height:1.6}
+.resource-link a{color:#174b7f;min-height:44px;display:inline-flex;align-items:center;gap:.3rem;flex-wrap:wrap;margin-top:.6rem;font-weight:700;text-decoration:underline;text-underline-offset:.2em}
+@media(max-width:740px){.resource-glossary,.resource-link-grid{grid-template-columns:minmax(0,1fr)}}
+@media print{.pdt-resources-page .site-header,.pdt-resources-page .site-footer,.pdt-resources-page .method-nav,.pdt-resources-page .method-actions{display:none!important}.pdt-resources-page main .method-section,.pdt-resources-page main .method-hero{background:#fff!important;color:#000!important;padding:1rem 0!important}.pdt-resources-page main .method-hero h1,.pdt-resources-page .method-kicker,.pdt-resources-page .resource-notice{color:#000!important;background:#fff!important}.resource-checklist li,.resource-glossary>div,.resource-guide,.resource-link{break-inside:avoid}.pdt-resources-page .method-identity{display:none}}

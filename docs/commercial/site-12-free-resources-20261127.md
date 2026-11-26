@@ -1,0 +1,7 @@
+# PdT — Sito 12: risorse gratuite (bozza)
+
+Base PR #78, Site Quality run 129 success. Tre nuove pagine IT/EN/ES, biblioteca con guida introduttiva (3 idee), checklist generale (6 domande), glossario (6 termini), 4 collegamenti a metodo/articoli/esempi/manuale e CTA Signature. Fonti: pagine metodo, esempi, manuale, FAQ, articoli e percorsi professionali già presenti; le nuove formulazioni sono testi divulgativi autonomi per il sito, non riproduzioni del manuale, non indice, non schede originali o protocolli. Non promettono abilitazioni, diagnosi, risultati o validazione. Non sostituiscono il manuale e le istruzioni approvate. Revisione autori prima del rilascio.
+
+Checklist statica, non modulo, non registra risposte; è possibile stampare dal browser, stile print dedicato, nessun PDF o estratto proprietario caricato. Nessun campo, account, cookie nuovo, tracking, lead magnet, newsletter, CRM, iscrizione o raccolta marketing. Nessun asset esterno. Link nelle tre homepage (menu Risorse), metodo, articoli e manuale. Canonical/hreflang e sitemap. Non aggiunta voce a tutti gli header storici: audit navigazione globale al Punto 13/14. Rispettare i gate legali/diritti e approvare i contenuti originali; nessun originale nel repository pubblico.
+
+Test statici e browser no-JS 320/1365; verifica richiesta risorse esterne, presenza dei contenuti e assenza di campi. Revisione visuale, traduzioni e stampa da completare; CI da verificare. Nessuna pubblicazione o attivazione. Non unire senza autorizzazione esplicita e chiusura gate #67–78.

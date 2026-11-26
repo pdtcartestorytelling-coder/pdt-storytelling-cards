@@ -506,6 +506,20 @@ async function run() {
         await page.close();
       }
     }
+    // Free resources: all languages, no JS, no response fields, no external resource requests.
+    for(const [lang,file] of [["it","risorse-pdt.html"],["en","resources-en.html"],["es","resources-es.html"]]){
+      for(const width of [320,1365]){
+        const page=await browser.newPage();
+        await page.setViewport({width,height:900,deviceScaleFactor:1});
+        await page.setJavaScriptEnabled(false);
+        const external=[];page.on("request",r=>{if(!r.url().startsWith("http://127.0.0.1:"+server.address().port+"/")&&!r.url().startsWith("data:"))external.push(r.url())});
+        const response=await page.goto("http://127.0.0.1:"+server.address().port+"/"+file,{waitUntil:"load",timeout:15000});
+        const info=await page.evaluate(()=>({lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,grid:getComputedStyle(document.querySelector(".resource-glossary")).display,guide:document.querySelectorAll(".resource-guide").length,checks:document.querySelectorAll(".resource-checklist li").length,terms:document.querySelectorAll(".resource-glossary dt").length,links:document.querySelectorAll(".resource-link").length,fields:document.querySelectorAll("main form,main input,main textarea,main iframe").length}));
+        assert(response.status()===200&&info.lang===lang&&info.overflow<=5&&info.grid==="grid",file+" "+width+": resource layout "+JSON.stringify(info));
+        assert(info.guide===3&&info.checks===6&&info.terms===6&&info.links===4&&info.fields===0&&external.length===0,file+": resource content or privacy boundary "+JSON.stringify(external));
+        await page.close();
+      }
+    }
     // Accessibility: visitors requesting less motion see fully readable content.
     const reducedPage=await browser.newPage();
     await reducedPage.emulateMediaFeatures([{name:"prefers-reduced-motion",value:"reduce"}]);
