@@ -39,6 +39,15 @@ if (menuButton && menuPanel) {
     }
   });
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuPanel.classList.contains("open")) {
+      event.preventDefault();
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+
+  document.documentElement.classList.add("pdt-menu-ready");
   window.addEventListener("resize", () => {
     if (window.innerWidth > 980) {
       closeMenu();
@@ -74,6 +83,7 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
   );
 
   revealElements.forEach((element) => observer.observe(element));
+  document.documentElement.classList.add("pdt-reveal-ready");
 }
 
 
