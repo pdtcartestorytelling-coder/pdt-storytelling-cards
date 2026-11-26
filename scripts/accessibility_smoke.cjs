@@ -49,10 +49,20 @@ async function run(){
         await page.$eval(".menu-toggle",e=>e.focus());
         await page.keyboard.press("Enter");
         assert.equal(await page.$eval(".menu-toggle",e=>e.getAttribute("aria-expanded")),"true");
+        assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" opening menu must focus first link");
         await page.keyboard.press("Tab");
-        assert.ok(await page.$eval(".nav-panel",e=>e.contains(document.activeElement)),file+" menu keyboard navigation");
+        assert.ok(await page.$eval(".nav-panel a[href]",links=>document.activeElement===links[1]),file+" Tab must reach second menu link");
+        await page.keyboard.press("Shift+Tab");
+        assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" Shift+Tab must return to first link");
         await page.keyboard.press("Escape");
         assert.ok(await page.$eval(".menu-toggle",e=>e.getAttribute("aria-expanded")==="false"&&document.activeElement===e),file+" Escape focus");
+        await page.keyboard.press("Tab");
+        assert.ok(await page.$eval(".nav-panel",e=>!e.contains(document.activeElement)),file+" closed menu links must not receive focus");
+        await page.$eval(".menu-toggle",e=>e.focus());
+        await page.keyboard.press("Space");
+        assert.ok(await page.$eval(".nav-panel a[href]",e=>document.activeElement===e),file+" Space must open menu and focus first link");
+        await page.keyboard.press("Escape");
+        assert.ok(await page.$eval(".menu-toggle",e=>e.getAttribute("aria-expanded")==="false"&&document.activeElement===e),file+" Escape focus after Space");
         if(["index.html","home-en.html","home-es.html"].includes(file)){
           await page.$eval(".pdt-guide__toggle",e=>e.click());
           assert.ok(await page.$eval(".pdt-guide__answer",e=>!e.hidden&&e.getAttribute("aria-live")==="polite"));
