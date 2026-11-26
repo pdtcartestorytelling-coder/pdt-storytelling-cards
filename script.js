@@ -112,6 +112,10 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
 
       window.location.href = mailto;
     });
+    // Enable controls only after the submit handler is successfully installed.
+    form.querySelectorAll("[data-pdt-enable]").forEach(control => { control.disabled = false; });
+    const fallback = form.querySelector("[data-pdt-form-fallback]");
+    if (fallback) fallback.hidden = true;
   });
 })();
 
