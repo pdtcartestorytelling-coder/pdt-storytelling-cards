@@ -5,7 +5,7 @@ const fs=require("node:fs");
 const path=require("node:path");
 const assert=require("node:assert/strict");
 const {execSync}=require("node:child_process");
-const root=path.resolve(__dirname,"..");
+const root = path.resolve(process.env.PDT_WEB_ROOT || path.resolve(__dirname, ".."));
 const mime={".html":"text/html; charset=utf-8",".css":"text/css",".js":"text/javascript",".webp":"image/webp",".png":"image/png",".svg":"image/svg+xml"};
 const server=http.createServer((req,res)=>{
   try{

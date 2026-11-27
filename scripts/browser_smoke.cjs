@@ -10,8 +10,8 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { execSync } = require("node:child_process");
-const root = path.resolve(__dirname, "..");
-const screenshots = path.join(root, "browser-test-screenshots");
+const root = path.resolve(process.env.PDT_WEB_ROOT || path.resolve(__dirname, ".."));
+const screenshots = path.resolve(process.env.PDT_TEST_OUTPUT || path.join(__dirname, "..", "browser-test-screenshots"));
 fs.mkdirSync(screenshots, { recursive: true });
 const mime = {".html":"text/html; charset=utf-8", ".css":"text/css", ".js":"text/javascript", ".avif":"image/avif", ".webp":"image/webp", ".svg":"image/svg+xml", ".png":"image/png", ".jpg":"image/jpeg", ".ico":"image/x-icon"};
 const server = http.createServer((req, res) => {

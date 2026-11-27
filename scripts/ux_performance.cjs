@@ -6,8 +6,8 @@ const fs=require("node:fs");
 const path=require("node:path");
 const assert=require("node:assert/strict");
 const {execSync}=require("node:child_process");
-const root=path.resolve(__dirname,"..");
-const output=path.join(root,"browser-test-screenshots","performance-lab.json");
+const root = path.resolve(process.env.PDT_WEB_ROOT || path.resolve(__dirname, ".."));
+const output=path.join(path.resolve(process.env.PDT_TEST_OUTPUT || path.join(__dirname,"..","browser-test-screenshots")),"performance-lab.json");
 const mime={".html":"text/html; charset=utf-8",".css":"text/css",".js":"text/javascript",".webp":"image/webp",".avif":"image/avif",".jpg":"image/jpeg",".png":"image/png",".svg":"image/svg+xml",".woff2":"font/woff2",".ico":"image/x-icon"};
 const server=http.createServer((req,res)=>{
   try{

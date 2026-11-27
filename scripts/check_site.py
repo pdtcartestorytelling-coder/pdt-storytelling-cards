@@ -2,6 +2,7 @@
 """Static checks for GitHub Pages; uses only Python standard library."""
 from __future__ import annotations
 import json
+import os
 import re
 import sys
 import urllib.parse
@@ -9,7 +10,8 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+SOURCE_ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get("PDT_WEB_ROOT", str(SOURCE_ROOT))).resolve()
 ERRORS = []
 IGNORE = {"", "#"}
 IGNORE_SCHEMES = ("mailto:", "tel:", "data:", "javascript:", "https:", "http:", "//")
@@ -237,11 +239,13 @@ for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-or
     if "102" not in text:
         ERRORS.append(f"{name}: original photograph count missing")
 
-for edition in ("essential", "studio", "signature"):
-    for fmt in ("webp", "avif"):
-        file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
-        if not file.exists() or file.stat().st_size < 20000:
-            ERRORS.append(f"{file.name}: missing or too small to be a full-size render")
+# Historical rendering sources are repository-only, not required in the QA web package.
+if ROOT == SOURCE_ROOT:
+    for edition in ("essential", "studio", "signature"):
+        for fmt in ("webp", "avif"):
+            file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
+            if not file.exists() or file.stat().st_size < 20000:
+                ERRORS.append(f"{file.name}: missing or too small to be a full-size render")
 motion_js=(ROOT/"pdt-motion.js").read_text(encoding="utf-8")
 motion_css=(ROOT/"pdt-motion.css").read_text(encoding="utf-8")
 if "pdt-cinema-sweep" not in motion_js or "pdt-cinema-edge" not in motion_js:

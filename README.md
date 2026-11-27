@@ -55,6 +55,10 @@ Non inserire mai nel repository pubblico:
 
 Non copiare tutti i file del repository sul sito. Questo ramo contiene bozze non approvate. Seguire esclusivamente il registro finale `docs/commercial/site-15-release-audit-20261127.md`: approvazioni, pacchetto web verificato, PR finale verso main, autorizzazione esplicita, verifica deployment e rollback. Non cambiare GitHub Pages, DNS, CNAME o servizi in questa fase. Nessuna credenziale o dato reale nel repository pubblico.
 
+## Pacchetto di collaudo isolato — NO-GO
+
+`python3 scripts/build_release_qa.py --out /percorso/nuovo/pdt-qa` genera solo un tree di test fuori dal repository, non un pacchetto pubblicabile. La CI verifica il tree isolato. Le tre privacy obsolete e il PDF preliminare sono eccezioni QA, non approvazioni. Non copiare il tree QA su Pages. Vedere `docs/commercial/phase4-step05-release-package-20261127.md`.
+
 ## SEO
 
 Sono presenti:
