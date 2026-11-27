@@ -64,7 +64,7 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.4 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — uso previsto propuesto, sujeto a revisión del manual, materiales, evidencia y clasificación antes de publicar.</p>
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.5 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — uso previsto propuesto, sujeto a revisión del manual, materiales, evidencia y clasificación antes de publicar.</p>
 <h2>Uso previsto propuesto</h2>
 <p>PdT Signature es un recurso fotográfico y narrativo para facilitar el relato, la reflexión, el diálogo y la exploración de significados personales en contextos adecuados. No está destinado a diagnosticar, medir rasgos psicológicos, tratar o prevenir enfermedades ni sustituir prestaciones sanitarias. La clasificación debe evaluarse conforme a su uso real previsto, instrucciones y publicidad.</p>
 <p>La confirmación de la finalidad de uso requiere coherencia entre el manual, las fichas, el envase, el sitio y los materiales promocionales. La ausencia de una promesa terapéutica en el sitio no sustituye la evaluación de la clasificación del producto ni de los riesgos físicos, especialmente del cierre magnético.</p>
@@ -73,6 +73,7 @@
 <h2>Psicología y psicoterapia</h2>
 <p>Profesionales habilitados pueden integrar el kit como estímulo narrativo en un contexto adecuado sin sustituir evaluación, criterio clínico o instrumentos validados cuando sean necesarios. Informar de finalidad y límites, obtener consentimiento informado cuando proceda y respetar la opción de no responder o detenerse. Evaluar idoneidad y malestar; adaptar o suspender cuando corresponda. No usar como intervención autónoma en crisis.</p>
 <h2>Grupos, formación y menores</h2>
+<p>[Destinatarios indicados por el referente del proyecto: adultos y menores en contextos profesionales. Edades, condiciones y finalidad de uso real pendientes de definir; esto no acredita idoneidad para menores. Verificar clasificación y seguridad física antes de publicar.]</p>
 <p>Aclarar finalidad, participación, confidencialidad y límites de la puesta en común; no imponer revelaciones personales. No prometer confidencialidad absoluta entre participantes. El uso con menores o personas vulnerables requiere evaluación específica de idoneidad, seguridad, consentimiento/autorizaciones y competencia aplicable; no se valida aquí ninguna franja de edad.</p>
 <h2>Recursos Humanos</h2>
 <p>Uso propuesto: diálogo, comunicación y reflexión organizativa. No utilizar elecciones de imágenes como puntuaciones, perfiles psicológicos, indicadores de salud, criterios de aptitud o base para decisiones de contratación, promoción o exclusión. No solicitar información sensible o ajena a la finalidad laboral; evitar presiones para revelar experiencias privadas. Respetar legislación laboral, protección de datos y no discriminación.</p>

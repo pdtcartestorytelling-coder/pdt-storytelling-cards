@@ -64,7 +64,7 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.4 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — proposed intended use, subject to review of manual, materials, evidence and classification before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.5 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — proposed intended use, subject to review of manual, materials, evidence and classification before publication.</p>
 <h2>Proposed intended use</h2>
 <p>PdT Signature is a photographic storytelling resource intended to facilitate narration, reflection, dialogue and exploration of personal meanings in appropriate settings. It is not intended to diagnose, measure psychological traits, treat or prevent disease, or replace healthcare. Product classification must be assessed against actual intended purpose, instructions and promotional materials.</p>
 <p>Confirming the intended use requires consistency between the manual, activity sheets, packaging, website and promotional material. The absence of a therapeutic promise on the website does not replace assessment of product classification or physical hazards, particularly the magnetic closure.</p>
@@ -73,6 +73,7 @@
 <h2>Psychology and psychotherapy</h2>
 <p>Qualified professionals may integrate the kit as a narrative prompt in an appropriate setting without replacing assessment, clinical judgement or validated tools when required. Explain purpose and limitations, obtain informed consent where required, respect the choice not to answer or to stop. Assess suitability and distress; adapt or discontinue where appropriate. Do not use the kit as a stand-alone crisis intervention.</p>
 <h2>Groups, training and minors</h2>
+<p>[Audience reported by the project representative: adults and minors in professional settings. Age ranges, conditions and actual intended use remain to be defined; this is not approval of suitability for minors. Verify classification and physical safety before publication.]</p>
 <p>Clarify purpose, participation, confidentiality arrangements and limits of sharing; do not require personal disclosures. Do not promise absolute confidentiality between participants. Use with minors or vulnerable people requires specific assessment of suitability, safety, consent/authorisations and applicable competence; no age range is validated here.</p>
 <h2>Human Resources</h2>
 <p>Proposed use: dialogue, communication and organisational reflection. Do not use image choices as scores, psychological profiles, health indicators, fitness criteria or a basis for hiring, promotion or exclusion decisions. Do not solicit sensitive or job-irrelevant information; avoid pressure to disclose private experiences. Observe employment, data protection and anti-discrimination law.</p>
