@@ -64,9 +64,10 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.3 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — proposed intended use, subject to review of manual, materials, evidence and classification before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.4 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — proposed intended use, subject to review of manual, materials, evidence and classification before publication.</p>
 <h2>Proposed intended use</h2>
 <p>PdT Signature is a photographic storytelling resource intended to facilitate narration, reflection, dialogue and exploration of personal meanings in appropriate settings. It is not intended to diagnose, measure psychological traits, treat or prevent disease, or replace healthcare. Product classification must be assessed against actual intended purpose, instructions and promotional materials.</p>
+<p>Confirming the intended use requires consistency between the manual, activity sheets, packaging, website and promotional material. The absence of a therapeutic promise on the website does not replace assessment of product classification or physical hazards, particularly the magnetic closure.</p>
 <h2>Professional competence and responsibility</h2>
 <p>Professionals assess suitability, agreed purpose, their competence and legally required qualifications. Reserved activities remain restricted to authorised professionals. Purchase does not confer professional qualifications. Cards do not provide automatic interpretations or predetermined clinical meanings.</p>
 <h2>Psychology and psychotherapy</h2>

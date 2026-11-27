@@ -64,13 +64,13 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.4 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify ownership, permissions and registrations before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.5 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify ownership, permissions and registrations before publication.</p>
 <h2>PdT materials</h2>
 <p>The website presents PdT Storytelling Cards, including photographs, a theoretical and practical manual, activity sheets, texts, graphics and designs. Materials are protected to the extent provided by law and belong to their respective rights holders. Silvia Dierico and Roberto Antoniello are identified as rights holders of the original project materials, subject to third-party rights and specific attribution of individual materials. [VERIFY DOCUMENTATION, ALLOCATION OF RIGHTS AND LICENCES].</p>
 <h2>Browsing and reproduction</h2>
 <p>Browsing does not grant a general licence to reproduce, modify, distribute or commercially exploit protected materials. Uses reserved to rights holders require their permission, subject to statutory exceptions, applicable licences and mandatory rights.</p>
 <h2>Professional use of Signature</h2>
-<p>The physical kit is intended for the professional settings described on the website. Buying a copy does not in itself transfer copyright. Any additional permissions for reproduction, sheets, projection, training or digital distribution will be specified in separate terms before sale, without restricting statutory rights.</p>
+<p>The physical kit is presented for the professional settings described on the website; final intended use remains subject to approval. Buying a copy does not in itself transfer copyright. Any additional permissions for reproduction, sheets, projection, training or digital distribution will be specified in separate terms before sale, without restricting statutory rights.</p>
 <p>The free library contains independent educational texts and a printable checklist, not extracts from the manual or original activity sheets. Free access does not transfer rights or grant general redistribution permission; statutory exceptions remain unaffected.</p>
 <h2>Name, logo and design</h2>
 <p>PdT distinctive signs and designs are used subject to applicable rights. [Verify owners, status, territory and scope of any registrations; do not claim registration without evidence]. This notice does not claim exclusive rights over abstract ideas or methods.</p>
