@@ -65,3 +65,6 @@ Google dichiara di non offrire un DPA per Gmail/Drive consumer: https://support.
 
 ## Aggiornamento finale — 27 novembre 2026
 Prezzo 149 EUR/unità previsto per Lotto 01 di 50 programmati; 199 EUR futuro listino, non prezzo precedente. Sostituisce 179/159 nei precedenti verbali, senza riscrivere la storia. #72 semplifica Pre Order: nome/email/quantità/presa visione, città/Paese e messaggio facoltativi, Signature preimpostato; rimosso ambito/tipo. Tre privacy di revisione aggiornate, radice ancora da sostituire dopo approvazioni. L01–L11 aperti. Riferimento corrente: docs/commercial/site-15-release-audit-20261127.md. Nessun servizio o pubblicazione autorizzata.
+
+## Conferma in fase di preparazione al rilascio
+Il referente conferma Silvia Dierico quale gestore giuridico del progetto e futuro soggetto venditore attraverso la propria partita IVA. È una conferma dichiarativa, non una verifica documentale o fiscale. L01 e L10 restano parzialmente completati: numero P.IVA, domicilio professionale autorizzato alla pubblicazione, eventuali recapiti e iscrizioni obbligatorie, regime e compatibilità dell'attività commerciale da verificare. Nessuna deduzione sul fabbricante; nessuna attivazione vendita. Le tre bozze informazioni legali sono aggiornate, non approvate. Tutti gli altri gate di rilascio restano aperti.

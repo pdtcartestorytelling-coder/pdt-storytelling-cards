@@ -89,3 +89,6 @@ Trigger: errori 4xx/5xx su percorsi critici, form trasmette dati impropri, priva
 
 ### Cache commerciale e guard aggiuntivi
 Versioni shop JS v6 e guida JS v7 riallineate nelle sei pagine che le caricano, per evitare riutilizzo del copy precedente in cache. Script invariati nel contenuto. Aggiunto controllo statico prezzi 159/179 EUR sulle 9 pagine commerciali e 3 script e presenza nota editoriale nei 12 articoli. Restano da verificare cache CDN effettiva, inventario completo asset/storia e approvazioni.
+
+## Fase 4 — conferma identità del gestore
+Silvia Dierico confermata dal referente quale gestore giuridico e futuro venditore tramite la propria partita IVA; già indicata quale titolare GDPR. A01 e A10 parzialmente completati a livello dichiarativo, non chiusi: P.IVA, domicilio professionale e recapiti obbligatori, regime/attività e fabbricante da verificare. Aggiornate le tre bozze informazioni legali, non le pagine attive. CI precedente run 45913740430 success; nuova CI da verificare. Nessun merge/deploy. NO-GO invariato.
