@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="cookies">
@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TESTO DI REVISIONE 0.3 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verifica del sito pubblicato e dei fornitori necessaria prima della pubblicazione.</p>
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.4 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verifica del sito pubblicato e dei fornitori necessaria prima della pubblicazione.</p>
 <h2>Gestore e contatti</h2>
-<p>Silvia Dierico, titolare del trattamento. [RECAPITI PROFESSIONALI DA CONFERMARE]. Per informazioni: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Silvia Dierico, titolare del trattamento. Via Giorgio Ambrosoli 6, Mozzo (BG), Italia. Per informazioni: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>Cosa sono i cookie</h2>
 <p>I cookie sono piccoli file che un sito può memorizzare nel browser. Altre tecnologie possono archiviare o leggere informazioni sul dispositivo. La necessità del consenso dipende dalla finalità e dalle condizioni di utilizzo.</p>
 <h2>Configurazione attuale del sito</h2>
@@ -80,7 +80,7 @@
 <h2>Aggiornamenti e privacy</h2>
 <p>Prima di attivare analytics, pixel, pagamenti, account o altri servizi verranno valutati i relativi trattamenti e aggiornate le informazioni e, se necessario, i meccanismi di consenso. Consulta l'<a href="privacy-policy.html">informativa privacy</a>.</p>
 <h2>Versione</h2>
-<p>Bozza del 26 novembre 2026. Non pubblicare prima della verifica tecnica e della revisione professionale.</p>
+<p>Bozza del 27 novembre 2026. Non pubblicare prima della verifica tecnica e della revisione professionale.</p>
 </div>
   </section>
 </main>

@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="legal">
@@ -64,7 +64,7 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.7 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — confirm legal identity and tax details; do not publish.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.8 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — confirm legal identity and tax details; do not publish.</p>
 <h2>The project</h2>
 <p>PdT Storytelling Cards is the name of the project presented on this website. Roberto Antoniello and Silvia Dierico are identified as co-founders on the About page. This does not automatically identify the legal person operating the website or making sales.</p>
 <h2>Website operator</h2>
@@ -79,7 +79,7 @@
 <h2>Enquiries and commercial activity</h2>
 <p>Enquiries submitted through the site do not automatically generate an order or payment. The proposed future seller is Silvia Dierico. [Verify tax and contact details and conditions before concluding sales; assess whether disclosure obligations already apply].</p>
 <h2>Version</h2>
-<p>Draft dated 26 November 2026. Do not publish until details are confirmed and professionally reviewed.</p>
+<p>Draft dated 27 November 2026. Do not publish until details are confirmed and professionally reviewed.</p>
 </div>
   </section>
 </main>

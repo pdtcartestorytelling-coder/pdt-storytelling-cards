@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="legal">
@@ -64,7 +64,7 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.7 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — confirmar identidad jurídica y datos fiscales; no publicar.</p>
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.8 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — confirmar identidad jurídica y datos fiscales; no publicar.</p>
 <h2>El proyecto</h2>
 <p>PdT Storytelling Cards es el nombre del proyecto presentado en este sitio. Roberto Antoniello y Silvia Dierico figuran como cofundadores en la página Quiénes somos. Esta indicación no identifica automáticamente al sujeto jurídico que gestiona el sitio o realiza las ventas.</p>
 <h2>Gestor del sitio</h2>
@@ -79,7 +79,7 @@
 <h2>Consultas y actividad comercial</h2>
 <p>Las consultas enviadas desde el sitio no generan automáticamente un pedido ni un pago. La futura vendedora indicada es Silvia Dierico. [Verificar datos fiscales, de contacto y condiciones antes de concluir ventas; evaluar si ya se aplican obligaciones informativas].</p>
 <h2>Versión</h2>
-<p>Borrador del 26 de noviembre de 2026. No publicar hasta confirmar los datos y completar la revisión profesional.</p>
+<p>Borrador del 27 de noviembre de 2026. No publicar hasta confirmar los datos y completar la revisión profesional.</p>
 </div>
   </section>
 </main>

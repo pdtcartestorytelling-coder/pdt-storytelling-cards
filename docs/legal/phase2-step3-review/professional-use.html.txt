@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="professional-use">
@@ -64,7 +64,7 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TESTO DI REVISIONE 0.2 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — destinazione proposta, da confrontare con manuale, materiali, evidenze e classificazione prima della pubblicazione.</p>
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.3 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — destinazione proposta, da confrontare con manuale, materiali, evidenze e classificazione prima della pubblicazione.</p>
 <h2>Destinazione d’uso proposta</h2>
 <p>PdT Signature è uno strumento narrativo e fotografico per facilitare il racconto, la riflessione, il dialogo e l’esplorazione di significati personali in contesti appropriati. Non è destinato a diagnosticare, misurare tratti psicologici, curare o prevenire patologie, né a sostituire prestazioni sanitarie. La classificazione del prodotto deve essere verificata rispetto all’effettiva destinazione, istruzioni e comunicazioni commerciali.</p>
 <h2>Competenza e responsabilità professionale</h2>
@@ -77,10 +77,11 @@
 <p>Destinazione proposta: confronto, comunicazione e riflessione organizzativa. Non impiegare le scelte delle immagini come punteggi, profili psicologici, indicatori di salute, criteri di idoneità o base per decisioni di assunzione, promozione o esclusione. Non sollecitare informazioni sensibili o estranee alla finalità lavorativa; evitare pressioni a raccontare vicende private. Rispettare normativa lavoro, protezione dati e non discriminazione.</p>
 <h2>Evidenze e limiti</h2>
 <p>I riferimenti filosofici, psicologici e culturali spiegano il quadro teorico. Non dimostrano da soli validità psicometrica o efficacia clinica specifica di PdT. Non si promettono risultati terapeutici, diagnosi o miglioramenti misurabili. [Verificare eventuali studi specifici e formulazioni prima di approvare qualsiasi dichiarazione scientifica].</p>
+<p>Gli esempi pubblicati sono scenari immaginari a scopo divulgativo, non casi clinici reali, protocolli o riproduzioni delle schede del manuale. I contenuti gratuiti non sostituiscono le istruzioni definitive del kit.</p>
 <h2>Riservatezza e guida online</h2>
 <p>Le eventuali informazioni emerse durante l’attività devono essere gestite dal soggetto competente secondo obblighi applicabili, con minimizzazione, riservatezza e adeguata base giuridica. La guida del sito è informativa, non fornisce consulenza clinica e non è un servizio di emergenza. Non inviare dati di pazienti, candidati o dipendenti attraverso i moduli o la guida. Consulta l’<a href="privacy-policy.html">informativa privacy</a>.</p>
 <h2>Responsabilità del produttore e contatti</h2>
-<p>Queste indicazioni non escludono responsabilità del fabbricante o venditore, sicurezza del prodotto, garanzie legali, dolo o colpa grave, né altri diritti inderogabili. Per informazioni sul prodotto: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>. Bozza del 26 novembre 2026.</p>
+<p>Queste indicazioni non escludono responsabilità del fabbricante o venditore, sicurezza del prodotto, garanzie legali, dolo o colpa grave, né altri diritti inderogabili. Per informazioni sul prodotto: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>. Bozza del 27 novembre 2026.</p>
 </div>
   </section>
 </main>
