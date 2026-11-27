@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="cookies">
@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.3 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify the live website and service providers before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.4 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — verify the live website and service providers before publication.</p>
 <h2>Operator and contact</h2>
-<p>Silvia Dierico, data controller. [PROFESSIONAL CONTACT DETAILS TO BE CONFIRMED]. Enquiries: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Silvia Dierico, data controller. Via Giorgio Ambrosoli 6, Mozzo (BG), Italy. Enquiries: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>What cookies are</h2>
 <p>Cookies are small files that websites may store in a browser. Other technologies may store or access information on a device. Consent requirements depend on the purpose and conditions of use.</p>
 <h2>Current website configuration</h2>
@@ -80,7 +80,7 @@
 <h2>Updates and privacy</h2>
 <p>Before enabling analytics, pixels, payments, accounts or other services, the associated processing will be assessed and the notices and, where required, consent mechanisms updated. See the <a href="privacy-policy-en.html">Privacy Policy</a>.</p>
 <h2>Version</h2>
-<p>Draft dated 26 November 2026. Do not publish before technical verification and professional review.</p>
+<p>Draft dated 27 November 2026. Do not publish before technical verification and professional review.</p>
 </div>
   </section>
 </main>

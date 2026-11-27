@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="legal">
@@ -64,22 +64,22 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TESTO DI REVISIONE 0.5 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — identità e dati fiscali da confermare; non pubblicare.</p>
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.8 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — identità e dati fiscali da confermare; non pubblicare.</p>
 <h2>Il progetto</h2>
 <p>PdT Storytelling Cards è il nome del progetto presentato sul sito. Roberto Antoniello e Silvia Dierico sono indicati nella pagina Chi siamo come cofondatori. Tale indicazione non identifica automaticamente il soggetto giuridico che gestisce il sito o conclude le vendite.</p>
 <h2>Gestore del sito</h2>
-<p>Nome o denominazione: [da confermare].<br/>Forma giuridica: persona fisica.<br/>Domicilio professionale o sede: [da confermare].<br/>Email: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.<br/>Ulteriori recapiti diretti: [da confermare].</p>
+<p>Nome o denominazione: Silvia Dierico.<br/>Forma giuridica: persona fisica.<br/>Domicilio professionale: Via Giorgio Ambrosoli 6, Mozzo (BG), Italia.<br/>Email: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.<br/>Ulteriori recapiti diretti: [da confermare].</p>
 <h3>Gestione tecnica del sito</h3>
 <p>Lorenzo Cicogna cura attualmente la gestione tecnica del sito. Tale incarico operativo non identifica automaticamente il gestore giuridico, il titolare del trattamento o il venditore. Per segnalazioni tecniche utilizzare il contatto del progetto; eventuali recapiti personali non sono pubblicati senza approvazione specifica.</p>
 <h2>Informazioni fiscali e societarie</h2>
-<p>Referente fiscale indicato: Silvia Dierico, con partita IVA esistente secondo conferma del progetto. [VERIFICARE NUMERO DI PARTITA IVA, REGIME, ATTIVITÀ AUTORIZZATA E SOGGETTO VENDITORE].</p>
-<p>Partita IVA o identificativo equivalente: [da confermare, ove applicabile].<br/>Registro Imprese, ufficio e numero, REA: [da confermare, ove applicabili].<br/>PEC e ulteriori dati obbligatori in base alla forma giuridica, inclusi capitale, socio unico o liquidazione se pertinenti: [da confermare].</p>
+<p>Gestore e futuro venditore indicato: Silvia Dierico, con partita IVA esistente secondo conferma del progetto. [VERIFICARE ATTRIBUZIONE DELLA PARTITA IVA, REGIME DICHIARATO E COMPATIBILITÀ DELL'ATTIVITÀ COMMERCIALE].</p>
+<p>Partita IVA: 03017720164.<br/>Registro Imprese, ufficio e numero, REA: [da confermare, ove applicabili].<br/>PEC: <a href="mailto:silvia.dierico.674@psypec.it">silvia.dierico.674@psypec.it</a>.<br/>Ulteriori dati obbligatori secondo la forma giuridica: [verificare applicabilità].</p>
 <h2>Titolare del trattamento dei dati</h2>
 <p>Titolare del trattamento: Silvia Dierico. Consulta l'<a href="privacy-policy.html">informativa privacy</a>.</p>
 <h2>Richieste e attività commerciale</h2>
-<p>Le richieste inviate dal sito non generano automaticamente un ordine o un pagamento. [Identità del soggetto venditore, dati fiscali e recapiti da definire prima di concludere vendite; verificare se gli obblighi informativi siano già applicabili].</p>
+<p>Le richieste inviate dal sito non generano automaticamente un ordine o un pagamento. Il futuro venditore indicato è Silvia Dierico. [Verificare dati fiscali, recapiti e condizioni prima di concludere vendite; verificare se gli obblighi informativi siano già applicabili].</p>
 <h2>Versione</h2>
-<p>Bozza del 26 novembre 2026. Non pubblicare prima di conferma dei dati e revisione professionale.</p>
+<p>Bozza del 27 novembre 2026. Non pubblicare prima di conferma dei dati e revisione professionale.</p>
 </div>
   </section>
 </main>

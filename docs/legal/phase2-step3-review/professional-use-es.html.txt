@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="professional-use">
@@ -64,23 +64,26 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.2 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — uso previsto propuesto, sujeto a revisión del manual, materiales, evidencia y clasificación antes de publicar.</p>
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.5 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — uso previsto propuesto, sujeto a revisión del manual, materiales, evidencia y clasificación antes de publicar.</p>
 <h2>Uso previsto propuesto</h2>
 <p>PdT Signature es un recurso fotográfico y narrativo para facilitar el relato, la reflexión, el diálogo y la exploración de significados personales en contextos adecuados. No está destinado a diagnosticar, medir rasgos psicológicos, tratar o prevenir enfermedades ni sustituir prestaciones sanitarias. La clasificación debe evaluarse conforme a su uso real previsto, instrucciones y publicidad.</p>
+<p>La confirmación de la finalidad de uso requiere coherencia entre el manual, las fichas, el envase, el sitio y los materiales promocionales. La ausencia de una promesa terapéutica en el sitio no sustituye la evaluación de la clasificación del producto ni de los riesgos físicos, especialmente del cierre magnético.</p>
 <h2>Competencia y responsabilidad profesional</h2>
 <p>El profesional evalúa la idoneidad, finalidad, competencias y habilitaciones exigidas legalmente. Las actividades reservadas corresponden a profesionales habilitados. Comprar el kit no confiere cualificaciones profesionales. Las cartas no proporcionan interpretaciones automáticas ni significados clínicos predeterminados.</p>
 <h2>Psicología y psicoterapia</h2>
 <p>Profesionales habilitados pueden integrar el kit como estímulo narrativo en un contexto adecuado sin sustituir evaluación, criterio clínico o instrumentos validados cuando sean necesarios. Informar de finalidad y límites, obtener consentimiento informado cuando proceda y respetar la opción de no responder o detenerse. Evaluar idoneidad y malestar; adaptar o suspender cuando corresponda. No usar como intervención autónoma en crisis.</p>
 <h2>Grupos, formación y menores</h2>
+<p>[Destinatarios indicados por el referente del proyecto: adultos y menores en contextos profesionales. Edades, condiciones y finalidad de uso real pendientes de definir; esto no acredita idoneidad para menores. Verificar clasificación y seguridad física antes de publicar.]</p>
 <p>Aclarar finalidad, participación, confidencialidad y límites de la puesta en común; no imponer revelaciones personales. No prometer confidencialidad absoluta entre participantes. El uso con menores o personas vulnerables requiere evaluación específica de idoneidad, seguridad, consentimiento/autorizaciones y competencia aplicable; no se valida aquí ninguna franja de edad.</p>
 <h2>Recursos Humanos</h2>
 <p>Uso propuesto: diálogo, comunicación y reflexión organizativa. No utilizar elecciones de imágenes como puntuaciones, perfiles psicológicos, indicadores de salud, criterios de aptitud o base para decisiones de contratación, promoción o exclusión. No solicitar información sensible o ajena a la finalidad laboral; evitar presiones para revelar experiencias privadas. Respetar legislación laboral, protección de datos y no discriminación.</p>
 <h2>Evidencia y límites</h2>
 <p>Las referencias filosóficas, psicológicas y culturales explican el marco teórico. No demuestran por sí solas validez psicométrica ni eficacia clínica específica de PdT. No se prometen resultados terapéuticos, diagnósticos ni mejoras medibles. [Revisar estudios específicos y formulaciones antes de aprobar afirmaciones científicas].</p>
+<p>Los ejemplos publicados son situaciones ficticias con finalidad divulgativa, no casos clínicos reales, protocolos ni reproducciones de las fichas del manual. Los recursos gratuitos no sustituyen las instrucciones definitivas del kit.</p>
 <h2>Confidencialidad y guía en línea</h2>
 <p>La información surgida durante actividades debe tratarse por el responsable conforme a las obligaciones aplicables, con minimización, confidencialidad y base jurídica adecuada. La guía web es informativa, no asesoramiento clínico ni servicio de emergencia. No enviar datos de pacientes, candidatos o empleados mediante formularios o guía. Consulta la <a href="privacy-policy-es.html">política de privacidad</a>.</p>
 <h2>Responsabilidad del fabricante y contacto</h2>
-<p>Estas indicaciones no excluyen responsabilidad del fabricante o vendedor, seguridad del producto, garantías legales, dolo, culpa grave ni otros derechos imperativos. Consultas: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>. Borrador del 26 de noviembre de 2026.</p>
+<p>Estas indicaciones no excluyen responsabilidad del fabricante o vendedor, seguridad del producto, garantías legales, dolo, culpa grave ni otros derechos imperativos. Consultas: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>. Borrador del 27 de noviembre de 2026.</p>
 </div>
   </section>
 </main>

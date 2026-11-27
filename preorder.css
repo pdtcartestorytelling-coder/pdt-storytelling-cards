@@ -292,6 +292,6 @@ body[data-page="preorder"] .preorder-bundle-visual img{background:transparent}
 @media(max-width:600px){
   body[data-page="preorder"] .pdt-interest-fields :is(input,textarea,select){font-size:16px;min-width:0;max-width:100%}
   body[data-page="preorder"] .pdt-interest-section :is(a,button,input,textarea,select){scroll-margin-bottom:calc(112px + env(safe-area-inset-bottom))}
-  body[data-page="preorder"]:has(.pdt-interest-card :focus-within) .preorder-mobile-action{visibility:hidden;opacity:0;pointer-events:none}
+  body[data-page="preorder"]:has(.pdt-interest-card:focus-within) .preorder-mobile-action{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:none!important}
   body[data-page="preorder"] .preorder-mobile-action .preorder-btn{white-space:normal;line-height:1.35}
 }

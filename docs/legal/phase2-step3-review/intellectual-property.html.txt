@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="intellectual-property">
@@ -64,21 +64,22 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TESTO DI REVISIONE 0.3 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verificare titolarità, autorizzazioni e registrazioni prima di pubblicare.</p>
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.6 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — verificare titolarità, autorizzazioni e registrazioni prima di pubblicare.</p>
 <h2>Materiali PdT</h2>
-<p>Il sito presenta PdT Storytelling Cards, comprendente fotografie, manuale teorico-operativo, schede, testi, grafiche e design. I materiali sono tutelati nei limiti previsti dalla legge e appartengono ai rispettivi titolari. La titolarità dei materiali originali del progetto è indicata in Silvia Dierico e Roberto Antoniello, fatti salvi i diritti di terzi e le specifiche attribuzioni dei singoli materiali. [VERIFICARE DOCUMENTAZIONE, RIPARTIZIONE DEI DIRITTI E LICENZE].</p>
+<p>Il sito presenta PdT Storytelling Cards, comprendente fotografie, manuale teorico-operativo, schede, testi, grafiche e design. I materiali sono tutelati nei limiti previsti dalla legge e appartengono ai rispettivi titolari. La titolarità dei materiali originali del progetto è indicata in Silvia Dierico e Roberto Antoniello, fatti salvi i diritti di terzi e le specifiche attribuzioni dei singoli materiali. Secondo conferma del referente, entrambi autorizzano la commercializzazione dei materiali originali. [ACQUISIRE E VERIFICARE PROVE, RIPARTIZIONE DEI DIRITTI, AUTORIZZAZIONI E LICENZE].</p>
 <h2>Consultazione e riproduzione</h2>
 <p>La consultazione del sito non attribuisce una licenza generale di riproduzione, modifica, distribuzione o sfruttamento commerciale dei materiali protetti. Per utilizzi riservati ai titolari occorre la loro autorizzazione, fatti salvi gli usi consentiti dalla legge, le licenze applicabili e i diritti inderogabili.</p>
 <h2>Utilizzo professionale di Signature</h2>
-<p>Il kit fisico è destinato all'uso nei contesti professionali descritti sul sito. L'acquisto di un esemplare non comporta di per sé la cessione dei diritti d'autore. Le eventuali autorizzazioni aggiuntive per riproduzioni, schede, proiezioni, formazione o distribuzione digitale saranno definite in condizioni specifiche prima della vendita, senza limitare i diritti previsti dalla legge.</p>
+<p>Il kit fisico è presentato per i contesti professionali descritti sul sito; la destinazione d'uso definitiva resta da approvare. L'acquisto di un esemplare non comporta di per sé la cessione dei diritti d'autore. Le eventuali autorizzazioni aggiuntive per riproduzioni, schede, proiezioni, formazione o distribuzione digitale saranno definite in condizioni specifiche prima della vendita, senza limitare i diritti previsti dalla legge.</p>
+<p>La biblioteca gratuita contiene testi divulgativi autonomi e una checklist stampabile, non estratti del manuale o schede originali. La consultazione gratuita non equivale a cessione di diritti o autorizzazione generale di redistribuzione; restano salvi gli usi consentiti dalla legge.</p>
 <h2>Nome, logo e design</h2>
-<p>I segni distintivi e il design di PdT sono utilizzati nel rispetto dei diritti applicabili. [Verificare titolari, stato, territorio e ambito delle eventuali registrazioni; non dichiarare un marchio o design registrato senza evidenza]. Nessuna esclusiva sulle idee o sui metodi astratti è rivendicata mediante questa informativa.</p>
+<p>I segni distintivi e il design di PdT sono utilizzati nel rispetto dei diritti applicabili. [Marchio dichiarato registrato dal referente: verificare certificato, numero, titolare, stato, territorio, classi e segno prima di rendere pubblica la dichiarazione; non presumere registrazione del design]. Nessuna esclusiva sulle idee o sui metodi astratti è rivendicata mediante questa informativa.</p>
 <h2>Materiali di terzi e codice</h2>
 <p>I contenuti e componenti di terzi restano soggetti ai relativi diritti e licenze. La disponibilità pubblica di un file non equivale a una licenza generale; restano salvi gli usi consentiti dalle condizioni della piattaforma e dalle licenze applicabili.</p>
 <h2>Richieste di autorizzazione e segnalazioni</h2>
 <p>Per chiedere autorizzazioni o segnalare possibili violazioni, scrivere a <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>, indicando materiale, uso richiesto o indirizzo della pagina interessata. Evitare dati riservati non necessari. Consulta l'<a href="privacy-policy.html">informativa privacy</a>.</p>
 <h2>Versione</h2>
-<p>Bozza del 26 novembre 2026. Non pubblicare prima delle verifiche documentali e della revisione professionale.</p>
+<p>Bozza del 27 novembre 2026. Non pubblicare prima delle verifiche documentali e della revisione professionale.</p>
 </div>
   </section>
 </main>

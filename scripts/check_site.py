@@ -2,6 +2,7 @@
 """Static checks for GitHub Pages; uses only Python standard library."""
 from __future__ import annotations
 import json
+import os
 import re
 import sys
 import urllib.parse
@@ -9,7 +10,8 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+SOURCE_ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get("PDT_WEB_ROOT", str(SOURCE_ROOT))).resolve()
 ERRORS = []
 IGNORE = {"", "#"}
 IGNORE_SCHEMES = ("mailto:", "tel:", "data:", "javascript:", "https:", "http:", "//")
@@ -128,8 +130,8 @@ except (ET.ParseError, OSError) as exc:
 
 # Consolidated candidate: do not expose incomplete policies or revive old asset versions.
 candidate_assets = {"style.css":23, "script.js":12, "pdt-motion.css":11,
-                    "interest.js":14, "pdt-shop.css":7, "pdt-shop.js":5,
-                    "guida-informativa.js":6}
+                    "interest.js":14, "pdt-shop.css":7, "pdt-shop.js":6,
+                    "guida-informativa.js":7}
 deferred_policy = re.compile(r"^(?:terms-of-use|cookie-policy|legal-information|intellectual-property|sales-terms|returns-policy|product-safety|professional-use)(?:-en|-es)?\\.html$")
 for file, page in parsed.items():
     for raw in page.links:
@@ -182,13 +184,13 @@ for name in ("pre-order.html", "pre-order-en.html", "pre-order-es.html"):
                                             '<a class="preorder-gallery-image"',
                                             '<a href="images/')):
         ERRORS.append(f"{name}: fullscreen image control still present")
-    if 'preorder.css?v=23' not in text:
+    if 'preorder.css?v=24' not in text:
         ERRORS.append(f"{name}: latest gallery style missing")
     if '<strong>149 €</strong><span class="pdt-future-price">' not in text or '199' not in text or '<del class="pdt-compare-price">' in text:
         ERRORS.append(f"{name}: expected prominent pre-order 149 vs planned list 199")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or 'Essential' in text or 'essential' in text:
         ERRORS.append(f"{name}: obsolete price or Essential marketing text remains")
-    if 'pdt-shop.js?v=5' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=14' not in text:
+    if 'pdt-shop.js?v=6' not in text or 'pdt-shop.css?v=7' not in text or 'interest.js?v=14' not in text:
         ERRORS.append(f"{name}: current Signature sales assets missing")
     if 'pdt-motion.js?v=9' not in text or 'pdt-motion.css?v=11' not in text:
         ERRORS.append(f"{name}: motion assets missing")
@@ -201,7 +203,7 @@ for name in ("index.html", "home-en.html", "home-es.html"):
         ERRORS.append(f"{name}: pre-order versus planned list price is not shown")
     if re.search(r'(?<!\d)(?:189|99)\s*€|€\s*(?:189|99)\b', text) or "Essential" in text or "essential" in text:
         ERRORS.append(f"{name}: outdated prices or Essential remain")
-    if 'pdt-shop.css?v=7' not in text or 'pdt-shop.js?v=5' not in text:
+    if 'pdt-shop.css?v=7' not in text or 'pdt-shop.js?v=6' not in text:
         ERRORS.append(f"{name}: updated Signature-only sales styles or script missing")
     if 'pdt-motion.js?v=9' not in text or 'pdt-motion.css?v=11' not in text:
         ERRORS.append(f"{name}: motion assets missing")
@@ -237,11 +239,13 @@ for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-or
     if "102" not in text:
         ERRORS.append(f"{name}: original photograph count missing")
 
-for edition in ("essential", "studio", "signature"):
-    for fmt in ("webp", "avif"):
-        file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
-        if not file.exists() or file.stat().st_size < 20000:
-            ERRORS.append(f"{file.name}: missing or too small to be a full-size render")
+# Historical rendering sources are repository-only, not required in the QA web package.
+if ROOT == SOURCE_ROOT:
+    for edition in ("essential", "studio", "signature"):
+        for fmt in ("webp", "avif"):
+            file = ROOT / f"images/pdt-{edition}-hq.{fmt}"
+            if not file.exists() or file.stat().st_size < 20000:
+                ERRORS.append(f"{file.name}: missing or too small to be a full-size render")
 motion_js=(ROOT/"pdt-motion.js").read_text(encoding="utf-8")
 motion_css=(ROOT/"pdt-motion.css").read_text(encoding="utf-8")
 if "pdt-cinema-sweep" not in motion_js or "pdt-cinema-edge" not in motion_js:
@@ -480,6 +484,17 @@ for name in ("404.html", "grazie.html", "thank-you.html", "gracias.html", "conta
 if "Sitemap: " + seo_origin + "sitemap.xml" not in (ROOT / "robots.txt").read_text(encoding="utf-8"):
     ERRORS.append("robots.txt: sitemap reference missing")
 
+# Cumulative candidate guard: historic prices must not return to active commerce.
+for name in ("index.html","home-en.html","home-es.html","pre-order.html","pre-order-en.html","pre-order-es.html","prodotto.html","product-en.html","product-es.html","pdt-shop.js","interest.js","guida-informativa.js"):
+    text = (ROOT / name).read_text(encoding="utf-8")
+    if re.search(r"(?:€\s*(?:159|179)\b|\b(?:159|179)\s*(?:€|EUR\b))", text, re.I):
+        ERRORS.append(f"{name}: obsolete launch price")
+for stem in ("articolo-nascita-pdt","articolo-narrazione-coscienza-immagini","articolo-roland-barthes-fotografia","articolo-stili-modi-pdt"):
+    for suffix in ("","-en","-es"):
+        name = stem + suffix + ".html"
+        if 'class="article-editorial-note"' not in (ROOT / name).read_text(encoding="utf-8"):
+            ERRORS.append(f"{name}: editorial context missing")
+# The legal approval register remains explicitly open; this is not a deploy gate.
 print(f"Checked {len(pages)} HTML pages, {len(locations) if 'locations' in globals() else 0} sitemap URLs, all local assets and 2 edition purchase-enquiry panels.")
 if ERRORS:
     for item in ERRORS: print("FAIL:", item)

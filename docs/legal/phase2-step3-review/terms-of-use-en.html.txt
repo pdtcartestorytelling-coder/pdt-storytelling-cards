@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="terms">
@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.3 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — complete and obtain professional review before publication.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.5 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — complete and obtain professional review before publication.</p>
 <h2>Website operator</h2>
-<p>Website operator: natural person. [CONFIRM OPERATOR NAME, GEOGRAPHICAL ADDRESS, CONTACT DETAILS AND TAX OR REGISTRATION DETAILS WHERE APPLICABLE]. Contact: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Website operator: Silvia Dierico, natural person. Business address: Via Giorgio Ambrosoli 6, Mozzo (BG), Italy. Italian VAT number: 03017720164. Certified email (PEC): <a href="mailto:silvia.dierico.674@psypec.it">silvia.dierico.674@psypec.it</a>. [VERIFY OTHER MANDATORY DISCLOSURES AND REGISTRATION WHERE APPLICABLE]. Contact: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>Scope</h2>
 <p>This website presents PdT Storytelling Cards and allows informational and commercial enquiries by email. These terms concern website use, are not general terms of sale and do not restrict mandatory user rights.</p>
 <h2>PdT Signature and non-binding enquiries</h2>
@@ -82,7 +82,7 @@
 <h2>Privacy and contact</h2>
 <p>See the <a href="privacy-policy-en.html">Privacy Policy</a> for personal data processing. Contact <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a> for enquiries or concerns.</p>
 <h2>Version</h2>
-<p>Draft dated 26 November 2026. Not for publication until details are verified and professional review is completed.</p>
+<p>Draft dated 27 November 2026. Not for publication until details are verified and professional review is completed.</p>
 </div>
   </section>
 </main>

@@ -6,8 +6,8 @@ const fs=require("node:fs");
 const path=require("node:path");
 const assert=require("node:assert/strict");
 const {execSync}=require("node:child_process");
-const root=path.resolve(__dirname,"..");
-const output=path.join(root,"browser-test-screenshots","performance-lab.json");
+const root = path.resolve(process.env.PDT_WEB_ROOT || path.resolve(__dirname, ".."));
+const output=path.join(path.resolve(process.env.PDT_TEST_OUTPUT || path.join(__dirname,"..","browser-test-screenshots")),"performance-lab.json");
 const mime={".html":"text/html; charset=utf-8",".css":"text/css",".js":"text/javascript",".webp":"image/webp",".avif":"image/avif",".jpg":"image/jpeg",".png":"image/png",".svg":"image/svg+xml",".woff2":"font/woff2",".ico":"image/x-icon"};
 const server=http.createServer((req,res)=>{
   try{
@@ -49,18 +49,20 @@ async function run(){
           });
           const response=await page.goto(origin+file,{waitUntil:"load",timeout:20000});
           await new Promise(resolve=>setTimeout(resolve,750));
-          const info=await page.evaluate(()=>{
+          const info=await page.evaluate(async()=>{
             const footer=document.querySelector(".pdt-discovery-links a");
             const hero=document.querySelector(".pdt-h-hero-figure img,.preorder-hero-product img,.sig-hero img,.gallery-hero img");
+            const storage={cookiePresent:document.cookie.length>0,localKeys:localStorage.length,sessionKeys:sessionStorage.length,indexedDBCount:typeof indexedDB.databases==="function"?(await indexedDB.databases()).length:null,cacheCount:typeof caches!=="undefined"?(await caches.keys()).length:null};
             const entries=performance.getEntriesByType("resource");
             const nav=performance.getEntriesByType("navigation")[0];
-            return {lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,coarse:matchMedia("(pointer:coarse)").matches,cinema:document.querySelectorAll(".pdt-cinema-sweep,.pdt-cinema-edge").length,footerHeight:footer?.getBoundingClientRect().height,footerColor:footer&&getComputedStyle(footer).color,hero:hero?{priority:hero.getAttribute("fetchpriority"),lazy:hero.loading==="lazy",dimensions:!!hero.getAttribute("width")&&!!hero.getAttribute("height")}:null,lab:window.__pdtLab,loadMs:nav?.loadEventEnd,resourceBytes:entries.reduce((a,e)=>a+e.transferSize,0),resourceCount:entries.length};
+            return {storage,lang:document.documentElement.lang,overflow:document.documentElement.scrollWidth-innerWidth,coarse:matchMedia("(pointer:coarse)").matches,cinema:document.querySelectorAll(".pdt-cinema-sweep,.pdt-cinema-edge").length,footerHeight:footer?.getBoundingClientRect().height,footerColor:footer&&getComputedStyle(footer).color,hero:hero?{priority:hero.getAttribute("fetchpriority"),lazy:hero.loading==="lazy",dimensions:!!hero.getAttribute("width")&&!!hero.getAttribute("height")}:null,lab:window.__pdtLab,loadMs:nav?.loadEventEnd,resourceBytes:entries.reduce((a,e)=>a+e.transferSize,0),resourceCount:entries.length};
           });
           rows.push({file,lang,viewport:"320x480",...info,externalRequests:external.length,errors});
           assert.ok(response.status()===200&&info.lang===lang&&info.overflow<=5,file+" layout "+JSON.stringify(info));
           assert.ok(info.coarse&&info.cinema===0,file+" touch scroll-depth budget");
           assert.ok(info.footerHeight>=44&&info.footerColor==="rgb(245, 211, 140)",file+" footer contrast/target");
           assert.ok(!external.length&&!errors.length,file+" requests/errors "+JSON.stringify({external,errors}));
+          assert.ok(!info.storage.cookiePresent&&info.storage.localKeys===0&&info.storage.sessionKeys===0&&[0,null].includes(info.storage.indexedDBCount)&&[0,null].includes(info.storage.cacheCount),file+" unexpected browser storage "+JSON.stringify(info.storage));
           if(info.hero)assert.ok(info.hero.priority==="high"&&!info.hero.lazy&&info.hero.dimensions,file+" hero loading");
           // Stop throttling before interaction checks.
           await session.send("Network.emulateNetworkConditions",{offline:false,latency:0,downloadThroughput:-1,uploadThroughput:-1});
@@ -70,15 +72,16 @@ async function run(){
           assert.ok(menu.open&&menu.bottom<=menu.viewport+5&&menu.height>=44&&menu.overflow==="auto",file+" short mobile menu "+JSON.stringify(menu));
           await page.keyboard.press("Escape");
           if(file===pre){
-            await page.$eval('#interest input[name="name"]',e=>e.focus());
-            assert.ok(await page.$eval(".preorder-mobile-action",e=>getComputedStyle(e).visibility==="hidden"),file+" CTA must not obscure focused form");
+            await page.$eval('#interest input[name="name"]',e=>{e.focus({preventScroll:true});});
+            const focused=await page.evaluate(()=>{const input=document.querySelector('#interest input[name="name"]'),bar=document.querySelector(".preorder-mobile-action"),style=getComputedStyle(bar);return {active:document.activeElement===input,disabled:input.disabled,display:style.display,visibility:style.visibility,rect:bar.getBoundingClientRect().height};});
+            assert.ok(focused.active&&!focused.disabled&&focused.display==="none"&&focused.rect===0,file+" CTA must not obscure focused form "+JSON.stringify(focused));
           }
         }finally{await page.close();}
       }
     }
   }finally{
     fs.mkdirSync(path.dirname(output),{recursive:true});
-    fs.writeFileSync(output,JSON.stringify({scope:"synthetic local cold load; 320x480 touch; 80 ms latency, 1.6 Mbps download, 4x CPU; single sample per page; LCP/CLS through load + 750 ms; longTasks is blocking-time proxy, NOT INP or Lighthouse TBT; no field CWV claim",rows},null,2));
+    fs.writeFileSync(output,JSON.stringify({scope:"synthetic local cold load; 320x480 touch; 80 ms latency, 1.6 Mbps download, 4x CPU; single sample per page; LCP/CLS through load + 750 ms; longTasks is blocking-time proxy, NOT INP or Lighthouse TBT; no field CWV claim; browser storage counts are local only, null means API unavailable",rows},null,2));
     if(browser)await browser.close();
     await new Promise(resolve=>server.close(resolve));
   }

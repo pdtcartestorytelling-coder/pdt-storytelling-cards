@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script src="script.js?v=12" defer></script>
 </head>
 <body data-page="terms">
@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TESTO DI REVISIONE 0.3 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — da completare e sottoporre a revisione professionale prima della pubblicazione.</p>
+<p class="privacy-note"><strong>TESTO DI REVISIONE 0.5 — non pubblicare. Verifiche e approvazioni ancora necessarie.</strong> BOZZA NON APPROVATA — da completare e sottoporre a revisione professionale prima della pubblicazione.</p>
 <h2>Gestore del sito</h2>
-<p>Gestore: persona fisica. [NOME DEL GESTORE, INDIRIZZO GEOGRAFICO, RECAPITI E DATI FISCALI O REGISTRALI OVE APPLICABILI DA CONFERMARE]. Contatti: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Gestore: Silvia Dierico, persona fisica. Domicilio professionale: Via Giorgio Ambrosoli 6, Mozzo (BG), Italia. Partita IVA: 03017720164. PEC: <a href="mailto:silvia.dierico.674@psypec.it">silvia.dierico.674@psypec.it</a>. [VERIFICARE ULTERIORI DATI OBBLIGATORI E ISCRIZIONI OVE APPLICABILI]. Contatti: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>Ambito dei termini</h2>
 <p>Il sito presenta PdT Storytelling Cards e consente di inviare richieste informative e commerciali tramite email. Questi termini riguardano il sito, non costituiscono condizioni generali di vendita e non limitano i diritti inderogabili degli utenti.</p>
 <h2>PdT Signature e richieste senza impegno</h2>
@@ -82,7 +82,7 @@
 <h2>Privacy e contatti</h2>
 <p>Per il trattamento dei dati personali consultare l'<a href="privacy-policy.html">informativa privacy</a>. Per richieste o segnalazioni scrivere a <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>Versione</h2>
-<p>Bozza del 26 novembre 2026. Non destinata alla pubblicazione fino alla verifica dei dati e alla revisione professionale.</p>
+<p>Bozza del 27 novembre 2026. Non destinata alla pubblicazione fino alla verifica dei dati e alla revisione professionale.</p>
 </div>
   </section>
 </main>

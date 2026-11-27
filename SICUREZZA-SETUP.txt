@@ -27,3 +27,6 @@ ACCOUNT / HOSTING (NON SI POSSONO IMPOSTARE CON UNO ZIP)
 
 NOTA
 X-Frame-Options, X-Content-Type-Options, Permissions-Policy e HSTS sono header HTTP: GitHub Pages non permette di definirli dal semplice HTML. Vanno configurati sul livello hosting/CDN (ad esempio Cloudflare) e non vanno simulati con meta tag non efficaci.
+
+AGGIORNAMENTO FASE 4 — STEP 04 (27/11/2026)
+Non seguire istruzioni storiche di upload: nessun deploy autorizzato. Registro operativo: docs/legal/phase4-step04-security-hosting-audit-20261127.md. Controllare account, DNS, Pages source, TLS, header e cookie reali dal pannello prima del rilascio. Backup privato cifrato e prova restore offline prima di merge. Non condividere token, password o recovery codes. Nessuna configurazione è stata modificata.
