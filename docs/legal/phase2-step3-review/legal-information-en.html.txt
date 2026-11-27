@@ -64,16 +64,16 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>REVIEW TEXT 0.6 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — confirm legal identity and tax details; do not publish.</p>
+<p class="privacy-note"><strong>REVIEW TEXT 0.7 — do not publish. Verification and approvals are still required.</strong> UNAPPROVED DRAFT — confirm legal identity and tax details; do not publish.</p>
 <h2>The project</h2>
 <p>PdT Storytelling Cards is the name of the project presented on this website. Roberto Antoniello and Silvia Dierico are identified as co-founders on the About page. This does not automatically identify the legal person operating the website or making sales.</p>
 <h2>Website operator</h2>
-<p>Name or legal name: Silvia Dierico.<br/>Legal form: natural person.<br/>Business address or registered office: [to be confirmed].<br/>Email: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.<br/>Other direct contact details: [to be confirmed].</p>
+<p>Name or legal name: Silvia Dierico.<br/>Legal form: natural person.<br/>Business address: Via Giorgio Ambrosoli 6, Mozzo (BG), Italy.<br/>Email: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.<br/>Other direct contact details: [to be confirmed].</p>
 <h3>Technical website management</h3>
 <p>Lorenzo Cicogna currently manages the website's technical operations. This operational role does not automatically identify the legal operator, data controller or seller. For technical reports use the project contact; personal contact details are not published without specific approval.</p>
 <h2>Tax and company information</h2>
-<p>Named operator and future seller: Silvia Dierico, who has an existing VAT number as confirmed by the project. [VERIFY VAT NUMBER, TAX REGIME AND COMPATIBILITY OF COMMERCIAL ACTIVITIES].</p>
-<p>VAT or equivalent number: [to be confirmed, where applicable].<br/>Business register, office and registration number, REA: [to be confirmed, where applicable].<br/>Certified email and other mandatory legal-form disclosures, including capital, sole shareholder or liquidation where relevant: [to be confirmed].</p>
+<p>Named operator and future seller: Silvia Dierico, who has an existing VAT number as confirmed by the project. [VERIFY VAT REGISTRATION, DECLARED TAX REGIME AND COMPATIBILITY OF COMMERCIAL ACTIVITIES].</p>
+<p>Italian VAT number: 03017720164.<br/>Business register, office and registration number, REA: [to be confirmed, where applicable].<br/>Certified email (PEC): <a href="mailto:silvia.dierico.674@psypec.it">silvia.dierico.674@psypec.it</a>.<br/>Other mandatory legal-form disclosures: [verify applicability].</p>
 <h2>Data controller</h2>
 <p>Data controller: Silvia Dierico. See the <a href="privacy-policy-en.html">Privacy Policy</a>.</p>
 <h2>Enquiries and commercial activity</h2>

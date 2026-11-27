@@ -64,9 +64,9 @@
   </section>
   <section class="section section-light">
     <div class="container privacy-content reveal">
-<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.3 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — completar y someter a revisión profesional antes de publicar.</p>
+<p class="privacy-note"><strong>TEXTO DE REVISIÓN 0.4 — no publicar. Faltan verificaciones y aprobaciones.</strong> BORRADOR NO APROBADO — completar y someter a revisión profesional antes de publicar.</p>
 <h2>Responsable del sitio</h2>
-<p>Gestor del sitio: persona física. [CONFIRMAR NOMBRE, DIRECCIÓN GEOGRÁFICA, DATOS DE CONTACTO Y DATOS FISCALES O REGISTRALES CUANDO PROCEDA]. Contacto: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
+<p>Gestora del sitio: Silvia Dierico, persona física. Domicilio profesional: Via Giorgio Ambrosoli 6, Mozzo (BG), Italia. Número de IVA italiano: 03017720164. Correo certificado (PEC): <a href="mailto:silvia.dierico.674@psypec.it">silvia.dierico.674@psypec.it</a>. [VERIFICAR OTROS DATOS OBLIGATORIOS E INSCRIPCIONES CUANDO PROCEDA]. Contacto: <a href="mailto:pdtstorytellingcards@gmail.com">pdtstorytellingcards@gmail.com</a>.</p>
 <h2>Ámbito</h2>
 <p>El sitio presenta PdT Storytelling Cards y permite enviar consultas informativas y comerciales por correo electrónico. Estos términos se refieren al uso del sitio, no son condiciones generales de venta y no limitan los derechos irrenunciables de los usuarios.</p>
 <h2>PdT Signature y consultas sin compromiso</h2>

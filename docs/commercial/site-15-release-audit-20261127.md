@@ -92,3 +92,6 @@ Versioni shop JS v6 e guida JS v7 riallineate nelle sei pagine che le caricano, 
 
 ## Fase 4 — conferma identità del gestore
 Silvia Dierico confermata dal referente quale gestore giuridico e futuro venditore tramite la propria partita IVA; già indicata quale titolare GDPR. A01 e A10 parzialmente completati a livello dichiarativo, non chiusi: P.IVA, domicilio professionale e recapiti obbligatori, regime/attività e fabbricante da verificare. Aggiornate le tre bozze informazioni legali, non le pagine attive. CI precedente run 45913740430 success; nuova CI da verificare. Nessun merge/deploy. NO-GO invariato.
+
+## Fase 4 — dati identificativi e fiscali dichiarati
+Ricevuti P.IVA, domicilio professionale, PEC; regime forfettario dichiarato. Controllo formale P.IVA (checksum) positivo, nessuna verifica dell'attribuzione o del regime presso fonti ufficiali. Aggiornate nove bozze legali IT/EN/ES. A01 dati principali ricevuti, approvazione e completezza da verificare (CAP, eventuali iscrizioni/recapiti obbligatori); A02 indirizzo fornito, verifica ruoli/DPO; A10 verifica commercialista e fabbricante ancora aperta. Non dedurre che la posizione fiscale attuale consenta già la vendita. NO-GO invariato. Nessun merge/deploy.
